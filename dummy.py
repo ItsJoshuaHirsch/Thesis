@@ -9,24 +9,25 @@ import names
 import os
 
 
+from multiprocessing import Pool
 from datetime import datetime, timedelta, timezone
 
 
-number_Missions = 10000
+number_Missions = 100000
 
 
 def main():
     missions = []
     text = ""
+
     f = open("missions" + str(number_Missions//1000) + "k.txt", "w")
     # f = open('missions' + str(number_Missions//1000) + 'k.json', 'w')
+
     for i in range(number_Missions):
+
         # print(toJson(randomMission()) + ",")
         # text += toJson(randomMission()) + "\n"
-        # CONTINUE, als JSON speichern, dauert länger, vielleicht aber besser? ohne str() liefs
-        # json.dump(randomMission(), f)
         f.write(toJson(randomMission()) + "\n")
-        # missions.append(randomMission())
     f.close()
     thisFile = "missions" + str(number_Missions//1000) + "k.txt"
     base = os.path.splitext(thisFile)[0]
@@ -46,6 +47,9 @@ def randomMission():
         "missionUuid": uuid,
         "markers": {
             "MISSION_UUID": uuid,
+            "MISSION_ID": getMissionID(date),
+            "MISSION_DURATION_MS":  {"$numberLong": str(random.randint(50000, 12000000))},
+            "MASTER_DATA_DEVICE_ID": getDeviceID(),
             "DEVICE_DIM_SERIAL": "B" + str(random.randint(0, 100001856997501) + 100000000000000),
             "DEVICE_TYPE": devicetype,
             "PATIENT_SEX": gender.upper(),
@@ -53,6 +57,8 @@ def randomMission():
             # "PATIENT_FIRST_NAME": firstname,
             # "PATIENT_SURNAME": lastname,
             "PATIENT_AGE": getAge(),
+            "PATIENT_ID": getPatientID(),
+            "PATIENT_CASE_NUMBER": getPatientID(),
             "TRENDS_HR_MEAN": float(random.randrange(35, 130)),
             "TRENDS_PI_MEAN": float(random.randrange(0, 20)),
             "TRENDS_SPCO_MEAN": float(random.randrange(0, 20)),
@@ -67,13 +73,39 @@ def randomMission():
                 "ts_local": date,
                 "daytime": 49081000
             },
-            "CO_2_TREND_AVAILABLE": bool(random.getrandbits(1)) if devicetype != "CORPULS_CPR" else "",
-            "SHOCK_AVAILABLE": bool(random.getrandbits(1)) if devicetype != "CORPULS_CPR" else "",
-            "CPR_FEEDBACK_AVAILABLE": bool(random.getrandbits(1)) if devicetype != "CORPULS_CPR" else "",
-
+            "CO_2_TREND_AVAILABLE": bool(random.getrandbits(1)) if devicetype != "CORPULS_CPR" else False,
+            "SHOCK_AVAILABLE": bool(random.getrandbits(1)) if devicetype != "CORPULS_CPR" else False,
+            "CPR_FEEDBACK_AVAILABLE": bool(random.getrandbits(1)) if devicetype != "CORPULS_CPR" else False,
+            "DECG_AVAILABLE": bool(random.getrandbits(1)) if devicetype == "CORPULS3" else False,
+            "ATTACHMENTS_AVAILABLE": bool(random.getrandbits(1)) if devicetype == "CORPULS3" else False,
+            "MISSION_TEST_FLAG": bool(random.getrandbits(1))
         }
     }
     return mission
+
+
+def getPatientID():
+    num = random.randint(0, 3)
+    if num % 3 == 0:
+        return str(random.randint(10000, 99999))
+    else:
+        return ""
+
+
+def getDeviceID():
+    num = random.randint(0, 3)
+    if num == 0:
+        return "VAL" + str(random.randint(0, 22))
+    elif num == 1:
+        return "VER-" + str(random.randint(0, 22))
+    elif num == 2:
+        return str(random.randint(10000, 99999))
+    else:
+        return ""
+
+
+def getMissionID(date):
+    return datetime.fromtimestamp(date / 1e3).strftime("%Y%m%d%H%M%S")
 
 
 def getDeviceType():
@@ -92,11 +124,11 @@ def getDeviceType():
 
 def getVersion(devicetype):
     if devicetype == "CORPULS1":
-        return "REL-" + str(random.randint(0, 3)) + "." + str(random.randint(0, 5)) + "." + str(random.randint(0, 7)) + "_b1_C1_BP"
+        return "C1_" + str(random.randint(0, 3)) + "." + str(random.randint(0, 5)) + "." + str(random.randint(0, 7)) + "_b1"
     elif devicetype == "CORPULSCPR":
-        return "REL-" + str(random.randint(0, 3)) + "." + str(random.randint(0, 5)) + "." + str(random.randint(0, 7)) + "_b1_CCPR_BP"
+        return "cCPR-" + str(random.randint(0, 3)) + "." + str(random.randint(0, 5)) + "." + str(random.randint(0, 7)) + "_b15"
     elif devicetype == "CORPULSAED":
-        return "REL-" + str(random.randint(0, 3)) + "." + str(random.randint(0, 5)) + "." + str(random.randint(0, 7)) + "_b1_CAED_BP"
+        return "00C" + "0" + str(random.randint(0, 5))
     elif devicetype == "CORPULSWEB":
         return "REL-" + str(random.randint(0, 3)) + "." + str(random.randint(0, 5)) + "." + str(random.randint(0, 7)) + "_b1_CWEB_BP"
     else:

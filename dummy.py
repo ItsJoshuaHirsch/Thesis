@@ -19,14 +19,10 @@ number_blocks = int(numInMio * 1600)
 block_size = number_Missions//number_blocks  # Block_size should be ~625
 
 # TODO
-# Testing with saving directly as json or txt -> which is faster? json seems faster, but really test it! (after restar txt seems faster with 100k)
-# 8 python processes? should be 4... maybe restart will fix it
-# best block_size?
-# txt, 1m Mission, blocksize = 1600 = 349sek
+# txt, 1m Mission, blocksize 1600 = 349sek
 # txt to json, 10m = 3455sek
 
-# ages = [1, 2,3,4,5,6,7]
-
+# Open, eventually create file to be written into
 f = open("mp_missions" + str(number_Missions//1000000) + "M.txt", "a+")
 
 # Import Lastnames
@@ -36,13 +32,9 @@ l.close()
 
 
 def main():
-
-    # f = open('missions' + str(number_Missions//1000) + 'M.json', 'w')
-
     # MultiProcessingTry
 
     p = Pool()
-    # result = p.map(generateMissionBlock, range(number_blocks))
     for i in range(number_blocks):
         p.apply_async(generateMissionBlock, args=(i,), callback=writeToFile)
     p.close()
@@ -54,24 +46,17 @@ def main():
     thisFile = "mp_missions" + str(number_Missions//1000000) + "M.txt"
     base = os.path.splitext(thisFile)[0]
     os.rename(thisFile, base + ".json")
-    # json.dump(missions, f)
-    # pprint.pprint(missions)
-    # print(missions)
 
 
 def generateMissionBlock(i):
     mBlock = ""
     ages = randomAgeSet(block_size)
-    # print(len(ages))
-    for j in range(block_size):
+    for _ in range(block_size):
         mBlock += randomMission(ages)
-    # writeToFile(mBlock)
-    # print("Block " + str(i) + " fertig")
     return mBlock
 
 
 def writeToFile(s):
-    # f = open("mp_missions" + str(number_Missions//1000) + "M.txt", "a+")
     f.write(s)
 
 
@@ -80,7 +65,6 @@ def randomMission(ages):
     devicetype = getDeviceType()
     gender = getSex()
     cpr = bool(random.getrandbits(1)) if devicetype != "CORPULS_CPR" else False
-    # firstname, lastname = str(name).split()
     date = datetimeToUTC(randomDate()) * 1000
 
     # Different MissionTypes depending on devicetype
@@ -359,13 +343,9 @@ def randomAgeSet(numberAges):
         age = int(age)
         if age < 2 or age > 102:
             age = random.randint(34, 58)
-            # age = abs(age - 4)
         ageList.append(age)
     return ageList
 
-
-# ages = randomAgeSet(200)
-# ages = randomAgeSet(number_Missions)
 
 """ def nameSet(gender):
     nameSet = []
@@ -389,7 +369,7 @@ def getAgeOLD(ages):
     return age
 
 
-def printAges(s):
+r""" def printAges(s):
     mu, sigma = 46, 30
     count, bins, ignored = plt.hist(s, 30, normed=True)
     plt.plot(bins, 1/(sigma * np.sqrt(2 * np.pi)) *
@@ -409,13 +389,7 @@ def plotData(d):
     # Set a clean upper y-axis limit.
     plt.ylim(top=np.ceil(maxfreq / 10) * 10 if maxfreq % 10 else maxfreq + 10)
 
-    plt.show()
-
-
-# printAges(ages)
-
-# ages = randomAgeSet()
-# print(ages)
+    plt.show() """
 
 
 def randomUUID():

@@ -4,16 +4,16 @@ import uuid
 import calendar
 import pprint
 import numpy as np
-import matplotlib.pyplot as plt
 import names
 import os
 import time
-
+import sys
+import py2exe
 
 from multiprocessing import Pool
 from datetime import datetime, timedelta, timezone
 
-numInMio = 10
+numInMio = 1
 number_Missions = int(numInMio * 1000000)
 number_blocks = int(numInMio * 1600)
 block_size = number_Missions//number_blocks  # Block_size should be ~625
@@ -21,17 +21,20 @@ block_size = number_Missions//number_blocks  # Block_size should be ~625
 # TODO
 # txt, 1m Mission, blocksize 1600 = 349sek
 # txt to json, 10m = 3455sek
+# 30m = 8900sek
 
 # Open, eventually create file to be written into
-f = open("mp_missions" + str(number_Missions//1000000) + "M.txt", "a+")
+# f = open("mp_missions" + str(number_Missions//1000000) + "M.txt", "a+")
+
+f = open("mp_missions.txt", "a+")
 
 # Import Lastnames
-l = open("last-names.txt", "r")
+l = open("sources/last-names.txt", "r")
 lastnames = l.read().title().split("\n")
 l.close()
 
 
-def main():
+def mainP():
     # MultiProcessingTry
 
     p = Pool()
@@ -43,9 +46,9 @@ def main():
     f.close()
 
     # toJsonFile
-    thisFile = "mp_missions" + str(number_Missions//1000000) + "M.txt"
+    thisFile = "mp_missions.txt"
     base = os.path.splitext(thisFile)[0]
-    os.rename(thisFile, base + ".json")
+    os.rename(thisFile, base + str(number_Missions//1000) + "k.json")
 
 
 def generateMissionBlock(i):
@@ -254,10 +257,7 @@ def randomMission(ages):
             "ATTACHMENTS_AVAILABLE": bool(random.getrandbits(1)) if devicetype == "CORPULS3" else False,
             "MISSION_TEST_FLAG": bool(random.getrandbits(1)),
             "MECHANICAL_REANIMATION_AVAILABLE": bool(random.getrandbits(1)) if devicetype == "CORPULS_CPR" else False,
-        }
-    }
-    miss = toJson(mission) + "\n"
-    return miss """
+        } """
 
 
 def getPatientID():
@@ -351,9 +351,7 @@ def randomAgeSet(numberAges):
     nameSet = []
     for i in range(number_Missions+1)
         names.append(names.get_full_name(
-            gender=gender) if gender != "unknown" else names.get_full_name()),
-
-names = nameSet() """
+            gender=gender) if gender != "unknown" else names.get_full_name()), """
 
 
 def getAge(ages):
@@ -367,29 +365,6 @@ def getAgeOLD(ages):
     age = ages[random_index]
     ages.pop(random_index)
     return age
-
-
-r""" def printAges(s):
-    mu, sigma = 46, 30
-    count, bins, ignored = plt.hist(s, 30, normed=True)
-    plt.plot(bins, 1/(sigma * np.sqrt(2 * np.pi)) *
-             np.exp(- (bins - mu)**2 / (2 * sigma**2)), linewidth=2, color='r')
-    plt.show()
-
-
-def plotData(d):
-    n, bins, patches = plt.hist(x=d, bins='auto', color='#0504aa',
-                                alpha=0.7, rwidth=0.85)
-    plt.grid(axis='y', alpha=0.75)
-    plt.xlabel('Value')
-    plt.ylabel('Frequency')
-    plt.title('My Very Own Histogram')
-    plt.text(23, 45, r'$\mu=15, b=3$')
-    maxfreq = n.max()
-    # Set a clean upper y-axis limit.
-    plt.ylim(top=np.ceil(maxfreq / 10) * 10 if maxfreq % 10 else maxfreq + 10)
-
-    plt.show() """
 
 
 def randomUUID():
@@ -420,5 +395,13 @@ def getRandomMission():
     printMission(toJson(randomMission(1)))
 
 
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+    number_Missions = int(sys.argv[1])
+    # number_Missions = 10000
+    if number_Missions < 10000:
+        number_blocks = 4
+    else:
+        number_blocks = int((number_Missions//10000) * 16)
+    block_size = number_Missions//number_blocks
+
+    mainP()

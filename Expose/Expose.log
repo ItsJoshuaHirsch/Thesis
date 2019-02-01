@@ -1,0 +1,159 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.28)  11 DEC 2018 08:39
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**Expose.tex
+(./Expose.tex
+LaTeX2e <2018-04-01> patch level 2
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+(c:/Program Files/texlive/2018/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(c:/Program Files/texlive/2018/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(./Expose.aux
+
+LaTeX Warning: Label `previous work' multiply defined.
+
+
+LaTeX Warning: Label `previous work' multiply defined.
+
+
+LaTeX Warning: Label `previous work' multiply defined.
+
+
+LaTeX Warning: Label `previous work' multiply defined.
+
+)
+\openout1 = `Expose.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 17.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 17.
+ [1
+
+{c:/Program Files/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (
+./Expose.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 2.
+)
+\tf@toc=\write3
+\openout3 = `Expose.toc'.
+
+ [2
+
+]
+Overfull \hbox (3.21262pt too wide) in paragraph at lines 24--27
+\OT1/cmr/m/n/12 Die Auswer-tung von Eins^^?atzen im Ret-tungs-di-enst oder Pa-t
+ien-ten im Kranken-
+ []
+
+
+Overfull \hbox (78.25903pt too wide) in paragraph at lines 24--27
+\OT1/cmr/m/n/12 haus ist hi-er-bei ein wichtiger Be-standteil zur Va-li-dierung
+ ver-schiedener Qualit^^?atsvorschriften,
+ []
+
+
+Overfull \hbox (14.63332pt too wide) in paragraph at lines 32--38
+\OT1/cmr/m/n/12 mit un-ter-schiedlichen Ger^^?aten sollen bere-its ver-mutete F
+ragestel-lun-gen best^^?atigt
+ []
+
+[3
+
+]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 47.
+ (c:/Program Files/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 47.
+
+Overfull \hbox (2.25027pt too wide) in paragraph at lines 50--51
+[]\OT1/cmr/m/n/12 Wie m^^?ussen die Dash-boards ent-wor-fen wer-den, damit sie 
+medi-
+ []
+
+
+Overfull \hbox (52.01349pt too wide) in paragraph at lines 60--63
+\OT1/cmr/m/n/12 der, wie z.B. Ret-tungswachen-leiter, []Arztlicher Leiter, Qual
+it^^?atsmanagementbeauftragte
+ []
+
+
+LaTeX Warning: Citation `Gil:02' on page 4 undefined on input line 65.
+
+
+LaTeX Warning: Citation `Gil:02' on page 4 undefined on input line 69.
+
+
+LaTeX Warning: Citation `Gil:02' on page 4 undefined on input line 72.
+
+[4]
+
+LaTeX Warning: Citation `Gil:02' on page 5 undefined on input line 78.
+
+
+LaTeX Warning: Citation `Gil:02' on page 5 undefined on input line 81.
+
+[5] (./Expose.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 269 strings out of 492649
+ 3090 string characters out of 6126736
+ 63170 words of memory out of 5000000
+ 4222 multiletter control sequences out of 15000+600000
+ 9407 words of font info for 33 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 22i,6n,19p,392b,204s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/Program Files/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx
+12.pfb><c:/Program Files/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi12.pfb><c:/Program Files/texlive/2018/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb><c:/Program Files/texlive/2018/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr12.pfb><c:/Program Files/texlive/2018/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr17.pfb><c:/Program Files/texlive/2018/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr8.pfb><c:/Program Files/texlive/2018/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Expose.pdf (5 pages, 88858 bytes).
+PDF statistics:
+ 48 PDF objects out of 1000 (max. 8388607)
+ 33 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

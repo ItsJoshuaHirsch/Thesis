@@ -1,0 +1,139 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.28)  24 JAN 2019 09:39
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**"expose (2).tex"
+(./expose (2).tex
+LaTeX2e <2018-04-01> patch level 2
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+(c:/Program Files/texlive/2018/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(c:/Program Files/texlive/2018/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(c:/Program Files/texlive/2018/texmf-dist/tex/latex/breakcites/breakcites.sty)
+(c:/Program Files/texlive/2018/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2018/01/14 v2.7a Micro-typographical refinements (RS)
+
+(c:/Program Files/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+\MT@toks=\toks15
+\MT@count=\count88
+LaTeX Info: Redefining \textls on input line 793.
+\MT@outer@kern=\dimen103
+LaTeX Info: Redefining \textmicrotypecontext on input line 1339.
+\MT@listname@count=\count89
+
+(c:/Program Files/texlive/2018/texmf-dist/tex/latex/microtype/microtype-pdftex.
+def
+File: microtype-pdftex.def 2018/01/14 v2.7a Definitions specific to pdftex (RS)
+
+LaTeX Info: Redefining \lsstyle on input line 913.
+LaTeX Info: Redefining \lslig on input line 913.
+\MT@outer@space=\skip43
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+
+(c:/Program Files/texlive/2018/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2018/01/14 v2.7a microtype main configuration file (RS)
+))
+(./expose (2).aux)
+\openout1 = `"expose (2).aux"'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Info: Redefining \microtypecontext on input line 20.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `basictext'.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+
+(c:/Program Files/texlive/2018/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 21.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 21.
+
+[1
+
+{c:/Program Files/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (
+./expose (2).toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 2.
+)
+\tf@toc=\write3
+\openout3 = `"expose (2).toc"'.
+
+ [2
+
+] [3
+
+]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 83.
+
+(c:/Program Files/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 83.
+ [4]
+[5] [6] [7] (./expose (2).bbl [8
+
+]) [9] (./expose (2).aux) ) 
+Here is how much of TeX's memory you used:
+ 1961 strings out of 492649
+ 32372 string characters out of 6126736
+ 128528 words of memory out of 5000000
+ 5813 multiletter control sequences out of 15000+600000
+ 11953 words of font info for 71 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 31i,6n,38p,188b,216s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/Program Files/texlive/2018/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmbx12.pfb><c:/Program Files/texlive/2018/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr10.pfb><c:/Program Files/texlive/2018/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr12.pfb><c:/Program Files/texlive/2018/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Program Files/texlive/2018/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on "expose (2).pdf" (9 pages, 81541 bytes).
+PDF statistics:
+ 54 PDF objects out of 1000 (max. 8388607)
+ 37 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 15361 words of extra memory for PDF output out of 17280 (max. 10000000)
+

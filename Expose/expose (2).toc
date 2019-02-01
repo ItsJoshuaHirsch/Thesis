@@ -1,0 +1,9 @@
+\contentsline {section}{\numberline {1}Problemstellung}{3}
+\contentsline {subsection}{\numberline {1.1}Erkenntnisinteresse}{3}
+\contentsline {section}{\numberline {2}Fragestellung}{4}
+\contentsline {subsection}{\numberline {2.1}Zielsetzung}{4}
+\contentsline {section}{\numberline {3}Abgrenzung}{5}
+\contentsline {section}{\numberline {4}Methodik}{5}
+\contentsline {subsection}{\numberline {4.1}Technologien}{6}
+\contentsline {subsubsection}{\numberline {4.1.1}Daten}{6}
+\contentsline {section}{\numberline {5}Gliederung}{8}

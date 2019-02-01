@@ -1,0 +1,65 @@
+
+% Diese Datei gilt als Master für die Latex-Kompilierung.
+% Hier werden die einzelnen Unterdateien zusammengeführt.
+% Im Latex-Programm daher immer diese Datei kompilieren und nicht die Unterdateien selbst!
+% Wenn eine neue Datei hinzugefügt wurde, muss diese hier unbedingt eingebunden werden!!
+% Gemeinsame Einstellungen aus der Präambel
+\input{common.tex}
+
+% Lokale Definitionen
+\include{definitionen}
+
+% hier beginnt der eigentliche Inhalt
+\begin{document}
+
+\include{titelseite} % Die Titelseite
+\include{abstract} % Zusammenfassung
+
+% Überschreiben des common Headers für dieses Dokument
+%\fancypagestyle{plain}{
+%	\fancyhead[L]{Bachelorarbeit} % Überschrift auf Chapterseiten
+%}
+%\fancyhead[L]{Bachelorarbeit} % Überschrift sonst
+
+% Inhaltsverzeichnis
+% \fancyhead[R]{\scshape{Inhaltsverzeichnis}} % Headerüberschrift
+\pagenumbering{roman} % römische Ziffern
+\singlespacing
+\microtypesetup{protrusion=false}
+\tableofcontents{}
+\microtypesetup{protrusion=true}
+\newpage
+\pagenumbering{arabic} % arabische Seitenzahlen für den Rest des Dokuments
+%\fancyhead[R]{\scshape\leftmark} % Automatische Header
+
+%%%%%%%%%% HIER DIE EINZELNEN KAPITEL EINBINDEN:
+%\microtypesetup{protrusion=true}
+
+\onehalfspacing
+\include{1-einleitung}
+\include{2-grundlagen}
+\include{3-standdertechnik}
+\include{4-anforderungsanalyse}
+\include{5-konzeption}
+\include{6-umsetzung}
+\include{7-fazit}
+
+%%%%%%%%%% ENDE KAPITEL
+\pagenumbering{Roman} % römische Ziffern für die Anhänge
+
+\begin{appendix}
+\include{anhang}
+\end{appendix}
+
+% Verzeichnisse (Literatur, Abkürzungen, etc)
+\singlespacing
+\include{verzeichnisse}
+\onehalfspacing
+
+% Danksagungen
+\include{danksagungen}
+
+% Eidesstattliche Erklärung
+\include{eidesstattliche_erklaerung}
+
+\end{document}

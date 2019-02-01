@@ -1,0 +1,69 @@
+\contentsline {section}{\numberline {1}Einleitung}{4}
+\contentsline {subsection}{\numberline {1.1}Firmenvorstellung}{7}
+\contentsline {subsubsection}{\numberline {1.1.1}Produkte}{7}
+\contentsline {subsection}{\numberline {1.2}Problemstellung}{7}
+\contentsline {subsubsection}{\numberline {1.2.1}Fragestellung}{7}
+\contentsline {subsubsection}{\numberline {1.2.2}Zielsetzung}{7}
+\contentsline {subsubsection}{\numberline {1.2.3}Abgrenzung}{7}
+\contentsline {subsection}{\numberline {1.3}Vorgehensbeschreibung}{7}
+\contentsline {section}{\numberline {2}Grundlagen}{7}
+\contentsline {subsection}{\numberline {2.1}Visualisierung von Daten}{12}
+\contentsline {subsubsection}{\numberline {2.1.1}Gestaltungsgrunds\IeC {\"a}tze}{12}
+\contentsline {subsubsection}{\numberline {2.1.2}Statistische Auswertungen}{12}
+\contentsline {subsubsection}{\numberline {2.1.3}Multidimensionale Daten darstellen}{12}
+\contentsline {subsection}{\numberline {2.2}Daten und deren Verarbeitung in der Notfallmedizin}{12}
+\contentsline {subsection}{\numberline {2.3}Begriffe zum Thema Data Analytics}{12}
+\contentsline {subsubsection}{\numberline {2.3.1}\IeC {\"U}bersicht der Zusammenh\IeC {\"a}nge}{12}
+\contentsline {subsubsection}{\numberline {2.3.2}Big Data}{12}
+\contentsline {subsubsection}{\numberline {2.3.3}Business Intelligence}{12}
+\contentsline {subsubsection}{\numberline {2.3.4}Data Warehousing}{12}
+\contentsline {subsubsection}{\numberline {2.3.5}Dashboards}{12}
+\contentsline {subsubsection}{\numberline {2.3.6}Business Intelligence in der Notfallmedizin}{12}
+\contentsline {subsection}{\numberline {2.4}Technologien}{12}
+\contentsline {subsubsection}{\numberline {2.4.1}Qlik Sense}{12}
+\contentsline {subsection}{\numberline {2.5}Requirements Engineering}{12}
+\contentsline {subsubsection}{\numberline {2.5.1}Methodik}{12}
+\contentsline {section}{\numberline {3}Stand der Technik}{12}
+\contentsline {subsection}{\numberline {3.1}Ist-Zustand corpuls.web ANALYSE}{17}
+\contentsline {subsubsection}{\numberline {3.1.1}Verwendung zur Auswertung}{17}
+\contentsline {subsubsection}{\numberline {3.1.2}Vorliegende Daten der Ger\IeC {\"a}te}{17}
+\contentsline {subsection}{\numberline {3.2}Qlik Sense Server}{17}
+\contentsline {subsubsection}{\numberline {3.2.1}Lizenzierungsmodell}{17}
+\contentsline {subsubsection}{\numberline {3.2.2}?}{17}
+\contentsline {section}{\numberline {4}Anforderungsanalyse}{17}
+\contentsline {subsection}{\numberline {4.1}Nutzergruppen}{23}
+\contentsline {subsection}{\numberline {4.2}Aufgabenanalyse}{23}
+\contentsline {subsection}{\numberline {4.3}Nutzungskontext}{23}
+\contentsline {subsection}{\numberline {4.4}Iterative Erhebung der zu beantwortenden Fragestellungen}{23}
+\contentsline {subsubsection}{\numberline {4.4.1}Ermittlung von Fragestellungen}{23}
+\contentsline {subsubsection}{\numberline {4.4.2}Analyse der Anforderungen}{23}
+\contentsline {subsubsection}{\numberline {4.4.3}Spezifikation der Fragen und ben\IeC {\"o}tigte Daten}{23}
+\contentsline {subsubsection}{\numberline {4.4.4}Validierung der spezifizierten Fragestellungen}{23}
+\contentsline {section}{\numberline {5}Konzeption?}{23}
+\contentsline {subsection}{\numberline {5.1}Vorgehen bei der Konzeption}{30}
+\contentsline {subsection}{\numberline {5.2}Datenmodell}{30}
+\contentsline {subsection}{\numberline {5.3}Erstellung eines Prototypen}{30}
+\contentsline {subsection}{\numberline {5.4}Generierung von Dummy-Daten?}{30}
+\contentsline {subsection}{\numberline {5.5}Evaluierung durch ?}{30}
+\contentsline {subsection}{\numberline {5.6}Analyse der Ergebnisse}{30}
+\contentsline {section}{\numberline {6}Umsetzung}{30}
+\contentsline {subsection}{\numberline {6.1}Erstellung der Qlik-Apps}{38}
+\contentsline {subsubsection}{\numberline {6.1.1}ETL-Prozess}{38}
+\contentsline {subsubsection}{\numberline {6.1.2}Dimensionen}{38}
+\contentsline {subsubsection}{\numberline {6.1.3}Kennzahlen}{38}
+\contentsline {subsubsection}{\numberline {6.1.4}Dashboards}{38}
+\contentsline {subsection}{\numberline {6.2}Rechtliche Aspekte}{38}
+\contentsline {subsubsection}{\numberline {6.2.1}Anonymisierung}{38}
+\contentsline {subsection}{\numberline {6.3}Technische Aspekte}{38}
+\contentsline {subsubsection}{\numberline {6.3.1}Schnittstelle ANALYSE und Qlik}{38}
+\contentsline {subsubsection}{\numberline {6.3.2}JIRA-Stories}{38}
+\contentsline {subsubsection}{\numberline {6.3.3}Lasttests?}{38}
+\contentsline {subsubsection}{\numberline {6.3.4}Auslieferungsprozess?}{38}
+\contentsline {section}{\numberline {7}Fazit}{38}
+\contentsline {subsection}{\numberline {7.1}Vorstellung der Ergebnisse}{43}
+\contentsline {subsection}{\numberline {7.2}R\IeC {\"u}ckschl\IeC {\"u}sse f\IeC {\"u}r Entwicklung}{43}
+\contentsline {subsection}{\numberline {7.3}Aufgetretene Probleme}{43}
+\contentsline {subsection}{\numberline {7.4}Erf\IeC {\"u}llte Anforderungen}{43}
+\contentsline {subsubsection}{\numberline {7.4.1}Nutzeranforderungen}{43}
+\contentsline {subsubsection}{\numberline {7.4.2}Theoriebasierte Anforderungen}{43}
+\contentsline {subsection}{\numberline {7.5}Ausblick}{43}

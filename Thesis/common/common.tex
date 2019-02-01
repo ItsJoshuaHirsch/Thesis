@@ -18,6 +18,7 @@
 % Schriften
 %\usepackage{mathpazo} % Palatino für Mathemodus
 %\usepackage{mathpazo,tgpagella} % auch sehr schöne Schriften
+% \usepackage{fourier}
 \usepackage{setspace} % Zeilenabstand
 
 % Schriften-Größen
@@ -39,7 +40,7 @@
 
 % PDF
 \usepackage[ngerman,pdfauthor={Joshua Hirsch},  pdfauthor={Joshua Hirsch}, pdftitle={Bachelorarbeit}, breaklinks=true,baseurl={http://www.corpuls.world}]{hyperref}
-\usepackage[final]{microtype} % mikrotypographische Optimierungen
+%\usepackage[final]{microtype} % mikrotypographische Optimierungen
 \usepackage{url}
 \usepackage{pdflscape} % einzelne Seiten drehen können
 
@@ -102,7 +103,7 @@
 % linksbündige Fußnoten
 %\deffootnote{1.5em}{1em}{\makebox[1.5em][l]{\thefootnotemark}}
 
-\typearea{14} % typearea am Schluss berechnen lassen, damit die Einstellungen oben berücksichtigt werden
+
 % für autoref von Gleichungen in itemize-Umgebungen
 \makeatletter
 \newcommand{\saved@equation}{}
@@ -111,8 +112,9 @@
 \makeatother 
 
 % Einstellungen der Seitenränder
+% Change it! Look at Master-Thesis CGU
 \usepackage[left=2.5cm,right=3cm,top=2cm,bottom=2cm,includeheadfoot]{geometry}
-
+%\typearea{14} % typearea am Schluss berechnen lassen, damit die Einstellungen oben berücksichtigt werden
 % Kopf- und Fußzeile
 %\usepackage{fancyhdr}
 %\fancypagestyle{plain}{
@@ -133,6 +135,9 @@
 
 % Stuff
 \usepackage{lipsum}
+
+
+% Mini tableofcontent at ech chapter
 \usepackage[nohints]{minitoc} % Table of content at each chapter
 % Mini tables of content at a chapter
 \dominitoc
@@ -142,7 +147,7 @@
 \addto{\captionsngerman}{% Making babel aware of special titles
   \renewcommand{\mtctitle}{Inhalt}
 }
-%\usepackage[final]{microtype}
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
 % Eigene Befehle %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 
 % Bearbeitungshinweise im Text

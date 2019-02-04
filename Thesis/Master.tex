@@ -15,25 +15,17 @@
 \include{titelseite} % Die Titelseite
 \include{abstract} % Zusammenfassung
 
-% Überschreiben des common Headers für dieses Dokument
-%\fancypagestyle{plain}{
-%	\fancyhead[L]{Bachelorarbeit} % Überschrift auf Chapterseiten
-%}
-%\fancyhead[L]{Bachelorarbeit} % Überschrift sonst
 
 % Inhaltsverzeichnis
-% \fancyhead[R]{\scshape{Inhaltsverzeichnis}} % Headerüberschrift
 \pagenumbering{roman} % römische Ziffern
 \singlespacing
-%\microtypesetup{protrusion=false}
 \tableofcontents{}
-%\microtypesetup{protrusion=true}
 \newpage
+
 \pagenumbering{arabic} % arabische Seitenzahlen für den Rest des Dokuments
-%\fancyhead[R]{\scshape\leftmark} % Automatische Header
+
 
 %%%%%%%%%% HIER DIE EINZELNEN KAPITEL EINBINDEN:
-%\microtypesetup{protrusion=true}
 
 \onehalfspacing
 \include{1-einleitung}

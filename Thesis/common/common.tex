@@ -3,6 +3,7 @@
 % und darf NICHT (!) in einen document-Block eingebettet werden!
 
 %\documentclass[fontsize=11pt, paper=a4, headinclude, twoside=false, parskip=half+, pagesize=auto, numbers=noenddot, open=right, toc=listof, toc=bibliography]{scrreprt}
+
 \documentclass[headsepline,footsepline,footinclude=false,parskip=half+, oneside,fontsize=11pt,paper=a4,listof=totoc,bibliography=totoc]{scrbook} % one-sided
 
 % PDF-Kompression
@@ -16,23 +17,14 @@
 \usepackage[utf8]{inputenc}% UTF8-Kodierung für Umlaute usw
 
 % Schriften
-%\usepackage{mathpazo} % Palatino für Mathemodus
-%\usepackage{mathpazo,tgpagella} % auch sehr schöne Schriften
 % \usepackage{fourier}
 \usepackage{setspace} % Zeilenabstand
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
 
 % Schriften-Größen
 \setkomafont{disposition}{\normalfont\bfseries} % use serif font for headings
 \linespread{1.05} % adjust line spread for mathpazo font
-%\setkomafont{chapter}{\Huge\rmfamily} % Überschrift der Ebene
-%\setkomafont{section}{\Large\rmfamily}
-%\setkomafont{subsection}{\large\rmfamily}
-%\setkomafont{subsubsection}{\rmfamily}
-%\setkomafont{chapterentry}{\large\rmfamily} % Überschrift der Ebene in Inhaltsverzeichnis
-%\setkomafont{descriptionlabel}{\bfseries\rmfamily} % für description Umgebungen
-%\setkomafont{captionlabel}{\small\bfseries}
-%\setkomafont{caption}{\small}
-%\usepackage{xspace} % Für manuelle Abstände
+
 
 % Sprache: Deutsch
 \usepackage[ngerman]{babel} % Silbentrennung
@@ -40,7 +32,6 @@
 
 % PDF
 \usepackage[ngerman,pdfauthor={Joshua Hirsch},  pdfauthor={Joshua Hirsch}, pdftitle={Bachelorarbeit}, breaklinks=true,baseurl={http://www.corpuls.world}]{hyperref}
-%\usepackage[final]{microtype} % mikrotypographische Optimierungen
 \usepackage{url}
 \usepackage{pdflscape} % einzelne Seiten drehen können
 
@@ -114,30 +105,12 @@
 % Einstellungen der Seitenränder
 % Change it! Look at Master-Thesis CGU
 \usepackage[left=2.5cm,right=3cm,top=2cm,bottom=2cm,includeheadfoot]{geometry}
-%\typearea{14} % typearea am Schluss berechnen lassen, damit die Einstellungen oben berücksichtigt werden
-% Kopf- und Fußzeile
-%\usepackage{fancyhdr}
-%\fancypagestyle{plain}{
-%	\fancyhf{}
-%	        %Kopfzeile links bzw. innen
-%	\fancyhead[L]{Bachelorarbeit}
-%	        %Kopfzeile rechts bzw. außen
-%	\fancyhead[R]{\scshape\leftmark}
-%	        %Linie oben
-%	\renewcommand{\headrulewidth}{0.5pt}
-%	        %Fußzeile mittig
-%	\fancyfoot[L]{{\scriptsize Joshua Hirsch}}
-%	\fancyfoot[R]{{\small \thepage}}
-%}
-%\pagestyle{plain}
-% Kopf- und Fußzeile
-%\usepackage{fancyhdr}
+%\typearea{14} % typearea am Schluss berechnen lassen, damit die Einstellungen oben 
 
 % Stuff
 \usepackage{lipsum}
 
-
-% Mini tableofcontent at ech chapter
+% Mini tableofcontent at each chapter
 \usepackage[nohints]{minitoc} % Table of content at each chapter
 % Mini tables of content at a chapter
 \dominitoc
@@ -147,7 +120,9 @@
 \addto{\captionsngerman}{% Making babel aware of special titles
   \renewcommand{\mtctitle}{Inhalt}
 }
-\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+
+
+
 % Eigene Befehle %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 
 % Bearbeitungshinweise im Text

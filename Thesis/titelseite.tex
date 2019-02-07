@@ -1,29 +1,33 @@
 \begin{titlepage}
   \centering
 
-  \vspace{40mm}
-  \includegraphics[width=40mm]{logos/hs}
+  \vspace{30mm}
+  \includegraphics[width=40mm]{logos/hs-small}  
 
   \vspace{5mm}
-  {\huge\MakeUppercase{\getFaculty{}}}\\
-
+  {\huge\MakeUppercase{\getUniversity{}}}\\
+  
   \vspace{5mm}
-  {\large\MakeUppercase{\getUniversity{}}}\\
+  \includegraphics[width=12mm]{logos/ai}
+  
+  %\vspace{5mm}
+  {\large\MakeUppercase{\getFaculty{}}}\\
+  
 
   \vspace{15mm}
   {\Large \getDoctype{}}
 
-  \vspace{15mm}
+  \vspace{10mm}
   {\huge\bfseries \getTitle{}}
 
-  \vspace{10mm}
+  \vspace{30mm}
   \begin{tabular}{l l}
-    Author: & \getAuthor{} \\
-    Supervisor: & \getSupervisor{} \\
-    Advisor: & \getAdvisor{} \\
-    Submission Date: & \getSubmissionDate{} \\
+    Verfasser: & \getAuthor{} \\
+    Referent: & \getSupervisor{} \\
+    Korreferent: & \getAdvisor{} \\
+    Abgabedatum: & \getSubmissionDate{} \\
   \end{tabular}
 
   \vspace{10mm}
-  \includegraphics[width=20mm]{logos/hs}
+  \includegraphics[width=75mm]{logos/gs}
 \end{titlepage}

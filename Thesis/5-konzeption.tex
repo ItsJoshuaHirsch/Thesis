@@ -1,10 +1,33 @@
 \chapter{Konzeption}
 \label{konzept}
 \minitoc\pagebreak
-\lipsum[1-60]
+%\lipsum[1-60]
 \section{Vorgehen bei der Konzeption}
+Gemäß der Methoden des Requirements Engineering \ref{require} wird anhand der erhobenen und ausgearbeiteten Fragestellungen bzw. Anforderungen aus \ref{4.4 fragestellungen} ein Konzept erarbeitet. Auch hierbei wurde eine iterative Herangehensweise gewählt, unter anderem um in einer kurzen Zeit grobe Fehler zu erkennen und viele Verbesserungen herauszufinden. Auch wird hierdurch gewährleistet, dass die exemplarischen und später produktiven Auswertungen und Visualisierungen nicht gänzlich in eine falsche Richtung gehen, sondern von Anfang an etwaige Missverständnisse aufgedeckt werden oder grundlegende Entscheidungen frühzeitig überdacht werden können.
+\bild{iterative} {100} {it} {iter}
+%\newcommand{\bild}[4]{
+%  \begin{figure}[!hbt]
+%    \centering
+%      \vspace{1ex}
+%      \includegraphics[width=#2]{img/#1}
+%      \caption[#4]{\label{fig:#1} #3}
+%    \vspace{1ex}
+%  \end{figure}
+%}
+
+Um von vornherein ein realistisches "`Look-and-Feel"' zu bieten und die entsprechend geplante Technologie mit ihren Funktionen und der Nutzerführung zu evaluieren, wird beim Prototyp bereits Qlik Sense \ref{technologieqlik} verwendet. Ein weiterer Vorteil ist, dass das notwendige Einarbeiten für die spätere Umsetzung in diese Technologie bereits gewährleistet wird. Dabei können auch vorab verschiedene Vor- und Nachteile der Technologie herausgefunden werden und dementsprechend können diese bei der weiteren Planung und Umsetzung berücksichtigt werden, was viel Zeit sparen kann.
+
+Des Weiteren wurden Dummy-Daten unter anderem für den Prototypen generiert. Sie waren auch notwendig, um entsprechend andere Tests für die Datenbank und Auslastung durchzuführen \ref{db und lasttest}. Dabei wurde ein Python-Skript geschrieben, welches einige Daten zufällig generiert, jedoch auf einer realistischen Basis.
+
+Die Evaluation soll wie oben beschrieben iterativ sein, was mehrere Termine mit unterschiedlichen Experten zur Konsequenz hat. Im Zuge dieser Bachelorarbeit wird die Evaluation größtenteils? mit Mitarbeitern der Firma gs durchgeführt. Es gibt viele Abteilungen, in welchen genügend Fachleute sitzen, die diese Dashboards kritisch prüfen können. Hierbei wird darauf geachtet, unterschiedliches Personal miteinzubeziehen, sodass es keine reine Evaluierung durch die Abteilung medizinische Forschung ist, sondern auch Vertriebler oder andere Stakeholder sollen den Prototyp kritisch untersuchen.
+
+Bei der Konzeption ist auch das Datenmodell ein wichtiger Bestandteil. Hier können verschiedene Modelle ausprobiert werden und gegebenenfalls Änderungen vorgenommen werden, sollten sich bei der Evaluation Probleme oder andere Anforderungen herausstellen.
+
 \section{Datenmodell}
+
 \section{Erstellung eines Prototypen}
+
 \section{Generierung von Dummy-Daten?}
+
 \section{Evaluierung durch ?}
-\section{Analyse der Ergebnisse}
+\subsection{Analyse der Ergebnisse}

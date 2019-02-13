@@ -23,7 +23,7 @@ Dabei wurde ein Python-Skript geschrieben, welches einige Daten zufällig generi
 Die Evaluation soll wie oben beschrieben iterativ sein, was mehrere Termine mit unterschiedlichen Experten zur Konsequenz hat. 
 Im Zuge dieser Bachelorarbeit wird die Evaluation größtenteils? mit Mitarbeitern der Firma gs durchgeführt. 
 Es gibt viele Abteilungen, in welchen genügend Fachleute sitzen, die in der Lage sind diese Dashboards kritisch prüfen zu können. 
-Hierbei wird darauf geachtet, unterschiedliches Personal miteinzubeziehen, sodass es keine reine Evaluierung durch die Abteilung medizinische Forschung ist, sondern auch Vertriebler oder andere Stakeholder sollen den Prototyp kritisch untersuchen.
+Hierbei wird darauf geachtet, unterschiedliches Personal miteinzubeziehen, sodass es keine reine Evaluierung durch die Abteilung medizinische Forschung ist, sondern auch Vertriebsmitarbeiter oder andere Stakeholder sollen den Prototyp kritisch untersuchen.
 
 Bei der Konzeption ist auch das Datenmodell ein wichtiger Bestandteil. 
 Hier können verschiedene Modelle ausprobiert werden und gegebenenfalls Änderungen vorgenommen werden, sollten sich bei der Evaluation Probleme oder andere Anforderungen herausstellen.
@@ -31,10 +31,22 @@ Hier können verschiedene Modelle ausprobiert werden und gegebenenfalls Änderun
 \section{Datenmodell}
 
 \section{Erstellung eines Prototypen}
+\subsection{Verwendete Technologie}
 Für den ersten Prototypen wurde sogleich die letztendlich umsetzende Technologie Qlik Sense \ref{qlik} verwendet. 
 Der Einfachheit halber beschränkte sich dies zu Anfang auf Qlik Sense Desktop, einerseits aufgrund der vereinfachten Bedienung, hauptsächlich jedoch da der entsprechende Server mit der Qlik Sense Server Variante zu Anfang der Konzeption noch nicht eingerichtet war. 
 Ein Umzug von Qlik Sense Desktop zu Server stellt keine größeren Probleme dar, man kann die erstellten Apps bidirektional ex- und importieren. 
 Lediglich die Datenverbindungen, welche für die jeweiligen Applikationen die Daten aus einer Quelle beziehen, werden nicht fehlerlos übertragen.
+
+\subsection{Datengrundlage}
+Zu Beginn wurde überlegt, welche Daten die Grundlage für den Prototypen bilden sollte.
+Dabei wurde auf die Demo-Datenbank des internen\cweba - Servers zurückgegriffen, welche zu diesem Zeitpunkt in etwa 100.000 Missionen enthielt, von denen jedoch grundsätzlich alle nur Test-Missionen sind. 
+Dies sind solche, die entweder von der internen Testabteilung oder der Software-Entwickler beim Testen von Funktionen oder Herausfinden von Problemen am Gerät oder durch die Software erzeugt werden. 
+Dementsprechend enthalten sie wenige spannende Daten, die auch selten realistisch sind und etwaige neue Erkenntnisse nicht darlegen können. 
+Nichtsdestotrotz bilden sie eine gute Grundlage um die ersten Basis-Auswertungen von Missionen paradigmatisch darzustellen. 
+
+Für diesen Zweck kann die Export-Funktion im CSV-Format von Analyse genutzt werden, welche in  \ref{istzustandanalysezurauswertung} näher beschrieben ist. 
+So war es für den Anfang möglich, einen relativ großen Datensatz mit mäßig sinnvollen Daten zu erhalten. 
+\footnote{(In späteren ?Szenarios\ref{lasttests,db} wurden eigens generierte Missionen verwendet, auf die Erzeugung dieser wird in \ref{dummydaten} genauer eingegangen.)}
 
 
 

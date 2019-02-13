@@ -19,7 +19,18 @@
 % Schriften
 % \usepackage{fourier}
 \usepackage{setspace} % Zeilenabstand
-\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+%\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\usepackage[tracking=true]{microtype}%
+            % Microtype ist einfach super, aber lesen Sie
+            % unbedingt die Anleitung um das Folgende zu
+            % verstehen.
+\DeclareMicrotypeSet*[tracking]{my}% 
+  { font = */*/*/sc/* }% 
+\SetTracking{ encoding = *, shape = sc }{ 45 }% Hier wird festgelegt,
+            % dass alle Passagen in Kapitälchen automatisch leicht
+            % gesperrt werden. Das Paket soul, das ich früher empfohlen
+            % habe ist damit für diese Zwecke nicht mehr nötig.
+            %
 
 % Schriften-Größen
 \setkomafont{disposition}{\normalfont\bfseries} % use serif font for headings
@@ -156,7 +167,7 @@
   \begin{figure}[!hbt]
     \centering
       \vspace{1ex}
-      \includegraphics{images/#1}
+      \includegraphics{img/#1}
       \caption[#3]{\label{fig:#1} #2}
       \vspace{1ex}
   \end{figure}
@@ -180,7 +191,7 @@
   \begin{figure}[!hbt]
     \centering
     \vspace{1ex}
-    \includegraphics[width=\linewidth]{images/anhang/#1}
+    \includegraphics[width=\linewidth]{img/anhang/#1}
     \caption[#3]{\label{fig:#1} #2}
     \vspace{1ex}
   \end{figure}
@@ -190,7 +201,7 @@
 {
 	\begin{floatingfigure}[r]{#2}
 		%\centering
-		\includegraphics[width=#2]{images/#1}
+		\includegraphics[width=#2]{img/#1}
 		\captionsetup{width=#2}
 		\caption[#4]{\label{fig:#1} #3}		
 	\end{floatingfigure}

@@ -17,24 +17,23 @@
 \usepackage[utf8]{inputenc}% UTF8-Kodierung für Umlaute usw
 
 % Schriften
-% \usepackage{fourier}
+%\usepackage{fourier}
+%\usepackage[light]{kpfonts}
+%\usepackage{gfsdidot}
 \usepackage{setspace} % Zeilenabstand
+
+% Microtype
 %\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
-\usepackage[tracking=true]{microtype}%
-            % Microtype ist einfach super, aber lesen Sie
-            % unbedingt die Anleitung um das Folgende zu
-            % verstehen.
+\usepackage[tracking=true]{microtype}
 \DeclareMicrotypeSet*[tracking]{my}% 
   { font = */*/*/sc/* }% 
 \SetTracking{ encoding = *, shape = sc }{ 45 }% Hier wird festgelegt,
             % dass alle Passagen in Kapitälchen automatisch leicht
-            % gesperrt werden. Das Paket soul, das ich früher empfohlen
-            % habe ist damit für diese Zwecke nicht mehr nötig.
-            %
+            % gesperrt werden.
 
 % Schriften-Größen
 \setkomafont{disposition}{\normalfont\bfseries} % use serif font for headings
-\linespread{1.05} % adjust line spread for mathpazo font
+%\linespread{1.05} % adjust line spread for mathpazo font
 
 
 % Sprache: Deutsch
@@ -52,7 +51,7 @@
 
 % Glossar
 \usepackage[acronym,nonumberlist,toc]{glossaries}
-\renewcommand*{\glspostdescription}{} %Den Punkt am Ende jeder Beschreibung deaktivieren
+%\renewcommand*{\glspostdescription}{} %Den Punkt am Ende jeder Beschreibung deaktivieren
 \makeglossaries
 
 % Tabellen
@@ -107,11 +106,11 @@
 
 
 % für autoref von Gleichungen in itemize-Umgebungen
-\makeatletter
-\newcommand{\saved@equation}{}
-\let\saved@equation\equation
-\def\equation{\@hyper@itemfalse\saved@equation}
-\makeatother 
+%\makeatletter
+%\newcommand{\saved@equation}{}
+%\let\saved@equation\equation
+%\def\equation{\@hyper@itemfalse\saved@equation}
+%\makeatother 
 
 % Einstellungen der Seitenränder
 % Change it! Look at Master-Thesis CGU
@@ -131,6 +130,7 @@
 %\setcounter{tocdepth}{5}
 % Only subsections in main TOC (no subsub)
 % \setcounter{tocdepth}{1}
+% Deutsches Mini-Verzeichnis
 \mtcselectlanguage{german}
 \addto{\captionsngerman}{% Making babel aware of special titles
   \renewcommand{\mtctitle}{Inhalt}
@@ -211,10 +211,13 @@
 	\end{floatingfigure}
 }
 
+\usepackage{xcolor}
+\definecolor{corpulsred}{HTML}{DD0B2F}
+
 \newcommand{\cweba}{
 	\textsf{\small
 	%\textbf{
-	corpuls.\color{red}{web} \color{black}{ANALYSE}
+	corpuls.\color{corpulsred}{web} \color{black}{ANALYSE}
 	%}
 	}
 }

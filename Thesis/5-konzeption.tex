@@ -21,7 +21,7 @@ Sie waren auch notwendig, um entsprechend andere Tests für die Datenbank und Au
 Dabei wurde ein Python-Skript geschrieben, welches einige Daten zufällig generiert, jedoch auf einer realistischen Basis.
 
 Die Evaluation soll wie oben beschrieben iterativ sein, was mehrere Termine mit unterschiedlichen Experten zur Konsequenz hat. 
-Im Zuge dieser Bachelorarbeit wird die Evaluation größtenteils? mit Mitarbeitern der Firma gs durchgeführt. 
+Im Zuge dieser Bachelorarbeit wird die Evaluation größtenteils? mit Mitarbeitern der Firma \gls{gs} durchgeführt. 
 Es gibt (viele) Abteilungen, in welchen genügend Fachleute sitzen, die in der Lage sind diese Dashboards kritisch prüfen zu können. 
 Hierbei wird darauf geachtet, unterschiedliches Personal miteinzubeziehen, sodass es keine exklusive/alleinige Evaluierung durch die Abteilung medizinische Forschung ist, sondern auch Vertriebsmitarbeiter oder andere Stakeholder sollen den Prototyp kritisch untersuchen.
 
@@ -29,6 +29,7 @@ Bei der Konzeption ist auch das Datenmodell ein wichtiger Bestandteil.
 Hier können verschiedene Modelle ausprobiert werden und gegebenenfalls Änderungen vorgenommen werden, sollten sich bei der Evaluation Probleme oder andere Anforderungen herausstellen.
 
 \section{Datenmodell}
+% Vermutlich nur Umsetzung, vielleicht auch hier
 
 \section{Erstellung eines Prototypen}
 \subsection{Verwendete Technologie}
@@ -45,8 +46,7 @@ Dementsprechend enthalten sie wenige spannende Daten, die auch selten realistisc
 Nichtsdestotrotz bilden sie eine gute Grundlage um die ersten Basis-Auswertungen von Missionen paradigmatisch darzustellen. 
 
 Für diesen Zweck kann die Export-Funktion im CSV-Format von Analyse genutzt werden, welche in  \ref{istzustandanalysezurauswertung} näher beschrieben ist. 
-So war es für den Anfang möglich, einen relativ großen Datensatz mit mäßig sinnvollen Daten zu erhalten. 
-\footnote{(In späteren ?Szenarios\ref{lasttests,db} wurden eigens generierte Missionen verwendet, auf die Erzeugung dieser wird in \ref{dummydaten} genauer eingegangen.)}
+So war es für den Anfang möglich, einen relativ großen Datensatz mit mäßig sinnvollen Daten zu erhalten.\footnote{(In späteren ?Szenarios\ref{lasttests,db} wurden eigens generierte Missionen verwendet, auf die Erzeugung dieser wird in \ref{dummydaten} genauer eingegangen.)}
 
 \subsection{Erstellung exemplarischer Dashboards} 
 Mit der Datengrundlage und der Technologie Qlik Sense Desktop können nun die ersten beispielhaften Dashboards entwickelt werden.
@@ -65,21 +65,48 @@ sd
 \section{Generierung von Dummy-Daten?}
 % Kap. Umsetzung?
 
-\section{Evaluierung  des Prototyps (durch ?)}
+\section{Evaluierung  des Prototyps}
 \subsection{Vorgehen bei der Prototyp-Evaluierung}
 Zur Evaluierung des Prototyps werden vorerst, wie in \ref{vorgehenkonzept} beschrieben, firmenintern geeignete Personen gesucht. 
 Dabei wurden Mitarbeiter aus den Abteilungen Medizinische Forschung und Anwendung, Applikations- bzw. Anwendungsspezialisten und Produktmanagement gewählt, da hier ein guter/großer Praxisbezug herrscht und die Erfahrungen, Wissen und Anforderungen ähnlich zu denen der zukünftigen Kunden sind.
 
-Für die Art der Evaluierung wurde eine Art der Fokusgruppen-Evaluation gewählt. \cite{Christoforakos.2017} 
+Für die Evaluierung wurde eine (abgewandelte Form) Art der Fokusgruppen-Evaluation gewählt. \cite{Christoforakos.2017} 
 Hierbei wird eine kleinere Gruppe von Teilnehmern zusammengestellt, welche die voraussichtlichen Kunden generell abbilden soll. 
 Danach ist es im Grunde genommen eine offene Gruppendiskussion, welche durch einen Moderator geleitet wird, sodass der entsprechende Fokus nicht außer Acht gelassen wird und etwaige Diskussionen und Gedankenaustausche in die richtige Richtung gelenkt werden. vgl. \cite{UsabilityinGermany.}
-In diesen Beispielen spielt die Beobachtung der Teilnehmer auch keine große Rolle, wie in den meisten Fokusgruppen üblich, da sie dass System als solche nicht bedienen und hier aus der Beobachtung keine großen Erkenntnisse gewonnen werden können.
-Vorteile...
+In diesen Beispielen spielt die Beobachtung der Teilnehmer keine große Rolle, wie normalerweise in den meisten Fokusgruppen üblich, da sie dass System als solche nicht bedienen und in diesem Fall aus der Beobachtung keine großen Erkenntnisse gewonnen werden können.
 
-gruppen 3-4, homoggen, vorstellung, ausgedruckte blätter für notes (anhang)
+Die Vorteile einer Fokusgruppe sind, dass sich Personen in diesem Gebiet bereits auskennen und direktes Feedback geben können. 
+So ergibt sich in relativ kurzer Zeit eine große Datenmenge und kritische Rückmeldungen zum Prototyp, welche bei Bedarf im gleichen Zug weiter ausgeführt und/oder diskutiert werden können.
+Auch möglicherweise auftretende Fragen von den Personen können, im Gegensatz zu reinen Umfragen, direkt beantwortet werden um so Missverständnisse und Unklarheiten aufzuklären.
 
+Für die Evaluierung wurde eine Gruppengröße von ca. 3-4 Personen gewählt, was etwas unter der üblichen Fokusgruppengröße von ca. 6-8 Personen liegt (vgl. \cite{UsabilityinGermany.})?. 
+Grund hierfür sind zum einen die erwünschten 3-4 unterschiedlichen Gruppen, welche bei den ca. 16 geeigneten Personen diese Gruppengröße vorgibt, zum anderen ist es auch von Vorteil was das Einbringen von Ideen und Kritik von jeder Einzelperson angeht.
+Dennoch kann ein fachlicher Austausch zwischen verschiedenen Personen stattfinden, welcher für weiterführende Diskussionen sehr hilfreich sein kann. 
 
-% subsections vorgehen?, MRaA, applicationspec.?
+Bei der Einteilung der Personen in die jeweiligen Fokusgruppen wurde auf verschiedene Eigenschaften und Bedingungen, wie zum Beispiel Alter, Abteilung, Wissenstand, Erfahrungen, und vieles mehr geachtet. 
+Ziel waren einerseits homogene Gruppen, wo die Personen ähnliche Hintergründe und Altersklassen haben, andererseits sollte auch eine gewisse Heterogenität herrschen, damit verschiedene Meinungen aufeinander treffen und kontroverse Diskussionen angeregt/gefördert werden.
+So ist beispielsweise eine Gruppe von eher jungen medizinischen Forschern in einer ähnlichen Altersklasse zwischen 23-27 Jahren, aber mit verschiedenen Hintergründen, beziehungsweise Spezialisierungen zu Informatik, Rettungsdienst und medizinische Studien und Auswertungen.
+
+Mit der kleineren Größe der Gruppe wurde auch ein etwas kürzerer Zeitraum der jeweiligen Evaluierung gewählt.
+Demnach liegt sie (des Öfteren) bei einer Gruppe von 6-8 Personen bei ca. 90 Minuten (vgl. \cite{UsabilityinGermany.})? und für die hier durchgeführten Termine wurden 60 Minuten angesetzt, was pro Person gerechnet sogar etwas mehr Zeit.
+Jedoch ist diese Rechnung/Vergleich nicht repräsentativ und daher mit Vorsicht zu betrachten.
+
+Es werden die erstellten Dashboards aus \ref{erstellungprototyp} in der Gruppe vorgestellt. 
+Dabei wird anfangs den Personen erläutert, was der Sinn und Zweck der Visualisierungen ist und für welche Endnutzer er von Relevanz sein wird.
+Somit können sie sich in die Lage der Kunden versetzen und aus deren Perspektive die präsentierten Ergebnisse kritisch betrachten.
+
+Anschließend wird jedes Arbeitsblatt präsentiert, gefolgt von einer kurzen Pause, damit sich der erste Eindruck bilden kann und darauffolgend eine kurze Einführung/Erklärung zum aktuellen Fenster geliefert, um eine einheitliche Diskussionsbasis zu schaffen.
+Des Weiteren wurden Hand-Outs ausgehändigt, damit jede Person zu jeder Zeit jedes Dashboard vor sich liegen hat um gegebenenfalls Anmerkungen, Kommentare, Verbesserungsvorschläge, Fragen oder ähnliches an die entsprechende Stelle notieren zu können.
+Dies hat den weiteren Vorteil, dass es zur Nachbereitung verwendet werden kann, da die Gedanken und Ideen der Teilnehmer im Nachhinein dokumentiert zur Verfügung stehen und weitere Schritte oder Änderungen darauf basierend vorgenommen werden können. 
+Einen Auszug dieser Hand-Outs können im Anhang \ref{evaluierunghandout} betrachtet werden.
+
+\subsection{Gruppe 1: medizinische Forschung und Anwendung}
+j
+\subsection{Gruppe 2: Applikationsspezialisten}
+j
+\subsection{Gruppe 3: Produktmanagement und medizinische Forschung und Anwendung}
+j
+
 
 \subsection{Analyse der Ergebnisse}
 %notwendig? oder in jeweil. subs integrieren

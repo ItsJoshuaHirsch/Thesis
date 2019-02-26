@@ -44,6 +44,7 @@
 \usepackage[ngerman,pdfauthor={Joshua Hirsch},  pdfauthor={Joshua Hirsch}, pdftitle={Bachelorarbeit}, breaklinks=true,baseurl={http://www.corpuls.world}]{hyperref}
 \usepackage{url}
 \usepackage{pdflscape} % einzelne Seiten drehen können
+\usepackage{pdfpages}
 
 %  Bibliographie
 \usepackage{bibgerm} % Umlaute in BibTeX
@@ -68,6 +69,8 @@
 \usepackage{color} % Farben
 \usepackage{floatflt} % Textumfluss
 \usepackage{caption} % Verbesserte Untertitel
+\captionsetup{font={small},labelfont=bf}
+
 \graphicspath{{images/}}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg} % bevorzuge pdf-Dateien
 \usepackage{subfigure} % mehrere Abbildungen nebeneinander/übereinander
@@ -163,6 +166,16 @@
       \vspace{1ex}
       \includegraphics[width=#2]{img/#1}
       \caption[#4]{\label{fig:#1} #3}
+    \vspace{1ex}
+  \end{figure}
+}
+%bild volle Breite
+\newcommand{\bildbreit}[3]{
+  \begin{figure}[!hbt]
+    \centering
+      \vspace{1ex}
+      \includegraphics[width=\linewidth]{img/#1}
+      \caption[#3]{\label{fig:#1} #2}
     \vspace{1ex}
   \end{figure}
 }

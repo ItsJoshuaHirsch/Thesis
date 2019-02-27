@@ -28,9 +28,6 @@ Hierbei wird darauf geachtet, unterschiedliches Personal miteinzubeziehen, sodas
 Bei der Konzeption ist auch das Datenmodell ein wichtiger Bestandteil. 
 Hier können verschiedene Modelle ausprobiert werden und gegebenenfalls Änderungen vorgenommen werden, sollten sich bei der Evaluation Probleme oder andere Anforderungen herausstellen.
 
-\section{Datenmodell}
-recht simpel. im prinzip eine Tabelle, keine Mehrdim, ...
-% Vermutlich nur Umsetzung, vielleicht auch hier
 
 \section{Erstellung eines Prototypen}
 \subsection{Verwendete Technologie}
@@ -49,6 +46,8 @@ Nichtsdestotrotz bilden sie eine gute Grundlage um die ersten Basis-Auswertungen
 Für diesen Zweck kann die Export-Funktion im CSV-Format von Analyse genutzt werden, welche in  \ref{istzustandanalysezurauswertung} näher beschrieben ist. 
 So war es für den Anfang möglich, einen relativ großen Datensatz mit mäßig sinnvollen Daten zu erhalten.\footnote{(In späteren ?Szenarios\ref{lasttests,db} wurden eigens generierte Missionen verwendet, auf die Erzeugung dieser wird in \ref{dummydaten} genauer eingegangen.)}
 
+
+
 \subsection{Erstellung exemplarischer Dashboards} 
 Mit der Datengrundlage und der Technologie Qlik Sense Desktop können nun die ersten beispielhaften Dashboards entwickelt werden.
 Die Basis für die verschiedenen Diagramme und Auswertungen bilden die iterativ erhobenen Fragestellungen aus Kap \ref{itErhebFrage}. 
@@ -60,7 +59,15 @@ Eine sinnvolle Gruppierung oder Aufteilung der entsprechenden Arbeitsblätter od
 Im Fokus steht die erstmalige Beantwortung möglichst vieler Fragestellungen, auch gegebenenfalls auf verschiedenen Wegen mit alternativen Darstellungsformen.
 Nichtsdestotrotz wird später, zum Zeitpunkt der Evaluierung, eine einigermaßen angebrachte Gruppierung von Diagrammen und vernünftige Reihenfolge der Arbeitsblätter vorgenommen, damit für die entsprechenden Personen eine Struktur erkennbar ist, um mögliche Verwirrungen zu vermeiden.
 
-\subsubsection{Überblick}
+
+\subsubsection{Datenladeskript}
+, Was ist rel, was test, ....
+\subsubsection{Datenmodell}
+recht simpel. im prinzip eine Tabelle, keine Mehrdim, ...
+% Vermutlich nur Umsetzung, vielleicht auch hier
+
+%subsubsection Dashboards, und dann unterpunkte?
+\subsubsection{Startseite}
 \bildbreit
 {Uebersicht_Prototyp}
 {Startseite, Übersicht}
@@ -88,7 +95,9 @@ Eine Mini-Legende unterhalb der Grafik erleichtert die Orientierung, sollte der 
 
 %Es wurde die AutoCalendar-Funktion genutzt, damit ein fließender Übergang zwischen den Jahren möglich ist.
 
-Darunter
+Darunter sind zwei Kreisdiagramme zu sehen, welche die Anzahl der Einsätze und der Reanimationen pro Gerätetyp anzeigen.
+Diese Art der Visualisierung wurde gewählt, damit die Relation und Verteilung unter den Geräten deutlich gemacht wird.
+Unter dem jeweiligen Kreisdiagramm ist als einzelner \gls{Key-Performance-Indicator} die \gls{KPI} die durchschnittliche Einsatz- und Reanimationsdauer.
 
 % Filter?
 \subsubsection{Einsatzzeitpunkt}

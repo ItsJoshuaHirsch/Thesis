@@ -101,8 +101,30 @@ Unter dem jeweiligen Kreisdiagramm ist als einzelner \gls{Key-Performance-Indica
 
 % Filter?
 \subsubsection{Einsatzzeitpunkt}
-sd
+\bildbreit
+{einsatzzeitpunkt}
+{Dashboard zu den Einsatzzeitpunkten}
+{Einsatzzeitpunkt-Visualisierung}
+
+Es gab diverse Fragestellungen zu den Einsatzzeitpunkten. (Beispiele oder ref?)
+Dieses Arbeitsblatt, in Abbildung \ref{fig:einsatzzeitpunkt} zu sehen, soll einen Überblick geben, zu welchen Tages- und Uhrzeiten die Einsätze stattfinden.
+Hierbei gibt es drei verschiedene Detailstufen?: Tageszeit, Stündlich und Halbstündlich (bullet?). 
+So kann der entsprechende Nutzer für seinen gewollte Bedarf die jeweilige Auslastung oder Einsatzhäufigkeit herausfinden.
+Des Weiteren sind unten, unterhalb der Tageszyklen (Tageszeit und Stunden), zwei weitere Diagramme, welche die Anzahl der Einsätze und Reanimationen für Wochentage und Monate anzeigt. 
+Somit ist jeder relevante zeitliche Zyklus abgedeckt und es können beispielsweise zu Tageszeiten wie nachts, Wochentage wie Wochenende und/oder saisonale wie winterliche Auswertungen betrieben werden.
+
+Es wurden zur Darstellung Kombi-Diagramme gewählt, um normale Einsätze und Reanimationen getrennt, aber dennoch in Relation betrachten zu können.
+Die Balken eignen sich gut, um das Volumen eines Zeitpunktes mit anderen leicht Vergleichen zu können und repräsentieren die Menge an relevanten Einsätzen.
+Die Anzahl der Reanimationen wurde als Linie mit einer alternativen Y-Achsen-Skalierung visualisiert, damit auch geringe Vorkommen, wie in der Praxis häufig der Fall, noch gut sichtbar sind, da die obere und untere Grenze unabhängig der Anzahl aller Einsätze ist.
+Würde man diese als Balken neben die normalen Einsätze legen, wären sie kaum zu sehen und Unterschiede zwischen den jeweiligen Zeitpunkten wären nur schwer zu erkennen.
+Mit der alternativen Liniendarstellung ist die untere Kante der X-Achse nicht immer 0, wie es bei der Darstellung von Balken der Fall ist, sondern kann beim Minimum der entsprechenden Kennzahl beginnen.
+%Timebuckets wurden selber geskriptet, damit nicht zu fein nach minute ?
+
 \subsubsection{Einsatzdauer}
+\bildbreit
+{einsatzdauer}
+{Dashboard zu der Dauer von Einsätzen}
+{Einsatzdauer-Visualisierung}
 sd
 \subsubsection{Geräte}
 sd
@@ -128,9 +150,11 @@ sd
 Zur Evaluierung des Prototyps werden vorerst, wie in \ref{vorgehenkonzept} beschrieben, firmenintern geeignete Personen gesucht. 
 Dabei wurden Mitarbeiter aus den Abteilungen Medizinische Forschung und Anwendung, Applikations- bzw. Anwendungsspezialisten und Produktmanagement gewählt, da hier ein guter/großer Praxisbezug herrscht und die Erfahrungen, Wissen und Anforderungen ähnlich zu denen der zukünftigen Kunden sind.
 
+%\citeDürrenberger für Fokusgruppen!!
+
 Für die Evaluierung wurde eine (abgewandelte Form) Art der Fokusgruppen-Evaluation gewählt. \cite{Christoforakos.2017} 
 Hierbei wird eine kleinere Gruppe von Teilnehmern zusammengestellt, welche die voraussichtlichen Kunden generell abbilden soll. 
-Danach ist es im Grunde genommen eine offene Gruppendiskussion, welche durch einen Moderator geleitet wird, sodass der entsprechende Fokus nicht außer Acht gelassen wird und etwaige Diskussionen und Gedankenaustausche in die richtige Richtung gelenkt werden. vgl. \cite{UsabilityinGermany.}
+Danach ist es im Grunde genommen eine offene Gruppendiskussion, welche durch einen Moderator geleitet wird, sodass der entsprechende Fokus nicht außer Acht gelassen wird und etwaige Diskussionen und Gedankenaustausche in die richtige Richtung gelenkt werden. \cite{Durrenberger.1999} vgl. \cite{UsabilityinGermany.}
 In diesen Beispielen spielt die Beobachtung der Teilnehmer keine große Rolle, wie normalerweise in den meisten Fokusgruppen üblich, da sie dass System als solche nicht bedienen und in diesem Fall aus der Beobachtung keine großen Erkenntnisse gewonnen werden können.
 
 Die Vorteile einer Fokusgruppe sind, dass sich Personen in diesem Gebiet bereits auskennen und direktes Feedback geben können. 
@@ -157,6 +181,7 @@ Anschließend wird jedes Arbeitsblatt präsentiert, gefolgt von einer kurzen Pau
 Des Weiteren wurden Hand-Outs ausgehändigt, damit jede Person zu jeder Zeit jedes Dashboard vor sich liegen hat um gegebenenfalls Anmerkungen, Kommentare, Verbesserungsvorschläge, Fragen oder ähnliches an die entsprechende Stelle notieren zu können.
 Dies hat den weiteren Vorteil, dass es zur Nachbereitung verwendet werden kann, da die Gedanken und Ideen der Teilnehmer im Nachhinein dokumentiert zur Verfügung stehen und weitere Schritte oder Änderungen darauf basierend vorgenommen werden können. 
 Ein Auszug dieser Hand-Outs können im Anhang \ref{evaluierunghandout} betrachtet werden.
+% Die dargestellten Abbildungen können von \ref{konzeptERstellung} abweichen, da im iterativen Prozess immer Änderungen durchgeführt wurden, und somit keine zeitliche Reihenfolge gegeben ist.
 
 \subsection{Gruppe 1: medizinische Forschung und Anwendung}
 j

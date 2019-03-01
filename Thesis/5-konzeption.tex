@@ -125,17 +125,87 @@ Mit der alternativen Liniendarstellung ist die untere Kante der X-Achse nicht im
 {einsatzdauer}
 {Dashboard zu der Dauer von Einsätzen}
 {Einsatzdauer-Visualisierung}
-sd
+
+Die Dauer von Einsätzen ist ebenfalls eine gefragte Information. (ref?)
+Hierbei sind Fragen wie 
+Je nach entsprechenden Vorgaben können hierbei unterschiedliche Auswertungen durchgeführt werden.
+Sollen die Rettungskräfte beispielsweise das Gerät immer sofort beim Losfahren starten, können gegebenenfalls Auswertungen zu den Fahrtzeiten getroffen werden.
+Oder wenn das Personal das Gerät erst vor Ort anschalten soll, kann die tatsächliche Einsatzzeit verglichen werden.
+Es kommt also auf die Vorgaben der entsprechenden Instanzen drauf an, welche Analysen durchgeführt werden können.
+
+Als generelles Modell werden auf diesem Dashboard, in Abbildung \ref{fig:einsatzdauer} zu sehen, die grundlegenden Informationen zur Dauer dargestellt.
+Dazu zählt die globale durchschnittliche Missionsdauer, sowie die absolute Gesamteinsatzdauer, welches unter anderem eine durch die Bundeswehr gefragte \gls{KPI} ist.
+Des Weiteren gibt es die mittlere Einsatzdauer nach Gerätetyp aufgeschlüsselt. 
+Dies ist zugehörig unter der Geräteübergreifenden \gls{KPI} als Balkendiagramm dargestellt, damit die Werte gut miteinander vergleichbar sind.
+
+
+Darunter sind zwei weitere Diagramme zu finden, welche als Histogramm (irgendwo erklären) die Häufigkeit verschiedener Einsatz- sowie \gls{CPR}-Dauer darstellen.
+%\bildrechts{Dauer-klasse} {5cm} {w} {wa}
+Dabei werden je nach maximaler Dauer dynamisch gleichgroße Bereiche oder ''Klassen'' definiert.
+So gibt es beispielsweise den Bereich ''0 <= Reanimationsdauer in Min. < 16'', welcher hier >4000 Einsätze zählt, danach Reanimationsdauer größer gleich 16 und kleiner als 32 mit ca. 400 Missionen.
+Dies wird in diesen 16-Minuten-Schritten weiter bis zur maximal vorhandenen Reanimationsdauer fortgeführt.
+Dabei wird die Verteilung von Einsätzen und Reanimationen mit einer entsprechenden Dauer sichtbar und es können weiterführende Analysen auf Basis der Einsatzdauer vorgenommen werden.
+
 \subsubsection{Geräte}
-sd
-\subsubsection{Schocks}
-sd
+\bildbreit
+{devices}
+{Dashboard zu den entsprechend vorhandenen Geräten}
+{Geräte-Visualisierung}
+
+Das folgende in Abbildung \ref{fig:devices} präsentierte Arbeitsblatt gibt dem Nutzer eine Übersicht seiner eingesetzten Geräte.
+Dabei gibt es die eindeutige \gls{KPI} ''Anzahl Geräte'', welche die distinkten Geräte zählt, von denen bis dato Missionen in dem vorliegenden\cweba - Server vorliegen.
+Sofern der entsprechende Betreiber den Upload oder das nachträgliche importieren der Einsätze auf den Server anordnet, kann hiermit die gesamte Anzahl an Geräten überwacht werden. (Aktive Geräte? bsp Einsatz in letztem quartal? In umsetzung aufnehmen)
+Ergänzend zu dieser (pauschalen) Zahl gibt es in intuitiver Leserichtung rechts eine Visualisierung, wie viele Geräte einer Art vorliegen.
+Die Art der Darstellung ist ein Kreisdiagramm, da in der Regel eine Geräteart überwiegen wird, und somit diese in Relation zu der Gesamtheit gesetzt wird.
+
+Darunterliegend finden sich zwei Balkendiagramme wieder, welche die Anzahl der Einsätze und Reanimationen nach den einzelnen Geräten mittels Seriennummer und/oder Geräte-ID aufschlüsseln.
+Dies präsentiert die Einsatzhäufigkeit von den Einzelgeräten und kann dadurch beispielsweise als Grundlage für Schichtplanung oder Neuanschaffung von Geräten dienen.
+
 \subsubsection{Reanimation}
-sd
+\bildbreit
+{reanimation}
+{Dashboard zu den Daten des \gls{CPR}-Feedbacksensors}
+{Reanimations-Visualisierung}
+
+Die nachträgliche Auswertung einer Reanimation ist für viele Stakeholder eine wichtige Aufgabe.
+Dabei gibt es beispielsweise die klassische Nachbesprechung zwischen Notfallsanitäter(erklärung Rettungssani?) und Auszubildenden oder aber auch die medizinische Forschung, welche Ereignisse und Werte einer Reanimationen untersuchen um gegebenfalls neue Erkenntnisse zu gewinnen.
+Eine Analyse über viele Reanimationen hinweg ist hierbei für viele Nutzergruppen (außer MRaA) ein neuer Weg, welcher bisher unentdeckte Zusammenhänge offenbaren oder bereits angenommene Hypothesen bestätigen kann.
+
+Ein wichtiger Erfolgsfaktor einer Reanimation ist eine adäquate Drucktiefe, welche zwischen 5-6cm liegen soll. (ref erc?)
+Sofern ein \gls{CPR}-Feedbacksensor (erklären?) bei einer Reanimation verwendet wird, kann die Drucktiefe jeder Kompression eingesehen werden. (auch vorOrtFeedback)
+Eine Auswertung zur Tiefe über viele Reanimationen hinweg kann im obersten Balkendiagramm in Abbildung \ref{fig:reanimation} betrachtet werden.
+Dabei sind horizontal die verschiedenen Drucktiefen und vertikal die Anzahl der Missionen mit dieser Tiefe angeordnet.
+Die Farbgebung mit rot und grün soll dem Benutzer helfen, schnell die ''guten'' Kompressionen von den unzureichenden zu unterscheiden.
+
+Ein wichtiger Punkt hierbei ist, dass derzeit pro Reanimation genau ein Durchschnittswert der Drucktiefe gebildet wird und zum Export bereitsteht.
+Es ist somit eine stark voraggregierte Information, welche einen eventuellen falschen Wert widerspiegelt. 
+So kann beispielsweise eine Reanimation 100 zu flache Kompressionen mit 4cm, sowie 100 zu tiefe Kompressionen  mit 7cm enthalten.
+Der nun aggregierte Mittelwert dieser Reanimation lautet 5,5cm und suggeriert eine an der Drucktiefe gemessene, ''perfekte'' Reanimation, obwohl nicht eine korrekte Kompression vorliegt.
+Dieser Aspekt muss bei der Betrachtung dieser Auswertung berücksichtigt werden.
+Eine mögliche Lösung oder zum Mindesten eine Verbesserung der Aussagekraft zur Drucktiefe wird in Kap blabla beschrieben.
+%cpr nur avg, keine einzel cpr, gefordertes neues Modell, wie in kap 123 beschrieben 
+
+Zur rechten Seite der oben beschriebenen Visualisierung ist ein Boxplot-Diagramm, welches eine Zusammenfassung zur Drucktiefe liefert.
+Es zeigt kompakt die maximale und minimale durchschnittliche Tiefe, sowie die Quartile und den Median aller Reanimationen an.
+
+%ccf, frequenz, 
+
+\subsubsection{Schocks}
+\bildbreit
+{shocks}
+{Dashboard zu den abgegebenen Defibrillationen}
+{Schocks-Visualisierung}
+
+%schocks die nicht 200j hatten, leider nur max schock, keine einzel shcocks, gefordertes neues Modell, wie in kap 123 beschrieben 
+gh
+
 \subsubsection{Sensorik}
 sd
 \subsubsection{Blutdruck}
+
+%nibd, leider nur min max avg, keiine einzel messungen, gefordertes neues Modell, wie in kap 123 beschrieben 
 sd
+
 \subsubsection{Patientendaten}
 sd
 \subsubsection{Pacer?Sonstiges}

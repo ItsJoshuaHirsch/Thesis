@@ -44,7 +44,7 @@ Dementsprechend enthalten sie wenige spannende Daten, die auch selten realistisc
 Nichtsdestotrotz bilden sie eine gute Grundlage um die ersten Basis-Auswertungen von Missionen paradigmatisch darzustellen. 
 
 Für diesen Zweck kann die Export-Funktion im CSV-Format von Analyse genutzt werden, welche in  \ref{istzustandanalysezurauswertung} näher beschrieben ist. 
-So war es für den Anfang möglich, einen relativ großen Datensatz mit mäßig sinnvollen Daten zu erhalten.\footnote{(In späteren ?Szenarios\ref{lasttests,db} wurden eigens generierte Missionen verwendet, auf die Erzeugung dieser wird in \ref{dummydaten} genauer eingegangen.)}
+So war es für den Anfang möglich, einen relativ großen Datensatz mit mäßig sinnvollen Daten zu erhalten.\footnote{(In späteren Szenarios\ref{lasttests,db} wurden eigens generierte Missionen verwendet. Auf die Erzeugung dieser wird in Kapitel \ref{dummydaten} genauer eingegangen.)}
 
 
 
@@ -70,8 +70,8 @@ recht simpel. im prinzip eine Tabelle, keine Mehrdim, ...
 \subsubsection{Startseite}
 \bildbreit
 {Uebersicht_Prototyp}
-{Startseite, Übersicht}
-{Überblicks}
+{Übersicht über die zugrundeliegenden Einsätze}
+{Überblick-Visualisierungen}
 
 Die erste Seite, die der Kunde zu sehen bekommt wenn er die Software startet, soll ihm einen groben Überblick verschaffen. 
 Es ist wie die Startseite einer Website, wo man die wichtigsten Informationen unmittelbar auf der ersten Seite finden kann.
@@ -162,6 +162,7 @@ Darunterliegend finden sich zwei Balkendiagramme wieder, welche die Anzahl der E
 Dies präsentiert die Einsatzhäufigkeit von den Einzelgeräten und kann dadurch beispielsweise als Grundlage für Schichtplanung oder Neuanschaffung von Geräten dienen.
 
 \subsubsection{Reanimation}
+\label{subsub:Reanimation}
 \bildbreit
 {reanimation}
 {Dashboard zu den Daten des \gls{CPR}-Feedbacksensors}
@@ -182,13 +183,14 @@ Es ist somit eine stark voraggregierte Information, welche einen eventuellen fal
 So kann beispielsweise eine Reanimation 100 zu flache Kompressionen mit 4cm, sowie 100 zu tiefe Kompressionen  mit 7cm enthalten.
 Der nun aggregierte Mittelwert dieser Reanimation lautet 5,5cm und suggeriert eine an der Drucktiefe gemessene, ''perfekte'' Reanimation, obwohl nicht eine korrekte Kompression vorliegt.
 Dieser Aspekt muss bei der Betrachtung dieser Auswertung berücksichtigt werden.
-Eine mögliche Lösung oder zum Mindesten eine Verbesserung der Aussagekraft zur Drucktiefe wird in Kap blabla beschrieben.
-%cpr nur avg, keine einzel cpr, gefordertes neues Modell, wie in kap 123 beschrieben 
+Eine mögliche Lösung oder zum Mindesten eine Verbesserung der Aussagekraft zur Drucktiefe wird in Kap \ref{cprObjekt}blabla beschrieben.
 
 Zur rechten Seite der oben beschriebenen Visualisierung ist ein Boxplot-Diagramm, welches eine Zusammenfassung zur Drucktiefe liefert.
 Es zeigt kompakt die maximale und minimale durchschnittliche Tiefe, sowie die Quartile und den Median aller Reanimationen an.
 
-%ccf, frequenz, 
+Des Weiteren sind drei Diagramme vorhanden, welche mehr die Funktion von Platzhaltern einnehmen, da es zur Druckfrequenz und \gls{CCF} bis zu dem Zeitpunkt keine aussagekräftigen Daten gab.
+Dennoch ist es eine sehr relevante und gefragte Information und soll in der \ref{umserzung} weiter betrachtet werden.
+
 
 \subsubsection{Schocks}
 \bildbreit
@@ -196,23 +198,76 @@ Es zeigt kompakt die maximale und minimale durchschnittliche Tiefe, sowie die Qu
 {Dashboard zu den abgegebenen Defibrillationen}
 {Schocks-Visualisierung}
 
-%schocks die nicht 200j hatten, leider nur max schock, keine einzel shcocks, gefordertes neues Modell, wie in kap 123 beschrieben 
-gh
+Ergänzend zu den in \ref{subsub:Reanimation} beschriebenen Reanimationen sind auch die Defibrillationen oder ''Schocks'' von Relevanz.
+Denn jeder Einsatz mit Schockabgabe ist eine Reanimation, doch konträr ist nicht jede Reanimation mit Schockabgabe.
 
-\subsubsection{Sensorik}
-sd
+Die Abbildung \ref{fig:shocks} zeigt das dazugehörige Arbeitsblatt.
+Als generelle Statistik gibt es die Anzahl der Einsätze mit Schockabgabe, wie auch die Gesamtzahl und durchschnittliche pro Einsatz abgegebene Defibrillationen.
+Daneben gibt es ein Kreisdiagramm, welches sich hervorragend für den Vergleich von binären Optionen eignet, da die entsprechenden Anteile sofort ersichtlich werden.
+Hierbei werden die zwei Möglichkeiten der Schockabgabe verglichen: \gls{AED} und Manuell.
+Als weitere \gls{KPI} ist ergänzend dazu die Anzahl der Wechsel zwischen den Defibrillationsmodi.
+
+Darunter findet sich ein Balkendiagramm wieder, welches die Anzahl der Schocks nach jeweiliger eingestellter Energie in Joule darstellen soll.
+Zu dem damaligen Zeitpunkt war dies nicht möglich, da die Schocks wie auch die Kompressionen des Feedbacksensors nicht einzeln vorliegen, sondern voraggregiert werden und somit nur Min- und Max-Werte vorliegen.
+Da die Defibrillation eine aufschlussreiche Informationsquelle sind, wird eine Lösung in Kap \ref{schockObjekt} weiter erarbeitet.
+
+Eine Besonderheit bei der Visualisierung ist, dass die Defibrillationen, welche mit 200J abgegeben wurden, ausgeschlossen werden.
+Dies hat den Hintergrund, dass dies der voreingestellte Default-Wert und somit der überwiegende Teil aller Schocks mit dieser Energiemenge abgegeben werden.
+Würde man diesen Wert nicht ausschließen, führt das dazu, dass die restlichen ''Rand''-Werte untergehen und in der Grafik kaum oder gar nicht sichtbar sind.
+
+Eine weitere Information ist am unteren Ende des Arbeitsblattes zu finden.
+Dort werden aufgeschlüsselt nach den einzelnen Geräten die insgesamt abgegebenen Defibrillationen angezeigt.
+Somit (Fragestellungen?) können Auswertungen gemacht werden, welches Team/Wache/Fahrzeug wie viele Schocks abgegeben hat etc.
+%Shock mit Zeitverlauf! Monat... | Prozent von allen Einsätzen
+
 \subsubsection{Blutdruck}
-
+\bildbreit
+{nibd}
+{Dashboard zu den Blutdruckmessungen}
+{Blutdruck-Visualisierung}
 %nibd, leider nur min max avg, keiine einzel messungen, gefordertes neues Modell, wie in kap 123 beschrieben 
-sd
 
-\subsubsection{Patientendaten}
-sd
-\subsubsection{Pacer?Sonstiges}
-sd
+Ein weiterer möglicher Bestandteil einer Mission ist die \gls{NIBD}.
+Die zugrundeliegenden Daten sind auch bei diesem Segment vorab zusammengefasst.
+Somit ist lediglich die Anzahl der Messungen und die maximale Messdauer pro Mission verfügbar.
+Um auch hier wirksame Analysen und Auswertungen möglich zu machen, werden in Kap \ref{nibpObjekt} Ansätze zur Bereitstellung von den einzelnen Messungen verfolgt.
+
+Aus den bis dato vorliegenden Daten wurden drei \gls{KPI}s und ein Balkendiagramm extrahiert.
+Die Anzahl der Einsätze, die eine \gls{NIBD}-Messung hatten, die Gesamtanzahl der Messungen und daraus errechnet der Durchschnitt der Messungen pro Einsatz.
+Das Balkendiagramm stellt die Anzahl der Messungen nach maximaler Messdauer dar.
+(Mit der Tabelle können die jeweiligen Einsatz-UUIDs betrachtet werden) 
 
 
-\section{Generierung von Dummy-Daten?}
+
+\subsubsection{Weitere}
+Die folgenden Elemente wurden als ''Weitere'' zusammengefasst, da die Datenlage voraussichtlich recht wenig sein wird und die Nachfrage nicht sehr groß, aber dennoch vorhanden ist.
+
+\bildrechts
+{sensorik2}
+{3cm}
+{Kreisdiagramme der Sensorik}
+{Sensorik-Visualisierung}
+
+So spielt die Sensorik zum Beispiel doch eine große Rolle. 
+Das Dashboard als solches bietet keine großen Diagramme oder neue Erkenntnisse, dennoch soll es einen Überblick schaffen.
+Kreisdiagramme, wie in Abbildung \ref{fig:sensorik2} zu sehen, sind hier eine gute Wahl aufgrund der binären Optionen, ob eine Sensorik verwendet wurde oder nicht.
+Auch bieten sie als Filter eine nützliche Funktion, wenn beispielsweise Reanimationen gezeigt werden sollen, bei den sowohl ein Ruhe-EKG als auch CO2 gemessen wurde.
+
+Des Weiteren gibt es auch Patientendaten, welche manuell oder durch die Krankenversicherten-Karte in dem \gls{C3} eingetragen werden können.
+Die auswertbaren Daten hierbei sind Alter, Geschlecht und Herkunft, wobei Herkunft in der Praxis fast nie gepflegt wird und für eine Auswertung auch keine große Relevanz darstellt.
+Alter und Geschlecht sind jedoch sehr spannende Daten, welche in Kombination mit anderen Metriken spannende Auswertungen liefern kann.
+Dabei ist eine Darstellung des Medians des Alters sinnvoll. 
+Ob dies mit einem Boxplot-Diagramm oder einer \gls{KPI} und ergänzend ein Histogramm dargestellt wird, soll später erörtert werden.
+Zuerst muss hierbei auch der Aspekt der Anonymisierung betrachtet werden. 
+Dies kann in Kap \ref{anonym} nachgelesen werden.
+Das Geschlecht kann aufgrund der wenigen Optionen gut als Kreisdiagramm dargestellt werden.
+
+Zum Schluss gibt es noch einige wenige Daten zu dem \gls{pacer}.
+Aufgrund der seltenen Einsatzhäufigkeit bei Rettungseinsätzen steht die Implementierung dieses Dashboards noch zur Frage offen.
+Mögliche Informationen wären die Anzahl der Missionen mit Pacer-Einsatz und in welchem Modus. 
+Andere interessante Daten wie \todo{aus fragestellungen rauslesen} sind zu diesem Zeitpunkt nicht exportierbar und das Entwickeln dieser Funktionalität ist aufgrund des seltenen Einsatzes derzeit unwahrscheinlich.
+
+%\section{Generierung von Dummy-Daten?}
 % Kap. Umsetzung?
 
 \section{Evaluierung  des Prototyps}

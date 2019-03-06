@@ -8,7 +8,7 @@
 \label{sec:vorgehenKonzept}
 %\bildrechts{iterative} {2cm} {it} {iter}
 
-Gemäß der Methoden des Requirements Engineering \ref{requireEng} wird anhand der erhobenen und ausgearbeiteten Fragestellungen bzw. Anforderungen aus \ref{4.4 fragestellungen} ein Konzept erarbeitet. 
+Gemäß der Methoden des Requirements Engineering \ref{requireEng} wird anhand der erhobenen und ausgearbeiteten Fragestellungen beziehungsweise. Anforderungen aus \ref{4.4 fragestellungen} ein Konzept erarbeitet. 
 Auch hierbei wurde eine iterative Herangehensweise gewählt, unter anderem um in einer kurzen Zeit grobe Fehler zu erkennen und viele Verbesserungen herauszufinden. 
 Auch wird hierdurch gewährleistet, dass die exemplarischen und später produktiven Auswertungen und Visualisierungen nicht gänzlich in eine falsche Richtung gehen, sondern von Anfang an etwaige Missverständnisse aufgedeckt werden oder grundlegende Entscheidungen frühzeitig überdacht werden können.
 
@@ -16,17 +16,17 @@ Um von vornherein ein realistisches "`Look-and-Feel"' zu bieten und die entsprec
 Ein weiterer Vorteil ist, dass das notwendige Einarbeiten für die spätere Umsetzung in diese Technologie bereits gewährleistet wird. 
 Dabei können auch vorab verschiedene Vor- und Nachteile der Technologie herausgefunden werden und dementsprechend können diese bei der weiteren Planung und Umsetzung berücksichtigt werden, was viel Zeit sparen kann.
 
-Des Weiteren wurden Dummy-Daten unter anderem für den Prototypen generiert. 
+Des Weiteren wurden Dummy-Daten unter anderem zum Testen des Prototypen generiert. 
 Sie waren auch notwendig, um entsprechend andere Tests für die Datenbank und Auslastung durchzuführen \ref{db und lasttest}. 
 Dabei wurde ein Python-Skript geschrieben, welches einige Daten zufällig generiert, jedoch auf einer realistischen Basis.
 
 Die Evaluation soll wie oben beschrieben iterativ sein, was mehrere Termine mit unterschiedlichen Experten zur Konsequenz hat. 
-Im Zuge dieser Bachelorarbeit wird die Evaluation größtenteils? mit Mitarbeitern der Firma \gls{GS} durchgeführt. 
-Es gibt (viele) Abteilungen, in welchen genügend Fachleute sitzen, die in der Lage sind diese Dashboards kritisch prüfen zu können. 
+Im Zuge dieser Bachelorarbeit wird die Evaluation des Prototyps mit Mitarbeitern der Firma \gls{GS} durchgeführt. 
+Das unternehmen besitzt Abteilungen, in welchen genügend Fachleute sitzen, die in der Lage sind diese Dashboards kritisch prüfen zu können. 
 Hierbei wird darauf geachtet, unterschiedliches Personal miteinzubeziehen, sodass es keine exklusive/alleinige Evaluierung durch die Abteilung medizinische Forschung ist, sondern auch Vertriebsmitarbeiter oder andere Stakeholder sollen den Prototyp kritisch untersuchen.
 
-Bei der Konzeption ist auch das Datenmodell ein wichtiger Bestandteil. 
-Hier können verschiedene Modelle ausprobiert werden und gegebenenfalls Änderungen vorgenommen werden, sollten sich bei der Evaluation Probleme oder andere Anforderungen herausstellen.
+%Bei der Konzeption ist auch das Datenmodell ein wichtiger Bestandteil. 
+%Hier können verschiedene Modelle ausprobiert werden und gegebenenfalls Änderungen vorgenommen werden, sollten sich bei der Evaluation Probleme oder andere Anforderungen herausstellen.
 
 
 \section{Erstellung eines Prototypen}
@@ -41,13 +41,13 @@ Lediglich die Datenverbindungen, welche für die jeweiligen Applikationen die Da
 \subsection{Datengrundlage}
 \label{sub:datengrundlage}
 Zu Beginn wurde überlegt, welche Daten die Grundlage für den Prototypen bilden sollte.
-Dabei wurde auf die Demo-Datenbank des internen \gls{ANALYSE} - Servers zurückgegriffen, welche zu diesem Zeitpunkt in etwa 100.000 Missionen enthielt, von denen jedoch grundsätzlich alle nur Test-Missionen sind. 
+Dabei wurde auf die Demo-Datenbank des internen \gls{ANALYSE} - Servers zurückgegriffen, welche zu diesem Zeitpunkt in etwa 100.000 Missionen enthielt, von denen jedoch die meisten nur Test-Missionen sind. 
 Dies sind solche, die entweder von der internen Testabteilung oder der Software-Entwickler beim Testen von Funktionen oder Herausfinden von Problemen am Gerät oder durch die Software erzeugt werden. 
 Dementsprechend enthalten sie wenige spannende Daten, die auch selten realistisch sind und etwaige neue Erkenntnisse nicht darlegen können. 
 Nichtsdestotrotz bilden sie eine gute Grundlage um die ersten Basis-Auswertungen von Missionen paradigmatisch darzustellen. 
 
 Für diesen Zweck kann die Export-Funktion im CSV-Format von Analyse genutzt werden, welche in  \ref{istzustandanalysezurauswertung} näher beschrieben ist. 
-So war es für den Anfang möglich, einen relativ großen Datensatz mit mäßig sinnvollen Daten zu erhalten.\footnote{(In späteren Szenarios\ref{lasttests,db} wurden eigens generierte Missionen verwendet. Auf die Erzeugung dieser wird in Kapitel \ref{dummydaten} genauer eingegangen.)}
+So war es für den Anfang möglich, einen relativ großen Datensatz mit mäßig sinnvollen Daten zu erhalten.%\footnote{(In späteren Szenarios\ref{lasttests,db} wurden eigens generierte Missionen verwendet. Auf die Erzeugung dieser wird in Kapitel \ref{dummydaten} genauer eingegangen.)}
 
 
 
@@ -64,10 +64,10 @@ Im Fokus steht die erstmalige Beantwortung möglichst vieler Fragestellungen, au
 Nichtsdestotrotz wird später, zum Zeitpunkt der Evaluierung, eine einigermaßen angebrachte Gruppierung von Diagrammen und vernünftige Reihenfolge der Arbeitsblätter vorgenommen, damit für die entsprechenden Personen eine Struktur erkennbar ist, um mögliche Verwirrungen zu vermeiden.
 
 
-\subsubsection{Datenladeskript}
-, Was ist rel, was test, ....
-\subsubsection{Datenmodell}
-recht simpel. im prinzip eine Tabelle, keine Mehrdim, ...
+%\subsubsection{Datenladeskript}
+%, Was ist rel, was test, ....
+%\subsubsection{Datenmodell}
+%recht simpel. im prinzip eine Tabelle, keine Mehrdim, ...
 % Vermutlich nur Umsetzung, vielleicht auch hier
 
 %subsubsection Dashboards, und dann unterpunkte?
@@ -102,9 +102,17 @@ Eine Mini-Legende unterhalb der Grafik erleichtert die Orientierung, sollte der 
 
 Darunter sind zwei Kreisdiagramme zu sehen, welche die Anzahl der Einsätze und der Reanimationen pro Gerätetyp anzeigen.
 Diese Art der Visualisierung wurde gewählt, damit die Relation und Verteilung unter den Geräten deutlich gemacht wird.
-Unter dem jeweiligen Kreisdiagramm ist als einzelner \gls{Key-Performance-Indicator} die \gls{KPI} die durchschnittliche Einsatz- und Reanimationsdauer.
+Unter dem jeweiligen Kreisdiagramm ist als einzelner \gls{KPI} die durchschnittliche Einsatz- und Reanimationsdauer.
 
-\todo{Filter?}
+%\bildrechts
+%{filter}
+%{4cm}
+%{Gleichbleibendes Filterfenster auf den jeweiligen Dashboards}
+%{filt}
+Außerdem soll der Nutzer auf jedem Arbeitsblatt die Möglichkeit haben, die wichtigsten Filter jederzeit und schnell benutzen zu können.
+Hierfür wird, wie es in der Regel bei Nutzern von PC- und Web-Applikationen im mentalen Modell erwartet wird \cite{Grunwied.2017}, auf der linken Seite ein gleichbleibender Bereich für die Filteroptionen angelegt.
+Die häufigsten und essentiellen Optionen sind hierbei Zeit mit Jahr, Monat, Woche, Wochentag und die Geräte als \gls{Drilldown} mit Typ und anschließend der Seriennummern, zu sehen auf der linken Seite in Abbildung \ref{fig:einsatzzeitpunkt}.
+
 \subsubsection{Einsatzzeitpunkt}
 \label{subsub:zeitpunkt}
 \bildbreit
@@ -114,7 +122,7 @@ Unter dem jeweiligen Kreisdiagramm ist als einzelner \gls{Key-Performance-Indica
 
 Es gab diverse Fragestellungen zu den Einsatzzeitpunkten. (Beispiele oder ref?)
 Dieses Arbeitsblatt, in Abbildung \ref{fig:einsatzzeitpunkt} zu sehen, soll einen Überblick geben, zu welchen Tages- und Uhrzeiten die Einsätze stattfinden.
-Hierbei gibt es drei verschiedene Detailstufen?: Tageszeit, Stündlich und Halbstündlich (bullet?). 
+Hierbei gibt es drei verschiedene Detailstufen: Tageszeit, Stündlich und Halbstündlich (bulletlist?). 
 So kann der entsprechende Nutzer für seinen gewollte Bedarf die jeweilige Auslastung oder Einsatzhäufigkeit herausfinden.
 Des Weiteren sind unten, unterhalb der Tageszyklen (Tageszeit und Stunden), zwei weitere Diagramme, welche die Anzahl der Einsätze und Reanimationen für Wochentage und Monate anzeigt. 
 Somit ist jeder relevante zeitliche Zyklus abgedeckt und es können beispielsweise zu Tageszeiten wie nachts, Wochentage wie Wochenende und/oder saisonale wie winterliche Auswertungen betrieben werden.
@@ -148,8 +156,8 @@ Dies ist zugehörig unter der Geräteübergreifenden \gls{KPI} als Balkendiagram
 
 Darunter sind zwei weitere Diagramme zu finden, welche als Histogramm (irgendwo erklären) die Häufigkeit verschiedener Einsatz- sowie \gls{CPR}-Dauer darstellen.
 %\bildrechts{Dauer-klasse} {5cm} {w} {wa}
-Dabei werden je nach maximaler Dauer dynamisch gleichgroße Bereiche oder ''Klassen'' definiert.
-So gibt es beispielsweise den Bereich ''0 <= Reanimationsdauer in Min. < 16'', welcher hier >4000 Einsätze zählt, danach Reanimationsdauer größer gleich 16 und kleiner als 32 mit ca. 400 Missionen.
+Dabei werden je nach maximaler Dauer dynamisch gleichgroße Bereiche oder \glqq Klassen\grqq{} definiert.
+So gibt es beispielsweise den Bereich \glqq 0 <= Reanimationsdauer in Min. < 16\grqq{}, welcher hier >4000 Einsätze zählt, danach Reanimationsdauer größer gleich 16 und kleiner als 32 mit ca. 400 Missionen.
 Dies wird in diesen 16-Minuten-Schritten weiter bis zur maximal vorhandenen Reanimationsdauer fortgeführt.
 Dabei wird die Verteilung von Einsätzen und Reanimationen mit einer entsprechenden Dauer sichtbar und es können weiterführende Analysen auf Basis der Einsatzdauer vorgenommen werden.
 
@@ -161,9 +169,9 @@ Dabei wird die Verteilung von Einsätzen und Reanimationen mit einer entsprechen
 {Geräte-Visualisierung}
 
 Das folgende in Abbildung \ref{fig:devices} präsentierte Arbeitsblatt gibt dem Nutzer eine Übersicht seiner eingesetzten Geräte.
-Dabei gibt es die eindeutige \gls{KPI} ''Anzahl Geräte'', welche die distinkten Geräte zählt, von denen bis dato Missionen in dem vorliegenden \gls{ANALYSE}- Server vorliegen.
-Sofern der entsprechende Betreiber den Upload oder das nachträgliche importieren der Einsätze auf den Server anordnet, kann hiermit die gesamte Anzahl an Geräten überwacht werden. (Aktive Geräte? bsp Einsatz in letztem quartal? In umsetzung aufnehmen)
-Ergänzend zu dieser (pauschalen) Zahl gibt es in intuitiver Leserichtung rechts eine Visualisierung, wie viele Geräte einer Art vorliegen.
+Dabei gibt es die eindeutige \gls{KPI} \glqq Anzahl Geräte\grqq{}, welche die distinkten Geräte zählt, von denen bis dato Missionen in dem vorliegenden \gls{ANALYSE}- Server vorliegen.
+Sofern der entsprechende Betreiber den Upload oder das nachträgliche importieren der Einsätze auf den Server anordnet, kann hiermit die gesamte Anzahl an Geräten überwacht werden. %(Aktive Geräte? bsp Einsatz in letztem quartal? In umsetzung aufnehmen)
+Ergänzend zu dieser pauschalen Zahl gibt es in intuitiver Leserichtung rechts eine Visualisierung, wie viele Geräte einer Art vorliegen.
 Die Art der Darstellung ist ein Kreisdiagramm, da in der Regel eine Geräteart überwiegen wird, und somit diese in Relation zu der Gesamtheit gesetzt wird.
 
 Darunterliegend finden sich zwei Balkendiagramme wieder, welche die Anzahl der Einsätze und Reanimationen nach den einzelnen Geräten mittels Seriennummer und/oder Geräte-ID aufschlüsseln.
@@ -173,31 +181,31 @@ Dies präsentiert die Einsatzhäufigkeit von den Einzelgeräten und kann dadurch
 \label{subsub:reanimation}
 \bildbreit
 {reanimation}
-{Dashboard zu den Daten des \gls{CPR}-Feedbacksensors}
+{Dashboard zu den Daten des \gls{CPR-Feedbacksensor}s}
 {Reanimations-Visualisierung}
 
 Die nachträgliche Auswertung einer Reanimation ist für viele Stakeholder eine wichtige Aufgabe.
-Dabei gibt es beispielsweise die klassische Nachbesprechung zwischen Notfallsanitäter(erklärung Rettungsassistent?) und Auszubildenden oder aber auch die medizinische Forschung, welche Ereignisse und Werte einer Reanimationen untersuchen um gegebenfalls neue Erkenntnisse zu gewinnen.
-Eine Analyse über viele Reanimationen hinweg ist hierbei für viele Nutzergruppen (außer MRaA) ein neuer Weg, welcher bisher unentdeckte Zusammenhänge offenbaren oder bereits angenommene Hypothesen bestätigen kann.
+Dabei gibt es beispielsweise die klassische Nachbesprechung zwischen Notfallsanitäter(erklärung Rettungsassistent?) und Auszubildenden oder aber auch die medizinische Forschung, welche Ereignisse und Werte einer Reanimationen untersuchen um gegebenenfalls neue Erkenntnisse zu gewinnen.
+Eine Analyse über viele Reanimationen hinweg ist hierbei für viele Nutzergruppen ein neuer Weg, welcher bisher unentdeckte Zusammenhänge offenbaren oder bereits angenommene Hypothesen bestätigen kann.
 
-Ein wichtiger Erfolgsfaktor einer Reanimation ist eine adäquate Drucktiefe, welche zwischen 5-6cm liegen soll. (ref erc?)
-Sofern ein \gls{CPR}-Feedbacksensor (erklären?) bei einer Reanimation verwendet wird, kann die Drucktiefe jeder Kompression eingesehen werden. (auch vorOrtFeedback)
+Ein wichtiger Erfolgsfaktor einer Reanimation ist eine adäquate Drucktiefe, welche zwischen 5-6cm liegen soll  \cite{Monsieurs.2015}.
+Sofern ein \gls{CPR-Feedbacksensor} bei einer Reanimation verwendet wird, kann die Drucktiefe jeder Kompression eingesehen werden. %(auch vorOrtFeedback)
 Eine Auswertung zur Tiefe über viele Reanimationen hinweg kann im obersten Balkendiagramm in Abbildung \ref{fig:reanimation} betrachtet werden.
 Dabei sind horizontal die verschiedenen Drucktiefen und vertikal die Anzahl der Missionen mit dieser Tiefe angeordnet.
-Die Farbgebung mit rot und grün soll dem Benutzer helfen, schnell die ''guten'' Kompressionen von den unzureichenden zu unterscheiden.
+Die Farbgebung mit rot und grün soll dem Benutzer helfen, schnell die \glqq guten\grqq{} Kompressionen von den unzureichenden zu unterscheiden.
 
 Ein wichtiger Punkt hierbei ist, dass derzeit pro Reanimation genau ein Durchschnittswert der Drucktiefe gebildet wird und zum Export bereitsteht.
 Es ist somit eine stark voraggregierte Information, welche einen eventuellen falschen Wert widerspiegelt. 
 So kann beispielsweise eine Reanimation 100 zu flache Kompressionen mit 4cm, sowie 100 zu tiefe Kompressionen  mit 7cm enthalten.
-Der nun aggregierte Mittelwert dieser Reanimation lautet 5,5cm und suggeriert eine an der Drucktiefe gemessene, ''perfekte'' Reanimation, obwohl nicht eine korrekte Kompression vorliegt.
+Der nun aggregierte Mittelwert dieser Reanimation lautet 5,5cm und suggeriert eine an der Drucktiefe gemessene, \glqq perfekte\grqq{} Reanimation, obwohl nicht eine korrekte Kompression vorliegt.
 Dieser Aspekt muss bei der Betrachtung dieser Auswertung berücksichtigt werden.
-Eine mögliche Lösung oder zum Mindesten eine Verbesserung der Aussagekraft zur Drucktiefe wird in Kap \ref{cprObjekt}blabla beschrieben.
+Eine mögliche Lösung oder zum Mindesten eine Verbesserung der Aussagekraft zur Drucktiefe wird in Kap \ref{cprObjekt} beschrieben.
 
 Zur rechten Seite der oben beschriebenen Visualisierung ist ein Boxplot-Diagramm, welches eine Zusammenfassung zur Drucktiefe liefert.
 Es zeigt kompakt die maximale und minimale durchschnittliche Tiefe, sowie die Quartile und den Median aller Reanimationen an.
 
 Des Weiteren sind drei Diagramme vorhanden, welche mehr die Funktion von Platzhaltern einnehmen, da es zur Druckfrequenz und \gls{CCF} bis zu dem Zeitpunkt keine aussagekräftigen Daten gab.
-Dennoch ist es eine sehr relevante und gefragte Information und soll in der \ref{umserzung} weiter betrachtet werden.
+Dennoch ist es eine sehr relevante und gefragte Information und soll in \ref{Umsetzung} weiter betrachtet werden.
 
 
 \subsubsection{Schocks}
@@ -207,7 +215,7 @@ Dennoch ist es eine sehr relevante und gefragte Information und soll in der \ref
 {Dashboard zu den abgegebenen Defibrillationen}
 {Schocks-Visualisierung}
 
-Ergänzend zu den in \ref{subsub:reanimation} beschriebenen Reanimationen sind auch die Defibrillationen oder ''Schocks'' von Relevanz.
+Ergänzend zu den in \ref{subsub:reanimation} beschriebenen Reanimationen sind auch die Defibrillationen oder \glqq Schocks\grqq{} von Relevanz.
 Denn jeder Einsatz mit Schockabgabe ist eine Reanimation, doch konträr ist nicht jede Reanimation mit Schockabgabe.
 
 Die Abbildung \ref{fig:shocks} zeigt das dazugehörige Arbeitsblatt.
@@ -222,11 +230,11 @@ Da die Defibrillation eine aufschlussreiche Informationsquelle sind, wird eine L
 
 Eine Besonderheit bei der Visualisierung ist, dass die Defibrillationen, welche mit 200J abgegeben wurden, ausgeschlossen werden.
 Dies hat den Hintergrund, dass dies der voreingestellte Default-Wert und somit der überwiegende Teil aller Schocks mit dieser Energiemenge abgegeben werden.
-Würde man diesen Wert nicht ausschließen, führt das dazu, dass die restlichen ''Rand''-Werte untergehen und in der Grafik kaum oder gar nicht sichtbar sind.
+Würde man diesen Wert nicht ausschließen, führt das dazu, dass die restlichen \glqq Rand\grqq{}-Werte untergehen und in der Grafik kaum oder gar nicht sichtbar sind.
 
 Eine weitere Information ist am unteren Ende des Arbeitsblattes zu finden.
 Dort werden aufgeschlüsselt nach den einzelnen Geräten die insgesamt abgegebenen Defibrillationen angezeigt.
-Somit (Fragestellungen?) können Auswertungen gemacht werden, welches Team/Wache/Fahrzeug wie viele Schocks abgegeben hat etc.
+%Somit (Fragestellungen?) können Auswertungen gemacht werden, welches Team/Wache/Fahrzeug wie viele Schocks abgegeben hat etc.
 %Shock mit Zeitverlauf! Monat... | Prozent von allen Einsätzen
 
 \subsubsection{Blutdruck}
@@ -245,19 +253,19 @@ Um auch hier wirksame Analysen und Auswertungen möglich zu machen, werden in Ka
 Aus den bis dato vorliegenden Daten wurden drei \gls{KPI}s und ein Balkendiagramm extrahiert.
 Die Anzahl der Einsätze, die eine \gls{NIBD}-Messung hatten, die Gesamtanzahl der Messungen und daraus errechnet der Durchschnitt der Messungen pro Einsatz.
 Das Balkendiagramm stellt die Anzahl der Messungen nach maximaler Messdauer dar.
-(Mit der Tabelle können die jeweiligen Einsatz-UUIDs betrachtet werden) 
+Mit der Tabelle können die jeweiligen Einsatz-UUIDs und \gls{NIBD}-Statistiken betrachtet werden 
 
 
 
 \subsubsection{Weitere}
 \label{subsub:weitere}
-Die folgenden Elemente wurden als ''Weitere'' zusammengefasst, da die Datenlage voraussichtlich recht wenig sein wird und die Nachfrage nicht sehr groß, aber dennoch vorhanden ist.
+Die folgenden Elemente wurden als \glqq Weitere\grqq{} zusammengefasst, da die Datenlage voraussichtlich recht wenig sein wird und die Nachfrage nicht sehr groß, aber dennoch vorhanden ist.
 
-\bildrechts
-{sensorik2}
-{3cm}
-{Kreisdiagramme der Sensorik}
-{Sensorik-Visualisierung}
+%\bildrechts
+%{sensorik2}
+%{3cm}
+%{Kreisdiagramme der Sensorik}
+%{Sensorik-Visualisierung}
 
 So spielt die Sensorik zum Beispiel doch eine große Rolle. 
 Das Dashboard als solches bietet keine großen Diagramme oder neue Erkenntnisse, dennoch soll es einen Überblick schaffen.
@@ -276,7 +284,7 @@ Das Geschlecht kann aufgrund der wenigen Optionen gut als Kreisdiagramm dargeste
 Zum Schluss gibt es noch einige wenige Daten zu dem \gls{pacer}.
 Aufgrund der seltenen Einsatzhäufigkeit bei Rettungseinsätzen steht die Implementierung dieses Dashboards noch zur Frage offen.
 Mögliche Informationen wären die Anzahl der Missionen mit Pacer-Einsatz und in welchem Modus. 
-Andere interessante Daten wie \todo{aus fragestellungen rauslesen} sind zu diesem Zeitpunkt nicht exportierbar und das Entwickeln dieser Funktionalität ist aufgrund des seltenen Einsatzes derzeit unwahrscheinlich.
+Andere interessante Daten wie in Kap \ref{fragestellungenPacer} beschrieben sind zu diesem Zeitpunkt nicht exportierbar und das Entwickeln dieser Funktionalität ist aufgrund des seltenen Einsatzes derzeit unwahrscheinlich.
 
 %\section{Generierung von Dummy-Daten?}
 % Kap. Umsetzung?
@@ -286,20 +294,20 @@ Andere interessante Daten wie \todo{aus fragestellungen rauslesen} sind zu diese
 \subsection{Vorgehen bei der Prototyp-Evaluierung}
 \label{sub:vorgehenEvaluierung}
 Zur Evaluierung des Prototyps werden vorerst, wie in \ref{vorgehenkonzept} beschrieben, firmenintern geeignete Personen gesucht. 
-Dabei wurden Mitarbeiter aus den Abteilungen Medizinische Forschung und Anwendung, Applikations- bzw. Anwendungsspezialisten und Produktmanagement gewählt, da hier ein guter/großer Praxisbezug herrscht und die Erfahrungen, Wissen und Anforderungen ähnlich zu denen der zukünftigen Kunden sind.
+Dabei wurden Mitarbeiter aus den Abteilungen Medizinische Forschung und Anwendung, Applikations- beziehungsweise. Anwendungsspezialisten und Produktmanagement gewählt, da hier ein guter/großer Praxisbezug herrscht und die Erfahrungen, Wissen und Anforderungen ähnlich zu denen der zukünftigen Kunden sind.
 
 %\citeDürrenberger für Fokusgruppen!!
 
-Für die Evaluierung wurde eine (abgewandelte Form) Art der Fokusgruppen-Evaluation gewählt. \cite{Christoforakos.2017} 
+Für die Evaluierung wurde eine abgewandelte Form der klassichen Fokusgruppen-Evaluation angewandt  \cite{Christoforakos.2017}.
 Hierbei wird eine kleinere Gruppe von Teilnehmern zusammengestellt, welche die voraussichtlichen Kunden generell abbilden soll. 
-Danach ist es im Grunde genommen eine offene Gruppendiskussion, welche durch einen Moderator geleitet wird, sodass der entsprechende Fokus nicht außer Acht gelassen wird und etwaige Diskussionen und Gedankenaustausche in die richtige Richtung gelenkt werden. \cite{Durrenberger.1999}
-In diesen Beispielen spielt die Beobachtung der Teilnehmer keine große Rolle, wie normalerweise in den meisten Fokusgruppen üblich, da sie dass System als solche nicht bedienen und in diesem Fall aus der Beobachtung keine großen Erkenntnisse gewonnen werden können.
+Danach ist es im Grunde genommen eine offene Gruppendiskussion, welche durch einen Moderator geleitet wird, sodass der entsprechende Fokus nicht außer Acht gelassen wird und etwaige Diskussionen und Gedankenaustausche in die richtige Richtung gelenkt werden \cite{Durrenberger.1999}.
+In diesen Evaluierungen spielt die Beobachtung der Teilnehmer keine große Rolle, wie normalerweise in den meisten Fokusgruppen üblich, da sie dass System als solche nicht bedienen und in diesem Fall aus der Beobachtung keine großen Erkenntnisse gewonnen werden können.
 
 Die Vorteile einer Fokusgruppe sind, dass sich Personen in diesem Gebiet bereits auskennen und direktes Feedback geben können. 
 So ergibt sich in relativ kurzer Zeit eine große Datenmenge und kritische Rückmeldungen zum Prototyp, welche bei Bedarf im gleichen Zug weiter ausgeführt und/oder diskutiert werden können.
 Auch möglicherweise auftretende Fragen von den Personen können, im Gegensatz zu reinen Umfragen, direkt beantwortet werden um so Missverständnisse und Unklarheiten aufzuklären.
 
-Für die Evaluierung wurde eine Gruppengröße von ca. 3-4 Personen gewählt, was etwas unter der üblichen Fokusgruppengröße von ca. 6-8 Personen liegt (vgl. \cite{UsabilityinGermany.})?. 
+Für die Evaluierung wurde eine Gruppengröße von ca. 3-4 Personen gewählt, was etwas unter der üblichen Fokusgruppengröße von ca. 6-8 Personen liegt (vgl. \cite{UsabilityinGermany.}). 
 Grund hierfür sind zum einen die erwünschten 3-4 unterschiedlichen Gruppen, welche bei den ca. 16 geeigneten Personen diese Gruppengröße vorgibt, zum anderen ist es auch von Vorteil was das Einbringen von Ideen und Kritik von jeder Einzelperson angeht.
 Dennoch kann ein fachlicher Austausch zwischen verschiedenen Personen stattfinden, welcher für weiterführende Diskussionen sehr hilfreich sein kann. 
 
@@ -308,7 +316,7 @@ Ziel waren einerseits homogene Gruppen, wo die Personen ähnliche Hintergründe 
 So ist beispielsweise eine Gruppe von eher jungen medizinischen Forschern in einer ähnlichen Altersklasse zwischen 23-27 Jahren, aber mit verschiedenen Hintergründen, beziehungsweise Spezialisierungen zu Informatik, Rettungsdienst und medizinische Studien und Auswertungen.
 
 Mit der kleineren Größe der Gruppe wurde auch ein etwas kürzerer Zeitraum der jeweiligen Evaluierung gewählt.
-Demnach liegt sie (des Öfteren) bei einer Gruppe von 6-8 Personen bei ca. 90 Minuten (vgl. \cite{UsabilityinGermany.})? und für die hier durchgeführten Termine wurden 60 Minuten angesetzt, was pro Person gerechnet sogar etwas mehr Zeit.
+Demnach liegt sie (des Öfteren) bei einer Gruppe von 6-8 Personen bei ca. 90 Minuten (vgl. \cite{UsabilityinGermany.}) und für die hier durchgeführten Termine wurden 60 Minuten angesetzt, was pro Person gerechnet sogar etwas mehr Zeit.
 Jedoch ist diese Rechnung/Vergleich nicht repräsentativ und daher mit Vorsicht zu betrachten.
 
 Es werden die erstellten Dashboards aus \ref{sub:erstellungDashboards} in der Gruppe vorgestellt. 
@@ -333,19 +341,19 @@ Ein erster und von der Gruppe einstimmiger Fehler war ein Element der Filterleis
 Hier war die Sortierung der Wochentage teilweise in alphabetischer Reihenfolge, statt chronologisch Montag - Dienstag...
 Dies war ein Fehler, welcher durch inkonsistente Datengrundlage der unterschiedlichen Geräte eintrat, so waren die Wochentage des \gls{cCPR} und \gls{LIVE} rechtsbündig angelegt und somit für Qlik nicht als Datum auswertbar.
 
-Des Weiteren wurde für die Filterliste vorgeschlagen, nach der jeweiligen ''Device-ID'' filtern zu können.
+Des Weiteren wurde für die Filterliste vorgeschlagen, nach der jeweiligen \glqq Device-ID\grqq{} filtern zu können.
 Diese Funktion war bereits teilweise implementiert, jedoch als verstecktes \gls{Drilldown} nach Auswahl einer Geräteart und anschließend konnte nach technischer Seriennummer gefiltert werden.
 Dies wurde in der Gruppe weiter diskutiert, doch eine Filterung nach Geräte-ID scheint sinnvoller zu sein.
 
 In Bezug zu den Filtern kam außerdem die Idee, feste vordefinierte Filter vorzugeben.
-Beispielsweise ''Alle Reanimationen die letzten Monat in der Nacht stattfanden''. 
-Qlik Sense bietet eine solche Funktionalität unter dem Namen ''Lesezeichen'', welche getätigte Markierungen und Filter unter einem Namen speichert.
+Beispielsweise \glqq Alle Reanimationen die letzten Monat in der Nacht stattfanden\grqq{}. 
+Qlik Sense bietet eine solche Funktionalität unter dem Namen \glqq Lesezeichen\grqq{}, welche getätigte Markierungen und Filter unter einem Namen speichert.
 Da mit den Kombinationsmöglichkeiten eine sehr große Anzahl solcher definierter Lesezeichen entstehen kann, ist es vermutlich sinnvoll, diese Funktion dem jeweiligen Nutzer zur Verfügung zu stellen.
 Dies sollte im Funktionsumfang beim Lizenzierungsmodell mit den zugehörigen Funktionen beachtet werden Kap \ref{lizmodell}.
 
 Die Gruppe legte auch großen Wert auf Nutzerführung.
 Die ersten Titel der jeweiligen Diagramme waren oft unzureichend formuliert und haben dem Nutzer zu wenig Informationen gegeben, um die Visualisierung schnell zu verstehen.
-Auch Informationen beim ''\gls{Hovern}'' oder als zusätzlicher \gls{Button} wären hilfreich, um gegebenenfalls komplexere Diagramme weiter zu erläutern und die zugrundeliegenden Daten zu beschreiben. 
+Auch Informationen beim \glqq \gls{Hovern}\grqq{} oder als zusätzlicher \gls{Button} wären hilfreich, um gegebenenfalls komplexere Diagramme weiter zu erläutern und die zugrundeliegenden Daten zu beschreiben. 
 Insgesamt spielt die Usability eine große Rolle und sollte bei der Umsetzung starke Beachtung bekommen.
 
 Als Einstiegspunkt und Übersicht in das Programm soll das erste Arbeitsblatt dienen.
@@ -359,7 +367,7 @@ Generell war der Vorschlag, eine Einsatz-Startseite und eine ähnliche nur für 
 % Ein weiterer Vorschlag war, eine Startseite mit den aktuellsten Meldungen zu erstellen. Hierbei sollen zb die von letztem Tag, woche monat, dargestellt werden. (Umsetzung/Startseite...)
 
 Beim Dashboard Einsatzzeitpunkt, siehe \ref{subsub:zeitpunkt}, wurde bemerkt, dass die Tagesabschnitte eine unterschiedliche Anzahl an Stunden haben. 
-So hat der Morgen fünf, der Mittag sieben und Abends nud Nachts jeweils sechs Stunden.
+So hat der Morgen fünf, der Mittag sieben und Abends und Nachts jeweils sechs Stunden.
 Dies rechnet Einsätze, die für den Morgen kategorisiert werden sollten, zu den Mittags-Einsätzen hinzu und verfälscht somit den Eindruck.
 Des Weiteren wurde erfragt, in welchem Detailgrad die Auswertung Sinn macht.
 Dabei kam in der Diskussion heraus, dass nicht alle drei Diagramme zu sehen sein müssen. 
@@ -407,9 +415,9 @@ In den Sitzungen mit dieser Gruppe war die Frage nach Klassifizierung einer Rean
 Sofern der \gls{CPR-Feedbacksensor} verwendet wurde, ist es, sofern kein Puppen- oder Testeinsatz, mit hoher Wahrscheinlichkeit eine Reanimation.
 Alle anderen Wiederbelebungen müssen mittels prägnanter Ereignisse ermittelt werden. 
 So ist die Abgabe von Defibrillationen ein guter und verlässlicher Indikator für eine Reanimation.
-Sollte allerdings eine Reanimation ohne Feedbacksensor und ohne Schockabgabe erfolgen\footnote{Nicht jeder Herzstillstand ist Defibrillationspflichtig \cite{Nolan.2010}}, fällt sie zum derzeitigen Zeitpunkt in die Kategorie ''sonstiger Einsatz''
+Sollte allerdings eine Reanimation ohne Feedbacksensor und ohne Schockabgabe erfolgen\footnote{Nicht jeder Herzstillstand ist Defibrillationspflichtig \cite{Nolan.2010}}, fällt sie zum derzeitigen Zeitpunkt in die Kategorie \glqq sonstiger Einsatz\grqq{}
 So wurde über Ereignissen überlegt, welche eine Reanimation kennzeichnen.
-Beispiele hierfür waren unter anderem das Öffnen des Defibrialltions-Menüs, Starten einer Analyse, Kleben von den Defibrillations-Elektroden.
+Beispiele hierfür waren unter anderem das Öffnen des Defibrillations-Menüs, Starten einer Analyse, Kleben von den Defibrillations-Elektroden.
 Inwiefern diese Ereignisse zum diesem Zeitpunkt zur Auswertung zur Verfügung stehen, muss geklärt werden. Kap\ref{kapReaErkennung}
 
 Auch der Aspekt der Qualitätssicherung im Rahmen einer Reanimation spielt laut der Gruppe eine große Rolle.
@@ -418,7 +426,7 @@ Beispielsweise ob währenddessen eine \gls{Kapnografie} durchgeführt wurde oder
 Ebenso wäre aufschlussreich, wie der erste Rhythmus war. 
 Ob dies umzusetzen ist, ist fraglich und zum derzeitigen Zeitpunkt eher unwahrscheinlich.
 
-Bei der Darstellung der Reanimationsqualität, siehe Abbildung \ref{fig:reanimation}, gab es die Vorschläge, nicht jeden einzelnen Wert präzise zu präsentieren, sondern ein ''\gls{Binning}'' durchzuführen.
+Bei der Darstellung der Reanimationsqualität, siehe Abbildung \ref{fig:reanimation}, gab es die Vorschläge, nicht jeden einzelnen Wert präzise zu präsentieren, sondern ein \glqq \gls{Binning}\grqq{} durchzuführen.
 Argumentation hierfür war, dass es irrelevant ist, ob die Drucktiefe 1,2 oder 1,3cm war, interessanter ist wie viele es zwischen 1-2cm oder gar 1-3cm gibt.
 Gleiches Prinzip gilt auch bei der Druckfrequenz.
 
@@ -434,10 +442,15 @@ Auch die testweise hinzugefügte Farbgebung bei den Balkendiagrammen zu den Eins
 Als neuer Denkanstoß wurde als Geräteidentifizierung die Funkkennung eingebracht.
 Dieser sei in der Praxis häufig verwendet und gibt dem entsprechend privilegiertem Nutzer eine neue und praktikable Möglichkeit der Filterung nach ihm bekannten Kennungen.
 
-Bei den Schocks sei die jeweilige Impedanz bei den einzelnen Defibrillationen von Relevanz, da ansonsten zu Forschungzwecken die bloße Joule-Angabe wenig nützt.
+Bei den Schocks sei die jeweilige Impedanz bei den einzelnen Defibrillationen von Relevanz, da ansonsten zu Forschungszwecken die bloße Joule-Angabe wenig nützt.
 Auch die Anzahl an erfolgreichen Schocks sei sehr interessant, was jedoch zum aktuellen Stand aus den vorliegenden Daten nicht auslesbar ist.
 
-Bei der Reanimationsqualität
+Zu der Reanimationsqualität wurde angemerkt, dass die exemplarisch eingefügte \gls{CCF}-Statistik sehr bedeutungsvoll ist. 
+Die genaue Berechnung wird in Kap \ref{umsetzungCCF} weiter beschrieben.
+Außerdem wäre eine Prozentangabe der zu flachen und zu tiefen Kompressionen interessant, sowie, wie in \ref{sub:gruppe2} bereits genannt, die Einhaltung von Vorgaben, wie beispielsweise die CO2-Messung bei einer Reanimation.
+
+Bei dem Dashboard zur \gls{NIBD} wäre es interessant, welche Art von Blutdruck-Manschette wie oft verwendet wurde.
+Auch der auf der Startseite probeweise eingefügte \gls{Button} für Reanimationen fanden die Gruppenmitglieder als generellen Button im Filterbereich sinnvoll.
 
 
 %\subsection{Analyse der Ergebnisse}

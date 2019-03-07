@@ -1,22 +1,23 @@
 \chapter{Anforderungsanalyse}
-\label{anforderungsanalyse}
+\label{kap:anforderungsanalyse}
 \minitoc\pagebreak
 %\section{Requirements Engineering}
 % \lipsum[1-52]
+
 \section{Nutzungskontext}
+\label{sec:kontext}
 \gls{REVIEW} wird hauptsächlich in der präklinischen Rettung, beispielsweise einer Rettungswache, ansonsten auch in der klinischen Umgebung wie der Notaufnahme verwendet.
 \gls{ANALYSE} ist die 
+
+\subsection{Orgas?}
+
+%\subsection{Plätze?}
+
 \section{Nutzergruppen}
-Die unterschiedlichen Nutzergruppen, oftmals auch Benutzerklassen genannt (vgl. \cite[S. 125]{Herczeg.2018}), einer Anwendung sind ein essentieller, beeinflussender Faktor, wenn es um die Entwicklung einer Anwendung oder, wie in dieser Arbeit, die Erweiterung einer Anwendung um ein umfangreiches Feature geht. Sie beschränken, aber auch erweitern die geforderten Funktionalitäten und beeinflussen die Art und Weise, wie die Anwendung gestaltet wird. Beispielsweise welche Erfahrungswerte vorausgesetzt oder angelernt werden müssen, welche Icons oder Symbole bekannt oder unbekannt sind, welche Ziele, Erwartungen oder Befürchtungen sie haben spielen eine große Rolle bei der Entscheidung, welche Informationen in welchem Format dargestellt werden.
+\label{sec:nutzergruppen}
+\epigraph{"`Ein Stakeholder ist eine Person oder Organisation, die einen direkten oder indirekten Einfluss auf die Systemanforderung hat"'} {Klaus Pohl \& Chriss Rupp \cite[S.29]{Pohl.2011}}
 
-\begin{quote}
-"`Ein Stakeholder ist eine Person oder Organisation, die einen direkten oder indirekten Einfluss auf die Systemanforderung hat"' \cite[S.29]{Pohl.2011} 
-\end{quote}
-Auch eine "`Stakeholder-Liste"' ist ein hilfreiches Mittel, um einen Überblick an den beteiligten Personen zu erhalten und damit einhergehend so viele Anforderungen wie möglich an das System zu erheben (vgl. \cite[S. 83]{Bergsmann.2018}).
-Dieser Prozess ist vor allem zu Beginn der Anforderungsanalyse von besonderer Bedeutung, da so frühzeitig viele Informationen und Hinweise erkennbar werden, wie das System aufgebaut werden muss.
-Ein nachträgliches anpassen oder hinzufügen von Anforderungen kann unter Umständen schwere grundlegende Probleme mit sich ziehen, da gewisse fundamentale Architekturentscheidung auf der Basis dieser Ansprüche aufbauen können.
-
-Dabei kann grundsätzlich zwischen zwei Gruppen von Stakeholdern unterschieden werden \cite{Leffingwell.2011}:
+Bei Stakeholdern kann grundsätzlich zwischen zwei Gruppen unterschieden werden \cite{Leffingwell.2011}:
 \begin{description}
 \item [Requirements-Provider] \hfill \\
 Diese Personen oder Organisationen sind in der Regel jene, welche die Software oder das Produkt im Tagesgeschäft nutzen beziehungsweise voraussichtlich nutzen werden.
@@ -25,35 +26,117 @@ Dies können auch interne Mitarbeiter der Firma sein, welche besondere Erfahrung
 \item [Constraint-Provider] \hfill \\
 Hierbei handelt es sich um Personen, welche keine Anforderungen als solche definieren, sondern die Umsetzbarkeit der Anforderungen von den Requirements-Providern testen und daraus folgend technische Rahmenbedingungen, wie zum Beispiel die zu verwendende  Programmiersprache oder Datenbank, empfehlen oder festlegen.
 \end{description}
-\todotext{Referenzierung oder Verbindung zu meinen Nutzergruppen, Stakeholdern. \\Abgrenzung nur Anwender,keine Deployer etc.?, \\ Anforderungen weniger, sondern nur Fragestellungen }
 
-Daher ist zuerst zu klären, welche Nutzergruppen bei dem bisherigen Produkt vertreten sind.
-Anschließend sollten diese Benutzerklassen in Hinblick auf das erarbeitende Thema analysiert werden und daraufhin ist zu definieren, welche Eigenschaften oder Charakteristiken diese besitzen und ob gegebenenfalls Neue hinzukommen oder Alte hinfällig sind. 
+Eine \glqq Stakeholder-Liste\grqq ist ein hilfreiches Mittel, um einen Überblick an den beteiligten Personen zu erhalten und damit einhergehend so viele Anforderungen wie möglich an das System zu erheben (vgl. \cite[S. 83]{Bergsmann.2018}).
+Dieser Prozess ist vor allem zu Beginn der Anforderungsanalyse von besonderer Bedeutung, da so frühzeitig viele Informationen und Hinweise erkennbar werden, wie das System aufgebaut werden muss.
+Ein nachträgliches anpassen oder hinzufügen von Anforderungen kann unter Umständen schwere grundlegende Probleme mit sich ziehen, da gewisse fundamentale Architekturentscheidungen auf dieser Basis aufbauen können.
+?Ein Beispiel einer solchen Liste für \gls{ANALYSE} ist in Tabelle \ref{tbl:Stakeholder-Liste} zu sehen. ?
 
-\subsection{Stakeholder von corpuls.web ANALYSE}
+Die Requirements-Provider, fortan Nutzergruppen genannt, werden für das Erheben der Anforderungen hinzugezogen.
+Sie sind ein essentieller, beeinflussender Faktor, wenn es um die Entwicklung einer Anwendung oder die Erweiterung einer Anwendung um ein umfangreiches Feature geht \cite[S. 125]{Herczeg.2018}.
+Indirekt beschränken, aber auch erweitern sie die Funktionalitäten und beeinflussen die Art und Weise, wie die Anwendung gestaltet wird. 
+Beispielsweise welche Erfahrungswerte vorausgesetzt oder angelernt werden müssen, welche Icons oder Symbole bekannt oder unbekannt sind, welche Ziele, Erwartungen oder Befürchtungen sie haben spielen eine große Rolle bei der Entscheidung, welche Informationen in welchem Format dargestellt werden.
+
+%\todotext{Constraint-Provider: der Produktmanager, die Software-Entwickler, welche die neue Funktionalität implementieren und Ich?} 
+Die Aufgaben der Constraint-Provider für dieses \gls{Feature} sind unter anderem wie oben genannt das Testen der Umsetzbarkeit.
+Hierbei ist ein wesentlicher Bestandteil die Prüfung, ob eine Fragestellung mit den derzeit vorhandenen Daten der Geräte beantwortet werden kann.
+Weitere Aufgaben sind unter anderem Entscheidungen über das Format und die Bereitstellung der Daten oder die Haltung und Persistierung in den entsprechenden Datenbanken.
+
+(Dieser P bei Aufgabenanalyse?)Im Rahmen dieser Arbeit gibt es nicht die klassischen Anforderungen, wie beispielsweise \glqq ein Export sollte im CSV- und Zip-Format möglich sein\grqq. Die Anforderungen sind hierbei Fragestellungen welche beantwortet werden sollen, wie zum Beispiel \glqq Wie viele Reanimationen hat meine Wache?\grqq.
+
+Daher ist zunächst zu klären, welche Nutzergruppen bei dem bisherigen Produkt vertreten sind.
+Anschließend sollten Sie in Hinblick auf das zu erarbeitende Thema analysiert werden und daraufhin ist zu definieren, welche Eigenschaften oder Charakteristiken diese besitzen und ob gegebenenfalls neue hinzukommen oder alte hinfällig sind. 
+%\todotext{Referenzierung oder Verbindung zu meinen Nutzergruppen, Stakeholdern. \\Abgrenzung nur Anwender,keine Deployer etc.?, }
+
+\subsection{Stakeholder von \acrlong*{ANALYSE}}
+Eine tabellarische Auflistung der Stakeholder soll, wie in \ref{sec:nutzergruppen} beschrieben, einen Überblick der Personen(-gruppen) liefern, die einen Einfluss auf das Produkt haben.
+Somit soll gewährleistet werden, dass während der Konzeption und später auch bei der Umsetzung keine wichtigen Stakeholder vergessen werden, da dies schlimmere Nachwirkungen hat, je später sie bemerkt werden.
+
 
 % not sure if I#ll keep this table or just make a Auszug of it and more text?
-\begin{table}
+\begin{table}[htb]
 \centering
 \setlength{\extrarowheight}{4pt}
-\begin{tabular}{ | p{0.05\linewidth} | p{0.2\linewidth} | p{0.4\linewidth} | p{0.35\linewidth} |}
+%\begin{tabular}{ |p{0.05\linewidth} | p{0.2\linewidth} | p{0.4\linewidth} | p{0.25\linewidth} |}
+\begin{tabular}{ |p{0.5cm} | p{4cm} | p{5.5cm} |p{4cm} |}
   \hline
-  \textbf{ID} & \textbf{Stakeholder-Bezeichnung} & \textbf{Organisation} & \textbf{Kontaktperson}
+	\multicolumn{4}{|c|}{\textbf{Stakeholder}} \\
+  \hline
+\textbf{ID} & \textbf{Stakeholder-Bezeichnung} 	& \textbf{Organisation (Beispiel)} & \textbf{Gruppe}
   \\\hline
-  1			& Geschäftsführer & GS Elektromedizinische Geräte & Dr. Klimmer
+  1			& Geschäftsführer 					& \gls{GS} 				& Requirements-Provider
   \\\hline  
-  2			& Entwickler & GS Elektromedizinische Geräte & Florian Lehmann
+  2			& Entwickler 						& \gls{GS} 				& Constraint-Provider
+  \\\hline
+  3			& medizinische Forscher 			& Forschungseinrichtungen oder \gls{GS} & Requirements-Provider
+  \\\hline
+  4			& Wachenleiter						& \gls{DRK}				& Requirements-Provider
+  \\\hline
+  5			& Produktmanager 					& \gls{GS} 				& Constraint-\& Requirements-Provider
+  \\\hline
+  6			& Klinikpersonal					& Kliniken			& Requirements-Provider
+  \\\hline
+  7			& Qualitätsmanagement 				& \gls{GS} 				& Requirements-Provider
+  \\\hline
+  8			& Ausbilder 						& \gls{BRK}	 			& Requirements-Provider
+  \\\hline
+  9			& Systemadministrator 				& IT-Abteilung Krankenhaus				& Constraint-Provider
+  \\\hline  
+  10		& Tester 							& \gls{GS} 				& Constraint-Provider
+  \\\hline
+  11		& Rettungsdienstpersonal			& Malteser				& Requirements-Provider
   \\\hline
 \end{tabular} 
-  \caption[Stakeholder-Liste]{Stakeholder-Liste nach \cite[S. 85]{Bergsmann.2018}}
+  \caption[Stakeholder-Liste \acrlong*{ANALYSE}]{Stakeholder-Liste von \gls{ANALYSE} nach Bergsmann \cite[S. 85]{Bergsmann.2018}}
   \label{tbl:Stakeholder-Liste}
 \end{table}
 
+Eine solche exemplarische Stakeholder-Liste ist in Tabelle \ref{tbl:Stakeholder-Liste} zu sehen.
+Dabei wurde die Anzahl der Spalten verändert, da beispielsweise eine explizite Nennung der Kontaktperson für diese Arbeit nicht von Nöten ist.
+In der Liste wird die entsprechende Bezeichnung, eine beispielhafte Organisation und die Einordnung, ob es sich um ein Requirements- oder Constraint-Provider handelt, festgehalten.
+Hiermit ist es möglich, in den entsprechenden Phasen der Anforderungsanalyse, Konzeption oder Umsetzung die jeweils notwendigen Stakeholder zu berücksichtigen und gegebenenfalls zu kontaktieren. 
+Diese Liste dient als Orientierung, sie ist nicht vollständig und kann beliebig erweitert, ergänzt oder eingeschränkt werden.
+Auch eine höhere Abstraktion oder detailliertere Auflistung der Personen und Gruppen kann je nach Bedarf vorgenommen werden. 
+
+Mithilfe dieser Tabelle und der Spalte \glqq Gruppe\grqq{} können beispielsweise die Nutzergruppen aus den gelisteten Stakeholdern extrahiert werden.
+Diese werden im folgenden Abschnitt weiter erläutert.
+
+\subsection{Nutzergruppen von \acrlong*{ANALYSE}}
+\label{sub:NutzergruppenAnalyse}
+In Tabelle \ref{tbl:Stakeholder-Liste} ist eine Auswahl an Stakeholdern von \gls{ANALYSE} zu sehen.
+Diese kann hinzugezogen werden, wenn man zu einem Zeitpunkt der Planung oder Kozeptionierung eine bestimmte Gruppe dieser Personen miteinbeziehen möchte.
+Für die Anforderungsanalyse der zu erstellenden \gls{Dashboard}s ist es sinnvoll zu wissen, was die Nutzer haben möchten.
+Oder in diesem Fall welche Fragen sie haben, die womöglich mit den Daten der Geräte beantwortet werden können.
+
+Um viele dieser Fragen zu erhalten, werden die Nutzergruppen von \gls{ANALYSE} benötigt.
+Also jene Personen, die das Produkt oder die Daten, mit welchen das Produkt arbeitet, möglichst im Tagesgeschäft verwenden.
+Aus der Liste \ref{tbl:Stakeholder-Liste} lassen sich die Personen oder Gruppen rauslesen, welche entsprechende Fragestellungen haben könnten. 
+Wenn man nur die Requirements-Provider betrachtet, bleiben folgende relevante Nutzergruppen übrig:
+\begin{itemize}
+\item Geschäftsführer
+\item medizinische Forscher
+\item Leiter von Rettungswachen
+\item Mitarbeiter im Krankenhaus
+\item Mitarbeiter des Qualitätsmanagement
+\item Ausbilder von Rettungsdienstpersonal
+\item Rettungsdienstpersonal
+% \item Produktmanager
+\end{itemize}
+
+Aus dieser Liste von Personen und Gruppen kann ein weiterer Schritt der Reduzierung durchgeführt werden. 
+So betrachtet man jene fünf Nutzergruppen, welche \gls{ANALYSE} sehr häufig verwenden oder voraussichtlich verwenden werden:
+\begin{enumerate}
+\item \textbf{Leiter von Rettungswachen} \todotext{Personen weiter erläutern}
+\item \textbf{Forscher} sdsd
+\item \textbf{Ausbilder von Rettungsdienstpersonal} sdsd
+\item \textbf{Qualitätsmanagementbeauftragte} sdsd
+\item \textbf{Ärzte} sdsd
+\end{enumerate}
 
 
-\subsection{Personas}
-
-\section{Aufgabenanalyse}
+\subsubsection{Personas}
+\todotext{Def. Persona, Aus den in \ref{sub:NutzergruppenAnalyse} analysierten Nutzergruppen von \gls{ANALYSE} ...}
+%\section{Aufgabenanalyse} ?
 
 \section{Iterative Erhebung der zu beantwortenden Fragestellungen}
 \subsection{Ermittlung von Fragestellungen}

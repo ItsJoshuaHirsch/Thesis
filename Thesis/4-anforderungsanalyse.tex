@@ -6,12 +6,28 @@
 
 \section{Nutzungskontext}
 \label{sec:kontext}
+
+\todotext{STANDDERTECHNIK ANALYSE FÜR AUSWERTUNG?!}
 \gls{REVIEW} wird hauptsächlich in der präklinischen Rettung, beispielsweise einer Rettungswache, ansonsten auch in der klinischen Umgebung wie der Notaufnahme verwendet.
-\gls{ANALYSE} ist die 
+Es dient dabei dem Nachvollziehen einer Mission im Detail.
 
-\subsection{Orgas?}
+\gls{ANALYSE} ist eine Erweiterung als Server, welcher per Upload oder Import alle Einsätze abspeichert. 
+Mithilfe einer Suchmaske können in einer Tabelle entsprechende Einsätze nach bestimmten Kriterien gesucht und gefiltert werden.
+Ein Ausschnitt dieser Tabelle mit Suchmaske ist der Abbildung \ref{fig:missionlist} zu entnehmen.
+Anschließend kann ein Einsatz in \gls{REVIEW} geöffnet und im Detail betrachtet werden.
 
-%\subsection{Plätze?}
+\bildbreit
+{missionlist}
+{Ausschnitt aus der \glqq Missionsliste\grqq{} in \gls{ANALYSE}}
+{Missionsliste \gls{ANALYSE}}
+
+Das Auswerten von vielen Einsätzen, gegebenenfalls auch mit bestimmten Kriterien wie \glqq nur Nachts\grqq, ist zurzeit bedingt möglich.
+Hierfür können entweder die Einsätze in der Tabelle direkt miteinander verglichen werden oder eine Mehrfachauswahl an Einsätzen vorgenommen, siehe Abbildung \ref{fig:missionlist}, und anschließend ein Export im CSV-, BDF+-, oder \glqq corpuls ZIP\grqq -Format durchgeführt werden.
+Daraufhin kann mit dem jeweiligen Export in einem Drittanbieterprogramm eine Auswertung der ausgewählten Einsätze vollzogen werden.
+
+\subsection{Organisationen}
+Betroffene Organisationen sind unter anderem \todotext{orgas?}
+%\subsubsection{Plätze?}
 
 \section{Nutzergruppen}
 \label{sec:nutzergruppen}
@@ -70,7 +86,7 @@ Somit soll gewährleistet werden, dass während der Konzeption und später auch 
   \\\hline
   3			& medizinische Forscher 			& Forschungseinrichtungen oder \gls{GS} & Requirements-Provider
   \\\hline
-  4			& Wachenleiter						& \gls{DRK}				& Requirements-Provider
+  4			& Leiter Rettungsdienst				& \gls{DRK}				& Requirements-Provider
   \\\hline
   5			& Produktmanager 					& \gls{GS} 				& Constraint-\& Requirements-Provider
   \\\hline
@@ -115,7 +131,7 @@ Wenn man nur die Requirements-Provider betrachtet, bleiben folgende relevante Nu
 \begin{itemize}
 \item Geschäftsführer
 \item medizinische Forscher
-\item Leiter von Rettungswachen
+\item Leiter Rettungsdienst
 \item Mitarbeiter im Krankenhaus
 \item Mitarbeiter des Qualitätsmanagement
 \item Ausbilder von Rettungsdienstpersonal
@@ -126,16 +142,43 @@ Wenn man nur die Requirements-Provider betrachtet, bleiben folgende relevante Nu
 Aus dieser Liste von Personen und Gruppen kann ein weiterer Schritt der Reduzierung durchgeführt werden. 
 So betrachtet man jene fünf Nutzergruppen, welche \gls{ANALYSE} sehr häufig verwenden oder voraussichtlich verwenden werden:
 \begin{enumerate}
-\item \textbf{Leiter von Rettungswachen} \todotext{Personen weiter erläutern}
-\item \textbf{Forscher} sdsd
-\item \textbf{Ausbilder von Rettungsdienstpersonal} sdsd
-\item \textbf{Qualitätsmanagementbeauftragte} sdsd
-\item \textbf{Ärzte} sdsd
+\item \textbf{Leiter Rettungsdienst} Ein Leiter Rettungsdienst oder auch ein Rettungswachenleiter hat die Verantwortung über einen Rettungsdienst und damit gegebenenfalls über mehrere Wachen.
+Somit stehen unter ihm mehrere Personen in Schichtgruppen, die er koordiniere und einteilen muss.
+Organisatorische Aufgaben wie Prozess- und Mitarbeitermanagement gehören zu seinem Tagesgeschäft.
+Hierbei kann eine Datenspeicherung und daraus resultierende Auswertung und Analyse von Prozessen hilfreich und von besonderer Wichtigkeit sein.
+\item \textbf{Forscher} Sie haben das Ziel, mit wissenschaftlichen Methoden neue Erkenntnisse zu gewinnen, Hypothesen aufzustellen und diese zu beweisen oder zu widerlegen.
+Sie haben besonders viele Fragestellungen, die mit einfachen Daten wie Einsatzzeitpunkte oder komplexeren Daten, wie  die Entwicklung von medizinischen Vitalparametern, beantwortet werden können.
+\item \textbf{Ausbilder von Rettungsdienstpersonal} Diese Gruppe bildet neues Personal nach entsprechenden Vorgaben im Rettungswesen aus.
+Das Ziel ist eine umfangreiche und vor allem qualitativ hochwertige Ausbildung, da es um Patientenleben gehen kann.
+Ein gewisses Controlling und daraus resultierendes Feedback an Einzelpersonen oder Gruppen ist von besonderer Bedeutung.
+Mittels Datenauswertung kann dieses Feedback zielgenauer und spezifischer sein und so die Qualität der Ausbildung merklich verbessern.
+\item \textbf{Qualitätsmanagementbeauftragte} Mitarbeiter in der Qualitätssicherung oder im Qualitätsmanagement sin verantwortlich dafür, dass gewisse Vorgaben kommuniziert und eingehalten werden.
+Da sie meist bei größeren Trägern zum Einsatz kommen, ist die gebündelte Analyse von großen vorliegenden Datenmengen notwendig.
+\item \textbf{ärztliches Personal} Diese Gruppe umfasst unter anderem Chef-, Not-, Tele-, Fachärzte, sowie auch weiteres klinisches Personal.
+Sie können mittels einer Auswertung ihrer Daten entsprechende Therapiemaßnahmen evaluieren und etwaige Auswirkungen wahrnehmen.
 \end{enumerate}
 
 
 \subsubsection{Personas}
-\todotext{Def. Persona, Aus den in \ref{sub:NutzergruppenAnalyse} analysierten Nutzergruppen von \gls{ANALYSE} ...}
+\todotext{Def. Persona,  ...}
+
+Aus den in \ref{sub:NutzergruppenAnalyse} analysierten Nutzergruppen von \gls{ANALYSE} können mindestens fünf Personas erstellt werden.
+Im Zuge der Entwicklung der \textsf{corpuls\color{corpulsred}{.web}}-Produkte wurden bereits Personas angelegt.
+Dabei sind aus \ref{sub:NutzergruppenAnalyse} die Nutzergruppen 2, 3, 4 \& 5 bereits abgedeckt:
+\begin{description}
+\item[Nutzergruppe 2: Jörn]
+	\glqq Der Reanimations-Wissenschaftler\grqq 
+\item[Nutzergruppe 3: Bernd]
+	\glqq Der Sanitäter-Ausbilder\grqq 
+\item[Nutzergruppe 4: Juliane]
+	\glqq Miss Quality\grqq
+\item[Nutzergruppe 5: Hermann]
+	\glqq Der Land(Not)arzt\grqq
+\end{description}
+
+Folglich fehlt Nutzergruppe 1: Leiter Rettungsdienst.
+Angelehnt an die bisherigen Nutzergruppen wird exemplarische eine Persona erstellt:
+\todotext{Persona erstellen}
 %\section{Aufgabenanalyse} ?
 
 \section{Iterative Erhebung der zu beantwortenden Fragestellungen}

@@ -65,6 +65,7 @@ Anschließend sollten Sie in Hinblick auf das zu erarbeitende Thema analysiert w
 %\todotext{Referenzierung oder Verbindung zu meinen Nutzergruppen, Stakeholdern. \\Abgrenzung nur Anwender,keine Deployer etc.?, }
 
 \subsection{Stakeholder von \acrlong*{ANALYSE}}
+\label{subsec:stakeholder}
 Eine tabellarische Auflistung der Stakeholder soll, wie in \ref{sec:nutzergruppen} beschrieben, einen Überblick der Personen(-gruppen) liefern, die einen Einfluss auf das Produkt haben.
 Somit soll gewährleistet werden, dass während der Konzeption und später auch bei der Umsetzung keine wichtigen Stakeholder vergessen werden, da dies schlimmere Nachwirkungen hat, je später sie bemerkt werden.
 
@@ -128,16 +129,19 @@ Um viele dieser Fragen zu erhalten, werden die Nutzergruppen von \gls{ANALYSE} b
 Also jene Personen, die das Produkt oder die Daten, mit welchen das Produkt arbeitet, möglichst im Tagesgeschäft verwenden.
 Aus der Liste \ref{tbl:Stakeholder-Liste} lassen sich die Personen oder Gruppen rauslesen, welche entsprechende Fragestellungen haben könnten. 
 Wenn man nur die Requirements-Provider betrachtet, bleiben folgende relevante Nutzergruppen übrig:
+\begin{multicols}{2}
 \begin{itemize}
 \item Geschäftsführer
 \item medizinische Forscher
 \item Leiter Rettungsdienst
+\item Produktmanager
 \item Mitarbeiter im Krankenhaus
 \item Mitarbeiter des Qualitätsmanagement
 \item Ausbilder von Rettungsdienstpersonal
 \item Rettungsdienstpersonal
 % \item Produktmanager
 \end{itemize}
+\end{multicols}
 
 Aus dieser Liste von Personen und Gruppen kann ein weiterer Schritt der Reduzierung durchgeführt werden. 
 So betrachtet man jene fünf Nutzergruppen, welche \gls{ANALYSE} sehr häufig verwenden oder voraussichtlich verwenden werden:
@@ -160,11 +164,15 @@ Sie können mittels einer Auswertung ihrer Daten entsprechende Therapiemaßnahme
 
 
 \subsubsection{Personas}
-\todotext{Def. Persona,  ...}
+Eine Persona ist eine fiktive, spezifische Beschreibung einer Nutzergruppe.
+Es ist ein \gls{Archetyp}, welcher eine Klasse von Nutzern zusammenfasst und so die Entwickler beim Entwerfen von Mensch-Computer-Anwendungen unterstützen soll.
+Dabei werden die Charakteristiken von ein oder mehreren Nutzern kurz und prägnant zusammengefasst.
+Beispielhafte Details können unter anderem die Berufsbeschreibung, Ziele, Erwartungen, Anforderungen sowie Alter und Hobbies sein.
+Sie sollen den Entwicklern die zukünftigen Anwender vor Augen halten, damit eine angemessene Bedientauglichkeit der Software für alle Nutzergruppen gewährleistet wird (vgl. \cite[3.2, S.11]{Karwowski.2011,Pruitt.2006}).
 
 Aus den in \ref{sub:NutzergruppenAnalyse} analysierten Nutzergruppen von \gls{ANALYSE} können mindestens fünf Personas erstellt werden.
 Im Zuge der Entwicklung der \textsf{corpuls\color{corpulsred}{.web}}-Produkte wurden bereits Personas angelegt.
-Dabei sind aus \ref{sub:NutzergruppenAnalyse} die Nutzergruppen 2, 3, 4 \& 5 bereits abgedeckt:
+Dabei sind aus \ref{sub:NutzergruppenAnalyse} die Nutzergruppen 2 - 5 bereits abgedeckt:
 \begin{description}
 \item[Nutzergruppe 2: Jörn]
 	\glqq Der Reanimations-Wissenschaftler\grqq 
@@ -177,12 +185,78 @@ Dabei sind aus \ref{sub:NutzergruppenAnalyse} die Nutzergruppen 2, 3, 4 \& 5 ber
 \end{description}
 
 Folglich fehlt Nutzergruppe 1: Leiter Rettungsdienst.
-Angelehnt an die bisherigen Nutzergruppen wird exemplarische eine Persona erstellt:
-\todotext{Persona erstellen}
+Angelehnt an die zuvor erstellten Personas wird exemplarische eine neue Persona für die Nutzergruppe 1 erstellt:
+
+\begin{table} [htb]
+    \begin{tabular}{| p{4cm} | p{10cm} |}
+    \hline
+    \textbf{Persona}                      & \makecell[cl]{\tabitem Name: Andreas\\\tabitem Alter: 47\\\tabitem Hobbies: Schach, Golf\\\tabitem Beruf: Leiter Rettungsdienst}                                           \\ \hline
+    \textbf{Berufsbeschreibung}           & \makecell[cl]{\tabitem Einteilen der Personen in Schichtgruppen und \\Schichtpläne erstellen\\\tabitem Interne Prozesse überwachen und verbessern}            \\ \hline
+    \textbf{Motivation \& Ziele}        & \makecell[cl]{\tabitem Ich möchte meinen Rettungsdienst stetig verbessern\\ \tabitem Zufriedenes Personal und gesunde Patienten sind meine\\ höchste Priorität} \\ \hline
+    \makecell[cl]{\textbf{Anforderungen }\\ \textbf{\& Erwartungen}} & \makecell[cl]{\tabitem Ich möchte schnell sehen, welche Einsätze in meinen\\ Wachen passieren\\\tabitem Zeit um große Tabellen durchzuschauen habe ich nicht} \\ \hline
+    \textbf{Schmerzpunkte}                	& \makecell[cl]{\tabitem Veraltete Software die mir die Zeit raubt\\\tabitem Unübersichtliche Darstellung von Daten}                                          \\ \hline
+    \end{tabular}
+    \caption[Persona Leiter Rettungsdienst]{Exemplarische Persona für Nutzergruppe 1: Leiter Rettungsdienst}
+  \label{tbl:Persona}
+\end{table}
+
+Normalerweise wird einer Persona ein Avatar hinzugefügt, um dem Entwickler das Gefühl zu geben, für einen realen Menschen zu entwickeln. 
+Bei der Persona in Tabelle \ref{tbl:Persona} wurde auf das übliche Avatar verzichtet. 
+
+
+Es wurden die gängigen Beschreibungen wie bei den bereits vorhandenen Personas aufgeführt und entsprechend mit den Charakteristiken der Nutzergruppe \glqq Leiter Rettungsdienst\grqq{} versehen.
 %\section{Aufgabenanalyse} ?
 
 \section{Iterative Erhebung der zu beantwortenden Fragestellungen}
+Im folgenden Abschnitt wird der Prozess der Erhebung von den Fragestellungen erläutert.
+Hierbei wird die Methodik gemäß Requirements Engineering \cite{Pohl.2011} im iterativen Prozess angewandt.
+Dieser Prozess geschieht zwar iterativ, zugunsten der Lesbarkeit dieser Arbeit werden die jeweiligen Schritte jedoch als ein Kapitel zusammengefasst.
+
+\bild
+{requireEngineering}
+{12cm}
+{Zyklus des Requirements Engineering. Bildquelle: \cite{Patig.}}
+{Zyklus Requirements Engineering}
+
+Demnach werden, wie in Abbildung \ref{fig:requireEngineering} zu sehen, im ersten Schritt die Fragestellungen ermittelt.
+Wichtig hierbei ist die Berücksichtigung der verschiedenen Stakeholder des Produktes, welche in Tabelle \ref{tbl:Stakeholder-Liste} (S.\pageref{tbl:Stakeholder-Liste}) zusammengetragen wurden.
+
+Anschließend werden die ermittelten Fragestellungen analysiert beziehungsweise geprüft.
+Dabei sollen die vielen Daten aus dem vorherigen Schritt klassifiziert und strukturiert werden.
+So lassen sich Redundanzen oder Diskordanzen vermeiden und aus der Häufigkeit der Vorkommnisse Prioritäten ableiten \cite[S.100f]{Sommerville.2012}.
+
+Beim spezifizieren werden die geordneten Anforderungen üblicherweise in eine Standardform gebracht.
+Für diese Arbeit ist jedoch die Spezifikation der benötigten Daten eine essentielle Handlung.
+Dadurch wird die weitere Validierung, anschließende Umsetzung und Erarbeitung der Handlungshinweise gewährleistet.
+
+Im vierten Schritt aus Abbildung \ref{fig:requireEngineering} werden die spezifizierten Fragestellungen validiert.
+Dies geschieht im fließenden Übergang zu Kapitel \ref{sec:evaluierung}, da hier geprüft wird, ob die spezifizierten Fragestellungen auch tatsächlich mit denen der Stakeholder übereinstimmen.
+Damit soll garantiert werden, dass das entsprechende Endprodukt den Anforderungen der Stakeholder entspricht \cite{Patig.}.
+
+
 \subsection{Ermittlung von Fragestellungen}
-\subsection{Analyse der Anforderungen}
-\subsection{Spezifikation der Fragen und benötigte Daten}
+Um zu wissen, welche Fragestellungen beantwortet werden sollen, müssen diese an erster Stelle ermittelt werden.
+Wie bei Anforderungen an eine Software werden hierfür die entsprechenden Stakeholder herangezogen.
+Dabei werden primär adäquat qualifizierte Mitarbeiter der Firma \gls{GS} befragt, welche einer Stakeholder-Gruppe aus Tabelle \ref{tbl:Stakeholder-Liste} zugeordnet werden können.
+Hierfür wurden mehrere geeignete Personen der Abteilungen \glqq Medizinische Forschung und Anwendung\grqq, Anwendungsspezialisten, Produktmanagement, Vertrieb und Kundendienst, sowie ein aktueller Kunde aus Dresden miteinbezogen.\todotext{China?}
+
+Zur Ermittlung werden zu Beginn Einzelinterviews durchgeführt. 
+Diese haben der Vorteil, dass sich die entsprechende Person vollends auf die Thematik fokussieren kann.
+Außerdem ist dadurch die Beeinflussung durch Dritte ausgeschlossen, sodass die alleinige Perspektive der entsprechenden Nutzergruppe gewährleistet ist.
+Die Einzelinterviews haben eine durchschnittliche Länge von 60-90 Minuten und werden in einem Raum mit Computer und Beamer durchgeführt.
+Mittels der genannten Technik ist es möglich, dem Interviewpartner zu Beginn Eindrücke zu gewähren, inwiefern Fragestellungen beantwortet werden können.
+Dabei wird der Person eine Beispiel-App von Qlik präsentiert und die zugrundeliegende Fragestellung zu einer Visualisierung dargelegt, damit jedes Interview mit einer gleichen Wissensbasis vollzogen werden kann.
+So ist es möglich dem Befragten eine Vorstellung zu geben, um welche Art von Fragestellung es sich handelt und welche realisierbar sind.
+
+Anschließend werden eingangs offene Fragen gestellt und versucht, dem Interviewpartner wenig Input zu liefern, sondern so viel persönliche und nicht beeinflusste Informationen und Meinungen wie möglich zu erhalten.
+Im Verlaufe des Gesprächs werden, falls notwendig, verschiedene Bereiche, welche die jeweilige Person noch nicht berücksichtigt hatte, nur nennen.
+Auch Ideen von anderen Interviews werden bei einem fortschreitend kontextlosem Gespräch eingebracht, um etwaige übersehene Bereiche abzudecken oder neue Ideen hierfür zu erlangen. 
+
+Im Anschluss werden die Notizen beider Beteiligten in digitaler Form möglichst unkomprimiert dokumentiert.
+Ein exemplarischer Auszug ist hier zu sehen: \todotext{Tabelle o. Bild o. Bulletlist?}
+(Anhang alles?)
+
+
+\subsection{Analyse der Fragestellungen}
+\subsection{Spezifikation der Fragen und deren benötigte Daten}
 \subsection{Validierung der spezifizierten Fragestellungen}

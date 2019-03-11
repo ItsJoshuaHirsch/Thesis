@@ -1,2 +1,11 @@
-iterative - http://hciresearch4.hcii.cs.cmu.edu/M-HCI/2011/GE-PACS/images/design_overview.png
-bmg - https://www.bundesgesundheitsministerium.de/fileadmin/Dateien/3_Downloads/E/eHealth/BMG-Weiterentwicklung_der_eHealth-Strategie-Abschlussfassung.pdf Seite 15
+iterative - 
+http://hciresearch4.hcii.cs.cmu.edu/M-HCI/2011/GE-PACS/images/design_overview.png
+
+bmg - 
+https://www.bundesgesundheitsministerium.de/fileadmin/Dateien/3_Downloads/E/eHealth/BMG-Weiterentwicklung_der_eHealth-Strategie-Abschlussfassung.pdf Seite 15
+
+small cycle - 
+http://www.partizipative-qualitaetsentwicklung.de/
+
+requireeng - 
+http://www.enzyklopaedie-der-wirtschaftsinformatik.de/lexikon/is-management/Systementwicklung/Hauptaktivitaten-der-Systementwicklung/Problemanalyse-/Requirements-Engineering/index.html

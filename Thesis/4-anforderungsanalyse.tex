@@ -7,7 +7,7 @@
 \section{Nutzungskontext}
 \label{sec:kontext}
 
-\todotext{STANDDERTECHNIK ANALYSE FÜR AUSWERTUNG?!}
+%\todotext{STANDDERTECHNIK ANALYSE FÜR AUSWERTUNG?!}
 \gls{REVIEW} wird hauptsächlich in der präklinischen Rettung, beispielsweise einer Rettungswache, ansonsten auch in der klinischen Umgebung wie der Notaufnahme verwendet.
 Es dient dabei dem Nachvollziehen einer Mission im Detail.
 
@@ -23,10 +23,10 @@ Anschließend kann ein Einsatz in \gls{REVIEW} geöffnet und im Detail betrachte
 
 Das Auswerten von vielen Einsätzen, gegebenenfalls auch mit bestimmten Kriterien wie \glqq nur Nachts\grqq, ist zurzeit bedingt möglich.
 Hierfür können entweder die Einsätze in der Tabelle direkt miteinander verglichen werden oder eine Mehrfachauswahl an Einsätzen vorgenommen, siehe Abbildung \ref{fig:missionlist}, und anschließend ein Export im CSV-, BDF+-, oder \glqq corpuls ZIP\grqq -Format durchgeführt werden.
-Daraufhin kann mit dem jeweiligen Export in einem Drittanbieterprogramm eine Auswertung der ausgewählten Einsätze vollzogen werden.
+Daraufhin kann mit dem jeweiligen Export in einem Drittanbieterprogramm eine oberflächliche Auswertung der ausgewählten Einsätze vollzogen werden.
 
-\subsection{Organisationen}
-Betroffene Organisationen sind unter anderem \todotext{orgas?}
+%\subsection{Organisationen}
+%Betroffene Organisationen sind unter anderem \todotext{orgas?}
 %\subsubsection{Plätze?}
 
 \section{Nutzergruppen}
@@ -46,7 +46,7 @@ Hierbei handelt es sich um Personen, welche keine Anforderungen als solche defin
 Eine \glqq Stakeholder-Liste\grqq ist ein hilfreiches Mittel, um einen Überblick an den beteiligten Personen zu erhalten und damit einhergehend so viele Anforderungen wie möglich an das System zu erheben (vgl. \cite[S. 83]{Bergsmann.2018}).
 Dieser Prozess ist vor allem zu Beginn der Anforderungsanalyse von besonderer Bedeutung, da so frühzeitig viele Informationen und Hinweise erkennbar werden, wie das System aufgebaut werden muss.
 Ein nachträgliches anpassen oder hinzufügen von Anforderungen kann unter Umständen schwere grundlegende Probleme mit sich ziehen, da gewisse fundamentale Architekturentscheidungen auf dieser Basis aufbauen können.
-?Ein Beispiel einer solchen Liste für \gls{ANALYSE} ist in Tabelle \ref{tbl:Stakeholder-Liste} zu sehen. ?
+Ein Beispiel einer solchen Liste für \gls{ANALYSE} ist in Tabelle \ref{tbl:Stakeholder-Liste} zu sehen.
 
 Die Requirements-Provider, fortan Nutzergruppen genannt, werden für das Erheben der Anforderungen hinzugezogen.
 Sie sind ein essentieller, beeinflussender Faktor, wenn es um die Entwicklung einer Anwendung oder die Erweiterung einer Anwendung um ein umfangreiches Feature geht \cite[S. 125]{Herczeg.2018}.
@@ -58,7 +58,7 @@ Die Aufgaben der Constraint-Provider für dieses \gls{Feature} sind unter andere
 Hierbei ist ein wesentlicher Bestandteil die Prüfung, ob eine Fragestellung mit den derzeit vorhandenen Daten der Geräte beantwortet werden kann.
 Weitere Aufgaben sind unter anderem Entscheidungen über das Format und die Bereitstellung der Daten oder die Haltung und Persistierung in den entsprechenden Datenbanken.
 
-(Dieser P bei Aufgabenanalyse?)Im Rahmen dieser Arbeit gibt es nicht die klassischen Anforderungen, wie beispielsweise \glqq ein Export sollte im CSV- und Zip-Format möglich sein\grqq. Die Anforderungen sind hierbei Fragestellungen welche beantwortet werden sollen, wie zum Beispiel \glqq Wie viele Reanimationen hat meine Wache?\grqq.
+Im Rahmen dieser Arbeit gibt es nicht die klassischen Anforderungen, wie beispielsweise \glqq ein Export sollte im CSV- und Zip-Format möglich sein\grqq. Die Anforderungen sind hierbei Fragestellungen welche beantwortet werden sollen, wie zum Beispiel \glqq Wie viele Reanimationen hat meine Wache?\grqq.
 
 Daher ist zunächst zu klären, welche Nutzergruppen bei dem bisherigen Produkt vertreten sind.
 Anschließend sollten Sie in Hinblick auf das zu erarbeitende Thema analysiert werden und daraufhin ist zu definieren, welche Eigenschaften oder Charakteristiken diese besitzen und ob gegebenenfalls neue hinzukommen oder alte hinfällig sind. 
@@ -196,7 +196,7 @@ Angelehnt an die zuvor erstellten Personas wird exemplarische eine neue Persona 
     \makecell[cl]{\textbf{Anforderungen }\\ \textbf{\& Erwartungen}} & \makecell[cl]{\tabitem Ich möchte schnell sehen, welche Einsätze in meinen\\ Wachen passieren\\\tabitem Zeit um große Tabellen durchzuschauen habe ich nicht} \\ \hline
     \textbf{Schmerzpunkte}                	& \makecell[cl]{\tabitem Veraltete Software die mir die Zeit raubt\\\tabitem Unübersichtliche Darstellung von Daten}                                          \\ \hline
     \end{tabular}
-    \caption[Persona Leiter Rettungsdienst]{Exemplarische Persona für Nutzergruppe 1: Leiter Rettungsdienst}
+    \caption[Persona: Leiter Rettungsdienst]{Exemplarische Persona für Nutzergruppe 1: Leiter Rettungsdienst}
   \label{tbl:Persona}
 \end{table}
 
@@ -208,6 +208,7 @@ Es wurden die gängigen Beschreibungen wie bei den bereits vorhandenen Personas 
 %\section{Aufgabenanalyse} ?
 
 \section{Iterative Erhebung der zu beantwortenden Fragestellungen}
+\label{sec:erhebung}
 Im folgenden Abschnitt wird der Prozess der Erhebung von den Fragestellungen erläutert.
 Hierbei wird die Methodik gemäß Requirements Engineering \cite{Pohl.2011} im iterativen Prozess angewandt.
 Dieser Prozess geschieht zwar iterativ, zugunsten der Lesbarkeit dieser Arbeit werden die jeweiligen Schritte jedoch als ein Kapitel zusammengefasst.
@@ -226,8 +227,8 @@ Dabei sollen die vielen Daten aus dem vorherigen Schritt klassifiziert und struk
 So lassen sich Redundanzen oder Diskordanzen vermeiden und aus der Häufigkeit der Vorkommnisse Prioritäten ableiten \cite[S.100f]{Sommerville.2012}.
 
 Beim spezifizieren werden die geordneten Anforderungen üblicherweise in eine Standardform gebracht.
-Für diese Arbeit ist jedoch die Spezifikation der benötigten Daten eine essentielle Handlung.
-Dadurch wird die weitere Validierung, anschließende Umsetzung und Erarbeitung der Handlungshinweise gewährleistet.
+Für diese Arbeit ist jedoch die Spezifikation der benötigten Daten ebenso eine zielführende Handlung.
+Dadurch wird die weitere Validierung, anschließende Umsetzung und Erarbeitung der Handlungshinweise vereinfacht und gewährleistet.
 
 Im vierten Schritt aus Abbildung \ref{fig:requireEngineering} werden die spezifizierten Fragestellungen validiert.
 Dies geschieht im fließenden Übergang zu Kapitel \ref{sec:evaluierung}, da hier geprüft wird, ob die spezifizierten Fragestellungen auch tatsächlich mit denen der Stakeholder übereinstimmen.
@@ -238,7 +239,7 @@ Damit soll garantiert werden, dass das entsprechende Endprodukt den Anforderunge
 Um zu wissen, welche Fragestellungen beantwortet werden sollen, müssen diese an erster Stelle ermittelt werden.
 Wie bei Anforderungen an eine Software werden hierfür die entsprechenden Stakeholder herangezogen.
 Dabei werden primär adäquat qualifizierte Mitarbeiter der Firma \gls{GS} befragt, welche einer Stakeholder-Gruppe aus Tabelle \ref{tbl:Stakeholder-Liste} zugeordnet werden können.
-Hierfür wurden mehrere geeignete Personen der Abteilungen \glqq Medizinische Forschung und Anwendung\grqq, Anwendungsspezialisten, Produktmanagement, Vertrieb und Kundendienst, sowie ein aktueller Kunde aus Dresden miteinbezogen.\todotext{China?}
+Hierfür wurden mehrere geeignete Personen der Abteilungen \glqq Medizinische Forschung und Anwendung\grqq, Anwendungsspezialisten, Produktmanagement, Vertrieb und Kundendienst, sowie ein aktueller Kunde aus Dresden miteinbezogen. %\todotext{China?}
 
 Zur Ermittlung werden zu Beginn Einzelinterviews durchgeführt. 
 Diese haben der Vorteil, dass sich die entsprechende Person vollends auf die Thematik fokussieren kann.
@@ -253,10 +254,125 @@ Im Verlaufe des Gesprächs werden, falls notwendig, verschiedene Bereiche, welch
 Auch Ideen von anderen Interviews werden bei einem fortschreitend kontextlosem Gespräch eingebracht, um etwaige übersehene Bereiche abzudecken oder neue Ideen hierfür zu erlangen. 
 
 Im Anschluss werden die Notizen beider Beteiligten in digitaler Form möglichst unkomprimiert dokumentiert.
-Ein exemplarischer Auszug ist hier zu sehen: \todotext{Tabelle o. Bild o. Bulletlist?}
-(Anhang alles?)
+Ein exemplarischer Auszug ist hier zu sehen: \todotext{Anhang alles?}
+\bildbreit
+{notes}
+{Kurzer Auszug der digitalisierten, möglichst unkomprimierten Notizen aus den Gesprächen mit Personen der \glqq Medizinischen Forschung und Anwendung\grqq}
+{Auszug Notizen der Ermittlung von Fragestellung}
+
 
 
 \subsection{Analyse der Fragestellungen}
+\label{sub:analyseFragen}
+Abbildung \ref{fig:requireEngineering} ist zu entnehmen, dass nach der Ermittlung die erste Phase der Analyse oder Prüfung der gesammelten Anforderungen ansteht.
+Hier ist bereits ein Pfeil zurück auf den ersten Schritt zu erkennen.
+Dies bedeutet, dass nach Abschluss der Analyse ein erneutes ermitteln Anforderungen mit den gleichen oder anderen Personen erfolgen kann.
+Dabei können die gewonnenen Erfahrungen aus dem ersten Durchlauf mit eingebracht werden und so schneller bessere Ergebnisse erzielt werden.
+\bildrechts
+{listeanalyse}
+{7cm}
+{Analysierte Informationen strukturiert in Kategorien}
+{Auszug analysierte Liste der Fragestellungen}
+Bei der Analyse werden die unstrukturierten gesammelten Daten und Informationen grob vorstrukturiert.
+Hierbei ist beispielsweise eine Einordnung in Kategorien eine hilfreiche Handlung, welche die Lesbarkeit enorm verbessert und die Komplexität auf mehrere Ebenen verteilt.
+Durch diesen Schritt entstehen Kategorien wie Reanimation, Einsätze, Planung, Bedienung und viele mehr.
+
+Ein weiterer Prozess ist die Vermeidung oder das Auflösen von Redundanzen und Diskordanzen.
+Dabei werden ähnliche Informationen zusammengefasst und innerhalb der Kategorie nach oben verschoben.
+Dadurch entsteht eine erste Priorisierung basierend auf der Häufigkeit, wie viele Personen die gleiche Information oder Fragestellung hatten.
+Auch Diskordanzen werden eliminiert, indem beispielsweise die Auswertung nach einzelnen Mitarbeitern herausgenommen wird, da in einem Gespräch herauskam, dass dies als Leistungs- oder Mitarbeiterüberwachung beziehungsweise aus Datenschutzgründen rechtlich nicht trivial ist.
+
+So entsteht eine Liste mit einer ersten Priorisierung in den Kategorien und ohne offensichtliche Duplikate oder Konflikte.
+Ein Ausschnitt dieser Liste ist in Abbildung \ref{fig:listeanalyse} zu sehen.
+\clearpage
 \subsection{Spezifikation der Fragen und deren benötigte Daten}
+\label{sub:spezifikation}
+Mithilfe der in \ref{sub:analyseFragen} analysierten und strukturierten Liste ist es nun möglich, den nächsten Schritt gemäß Requirements Engineering durchzuführen: Die Spezifikation der Fragestellungen \cite{Pohl.2011}.
+
+Für diese Arbeit bedeutet das in dem Fall zwei große Schritte: 
+\begin{enumerate}
+\item Zum einen müssen die Daten nach \cite{Patig.} in eine Standardform überführt werden. 
+Da sie bisher aus den Interview-Notizen digital festgehalten wurden, sind es heterogene Formen wie Stichpunkte, Schlagwörter oder Fragen.
+Eine zielorientierte Standardform wäre hierbei die Formulierung in Fragestellungen aus Sicht des Benutzers.
+Dieser Vorgang wird in \ref{subsub:standardform} näher beschrieben.
+\item Zum anderen sollten die standardisierten Fragestellungen auf die benötigten Daten überprüft werden.
+Dabei können unterschiedliche Kategorien entstehen, wenn die Daten beispielsweise bereits im richtigen Format vorliegen oder aber die benötigten Daten zum aktuellen Zeitpunkt schlicht nicht vorhanden oder exportierbar sind.
+So können etwaige Fragestellungen bereits ausgeschlossen oder höher priorisiert werden, wenn deren Daten bereits optimal vorliegen.
+Auch ist es für später folgende Prozesse leichter, wenn die benötigten Daten spezifiziert sind.
+Diese Maßnahme wird in \ref{subsub:datenspez} weiter erläutert.
+\end{enumerate}
+
+\subsubsection{Überführen der Informationen in eine Standardform}
+\label{subsub:standardform}
+Das Übertragen von Anforderungen oder Informationen in eine Standardform ist eine essentielle und wichtige Handlung, welche die Vergleichbarkeit und Handhabung der Anforderungen beziehungsweise Fragestellungen garantiert.
+
+Als Standardform für diese Arbeit wurde \glqq Fragestellung aus Sicht des Benutzers\grqq{} gewählt, da jede Nutzergruppe (siehe S.\pageref{sub:NutzergruppenAnalyse} \ref{sub:NutzergruppenAnalyse}) Fragen hat.
+Hierdurch ist eine klare Form erkennbar und weitere bisher unentdeckte Duplikate können weiter dezimiert und in Prioritäten überführt werden.
+Auch für die spätere Entwicklung der Dashboards ist diese Form hilfreich, da gut überprüft werden kann, ob ein Diagramm eine oder mehrere Fragestellung beantwortet.
+Ein exemplarischer Auszug dieser Überführung ist in Abbildung \ref{fig:standardform} zu erkennen.
+\bildbreit
+{standardform}
+{Übertragung von Informationen in die hier zielführende Standardform einer Fragestellung aus Sicht des Benutzers}
+{Überführung von Informationen in Standardform}
+
+\subsubsection{Spezifizieren der benötigten Daten}
+\label{subsub:datenspez}
+Ein für dieser Arbeit zusätzlicher Schritt bei der Spezifikation ist das Darlegen der benötigten Daten, um die entsprechenden Fragestellungen beantworten zu können.
+Hierfür kann in drei Schritten vorgegangen werden:
+
+\begin{enumerate}
+\item \label{enum:grob} Grobe Einteilung der Fragestellungen mittels Farbgebung in vier Kategorien: % \todotext{4 oder 3 Kategorien sehr interessant?}
+	\begin{enumerate}
+	\item Rot - Nicht möglich: Diese Fragestellungen werden ausgeschlossen, da sie aufgrund von technischen oder rechtlichen Aspekten nicht beantwortbar sind.
+	\item Gelb - Fraglich: Die Datengrundlage oder andere Aspekte sind zurzeit ungewiss und müssen geklärt werden
+	\item Grün - Daten vorhanden: Hierfür sind die Daten garantiert bereits vorhanden und diese Fragen können beantwortet werden
+	\item Blau - Sehr interessant (optional): Daten sind ebenfalls vorhanden und zusätzlich werden die Fragestellungen mit hoher Priorität hier eingeordnet
+	\end{enumerate}
+\item Visuelles kategorisieren der eingeteilten Fragestellungen in die oben genannten Kategorien. 
+Zusätzlich kann eine erste Einschätzung der Komplexität beziehungsweise Ein- oder Mehrdimensionalität vorgenommen werden
+\item Recherchieren der Datenquellen
+\end{enumerate}
+
+Analog zu Schritt \ref{enum:grob} wird nun zuerst eine grobe Kategorisierung der standardisierten Fragestellungen vorgenommen. 
+Dabei werden unter anderem Entwickler oder Produktmanager befragt oder eigenes Wissen angewandt.
+Vorteil hiervon ist die Aussortierung von nicht umsetzbaren Fragestellungen, was den späteren Aufwand reduziert.
+Der Abbildung \ref{fig:einteilung2} kann ein Auszug dieser Einteilung entnommen werden.
+Zusätzlich zu der Farbgebung werden rechts zugehörig zur Kategorie entsprechende Bemerkungen festgehalten, sofern ein oder mehrere Fragestellungen fraglich oder nicht möglich sind.
+\bildbreit
+{einteilung2}
+{Auszug der farblichen Kategorisierung nach Umsetzbarkeit der Fragestellungen}
+{Kategorisierung nach Umsetzbarkeit der Fragestellungen}
+
+Der nächste Schritt gruppiert die zuvor kategorisierten Fragestellungen.
+Dies geschieht in einer Tabelle und wird visuell durch die entsprechende Kategorie-Farbe unterstützt.
+Des Weiteren wird eine erste Einschätzung der Dimensionalität vorgenommen.
+Dies soll für die weitere Entwicklung eine Hilfestellung darbieten, damit schnell ersichtlich ist, wo Klärungsbedarf ist oder welche Fragestellungen bereits beantwortet werden können.
+In Abbildung \ref{fig:viseinteilung} kann die große Tabelle grob erkannt werden.
+Die Reihen sind die Einschätzungen der Umsetzbarkeit und die Spalten die Kategorien aus \ref{sub:analyseFragen}.
+\bildbreit
+{viseinteilung}
+{Überblick über die Tabelle zur Gruppierung der Fragestellungen nach Umsetzbarkeit und Kategorie}
+{Überblick über die Tabelle zur Gruppierung der Fragestellungen}
+
+Im dritten, ergänzenden Akt werden bereits die benötigten Datenquellen recherchiert und spezifiziert.
+Hierfür werden bereits vorhandene Daten und deren Quellen den entsprechenden Fragestellungen zugeordnet.
+Bei den unklaren Fragen werden Ideen, Vorschläge und weitere Kommentare hinzugefügt.
+Damit ist die Grundlage zur Erstellung eines Prototypen und später auch bei der Umsetzung gelegt.
+Daten von Fragen, die beantwortet werden können, liegen dokumentiert vor, sowie die fraglichen Anforderungen sind mit ihren bisherigen Ideen und Informationen gelistet. \todotext{bild?}
+
+
+%\bildrechts
+%{komplexitaet}
+%{6cm}
+%{Auszug zur Einschätzung der Komplexität}
+%{Überblick über die Tabelle zur Gruppierung der Fragestellungen}
+%In Abbildung \ref{fig:komplexitaet} sds
+
 \subsection{Validierung der spezifizierten Fragestellungen}
+Die Validierung der ermittelten, analysierten und schließlich spezifizierten Fragestellungen ist der letzte Schritt im Requirements Engineering, was nicht bedeutet, dass es damit endet.
+Dieser geschieht, wie auf S.\pageref{sec:erhebung} beschrieben, im fließenden Übergang mit der Evaluierung des Prototypen in \ref{sec:evaluierung}.
+Hier wird geprüft, ob die in \ref{sub:spezifikation} spezifizierten Fragestellungen den Erwartungen der Nutzergruppen entsprechen.
+
+Alle Schritte zuvor wurden wie in Abbildung \ref{fig:requireEngineering} zu sehen, iterativ und teilweise parallel durchgeführt.
+Es können jederzeit neue Befragungen und somit Ermittlungen von Fragestellungen durchgeführt werden und mit den neu erhobenen Daten die zuvor beschriebenen Schritte erneut iterativ vollzogen werden.
+Im Rahmen dieser Arbeit wurde ab einem bestimmten Zeitfenster die Anforderungsanalyse abgeschlossen, damit ein Prototyp (\ref{sec:erstellungPrototyp}) und anschließend eine präsentierfähige Version (\ref{kap:umsetzung}) auf Basis der bis dato spezifizierten Fragestellungen erstellt werden kann.

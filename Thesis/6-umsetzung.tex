@@ -1,15 +1,30 @@
-\chapter{Umsetzung}
+\chapter{Umsetzung} %Should be roughly 18pages
 \label{kap:umsetzung}
 \minitoc\pagebreak
 % Erst JIRA Stories dann Datenmodell oder andersrum?
 % Benötigtes Modell, dann stories, dann umsetzung
+% Added new Data models like cpr, shocks, nibp!! as subsections!
 
 \section{Technische Aspekte}
-% Added new Data models like cpr, shocks, nibp!! as subsections!
-\subsection{Schnittstelle \acrlong*{ANALYSE} und Qlik Sense}
+\label{sec:tech}
+Zu Beginn der Umsetzung gilt es vorab diverse technische Aspekte zu analysieren und im Laufe der Entwicklung zu berücksichtigen.
+Hierzu gehören beispielsweise die Schnittstelle und der daraus resultierende Export der Daten oder die Haltung der Daten in einer Datenbank.
+Dies ist eine essentielle Basis, damit eine effiziente und angemessene Datengrundlage für die anschließend entwickelten Dashboards und Auswertungen zur Verfügung steht.
+
+Dabei ist es bezüglich der Flexibilität und Unabhängigkeit von Vorteil , dass die Daten und der entsprechende Export nicht ausschließlich für die hier verwendete Technologie Qlik Sense abgestimmt und entwickelt werden soll.
+Auch andere Software-Lösungen, Drittanbieterprogramme oder Business-Intelligence-Werkzeuge sollen die Daten und den neuen Export von \gls{ANALYSE} zur Auswertung verwenden können, damit eine gewisse Freiheit und keine absolute Abhängigkeit an einer Technologie entsteht.
+
+\subsection{Schnittstelle \acrlong*{ANALYSE} und Qlik Sense} %StandDerTechnik??
+\label{sub:schnittstelle}
+
 \subsection{Export der Daten} %subsub?
+\label{sub:export}
+
 \subsubsection{JIRA-Stories/Anforderungen als User Stories}
+\label{subsub:stories}
+
 \subsubsection{Aktuelles Format}
+\label{subsub:aktuellesformat}
 json format cpr (siehe mails) (Fotos whiteboard als anhang?),
 null values bei cpr trends
 %\subsection{Incremental Load?}
@@ -21,16 +36,29 @@ null values bei cpr trends
 %\section{Datenmodell?}
 
 \section{Erstellung der Qlik-App(s)}
+\label{sec:erstellung}
 %subsUnterschiedliche Apps?
 \subsection{ETL-Prozess}
+\label{sub:etl}
+
 \subsubsection{Ladeskripte}
+\label{subsub:scripts}
+
 \subsubsection{Demo- und Testeinsätze herausfiltern}
+\label{subsub:testfilter}
+
 \subsubsection{Weitere manuell hinzugefügte Felder (ReaStart, Calendar, Test...)}
+\label{subsub:weitereFelder}
+
+
 \subsection{Datenmodell (hier oder eigenes section?)}
+\label{sub:datenmodell}
+
 \subsection{Dimensionen}
 \subsection{Kennzahlen}
 \subsection{Verwendung von Erweiterungen?}
 \subsection{Dashboards}
+\subsubsection{Neue mögliche Visualisierungen durch Anforderungen Schocks, Nibp, Cpr}
 test
 \subsection{(Auszug) Umsetzung der Evaluierungsergebnisse}
 \subsubsection{Zielgruppenunterschiedliche Startseiten}

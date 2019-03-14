@@ -15,6 +15,7 @@
 %\usepackage{amsmath,marvosym} % Mathesachen
 \usepackage[T1]{fontenc} % Ligaturen, richtige Umlaute im PDF
 \usepackage[utf8]{inputenc}% UTF8-Kodierung für Umlaute usw
+\usepackage{enumitem}
 
 % Schriften
 %\usepackage{fourier}
@@ -106,6 +107,23 @@
 	postbreak        = ,
 	prebreak         = \raisebox{-.8ex}[0ex][0ex]{\Righttorque},
 }
+\usepackage{xcolor}
+\usepackage{soul}
+\newcommand{\ctext}[3][RGB]{%
+  \begingroup
+  \definecolor{hlcolor}{#1}{#2}\sethlcolor{hlcolor}%
+  \hl{#3}%
+  \endgroup
+}
+
+
+
+\newlength\myboxwidth
+\setlength{\myboxwidth}{\dimexpr\textwidth-2\fboxsep}
+\definecolor{light-gray}{gray}{0.95}
+%\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+\newcommand{\code}[1]{\ctext[RGB]{240,240,240}{\texttt{#1}}}
+
 
 % linksbündige Fußnoten
 %\deffootnote{1.5em}{1em}{\makebox[1.5em][l]{\thefootnotemark}}
@@ -227,11 +245,11 @@
 	\end{floatingfigure}
 }
 
-\usepackage{xcolor}
+
 \definecolor{corpulsred}{HTML}{DD0B2F}
 
 \newcommand{\tabitem}{~~\llap{\textbullet}~~}
-
+\newcommand{\cweb}{\textsf{corpuls\color{corpulsred}{.web}}}
 
 % Basic information for cover & title page
 \newcommand*{\getUniversity}{Hochschule Fulda}

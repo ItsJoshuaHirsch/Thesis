@@ -4,6 +4,7 @@
 % Erst JIRA Stories dann Datenmodell oder andersrum?
 % Benötigtes Modell, dann stories, dann umsetzung
 % Added new Data models like cpr, shocks, nibp!! as subsections!
+% Viele Sachen Parallel...
 
 \section{Technische Aspekte}
 \label{sec:tech}
@@ -11,16 +12,80 @@ Zu Beginn der Umsetzung gilt es vorab diverse technische Aspekte zu analysieren 
 Hierzu gehören beispielsweise die Schnittstelle und der daraus resultierende Export der Daten oder die Haltung der Daten in einer Datenbank.
 Dies ist eine essentielle Basis, damit eine effiziente und angemessene Datengrundlage für die anschließend entwickelten Dashboards und Auswertungen zur Verfügung steht.
 
-Dabei ist es bezüglich der Flexibilität und Unabhängigkeit von Vorteil , dass die Daten und der entsprechende Export nicht ausschließlich für die hier verwendete Technologie Qlik Sense abgestimmt und entwickelt werden soll.
+Dabei ist es bezüglich der Flexibilität und Unabhängigkeit von Vorteil , dass die Daten und der entsprechende Export nicht ausschließlich für die hier verwendete Technologie Qlik Sense abgestimmt und entwickelt werden.
 Auch andere Software-Lösungen, Drittanbieterprogramme oder Business-Intelligence-Werkzeuge sollen die Daten und den neuen Export von \gls{ANALYSE} zur Auswertung verwenden können, damit eine gewisse Freiheit und keine absolute Abhängigkeit an einer Technologie entsteht.
 
 \subsection{Schnittstelle \acrlong*{ANALYSE} und Qlik Sense} %StandDerTechnik??
 \label{sub:schnittstelle}
+Qlik Sense bietet eine Reihe an möglichen Datenverbindungen oder sogenannten \glqq Konnektoren\grqq.
+Diese sind je nach Verbindungstyp vorgefertigte Module, welche die Verbindung zu gängigen Datenbanken oder anderen Quellen vereinfachen sollen.
+Es können Daten aus lokalen Dateien wie CSV-, Excel- oder XML-Dateien, Datenbanken oder mittels standardisierten Schnittstellen geladen werden.
+\bildbreit
+{konnektoren}
+{Qlik-Konnektoren zur Einrichtung von Datenverbindungen zu Datenbanken oder Schnittstellen}
+{Qlik-Konnektoren für Datenverbindungen }
+
+In Abbildung \ref{fig:konnektoren} sind die möglichen Datenbank- oder Schnittstellen-Konnektoren aufgelistet, wie beispielsweise \glqq MongoDB\grqq, \glqq Oracle\grqq, \glqq Microsoft SQL Server\grqq{} oder \glqq REST\grqq.
+
+Da (wie in \ref{sub:StandTEchnikAnalyse} beschrieben) hinter \gls{ANALYSE} eine MongoDB-Datenbank steht, wäre der entsprechende Konnektor eine Möglichkeit, um die Einsatzdaten in Qlik bereitzustellen.
+Allerdings befindet sich dieser zum einen in einem Beta-Zustand, zum anderen widerspricht dies der Philosophie, einen universellen Export der Daten zu bieten, da nicht jede Technologie einen Konnektor zur MongoDB hat. 
+
+Ein weiterer Faktor ist außerdem die Sicherheit der Daten.
+Gewährt man einem Drittprogramm und damit mehreren Nutzern den direkten Zugriff auf eine Datenbank, entstehen gewisse Risikofaktoren, welche die Sicherheit des Systems gefährden.
+Schließlich liegen gegebenenfalls personenbezogene Daten in der Datenbank \ref{sec:rechtlich} oder Daten, welche gewisse Entscheidungen zur Folge haben.
+Eine mögliche unkontrollierte Manipulation dieser Information sollte vermieden werden.
+
+Demnach sollte es eine Schnittstelle von \gls{ANALYSE} geben, welche die Daten kontrolliert bereitstellt.
+Eine sehr geeignete Technologie hierfür ist eine \gls{REST}ful API.
+Vorteile hiervon sind laut Steimle \cite[2.3]{Steimle.2014} und Tilkov \cite[1.1]{Tilkov.2011} unter anderem:
+\begin{itemize}
+\item Die Kopplung der Systeme wird so gering wie möglich gehalten. 
+Durch die homogen entwickelte Schnittstelle sind alle möglichen Vorgänge definiert und deren Aufruf spezifiziert.
+So werden ungewollte Zugriffe auf die Daten in der Datenbank vermieden
+\item Die gewollte Interoperabilität wird stark gewährleistet, da \gls{REST} auf gängigste Standards setzt. 
+Dadurch können die meisten derzeitigen und zukünftigen Systeme mit dieser Technologie kommunizieren.
+\item Die Wiederverwendung ist durch die einmalige Definition der Schnittstelle sehr hoch.
+\item Die Skalierbarkeit und die daraus resultierende Performance kann mit \gls{REST} auch bei häufigen und großen Anfragen gewährleistet werden.
+\end{itemize}
+
+Außerdem bietet \gls{REST} die Möglichkeit, Zugriffe nur mit einer Authentifizierung durchzuführen.
+Dies spiegelt das derzeitige Benutzergruppen-Konzept von den \cweb-Produkten sehr gut wider.
+
+Mit diesen auf die Anforderungen passenden Vorteilen wurde sich für eine Schnittstelle der \gls{REST}-Technologie entschieden.
+\gls{ANALYSE} besitzt bereits ein \gls{REST}-Interface, allerdings hat dieses bis dato einen anderen Zweck.
 
 \subsection{Export der Daten} %subsub?
 \label{sub:export}
+Nach Festlegung der Technologie für die zukünftige Schnittstelle in \ref{sub:schnittstelle} werden nun die weiterführenden Schritte geplant und umgesetzt.
+Das bestehende \gls{REST}-Interface soll demnach um einen Endpoint erweitert werden, welcher die Daten, respektive die \gls{MissionMarker} von allen Einsätzen eines \gls{ANALYSE}-Servers exportiert.
 
-\subsubsection{JIRA-Stories/Anforderungen als User Stories}
+Dabei soll von Vornherein eine Authentifizierung notwendig sein, um die entsprechenden Daten des Servers zu erhalten.
+Hierfür wird zunächst das \glqq Baisc Authentication\grqq-Verfahren als HTTP-Authentifizierung verwendet. 
+Dabei können die angelegten Benutzer im aktuellen Mandanten von \gls{ANALYSE} sich mit dem entsprechenden Passwort im Header des \gls{REST}-Calls authentifizieren.
+
+\subsubsection{Erstes Exportformat}
+Der erste Ansatz für einen solchen Export war ein zweistufiger Prozess:
+\begin{enumerate}
+\item Ein Export wird angestoßen, welcher von allen vorhandenen Einsätzen die jeweilige UUID im Response-Body zurückgibt.
+\end{enumerate}
+
+Dieser erste Schritt wird mit der HTTP-Methode \glqq GET\grqq{} ausgeführt.
+Im Header der Anfrage ist die in \ref{sub:export} genannte Authentifizierung sowie das entsprechende Format der Anfrage, der \glqq content-type\grqq, festgelegt.
+
+Als Parameter können außerdem die maximale Anzahl an UUIDs sowie eine \gls{CQL}-Abfrage mitgegeben werden.
+Ein Beispiel eines solchen Befehls kann dabei so aussehen:
+
+\code{-GET http://corpsrv5009:8080/v3/missionlist/missions/query/start?cql=hasShocks\& batchsize=2000}
+Code oder Bild mit Zahlen?
+
+Mit diesem Befehl werden beispielsweise alle UUIDs der Einsätze geladen, die mindestens eine Defibrillation vorzeigen. 
+Mittels des Parameters \glqq batchsize\grqq{} wird die Antwort auf maximal 2000 Einsätze beschränkt.
+
+\begin{enumerate}[resume]
+\item An erster Stelle wird ein Export angestoßen, welcher von allen vorhandenen Einsätzen die jeweilige UUID im Response-Body zurückgibt.
+\end{enumerate}
+
+\subsubsection{Anforderungen als User Stories in JIRA}
 \label{subsub:stories}
 
 \subsubsection{Aktuelles Format}
@@ -28,6 +93,8 @@ Auch andere Software-Lösungen, Drittanbieterprogramme oder Business-Intelligenc
 json format cpr (siehe mails) (Fotos whiteboard als anhang?),
 null values bei cpr trends
 %\subsection{Incremental Load?}
+
+% Vor Export?
 \subsection{Datenbankhaltung?}
 \subsubsection{Lasttests?}
 %dummydaten?

@@ -77,10 +77,11 @@
 
 \graphicspath{{images/}}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg} % bevorzuge pdf-Dateien
-\usepackage{subfigure} % mehrere Abbildungen nebeneinander/übereinander
+%\usepackage{subfigure} % mehrere Abbildungen nebeneinander/übereinander
 \newcommand{\subfigureautorefname}{\figurename} % um \autoref auch für subfigures benutzen
 \usepackage[all]{hypcap} % Beim Klicken auf Links zum Bild und nicht zu Caption gehen
 \usepackage[section]{placeins} % Bilder nur in zugehöriger Section unterbringen
+\usepackage{subcaption}
 
 % Bildunterschrift
 \setcapindent{0em} % kein Einrücken der Caption von Figures und Tabellen
@@ -117,7 +118,7 @@
 }
 
 
-
+% CODE
 \newlength\myboxwidth
 \setlength{\myboxwidth}{\dimexpr\textwidth-2\fboxsep}
 \definecolor{light-gray}{gray}{0.95}
@@ -153,7 +154,7 @@
 \setcounter{secnumdepth}{5}
 %\setcounter{tocdepth}{5}
 % Only subsections in main TOC (no subsub)
-% \setcounter{tocdepth}{1}
+%\setcounter{tocdepth}{1}
 % Deutsches Mini-Verzeichnis
 \mtcselectlanguage{german}
 \addto{\captionsngerman}{% Making babel aware of special titles

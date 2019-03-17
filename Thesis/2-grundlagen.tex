@@ -1,11 +1,239 @@
 \chapter{Grundlagen \& Stand der Technik}
-\label{chap:Grundlagen}
+\label{kap:Grundlagen}
 \minitoc\pagebreak
 
 
 \section{Visualisierung von Daten}
+\label{sec:visual}
+Ein großer Aspekt dieser Arbeit ist das Darstellen und Visualisieren von gemessenen oder generierten Daten.
+Dies beschreibt den Vorgang vorhandene Daten, die in heterogenen Formaten und Typen vorliegen, in eine visuelle, grafische Form umzuwandeln, sodass sie für den Menschen leichter wahrzunehmen und lesbar sind.
+Mit einem einzigen Blick können mehrere Tausend Daten(-punkte) auf einmal verarbeitet werden.
+Dabei kommt die Visualisierung zuerst als Sinnes-Reiz beim Betrachter an, daraufhin wird sie identifiziert, wahrgenommen und interpretiert \cite{Goldstein.2015, FischerStabel.2018}.
+Für die gleiche Datenmenge bräuchte ein Mensch unvergleichbar mehr Zeit, um die selbige Interpretation der Daten zu erhalten.
+
+Diese Möglichkeit, der schnellen und effizienten Interpretation für die vorliegenden Daten dieser Arbeit  bereitzustellen, ist eine der Zielstellungen.
+Hierfür müssen vorab diverse Grundlagen gelegt werden, damit diese bei der späteren \fullref{kap:anforderungsanalyse}, \fullref{kap:konzept} und \fullref{kap:umsetzung} stets beachtet werden.
+
+\subsection{Definitionen}
+Zunächst werden grundlegende Begriffe wie Daten, Datenanalyse oder Visualisierung definiert, damit eine einheitliche Basis geschaffen wird.
+\subsubsection{Daten}
+Daten sind gemäß \cite{Dudenredaktion.2015}:
+\begin{quote}
+\glqq durch Beobachtungen, Messungen, statistische Erhebungen gewonnene [Zahlen]werte, [...] Angaben, formulierbare Befunde. \\
+EDV: elektronisch gespeicherte Zeichen, Angaben, Informationen\grqq{}
+\end{quote}
+
+Demnach gibt es heterogene Daten, welche in Form von Zahlen, Buchstaben, Texten vorliegen können.
+In Anblick auf die vorliegenden Daten dieser Arbeit gibt es beispielsweise gemessene Vitaldaten von Patienten wie Herz- \& Atemfrequenz oder die Sauerstoffsättigung.
+Weiter sind auch vereinzelt Angaben zu dem Patienten, wie das Alter, oder generelle Informationen wie der Tag und die Uhrzeit eines Einsatzes als Daten gespeichert.
+ 
+\subsubsection{Datenanalyse}
+Daten können analysiert werden.
+Dabei bezeichnet die Analyse die strukturierte Untersuchung von Elementen, welche zunächst aufgeteilt und geordnet werden, damit anschließend eine Auswertung betrieben werden kann.
+Dabei kann laut Fischer \cite{Fischer.2014} grundlegend zwischen zwei Formen der Analyse unterschieden werden: konfirmativ und explorativ.
+\begin{description}
+\item[konfirmative Analyse] bezeichnet die Überprüfung von bestehenden Hypothesen.
+Dabei werden bekannte Methoden angewandt, um die jeweilige Hypothese zu bestätigen oder zu widerlegen.
+\item[explorative Analyse] ist gekennzeichnet durch das Fehlen von gestellten Hypothesen.
+Hierbei wird nach neuen Erkenntnissen oder Fragestellungen gesucht, welche durch Trends, Muster oder Beziehungen entdeckt werden.
+\end{description}
+
+Da bei dieser Arbeit das zu untersuchende Element der Analyse stets Daten sind, handelt es sich in diesem Kontext immer um \glqq Datenanalysen\grqq{} \cite{Schumann.2000}.
+Es kommen hier sowohl explorative als auch konfirmative Datenanalysen zum Einsatz, da es bereits bestehende Hypothesen in Form von Fragestellungen der Nutzer gibt.
+Andererseits gibt es auch vermeintlich viele, bisher unbekannte, Zusammenhänge, welche durch die Interaktion der Anwender mit den Visualisierungen zum Vorschein kommen können.
+
+
+\subsubsection{Visualisierung}
+Eine Visualisierung ist nach McCormick \cite{Mccormick.1987} das transformation von Information in geometrische Repräsentation von graphischen Objekten.
+Dies erleichtert dem Menschen die Aufnahme von Informationen, insbesondere aber das erkennen von Zusammenhängen und Strukturen innerhalb der Daten.
+Die Subjektivität der Individuen ermöglicht keine einwandfreie Garantie des Informationsflusses zum jeweiligen Anwender. %\cite{Fischer.2014}. 
+Auch kann unterschieden werden, ob eine Visualisierung unterstützend zu einer Niederschrift beiträgt, oder sie als Haupt-Informationsquelle die tragende Figur ist \cite{Bassler.2010}.
+Im Zuge dieser Arbeit wird letzteres das Mittel der Wahl sein.
+
+Nach \cite{Card.2007} kann die Datenvisualisierung als besondere Form einer Visualisierung abgegrenzt werden.
+Dabei gibt es fünf Eigenschaften, die eine solche spezielle Form klassifizieren:
+\begin{itemize}
+\item Computergestützte Anzeige 
+\item Der Nutzer kann interaktiv Auswahlen treffen oder Filter bestimmen, um die anzuzeigenden Daten einzuschränken
+\item Die Eigenschaften der Daten werden in visuellen Elementen wie Form, Farbe oder Größe unterschiedlich dargestellt
+\item Abstrakte Daten können dargestellt werden, welche keiner physischen Form zugrunde liegen
+\item Die Fähigkeiten des Menschen in Bezug auf die Wahrnehmung wird berücksichtigt 
+\end{itemize}
+
+Demzufolge wird im Kontext dieser Arbeit der Begriff Datenvisualisierung und Visualisierung synonym verwendet, die die entsprechenden Eigenschaften auf die hier erarbeiteten Visualisierungen zutreffen.
+\todotext{konfirmativ und explorativ visualis (fischer s.26?}
+
+%WordCloud
+Es gibt nach \cite{Schumann.2000} einen \glqq Visualisierungsprozess\grqq{}, welcher den Weg von Rohdaten bis zum Bild abstrahieren soll.
+
+\bild
+{visualprozess}
+{8cm}
+{Der Prozess einer Visualisierung von den Rohdaten zum fertig generierten Bild. Bildquelle \cite[S.50]{FischerStabel.2018} (verändert)}
+{Der Prozess einer Visualisierung}
+
+Dieser Prozess ist in Abbildung \ref{fig:visualprozess} erkennbar.
+Nachfolgend werden die einzelnen Phasen kurz erläutert:
+\begin{description}
+\item[Rohdaten] In der ersten Phase muss eine oder mehrere Quellen der Daten festgelegt werden. 
+Anschließend wird grob gesichtet und so eine Datenbasis gelegt.
+\item[Filtering] Anschließend werden die Rohdaten aufbereitet, wobei beispielsweise eine Bereinigung, Interpolation oder Neuberechnung von Daten vorgenommen werden
+\item[Mapping] Daraufhin kommt nach \cite{FischerStabel.2018} das Hauptproblem der Visualisierung: Die Auswahl einer geeignet Darstellungsform passend zu den Daten. 
+Dabei gibt es diverse Möglichkeiten, welche Darstellungsform mit welchen Attributen (Größe, Farbe, Form) umgesetzt wird. 
+\item[Rendering] Als Letztes werden die aufbereiteten Daten mit der gewählten Darstellungsform als Bild oder interaktive Visualisierung erzeugt.
+Dies geschieht heutzutage häufig über sogenannte \gls{BI}-Werkzeuge wie Qlik (siehe \ref{qlik})
+\end{description}
+
+
+
+
 \subsection{Gestaltungsgrundsätze}
+\label{sub:grundsätze}
+In der Wahrnehmungspsychologie gibt es diverse Erkenntnisse, wie das menschliche Gehirn unterschiedliche Muster und Strukturen erkennt.
+Dabei sind diese Fähigkeiten größtenteils evolutionär geprägt, da es für den Menschen schon immer wichtig war, schnell Entscheidungen zu treffen, oder komplexe neue Aufgabestellungen zu lösen.
+Dabei greift das Gehirn auf zuvor erlernten oder erlebten Ereignissen zurück, um neue Aufgaben klassifizieren zu können.
+
+Heutzutage finden sich die Auswirkungen dieser Prägungen in dem Alltag jedes Menschen wieder.
+Dabei ist die Form der Wahrnehmung nie objektiv, sondern stets subjektiv, da diese Fähigkeit der Mustererkennung auf Basis von Erfahrungen aufbaut, welche bei jedem Menschen im Laufe des Lebens unterschiedlich sind.
+Dies ist eine wichtige und essentielle Erkenntnis, da hierbei die Interpretation von Datenvisualisierungen divergieren kann \cite{Fischer.2014}.
+
+Dennoch gibt es diverse Grundregeln, welche sich im Laufe der Jahrtausende bei den Menschen durchgesetzt haben. Diese wurden zuerst von Wertheim in seiner Forschung \glqq Lehre von der Gestaltung\grqq{} schriftlich festgehalten \cite{Wertheimer.2017}.
+Nach und nach wurden diese von mehreren Psychologen oder Designern unter den \glqq Gestaltungs-Gesetzen\grqq{} oder -Prinzipien aufgefasst undabgewandelt, wodurch sie sich indes unterscheiden.
+Nachfolgend werden fünf, für Diagramme und Visualisierungen relevante Gesetze nach \cite[5.2]{Heber.2018} \& \cite{Ware.2009} näher betrachtet. 
+Hierbei sind vor allem bei Visualisierungen mit Zahlen, wie sie in dieser Arbeit größtenteils vorliegen werden, die ersten beiden Gesetze von sehr hoher Relevanz.
+
+\subsubsection{Das Gesetz der Nähe}
+\begin{figure}[ht]
+\begin{subfigure}{.5\linewidth}
+  \centering
+  % include first image
+  \includegraphics[width=.95\linewidth]{img/gNaehe}  
+  \caption{Schematische Darstellung zur Nähe}
+  \label{fig:naeheSchema}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+  \centering
+  % include second image
+  \includegraphics[width=.95\linewidth]{img/gNaeheDia}  
+  \caption{Beispiel an einem Balkendiagramm mit zwei positiven und einem negativen (rechts) Beispiel}
+  \label{fig:naeheDia}
+\end{subfigure}
+\caption[Gesetz der Nähe]{Eigene Darstellung des Gesetzes der Nähe. Links schematisch und rechts an einem Balkendiagramm dargestellt}
+\label{fig:naehe}
+\end{figure}
+%\bild
+%{gNaehe}
+%{8cm}
+%{Beispiel des Gesetzes der Nähe. Eigene Darstellung}
+%{Gesetz der Nähe}
+
+Das Gesetz der Nähe besagt, dass Elemente, die nahe beieinander liegen, als eine Einheit wahrgenommen werden.
+Dieser Effekt ist in Abbildung \ref{fig:naehe} veranschaulicht.
+Für Visualisierungen und insbesondere Diagramme bedeutet dies, dass sich beispielsweise die Zahlen immer in der Nähe des entsprechenden Elements befinden sollten.
+
+In \ref{fig:naeheDia} ist dieser Effekt deutlich zu erkennen. 
+Zum einen werden immer zwei Balken aufgrund der Distanz als Zusammengehörig wahrgenommen, zum anderen sind die Zahlen bei den ersten vier Balken gut zuzuordnen.
+Bei den letzten zwei Balken sind die Zahlen zu weit entfernt und können den jeweiligen Betrachter verwirren.
+
+
+\subsubsection{Das Gesetz der Ähnlichkeit}
+\label{subsub:ähnlich}
+\begin{figure}[ht]
+\begin{subfigure}{.5\linewidth}
+  \centering
+  % include first image
+  \includegraphics[width=.95\linewidth]{img/gAehnlich}  
+  \caption{Schematische Darstellung zur Ähnlichkeit}
+  \label{fig:aehnlichSchema}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+  \centering
+  % include second image
+  \includegraphics[width=.95\linewidth]{img/gAehnlichDia}  
+  \caption{Beispiel an einem Balkendiagramm mit zwei positiven und einem negativen (rechts) Beispiel}
+  \label{fig:aehnlichDia}
+\end{subfigure}
+\caption[Gesetz der Ähnlichkeit]{Eigene Darstellung des Gesetzes der Ähnlichkeit. Links schematisch und rechts an einem Balkendiagramm dargestellt}
+\label{fig:aehnlich}
+\end{figure}
+
+Ebenfalls als eine Gruppe werden Elemente wahrgenommen, die ähnlich oder gleich aussehen.
+Dabei spielen unterschiedliche Attribute wie Größe, Form oder Farbe eine Rolle.
+Hier gilt, je mehr Ähnlichkeit die Elemente besitzen, desto stärker wirken sie als Einheit.
+
+An einem Balkendiagramm ist dieses Gesetz in \ref{fig:aehnlichDia} dargestellt.
+Die blauen und orangefarbenen Balken werden als Teile einer Gruppe wahrgenommen.
+Die letzten beiden Balken verdeutlichen wieder ein Negativ-Beispiel: Hier werden die Balken fälschlicherweise einer Gruppe zugeordnet, obwohl sie zu zwei unterschiedlichen Gruppen gehören.
+Hier wirkt außerdem das Gesetz der Nähe.
+
+
+\subsubsection{Das Gesetz der Geschlossenheit}
+\bild
+{gGeschlossenheit}
+{8cm}
+{Beispiel des Gesetzes der Geschlossenheit. Eigene Darstellung}
+{Gesetz der Geschlossenheit}
+
+Das Gesetz der Geschlossenheit besagt, dass Strukturen und Formen notorisch vervollständigt werden.
+Außerdem werden die vervollständigten Formen als eine zusammengehörige Gruppe wahrgenommen.
+
+\subsubsection{Das Gesetz der Erfahrung}
+\begin{figure}[ht]
+\begin{subfigure}{.5\linewidth}
+  \centering
+  % include first image
+  \includegraphics[width=.95\linewidth]{img/gErfahrung}  
+  \caption{Vervollständigung des Wortes \glqq Erfahrung\grqq}
+  \label{fig:erfahrung1}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+  \centering
+  % include second image
+  \includegraphics[width=.95\linewidth]{img/gErfahrung2}  
+  \caption{Ein minimalistisches (links) und ein detailliertes Haus. Beide sind sofort zu erkennen}
+  \label{fig:erfahrung2}
+\end{subfigure}
+\caption[Gesetz der Erfahrung]{Eigene Darstellung des Gesetzes der Erfahrung}
+\label{fig:erfahrung}
+\end{figure}
+Das Gesetz der Erfahrung, oftmals auch der Einfachheit oder guten Gestalt genannt, bewirkt, dass unbekannte Objekte stets mit bereits bekannten Objekten abstrahiert werden.
+Auch können verdeckte Texte wie in \ref{fig:erfahrung1} trotz fehlender teile gelesen werden.
+Doch wenn zu viel Information verdeckt ist, ist auch keine Abstraktion auf bekannte Objekte möglich.
+
+Bei \ref{fig:erfahrung2} wird deutlich, dass mit minimalen Informationen das Objekt klar wird.
+Es sind keine Fenster, Türen, Schornstein oder anderes notwendig, damit das linke Objekt als Haus erkannt wird.
+
+%Einfachheit
+%der guten Gestalt}
+\subsubsection{Das Gesetz der guten Fortsetzung}
+\begin{figure}[ht]
+\begin{subfigure}{.5\linewidth}
+  \centering
+  % include first image
+  \includegraphics[width=.95\linewidth]{img/gFort}  
+  \caption{Ein Liniendiagramm mit vielen schwarzen Linien}
+  \label{fig:fort1}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+  \centering
+  % include second image
+  \includegraphics[width=.95\linewidth]{img/gFortC}  
+  \caption{Verbesserte Lesbarkeit durch zusätzliches berücksichtigen des Gesetztes der Ähnlichkeit}
+  \label{fig:fort2}
+\end{subfigure}
+\caption[Gesetz der Fortsetzung]{Darstellung des Gesetzes der guten Fortsetzung}
+\label{fig:erfahrung}
+\end{figure}
+
+Durch das Gesetz der guten oder stetigen Fortsetzung nehmen Menschen beispielsweise kreuzende Formen so wahr, wie sie für uns am einfachsten fortgesetzt werden.
+Dies ist insbesondere bei Liniendiagrammen der Fall.
+
+In Abbildung \ref{fig:fort1} sind trotz der vielen gleichfarbigen Linien die Verläufe der einzelnen Kurven dank dieses Prinzips gut erkennbar.
+Um jedoch in späteren Anwendungen die Nutzerfreundlichkeit zu erhöhen und Komplexität zu mindern, kann in einem solchen Fall das Gesetz der Ähnlichkeit (siehe \ref{subsub:ähnlich}) zusätzlich angewandt werden.
+Die bessere Lesbarkeit ist in \ref{fig:fort2} zu erkennen.
+
 \subsection{Statistische Auswertungen}
+\todotext{Bild vergleich Tabelle Diagramm! (bsp fischer 4.3)}
 %\subsubsection{Diagramme}
 \subsection{Multidimensionale Daten darstellen}
 
@@ -99,6 +327,7 @@ S.101ff, 116ff Fotos
 \subsubsection{Lizenzierungsmodell}
 
 \section{Ist-Zustand corpuls.web ANALYSE}
+\subsection{Architektur}
 \subsection{Verwendung zur Auswertung}
 \subsection{Vorliegende Daten der Geräte}
 

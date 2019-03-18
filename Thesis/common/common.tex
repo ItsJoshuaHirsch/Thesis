@@ -47,7 +47,7 @@
 \usepackage{pdflscape} % einzelne Seiten drehen können
 \usepackage{pdfpages}
 
-\newcommand*{\fullref}[1]{\hyperref[{#1}]{\ref*{#1} \nameref*{#1}}}
+
 
 %  Bibliographie
 \usepackage{bibgerm} % Umlaute in BibTeX
@@ -166,6 +166,9 @@
 
 
 % Eigene Befehle %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+% Referenzierung mit Name des Kapitels
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{\ref*{#1}-\nameref*{#1}}}
 
 % Bearbeitungshinweise im Text
 \newcommand{\todo}[1]{

@@ -211,11 +211,106 @@ erweitert werden.
 
 \subsection{Erweiterung um tiefgreifendere? Daten}
 \label{sub:erweiterung}
+Im Rahmen der \fullref{kap:anforderungsanalyse} kamen bereits erste Fragestellungen zum Vorschein, welche mit den bisherig zur Verfügung stehenden Daten nicht beantwortbar waren.
+Im darauffolgenden Laufe der \fullref{kap:konzept} haben sich diverse weitere Problematiken und fehlende Daten für aussagekräftige Auswertungen bestätigt.
+
+So ist beispielsweise eine ausdrucksvolle Analyse zur Drucktiefe in der Reanimation über mehrere Missionen nicht in der Form umsetzbar, wie sie sinnvoll und gewünscht wäre.
+Hier ist lediglich der Mittelwert der Drucktiefe von der gesamten Reanimation vorhanden.
+Eine inhaltsreiche Auswertung, auch beispielsweise mit Veränderungen innerhalb der Reanimation, sind schlicht nicht möglich.
+In diesem Stil gibt es weitere, für Auswertungen sinnvolle Daten, die derzeit gar nicht, oder nur als stark aggregierte Werte vorhanden sind.
+Eine Analyse der potentiell verfügbaren Daten ergab folgende Bereiche (Auszug im Anhang \ref{anhangProbleme}):  %Markante Beispiele sind:
+\begin{description}
+\item [Reanimationsqualität]\hfill \\
+Drucktiefe \& -frequenz, Anzahl Kompressionen, Pausenzeiten und \gls{CCF}
+\item [Defibrillationen]\hfill \\
+Zeitpunkt, Energie, Impedanz, Modus und Pausenzeiten der einzelnen Defibrillationen
+\item [Blutdruck-Messungen]\hfill \\
+Zeitpunkt, Modus, Dauer , Patiententyp, Systole, Diastole \& mittlerer arterieller Druck der einzelnen Messungen
+\item [Vitalparameter und Trends]\hfill \\
+Die Werte aller Vitalparameter zu einem bestimmten Zeitpunkt
+\item [Technische- und Patienten-Alarme]\hfill \\
+Wann sind welche Patientenalarme mit welchen Alarmgrenzen aufgetreten? \\
+Welche technischen Alarme treten zu welcher Zeit auf?
+\end{description}
+
+Mit diesen Daten wären weit detailliertere und tiefgreifendere Auswertungen möglich. 
+Dabei würde vor allem die explorative Datenanalyse (siehe S.\pageref{subsub:datenanalyse}, \ref{subsub:datenanalyse}) profitieren.
+
+Diese erfordern jedoch eine Überlegung des späteren Datenmodells, da diese das Konzept von multidimensionale Daten darstellen.
+Demnach gibt es einen Datensatz mit \textit{n} Einsätzen, wovon jeder Einsatz eine Anzahl \textit{m} Kompressionen, Defibrillationen, Messungen, Alarme und weiteres haben kann.
+Einen Entwurf für ein passendes Datenmodell ist in Abbildung \ref{fig:ersterVorschlagDatenmodell} zu sehen.
+
+Auf Basis dieser Analyse und der herausgefundenen potentiellen neuen Datenquellen werden Anforderungen formuliert und mit der Entwicklungsabteilung kommuniziert, damit diese Daten zur Auswertung bereitstehen können.
+
+\subsubsection{Entwurf für ein Datenmodell}
+\label{subsub:datenmodell}
+Um die Anforderung, weitere Daten aus den bisherigen Einsätzen auszulesen gerecht zu werden, muss vorab ein geeignetes Datenmodell entworfen werden.
+Dieses muss die daraus resultierende Multidimensionalität unterstützen und eine konfliktfreie Umgebung schaffen.
+Dabei sollen jedoch so viele Daten wie möglich miteinander kombiniert werden können, damit ein umfassendes exploratives und konfirmatives Analysieren der vorliegenden Daten möglich ist.
+
+Zuvor gab es lediglich die Tabelle \glqq Missions\grqq{}, welche pro Zeile einen Einsatz ablegt und in den dazugehörigen Spalten die Werte zu den entsprechenden \gls{MM}.
+Ein Auszug aus hieraus ist in Tabelle \ref{tbl:missions} zu sehen.
+
+\begin{table}[htb]
+\centering
+%\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+\textbf{mission.uuid}   & \textbf{mission.start} & \textbf{hasReanimation} & \textbf{device.type} & \textbf{...} \\ \hline
+b14f790f-{[}...{]}863f3 & 2016-08-27T12:13:07    & true                    & corpuls3             & ...          \\ \hline
+d7276b88-{[}...{]}2da61 & 2016-09-29T21:02:30    & false                   & corpuls1             & ...          \\ \hline
+\end{tabular}%
+%}
+\caption[Aktuelle Export-Tabelle]{Auszug aus der Tabelle, wie sie im aktuellen Export maximal zur Verfügung steht}
+\label{tbl:missions}
+\end{table}
+
+Ein geeignetes Datenmodell, welches die mehrdimensionalen Daten einbindet und unterstützt, wurde entworfen und ist in Abbildung \ref{fig:ersterVorschlagDatenmodellC} zu erkennen.
+Hierbei wurden die in \ref{sub:erweiterung} genannten neuen Datenquellen hinzugefügt, sodass beispielsweise neue Tabellen zu \gls{CPR}- oder Defibrillationsdaten zu sehen sind.
+
+\bildbreit
+{ersterVorschlagDatenmodellC}
+{Visualisierung für den Entwurf eines neuen Datenmodells mit mehrdimensionalen Objekten}
+{Visualisierung des neuen Datenmodells mit mehrdimensionalen Objekten}
+
+Dabei wurde darauf geachtet, dass keine zirkulären Referenzen entstehen, welche dann vorkommen, wenn mehrere Spalten die gleiche Bezeichnung haben.
+Dies wurde präventiv mit einem Präfix der jeweiligen Datenquelle verhindert.
+Auch erleichtert dies das spätere Erstellen von Dimensionen oder Kennzahlen, da eine eindeutige Benennung vorhanden ist.
+
+Auch ein gemeinsamer Primärschlüssel sollte in allen neuen Datentabellen vorhanden sein, damit eine Beziehung herrscht.
+Hierfür wurde die \gls{UUID} verwendet, da diese garantiert in jedem Einsatz vorhanden und bereits eindeutig ist.
+Damit ist gewährleistet, dass theoretisch jeder Datenpunkt mit jedem anderen Datenpunkt verknüpft werden kann, auch wenn nur ein geringer Teil aller Verknüpfungen sich als sinnvoll erweisen wird. 
+
+
+%\subsection{Incremental Load?}
+\subsubsection{Anforderungen für neue Datenquellen (als User Stories in JIRA)}
+\label{subsub:stories}
+Damit die im vorherigen Kapitel herausgefundenen Datenquellen für Auswertungen bereitstehen, muss zunächst deren Extrahierung aus den Einsatzdaten implementiert werden. 
+Weiter steht der Export, beziehungsweise das Hinzufügen dieser neuen Daten in den bestehenden, überarbeiteten Export an.
+
+Hierfür wird der bestehende Prozess der Entwicklungsabteilung angewandt, damit eine entsprechende Implementierung im SCRUM-Verfahren möglich ist.
+Demnach wird für eine neue Anforderung eine \glqq Story\grqq{} im Projekt- und Aufgabenmanagement-Tool \glqq Jira\grqq{} angelegt.
+Diese Story wird einem übergeordneten \gls{Feature} oder \glqq Epic\grqq{} zugeordnet.
+So werden beispielsweise dem Feature \glqq \gls{BI} Dashboard\grqq{} alle zugehörigen Storys zugeordnet, wie in Abbildung \ref{fig:jiraEpic} zu sehen.
+\bild
+{jiraEpic}
+{11cm}
+{Grafische Visualisierung der zugehörigen Storys vom Feature \glqq \gls{BI} Dashboard\grqq{} in Jira}
+{Grafische Visualisierung der zugehörigen Storys vom Feature BI-Dashboard in Jira}
+
+Weiter muss eine Story laut SCRUM die \glqq Definition of Ready\grqq{} erfüllen, damit sie in den Sprint mit eingeplant werden darf.
+Diese soll garantieren, dass unter anderem eine aussagekräftige Beschreibung oder Abnahmekriterien vorhanden sind.
+Dementsprechend müssen die erstellten Storys gewisse Qualitätsmerkmale vorweisen, damit sie umgesetzt werden können.
+
+Für das Extrahieren und Exportieren von einem neuen Datenobjekt ist es daher sinnvoll, die geforderten Informationen so detailliert wie möglich zu beschreiben.
+Hierfür ist das vorab in \ref{subsub:datenmodell} entwickelte Datenmodell ein hilfreiches Mittel, um die Storys präzise beschreiben zu können.
+
+\todotext{Story Beispiel mit Bild und Tabelle etc.}
+
+
+\subsubsection{Format}
 (json format cpr (siehe mails) (Fotos whiteboard als anhang?),)
 null values bei cpr trends
-%\subsection{Incremental Load?}
-\subsubsection{Anforderungen an ein neues Export-Format (als User Stories in JIRA)}
-\label{subsub:stories}
 
 % Vor Export?
 \subsection{Datenbankhaltung?}
@@ -250,7 +345,7 @@ null values bei cpr trends
 \subsection{Dashboards}
 \subsubsection{Neue mögliche Visualisierungen durch Anforderungen Schocks, Nibp, Cpr}
 test
-\subsection{(Auszug) Umsetzung der Evaluierungsergebnisse}
+\subsection{Umsetzung der Evaluierungsergebnisse (Auszug)}
 \subsubsection{Zielgruppenunterschiedliche Startseiten}
 \subsubsection{Lesezeichen?} %vlt so 10 Beispiel Lesezeichen
 \subsubsection{Usability/Nutzerführung/Hilfetexte}

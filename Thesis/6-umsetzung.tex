@@ -127,12 +127,13 @@ Auch der damit resultierende große POST-Befehl ist keine optimale Umsetzung.
 Aus diesem Anlass muss dieses Export-Format neu überdacht und für große Datenmengen optimiert werden.
 
 \subsubsection{Überarbeitetes Export-Format}
-\label{subsub:aktuellesformat}
+\label{subsub:ueberarbeutetesformat}
 Der Hauptaspekt beim neuen Entwurf der Export-Schnittstelle war das effiziente und sichere Umgehen mit großen Datenmengen.
 Hierfür muss ein anderer als der zweistufige, in \ref{subsub:1stexport} beschriebene Prozess, entwickelt werden.
 
-\todo{Lehmann fragen, welche anderen Alternativen Pläne es gab!}
-\lipsum*[104]
+\todo{Alternativen: Direkt auf Platte, Anstoßen und direkt Ergebnis erhalten oder eben Anfrage und später fertige Datei\\
+Warum letzteres: Nie Timeout und sicherheit(auth) und universell}
+%\lipsum*[104]
 
 Letztendlich wurde sich für ein/das Konzept mit den folgenden möglichen Schritten entschieden:
 \begin{enumerate}
@@ -209,7 +210,7 @@ Lediglich beim finalen Anfordern der Export-Datei muss die Standard-URL um \\
 \colorbox[RGB]{240,240,240}{\texttt{http://\{SERVER\_IP\}/v3/exports\textcolor{red}{/\{EXPORT\_ID\}/file}}} \\
 erweitert werden. 
 
-\subsection{Erweiterung um tiefgreifendere? Daten}
+\subsection{Erweiterung um neue Datenobjekte} %tiefgreifendere? Daten}
 \label{sub:erweiterung}
 Im Rahmen der \fullref{kap:anforderungsanalyse} kamen bereits erste Fragestellungen zum Vorschein, welche mit den bisherig zur Verfügung stehenden Daten nicht beantwortbar waren.
 Im darauffolgenden Laufe der \fullref{kap:konzept} haben sich diverse weitere Problematiken und fehlende Daten für aussagekräftige Auswertungen bestätigt.
@@ -224,13 +225,15 @@ Eine Analyse der potentiell verfügbaren Daten ergab folgende Bereiche (Auszug i
 Drucktiefe \& -frequenz, Anzahl Kompressionen, Pausenzeiten und \gls{CCF}
 \item [Defibrillationen]\hfill \\
 Zeitpunkt, Energie, Impedanz, Modus und Pausenzeiten der einzelnen Defibrillationen
-\item [Blutdruck-Messungen]\hfill \\
+\item [\gls{NIBD}]\hfill \\
 Zeitpunkt, Modus, Dauer , Patiententyp, Systole, Diastole \& mittlerer arterieller Druck der einzelnen Messungen
 \item [Vitalparameter und Trends]\hfill \\
 Die Werte aller Vitalparameter zu einem bestimmten Zeitpunkt
 \item [Technische- und Patienten-Alarme]\hfill \\
 Wann sind welche Patientenalarme mit welchen Alarmgrenzen aufgetreten? \\
 Welche technischen Alarme treten zu welcher Zeit auf?
+\item [Events]\hfill \\
+Welche Events treten wann mit welchen Parameter-Werten auf?
 \end{description}
 
 Mit diesen Daten wären weit detailliertere und tiefgreifendere Auswertungen möglich. 
@@ -238,7 +241,7 @@ Dabei würde vor allem die explorative Datenanalyse (siehe S.\pageref{subsub:dat
 
 Diese erfordern jedoch eine Überlegung des späteren Datenmodells, da diese das Konzept von multidimensionale Daten darstellen.
 Demnach gibt es einen Datensatz mit \textit{n} Einsätzen, wovon jeder Einsatz eine Anzahl \textit{m} Kompressionen, Defibrillationen, Messungen, Alarme und weiteres haben kann.
-Einen Entwurf für ein passendes Datenmodell ist in Abbildung \ref{fig:ersterVorschlagDatenmodell} zu sehen.
+Einen Entwurf für ein passendes Datenmodell ist in Abbildung \ref{fig:ersterVorschlagDatenmodellC} zu sehen.
 
 Auf Basis dieser Analyse und der herausgefundenen potentiellen neuen Datenquellen werden Anforderungen formuliert und mit der Entwicklungsabteilung kommuniziert, damit diese Daten zur Auswertung bereitstehen können.
 
@@ -273,7 +276,7 @@ Hierbei wurden die in \ref{sub:erweiterung} genannten neuen Datenquellen hinzuge
 {Visualisierung für den Entwurf eines neuen Datenmodells mit mehrdimensionalen Objekten}
 {Visualisierung des neuen Datenmodells mit mehrdimensionalen Objekten}
 
-Dabei wurde darauf geachtet, dass keine zirkulären Referenzen entstehen, welche dann vorkommen, wenn mehrere Spalten die gleiche Bezeichnung haben.
+Dabei wurde darauf geachtet, dass keine zirkulären Referenzen entstehen, welche unter anderem bei der gleichen Benennung mehrerer Spalten vorkommen.
 Dies wurde präventiv mit einem Präfix der jeweiligen Datenquelle verhindert.
 Auch erleichtert dies das spätere Erstellen von Dimensionen oder Kennzahlen, da eine eindeutige Benennung vorhanden ist.
 
@@ -283,7 +286,7 @@ Damit ist gewährleistet, dass theoretisch jeder Datenpunkt mit jedem anderen Da
 
 
 %\subsection{Incremental Load?}
-\subsubsection{Anforderungen für neue Datenquellen (als User Stories in JIRA)}
+\subsubsection{Erstellen von Anforderungen für neue Datenquellen} %(als User Stories in JIRA)}
 \label{subsub:stories}
 Damit die im vorherigen Kapitel herausgefundenen Datenquellen für Auswertungen bereitstehen, muss zunächst deren Extrahierung aus den Einsatzdaten implementiert werden. 
 Weiter steht der Export, beziehungsweise das Hinzufügen dieser neuen Daten in den bestehenden, überarbeiteten Export an.
@@ -291,32 +294,117 @@ Weiter steht der Export, beziehungsweise das Hinzufügen dieser neuen Daten in d
 Hierfür wird der bestehende Prozess der Entwicklungsabteilung angewandt, damit eine entsprechende Implementierung im SCRUM-Verfahren möglich ist.
 Demnach wird für eine neue Anforderung eine \glqq Story\grqq{} im Projekt- und Aufgabenmanagement-Tool \glqq Jira\grqq{} angelegt.
 Diese Story wird einem übergeordneten \gls{Feature} oder \glqq Epic\grqq{} zugeordnet.
-So werden beispielsweise dem Feature \glqq \gls{BI} Dashboard\grqq{} alle zugehörigen Storys zugeordnet, wie in Abbildung \ref{fig:jiraEpic} zu sehen.
+So werden beispielsweise dem Feature \glqq \gls{BI} Dashboard\grqq{} alle zugehörigen Storys zugeordnet, wie in einem Auszug davon in Abbildung \ref{fig:jiraEpic} zu sehen ist.
 \bild
 {jiraEpic}
-{11cm}
+{12cm}
 {Grafische Visualisierung der zugehörigen Storys vom Feature \glqq \gls{BI} Dashboard\grqq{} in Jira}
-{Grafische Visualisierung der zugehörigen Storys vom Feature BI-Dashboard in Jira}
+{Visualisierung der zugehörigen Storys vom Feature BI-Dashboard in Jira}
 
 Weiter muss eine Story laut SCRUM die \glqq Definition of Ready\grqq{} erfüllen, damit sie in den Sprint mit eingeplant werden darf.
 Diese soll garantieren, dass unter anderem eine aussagekräftige Beschreibung oder Abnahmekriterien vorhanden sind.
 Dementsprechend müssen die erstellten Storys gewisse Qualitätsmerkmale vorweisen, damit sie umgesetzt werden können.
 
-Für das Extrahieren und Exportieren von einem neuen Datenobjekt ist es daher sinnvoll, die geforderten Informationen so detailliert wie möglich zu beschreiben.
+Für das Extrahieren und Exportieren von einem neuen Datenobjekt ist es daher sinnvoll, die geforderten Informationen so detailliert wie möglich darzulegen.
 Hierfür ist das vorab in \ref{subsub:datenmodell} entwickelte Datenmodell ein hilfreiches Mittel, um die Storys präzise beschreiben zu können.
 
-\todotext{Story Beispiel mit Bild und Tabelle etc.}
+\begin{table}[hbt]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{ll|l|l|l|l|l|l|}
+\cline{3-8}
+                                       &                       & \multicolumn{6}{c|}{\textbf{trend.}}                                                                                                                                              \\ \cline{3-8} 
+                                       &                       &                       & \multicolumn{5}{c|}{\textbf{cpr.}}                                                                                                                        \\ \hline
+\multicolumn{1}{|l|}{\textbf{}}        & \textbf{mission.uuid} & \textbf{minute} & \textbf{pauses.sum} & \textbf{comp.sum} & \textbf{depth.avg} & \textbf{rate.avg} & \textbf{ccf} \\ \hline
+\multicolumn{1}{|l|}{\textbf{Type}}    & uuid                  &                       & int                           & int                                 & float                        & float                       & float                  \\ \hline
+\multicolumn{1}{|l|}{\textbf{Unit}}    &                       &                       & s                             &                                     & cm                           & 1/min                       &                        \\ \hline
+\multicolumn{1}{|l|}{\textbf{Example}} & sd84-[...]-k9s4s      & 3                     & 13                            & 91                                  & 5.31                         & 112                         & 0.82                   \\ \hline
+\end{tabular}%
+}
+\caption[Gefordertes Exportformat am Beispiel der CPR-Daten]{Auf Basis des entworfenen Datenmodells erstellte Tabelle für das geforderte Export-Format am Beispiel von \gls{CPR}-Daten}
+\label{tbl:export}
+\end{table}
 
+Für eine solche detaillierte Beschreibung der Story wurde unter anderem eine Tabelle \ref{tbl:export} angelegt.
+In dieser Darstellung sind bereits viele Aspekte festgelegt.
+So ist beispielsweise die Namensgebung an die bisherige Nomenklatur der \gls{MM} angelehnt, sodass eine innere Konsistenz herrscht.
+Auch der jeweilige Datentyp oder die Einheit ist bereits festgelegt, damit ein einheitliches Format der Daten gewährleistet ist.
 
-\subsubsection{Format}
-(json format cpr (siehe mails) (Fotos whiteboard als anhang?),)
-null values bei cpr trends
+Die Einheit ist insofern von großer Bedeutung, da diverse Daten in verschiedenen Einheiten gespeichert werden können.
+So kann etwa die CO2-Konzentration der Ausatemluft in Millimeter-Quecksilbersäule (mmHg) oder Kilopascal (kPa) gemessen und gespeichert werden.
+Damit in der späteren Auswertung keine unterschiedlichen Einheiten vermischt werden, wird in Tabelle \ref{tbl:export} eine Standard-Einheit für den Export festgelegt.
 
-% Vor Export?
-\subsection{Datenbankhaltung?}
-\subsubsection{Lasttests?}
-%dummydaten?
-%\subsection{JIRA-Stories/Anforderungen als User Stories}
+Auch der Aggregierungsgrad wird hier beschrieben, indem die Daten für eine Minute aggregiert werden sollen.
+Dies resultierte aus mehreren Diskussionen mit Entwicklern, Produktmanager und Stakeholdern, da die Speicherung von jeder einzelnen Kompression mit ihren vorliegenden Daten auf lange Sicht zu einem Speicher- und Performanceproblem führen könnte.
+Dennoch ist es für die Anwender eine deutliche Verbesserung der Auswertungsmöglichkeiten.
+
+Ein Beispiel für exemplarische Daten wird ebenfalls hinzugefügt, damit letzte Unklarheiten zu Feldern oder Datentypen beseitigt werden.
+Dieser Prozess wird analog mit allen neu geforderten Objekten (siehe Abbildung \ref{fig:ersterVorschlagDatenmodellC}) durchgeführt. Anhang\ref{AnhangJiraStories?}
+
+\subsubsection{Festlegen des Export-Formats}
+Im Zuge der Bereitstellung der neuen Datenobjekte wurde im vorigen Kapitel mittels Beschreibung der Anforderungen und ergänzenden Tabellen das gewünschte Format festgelegt.
+Im Laufe der Implementierung gibt es diverse Diskussionen und Abstimmungen mit den Entwicklern und Stakeholdern, wie der finale Export aussehen soll.
+Dies geschieht im Zuge der \glqq Sprints\grqq{} in mehreren Zyklen, wird jedoch für die bessere Lesbarkeit dieser Arbeit in diesem Unterkapitel zusammengefasst.
+
+Vorab ist anzumerken, dass im zeitlichen Rahmen dieser Arbeit und unter Berücksichtigung von anderen Entwicklungsprojekten eine Priorisierung des Product-Owners vorgenommen werden musste.
+Dabei sind drei der sechs geforderten neuen Datenobjekte aus Abbildung \ref{fig:ersterVorschlagDatenmodellC} für die Erweiterung des Exports  geplant: \gls{CPR}-, \gls{NIBD}- \& Defibrillations-Daten.
+
+Demnach soll es drei optionale neue JSON-Objekte in der Antwort des Servers (siehe Abbildung \ref{fig:exportFile}) geben.
+Hier wurden vorab Überlegungen getätigt, wo die entsprechenden neuen Daten hierarchisch zugeordnet werden.
+Dabei gibt es generell zwei Optionen:
+Die neuen Objekte dem \glqq markers\grqq-Objekt unterordnen (Abbildung \ref{fig:marker}), oder direkt unterhalb des \glqq mission\grqq-Objektes als zweiten Kindknoten (\ref{fig:mission}).
+
+\begin{figure}[ht]
+\begin{subfigure}{.5\linewidth}
+  \centering
+  % include first image
+  \includegraphics[width=.95\linewidth]{img/format1}  
+  \caption{CPR-Objekt unterhalb des \glqq markers\grqq-Objekt}
+  \label{fig:marker}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+  \centering
+  % include second image
+  \includegraphics[width=.95\linewidth]{img/format2}  
+  \caption{Neues Objekt neben dem \glqq markers\grqq-Objekt}
+  \label{fig:mission}
+\end{subfigure}
+\caption[Beispiel einer Anfrage und Antwort der POST-Methode]{Schematische Darstellung der Erweiterung des Exports am Beispiel vom CPR-Objekt}
+\label{fig:tree}
+\end{figure}
+
+Da es sich um eigenständige neue Objekte unabhängig von den \gls{MM} handelt, wurde sich für die Variante in Abbildung \ref{fig:mission} entschieden.
+Demnach können nun die Objekte \glqq trend.cpr\grqq, \glqq shock.details\grqq{} und \glqq nibp.details\grqq{} in einem Missions-Objekt vorhanden sein.
+Ein Beispiel hierfür ist in Abbildung \ref{fig:exportNewObj} zu sehen.
+
+\bild
+{exportNewObj}
+{9cm}
+{Neue JSON-Objekte (hier \glqq trend.cpr\grqq{} \& \glqq shock.details\grqq{}) neben den \glqq markes\grqq{} innerhalb eines Missions-Objektes des Exports}
+{Neue JSON-Objekte innerhalb eines Missions-Objektes des Exports}
+
+%(Diese zwei Optionen sind in Abbildung \ref{fig:tree} schematisch dargestellt.
+%Dabei ist in \ref{fig:marker} das Schema mit der Unterordnung unterhalb des \glqq markers\grqq-Objekt visualisiert.
+%In \ref{fig:mission} ist das \gls{CPR}-Objekt unterhalb der ersten Mission als zweites Kindobjekt neben den \glqq markers\grqq angelegt.)
+
+Des Weiteren wurde entschieden, die neuen Objekte nur zu exportieren, wenn auch tatsächlich Daten hiervon vorhanden sind.
+Bei dem \gls{CPR}-Objekt gibt es hierbei eine Besonderheit, da dieses als zeitliches Objekt mit Trenddaten anzusehen ist.
+Dadurch gibt es immer Daten ab Minute 0, auch wenn beispielsweise die erste Kompression erst in Minute zwölf stattfand.
+Dies soll garantieren, dass eine kontinuierliche Zeitskala gegeben ist, die auch mit anderen Trenddaten vergleichbar ist.
+Für eine Vergleichbarkeit von Reanimationen untereinander ist diese Form der Daten nicht geeignet. 
+In \ref{subsub:weitereFelder} wird eine Lösung erarbeitet, die dies zusätzlich ermöglichen soll.
+
+Bei den \gls{NIBD}- \& Defibrillations-Objekten ist im Gegensatz zum CPR-Objekt nicht die Minute das führende Feld respektive Primärschlüssel, sondern die hochzählende Nummer der Messung oder der Schockabgabe.
+Dadurch ist aufgrund der Objekorientierung eine Repräsentation der Wirklichkeit gegeben, da eine Messung oder eine Defibrillation ein abgeschlossenes Objekt darstellt.
+
+%(json format cpr (siehe mails) (Fotos whiteboard als anhang?),)
+%null values bei cpr trends
+
+%% Vor Export?
+%\subsection{Datenbankhaltung?}
+%\subsubsection{Lasttests?}
+%%dummydaten?
+
 
 %\section{Datenmodell?}
 

@@ -45,6 +45,7 @@ Andererseits gibt es auch vermeintlich viele, bisher unbekannte, Zusammenhänge,
 
 
 \subsubsection{Visualisierung}
+\label{subsub:visual}
 Eine Visualisierung ist nach McCormick \cite{Mccormick.1987} das transformation von Information in geometrische Repräsentation von graphischen Objekten.
 Dies erleichtert dem Menschen die Aufnahme von Informationen, insbesondere aber das erkennen von Zusammenhängen und Strukturen innerhalb der Daten.
 Die Subjektivität der Individuen ermöglicht keine einwandfreie Garantie des Informationsflusses zum jeweiligen Anwender. %\cite{Fischer.2014}. 
@@ -61,7 +62,7 @@ Dabei gibt es fünf Eigenschaften, die eine solche spezielle Form klassifizieren
 \item Die Fähigkeiten des Menschen in Bezug auf die Wahrnehmung wird berücksichtigt 
 \end{itemize}
 
-Demzufolge wird im Kontext dieser Arbeit der Begriff Datenvisualisierung und Visualisierung synonym verwendet, die die entsprechenden Eigenschaften auf die hier erarbeiteten Visualisierungen zutreffen.
+Demzufolge wird im Kontext dieser Arbeit der Begriff Datenvisualisierung und Visualisierung synonym verwendet, da die entsprechenden Eigenschaften auf die hier erarbeiteten Visualisierungen zutreffen.
 \todotext{konfirmativ und explorativ visualis (fischer s.26?}
 
 %WordCloud
@@ -234,9 +235,116 @@ Um jedoch in späteren Anwendungen die Nutzerfreundlichkeit zu erhöhen und Komp
 Die bessere Lesbarkeit ist in \ref{fig:fort2} zu erkennen.
 
 \subsection{Statistische Auswertungen}
-\todotext{Bild vergleich Tabelle Diagramm! (bsp fischer 4.3)}
-%\subsubsection{Diagramme}
-\subsection{Multidimensionale Daten darstellen}
+\subsubsection{Definition Diagramme}
+Wie im zuvor bearbeiteten Kapitel zu sehen ist, wurden als Veranschaulichung der Gestaltungsgrundsätze bereits Diagramme verwendet.
+Ein Diagramm ist \glqq eine grafische Darstellung von Größenverhältnissen beziehungsweise Zahlenwerten in anschaulicher, leicht überblickbarer Form\grqq{} (Vgl. \cite{Dudenredaktion.2015}).
+Wie in \ref{subsub:visual} bereits untersucht, sind Datenvisualisierungen eine besondere Form von Visualisierungen.
+Diagramme sind wiederum eine besondere Form der Datenvisualisierungen, da sie die fünf Eigenschaften nach \cite{Card.2007} erfüllen, welche eine Datenvisualisierung klassifizieren (siehe S. \pageref{subsub:visual}). 
+
+\subsubsection{(Verschiedene) Arten von Diagrammen und deren Nutzen}
+Es gibt dabei eine Vielzahl von Diagrammkategorien, die weit über die klassichen Balken- oder Liniendiagramme hinaus gehen.
+Darunter fallen Hyperonyme wie Achsendiagramme, Flussdiagramme (Organigramme), Zeitstrahl, Relationsdiagramme oder spezielle Diagramme in besonderen Fachrichtungen wie ein Klassen(UML)-Diagramm in der Informatik oder ein Grotrian-Diagramm in der Physik \cite{Duncan.2018, Bounford.2001}.
+
+Im Rahmen dieser Arbeit werden größtenteils die klassischen Achsendiagramme und ein paar spezielle Diagramme beleuchtet.
+Dies hängt mit der Intention, der Technologie und den vorliegenden Daten zusammen, da hierfür Kennzahlen und Dimensionen mit- und untereinander in Beziehungen gebracht werden, um neue Erkenntnisse zu erlangen oder Hypothesen zu bearbeiten.
+
+Ein Beispiel dafür, wie effektiv die kognitive Erleichterung durch die grafische Präsentation von Zahlenwerten funktioniert, zeigt das folgende Beispiel:
+
+\begin{table}[htb]
+\centering
+%\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Kunde}                  & \textbf{Umsatz} & \textbf{Gewinn} & \textbf{Umsatzmarge(\%)} \\ \hline
+Acer                               & 9.342.856      & 3.513.673             & 37,6\%                     \\ \hline
+Boston and Albany Railroad Company & 5.581.529      & 1.924.006             & 34,5\%                     \\ \hline
+Calypso                            & 2.327.940      & 1.258.510             & 54,1\%                     \\ \hline
+Champion International             & 1.972.009      & 835.208               & 42,4\%                     \\ \hline
+Edna Design                        & 2.044.386      & 900.829               & 44,1\%                     \\ \hline
+Fokas                              & 1.934.520      & 829.052               & 42,9\%                     \\ \hline
+Information Bureau                 & 2.419.778      & 1.097.471             & 45,4\%                     \\ \hline
+%J. S. Lee Associates               & 2.048.522      & 263.119               & 12,8\%                     \\ \hline
+%KENROB and Associates              & 3.691.399      & 1.671.433             & 45,3\%                     \\ \hline
+%Matradi                            & 3.108.910      & 903.906               & 29,1\%                     \\ \hline
+%Pacifico                           & 2.248.193      & 464.785               & 20,7\%                     \\ \hline
+%Paracel                            & 11.117.286     & 5.077.890             & 45,7\%                     \\ \hline
+%Renegade info Crew                 & 1.782.516      & 870.276               & 48,8\%                     \\ \hline
+Road Warrior International         & 3.127.719      & 948.304               & 30,3\%                     \\ \hline
+Talarian                           & 9.168.719      & 3.281.944             & 35,8\%                     \\ \hline
+Tandy Corporation                  & 11.889.136     & 5.585.705             & 47,0\%                     \\ \hline
+Target                             & 5.369.579      & 1.711.586             & 31,9\%                     \\ \hline
+Teammax                            & 2.009.436      & 1.055.986             & 52,6\%                     \\ \hline
+Unison Management Concepts         & 2.115.465      & 1.083.508             & 51,2\%                     \\ \hline
+Vanstar                            & 3.720.451      & 1.616.382             & 43,4\%                     \\ \hline
+\end{tabular}%
+%}
+\caption[Beispiel einer Datentabelle]{Ein Beispiel einer Datentabelle mit vier Spalten, mehreren Zeilen und diversen Werten}
+\label{tbl:data}
+\end{table}
+
+
+%booktabs table
+%\begin{table}[]
+%\centering
+%\resizebox{\textwidth}{!}{%
+%\begin{tabular}{@{}llll@{}}
+%\toprule
+%\textbf{Customer}                                        & \textbf{Sales}                  & \textbf{Sales Margin}          & \textbf{Sales Margin (\%)}  \\ \midrule
+%\multicolumn{1}{|l|}{Acer}                               & \multicolumn{1}{l|}{9.342.856}  & \multicolumn{1}{l|}{3.513.673} & \multicolumn{1}{l|}{37,6\%} \\ \midrule
+%\multicolumn{1}{|l|}{Boston and Albany Railroad Company} & \multicolumn{1}{l|}{5.581.529}  & \multicolumn{1}{l|}{1.924.006} & \multicolumn{1}{l|}{34,5\%} \\ \midrule
+%\multicolumn{1}{|l|}{Calypso}                            & \multicolumn{1}{l|}{2.327.940}  & \multicolumn{1}{l|}{1.258.510} & \multicolumn{1}{l|}{54,1\%} \\ \midrule
+%\multicolumn{1}{|l|}{Champion International}             & \multicolumn{1}{l|}{1.972.009}  & \multicolumn{1}{l|}{835.208}   & \multicolumn{1}{l|}{42,4\%} \\ \midrule
+%\multicolumn{1}{|l|}{Edna Design}                        & \multicolumn{1}{l|}{2.044.386}  & \multicolumn{1}{l|}{900.829}   & \multicolumn{1}{l|}{44,1\%} \\ \midrule
+%\multicolumn{1}{|l|}{Fokas}                              & \multicolumn{1}{l|}{1.934.520}  & \multicolumn{1}{l|}{829.052}   & \multicolumn{1}{l|}{42,9\%} \\ \midrule
+%\multicolumn{1}{|l|}{Information Bureau}                 & \multicolumn{1}{l|}{2.419.778}  & \multicolumn{1}{l|}{1.097.471} & \multicolumn{1}{l|}{45,4\%} \\ \midrule
+%\multicolumn{1}{|l|}{J. S. Lee Associates}               & \multicolumn{1}{l|}{2.048.522}  & \multicolumn{1}{l|}{263.119}   & \multicolumn{1}{l|}{12,8\%} \\ \midrule
+%\multicolumn{1}{|l|}{KENROB and Associates}              & \multicolumn{1}{l|}{3.691.399}  & \multicolumn{1}{l|}{1.671.433} & \multicolumn{1}{l|}{45,3\%} \\ \midrule
+%\multicolumn{1}{|l|}{Matradi}                            & \multicolumn{1}{l|}{3.108.910}  & \multicolumn{1}{l|}{903.906}   & \multicolumn{1}{l|}{29,1\%} \\ \midrule
+%\multicolumn{1}{|l|}{Pacifico}                           & \multicolumn{1}{l|}{2.248.193}  & \multicolumn{1}{l|}{464.785}   & \multicolumn{1}{l|}{20,7\%} \\ \midrule
+%\multicolumn{1}{|l|}{Paracel}                            & \multicolumn{1}{l|}{11.117.286} & \multicolumn{1}{l|}{5.077.890} & \multicolumn{1}{l|}{45,7\%} \\ \midrule
+%\multicolumn{1}{|l|}{Renegade info Crew}                 & \multicolumn{1}{l|}{1.782.516}  & \multicolumn{1}{l|}{870.276}   & \multicolumn{1}{l|}{48,8\%} \\ \midrule
+%\multicolumn{1}{|l|}{Road Warrior International}         & \multicolumn{1}{l|}{3.127.719}  & \multicolumn{1}{l|}{948.304}   & \multicolumn{1}{l|}{30,3\%} \\ \midrule
+%\multicolumn{1}{|l|}{Talarian}                           & \multicolumn{1}{l|}{9.168.719}  & \multicolumn{1}{l|}{3.281.944} & \multicolumn{1}{l|}{35,8\%} \\ \midrule
+%\multicolumn{1}{|l|}{Tandy Corporation}                  & \multicolumn{1}{l|}{11.889.136} & \multicolumn{1}{l|}{5.585.705} & \multicolumn{1}{l|}{47,0\%} \\ \midrule
+%\multicolumn{1}{|l|}{Target}                             & \multicolumn{1}{l|}{5.369.579}  & \multicolumn{1}{l|}{1.711.586} & \multicolumn{1}{l|}{31,9\%} \\ \midrule
+%\multicolumn{1}{|l|}{Teammax}                            & \multicolumn{1}{l|}{2.009.436}  & \multicolumn{1}{l|}{1.055.986} & \multicolumn{1}{l|}{52,6\%} \\ \midrule
+%\multicolumn{1}{|l|}{Unison Management Concepts}         & \multicolumn{1}{l|}{2.115.465}  & \multicolumn{1}{l|}{1.083.508} & \multicolumn{1}{l|}{51,2\%} \\ \midrule
+%Vanstar                                                  & 3.720.451                       & 1.616.382                      & 43,4\%                      \\ \bottomrule
+%\end{tabular}%
+%}
+%\caption{My caption}
+%\label{my-label}
+%\end{table}
+
+In Tabelle \ref{tbl:data} sind diverse Zahlen zu Kunden und deren Umsätze, Gewinn und Marge zu sehen.
+Dabei ist die Informationsflut und daraus resultierende Reizüberflutung für den jeweiligen Betrachter ein Hindernis, um schnell neue Erkenntnisse zu gewinnen oder Vergleiche zu vollziehen.
+Welcher Kunde beispielsweise den höchsten oder niedrigsten Umsatz, Gewinn oder Marge hat, ist in dieser Tabelle nicht sofort ersichtlich.
+
+\bildbreit
+{MuchDataBetter}
+{Die Daten aus Tabelle \ref{tbl:data} in grafischer Form eines Kombinations-Diagrammes dargestellt}
+{Daten aus Tabelle \ref{tbl:data} in grafischer Form eines Diagrammes dargestellt}
+
+Eine deutliche Verbesserung der Interpretationsmöglichkeiten ist in Abbildung \ref{fig:MuchDataBetter} zu erkennen.
+Hier sind die Daten aus Tabelle \ref{tbl:data} in visueller Form eines dargestellt.
+Dabei ist das gewählte Diagramm eine Kombination aus Balken- und Liniendiagramm.
+
+Es ist sofort möglich, den Kunden mit dem meisten und geringsten Umsatz ausfindig zu machen.
+Gleichzeitig wird eine Relation des Unterschiedes sichtbar, da die Balkenhöhe gut miteinander verglichen werden kann.
+Des Weiteren sind die Zahlen des Gewinnes und der Umsatzmarge als farbig unterscheidbare Striche in den Balken integriert.
+Hierdurch sind weitere Beziehung sichtbar, welcher Kunde den höchsten oder niedrigsten Gewinn oder Umsatzmarge generiert.
+Auch ist mühelos ein Zusammenhang zwischen Umsatz, Gewinn und Umsatzmarge jedes einzelnen Kunden ersichtlich, welcher wiederum sofort mit anderen Kunden verglichen werden kann.
+
+Die Liste der schnell und effizient identifizierten neuen Erkenntnisse kann noch weiter geführt werden.
+Als Motivation und Argument für die grafische Darstellung von solchen Zahlenwerten soll dieser Auszug jedoch genügen.
+
+Eine kurze Auswahl an möglichen relevanten Diagrammen und Visualisierungen wird im folgenden kurz erläutert:
+\begin{description}
+\item[Balkendiagramm]
+\end{description}
+\todo{Diagramme von QLIK vorstellen}
+
+%\subsection{Multidimensionale Daten darstellen?}
 
 \section{Begriffe zum Thema Data Analytics}
 \subsection{Übersicht der Zusammenhänge}

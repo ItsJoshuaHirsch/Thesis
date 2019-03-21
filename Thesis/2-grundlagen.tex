@@ -242,7 +242,7 @@ Wie in \ref{subsub:visual} bereits untersucht, sind Datenvisualisierungen eine b
 Diagramme sind wiederum eine besondere Form der Datenvisualisierungen, da sie die fünf Eigenschaften nach \cite{Card.2007} erfüllen, welche eine Datenvisualisierung klassifizieren (siehe S. \pageref{subsub:visual}). 
 
 \subsubsection{(Verschiedene) Arten von Diagrammen und deren Nutzen}
-Es gibt dabei eine Vielzahl von Diagrammkategorien, die weit über die klassichen Balken- oder Liniendiagramme hinaus gehen.
+Es gibt dabei eine Vielzahl von Diagrammkategorien, die weit über die klassischen Balken- oder Liniendiagramme hinaus gehen.
 Darunter fallen Hyperonyme wie Achsendiagramme, Flussdiagramme (Organigramme), Zeitstrahl, Relationsdiagramme oder spezielle Diagramme in besonderen Fachrichtungen wie ein Klassen(UML)-Diagramm in der Informatik oder ein Grotrian-Diagramm in der Physik \cite{Duncan.2018, Bounford.2001}.
 
 Im Rahmen dieser Arbeit werden größtenteils die klassischen Achsendiagramme und ein paar spezielle Diagramme beleuchtet.
@@ -338,11 +338,65 @@ Auch ist mühelos ein Zusammenhang zwischen Umsatz, Gewinn und Umsatzmarge jedes
 Die Liste der schnell und effizient identifizierten neuen Erkenntnisse kann noch weiter geführt werden.
 Als Motivation und Argument für die grafische Darstellung von solchen Zahlenwerten soll dieser Auszug jedoch genügen.
 
-Eine kurze Auswahl an möglichen relevanten Diagrammen und Visualisierungen wird im folgenden kurz erläutert:
+Eine kurze Auswahl an häufig relevanten Diagrammen und Visualisierungen wird im folgenden kurz erläutert:
 \begin{description}
-\item[Balkendiagramm]
+\item[Liniendiagramm] Ein Liniendiagramm ist eine nützliche Visualisierung, um zeitliche Verläufe darzustellen. 
+Wenn also temporäre Daten aufgezeigt werden, die eine Veränderung zum nächsten Zeitpunkt aufweisen, kann die Verbindung der Datenpunkte durch Linien eine Abweichung grafisch untermauern. 
+Ein Beispiel eines Liniendiagrammes ist in Abbildinug \ref{fig:fort2} zu erkennen.
+
+\item[Balkendiagramm] Balkendiagramme zeigen die absoluten Werte von Daten an und visualisieren eine mögliche Differenz zu andern Balken \cite[S.54]{Bounford.2001}.
+Die Balken gehen dabei üblicherweise von eine gemeinsamen Grundlinie aus, was sie von einem Liniendiagramm unterscheidet.
+Dadurch können sehr kleine Änderungen bei großen absoluten Werten unter Umständen untergehen, was bei einem Liniendiagramm nicht der Fall ist, da diese keine Grundlinie bei 0 haben, sondern eine dynamische Y-Achsen-Skalierung nutzen können.
+
+\bild
+{kombi}
+{14cm}
+{Beispiel eines Kombinationsdiagramm aus Balken und einer Linie}
+{Kombinationsdiagramm aus Balken und einer Linie}
+
+In einem Kombinationsdiagramm werden in der Regel Balken und Linien oder Symbole miteinander kombiniert, um die Vorteile beider Typen in Anspruch zu nehmen.
+Hierbei wird in der Regel eine sekundäre Y-Achse an der rechten Seite eines Diagrammes angelegt, welche die Skalierung für die Linie im Balkendiagramm festlegt.
+Abbildung \ref{fig:kombi} verdeutlicht die genannten Aspekte.
+Zu sehen ist ein Kombinationsdiagramm, dass die absoluten Werte des Budgets als Balken darstellt, und somit jederzeit ein Gefühl für die Gesamtmenge entsteht.
+Die Linie repräsentiert dieses hierbei als Prozentangabe mit einer sekundären Achse auf der rechten Seite.
+Diese beginnt mit der unteren Grenze von 50\% und kann durch den kleineren Wertebereich minimale Veränderungen zwischen den Monaten viel deutlicher hervorheben.
+
+\item[Flächendiagramm] Das wohl bekannteste Flächendiagramm ist das Kreisdiagramm. 
+Es bildet in der Regel eine Dimension und eine Kennzahl ab und zeigt das Verhältnis von einem Objekt zur Gesamtheit.
+Dabei wird es häufig eingesetzt, um die Vorherrschaft eines bestimmten Objektes gegenüber seinen Konkurrenten zu verdeutlichen.
+Auch bei binären Daten bieten sich Kreisdiagramme an, da hierbei das Verhältnis einer Option zur anderen in der Regel interessant ist.
+
+\bild
+{kreisdia}
+{14cm}
+{Darstellung der Wirkungskraft eines Kreisdiagrammes im Vergleich zu einem Balkendiagramm}
+{Darstellung der Wirkungskraft eines Kreisdiagrammes}
+
+Als Beispiel zeigt in Abbildung \ref{fig:kreisdua} das Kreisdiagramm auf der rechten Seite auf einen Blick, dass \glqq ACS Shop\grqq{} mit über der Hälfte des Kreises die absolute Mehrheit der Marktführerschaft besitzt.
+Aus dem Balkendiagramm daneben ist diese Überlegenheit auf den ersten Blick nicht garantiert zu erkennen.
+
+%\item[Histogramm] Um die Häufigkeit oder Verteilung bestimmter numerischer Daten zu verlgeichen, werden oftmals Histogramme eingesetzt.
+%Diese sind streng genommen eine besondere Form von Balkendiagrammen, da
+\item[Boxplot] Ein Boxplot ist ein mächtiges Diagramm, welches eine Vielzahl von Daten in eine kleine \glqq Box\grqq{} packen kann.
+Dabei wird um den Mittelwert der vorliegenden Daten zwei Kästen gelegt, welche das oberste und unterste Quartil darstellen.
+Somit zeigt die \glqq Box\grqq{}, in welchem Bereich sich 75\% der vorliegenden Daten befinden.
+Weiter gibt es sogenannte \glqq Whisker\grqq{}, welche in der Regel maximal 1,5-mal so lang wie die Größe der Box sind. 
+Diese sollen das generelle Minimum und Maximum der Daten darstellen.
+Optional ist hierbei dann die Anzeige von Ausreißern, welche außerhalb des Bereichs der Whisker liegen.
+
+\bild
+{boxplot}
+{14cm}
+{Exemplarische Darstellung von einem Boxplot-Diagramm. Gezeigt wird der Anteil an pünktlichen Lieferungen pro Verkäufer verglichen über mehrere Monate}
+{Exemplarische Darstellung von einem Boxplot-Diagramm}
+
+Besonders Wirkungsvoll werden Boxplots, wenn zusätzlich eine Gruppe mit unterschiedlichen Daten hierbei verglichen werden kann.
+Dies ist exemplarisch in Abbildung \ref{fig:boxplot} dargestellt.
+\item[Punktdiagramm] Wenn es um Beziehungen zwischen zwei Kennzahlen geht, ist ein Punktdiagramm das Mittel zum Zweck.
+Hier können Beziehungen, Gruppierungen (Cluster), Trends oder andere Strukturen erkannt werden.
+Außerdem ist die zusätzliche Einbindung von einer oder zwei Kennzahlen möglich, indem die Größe und/oder Farbe des jeweiligen Punktes entsprechend verändert wird.
+So können komplexe Beziehungen aufgedeckt werden, die mittels bloßer Tabellen für einen Mensch kaum ersichtlich sind.
 \end{description}
-\todo{Diagramme von QLIK vorstellen}
 
 %\subsection{Multidimensionale Daten darstellen?}
 

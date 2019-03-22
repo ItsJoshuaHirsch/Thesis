@@ -243,7 +243,7 @@ Diagramme sind wiederum eine besondere Form der Datenvisualisierungen, da sie di
 
 \subsubsection{(Verschiedene) Arten von Diagrammen und deren Nutzen}
 Es gibt dabei eine Vielzahl von Diagrammkategorien, die weit über die klassischen Balken- oder Liniendiagramme hinaus gehen.
-Darunter fallen Hyperonyme wie Achsendiagramme, Flussdiagramme (Organigramme), Zeitstrahl, Relationsdiagramme oder spezielle Diagramme in besonderen Fachrichtungen wie ein Klassen(UML)-Diagramm in der Informatik oder ein Grotrian-Diagramm in der Physik \cite{Duncan.2018, Bounford.2001}.
+Darunter fallen Hyperonyme wie Achsendiagramme, Flussdiagramme (Organigramme), Zeitstrahl, Relationsdiagramme oder spezielle Diagramme in besonderen Fachrichtungen wie ein Klassen(UML)-Diagramm in der Informatik oder ein Grotrian-Diagramm in der Physik \cite{Duncan.2018, Bounford.2001, Engels.2015}.
 
 Im Rahmen dieser Arbeit werden größtenteils die klassischen Achsendiagramme und ein paar spezielle Diagramme beleuchtet.
 Dies hängt mit der Intention, der Technologie und den vorliegenden Daten zusammen, da hierfür Kennzahlen und Dimensionen mit- und untereinander in Beziehungen gebracht werden, um neue Erkenntnisse zu erlangen oder Hypothesen zu bearbeiten.
@@ -255,7 +255,7 @@ Ein Beispiel dafür, wie effektiv die kognitive Erleichterung durch die grafisch
 %\resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|l|l|l|}
 \hline
-\textbf{Kunde}                  & \textbf{Umsatz} & \textbf{Gewinn} & \textbf{Umsatzmarge(\%)} \\ \hline
+\textbf{Kunde}                  & \textbf{Umsatz} & \textbf{Gewinn} & \textbf{Umsatzmarge} \\ \hline
 Acer                               & 9.342.856      & 3.513.673             & 37,6\%                     \\ \hline
 Boston and Albany Railroad Company & 5.581.529      & 1.924.006             & 34,5\%                     \\ \hline
 Calypso                            & 2.327.940      & 1.258.510             & 54,1\%                     \\ \hline
@@ -402,8 +402,50 @@ So können komplexe Beziehungen aufgedeckt werden, die mittels bloßer Tabellen 
 
 \section{Begriffe zum Thema Data Analytics}
 \subsection{Übersicht der Zusammenhänge}
-\subsection{Big Data}
 \subsection{Business Intelligence}
+\label{sub:bi}
+Seit es die Möglichkeit der elektronischen Datenverarbeitung in den 60er Jahren gibt, wird dieses Verfahren genutzt, um betriebswirtschaftliche Daten für Entscheidungen der Managementebene zu verwenden.
+Demnach ist es das Ziel, aus vorliegenden Daten Informationen und/oder Erkenntnisse zu gewinnen, die zum Vorteil des jeweilige Unternehmen beitragen und daraus resultierend ein Wachstum oder verbesserte Performance ermöglichen.
+Dabei sind in den Jahrzehnten unterschiedliche Begriffe wie \glqq Managemnt Informationssysteme (MIS)\grqq{} oder \glqq Executive Information System (EIS)\grqq{} für diesen Prozess entstanden (Vgl. \cite[S.3]{Engels.2015}.
+Der heutzutage übliche Begriff \acrfull{BI} wurde Anfang der 1990er Jahre durch Howard Dresner eingeführt und populär.
+Dieser umfasst dabei zwei wesentliche Bereiche \cite{Kemper.2004}:
+\begin{itemize}
+\item Die Datenbereitstellung von diversen (oftmals betriebswirtschaftlichen) Kennzahlen. 
+Auch deren effiziente Haltung und entsprechende Abfragen zählen zu dieser Rubrik.
+Dies umfasst somit den technischen Bereich von \gls{BI}
+\item Betriebswirtschaftliche Anwendung, beispielsweise in Form von Unternehmensanalysen 
+\end{itemize}
+
+\subsection{Big Data}
+\label{sub:bigdata}
+\epigraph{\glqq We are drowning in information, but starved for knowledge\grqq}{\todo{add citavi} John Naisbitt \ref{Nais82}}
+Dieses Zitat beschreibt die heutige Situation mit dem Verlangen der Menschheit nach Wissen, jedoch das gleichzeitige Untergehen in der Masse an Informationen sehr gut. 
+Dabei stammt dieser Satz von einem Zukunftsforscher aus den 80ern.
+
+Big Data (\glqq große Datenmengen\grqq) ist ein Begriff, welcher in den letzten Jahren immer häufiger verwendet wird.
+Hierbei handelt es sich um größtenteils un- oder polystrukturierte Daten, welche durch viele unterschiedliche Datenquellen erzeugt werden.
+Das Fortschreiten der vielen Digitalisierungsprozesse weltweit führt zu einer stetig stärker wachsenden Datengrundlage. \todo{bild hauesler s.45 studie}
+
+Bei Big Data ist oftmals die Rede der drei A`s, welche den Umfang hiervon beschreiben (Vgl. \cite[2.1]{Hausler.2018}):
+\begin{itemize}
+\item Aggregation
+\item Analyse
+\item Auswertung
+\end{itemize}
+Somit ist nicht nur das Sammeln und Aggregieren großer Datenmengen die Aufgabe von Big Data, wie es oftmals angenommen wird.
+Sondern auch die Analyse und das anschließende Auswerten dieser Daten obliegt dieser Begrifflichkeit.
+
+
+Darüber hinaus gibt es drei V`s, welche die Eigenschaften von Big Data klassifizieren sollen:
+\begin{description}
+\item[Volume] Kennzeichnet das \glqq Big\grqq{} in Big Data und beschreibt somit das Volumen der Datenmengen
+\item[Velocity] Da die große Masse an Daten in der Regel in einem kontinuierlichen Fluss oder zumindest einer regelmäßigen Zeit generiert werden, ist eine schnelle bis echtzeitnahe Verarbeitung dieser Daten notwendig 
+\item[Variety] Die Varietät wird durch eine große Vielfalt der Daten gegeben.
+So sind die Daten einer Big Data Anwendung in der REgel unterschiedlichsten Ursprungs. 
+Eine Sammlung von Texten, Zahlen, Bildern unterschiedlichen Formats, oftmals auch Audio- oder Videodaten sind demnach klassiche Anhäufungen. 
+\end{description}
+
+
 \subsection{Data Warehousing}
 \subsection{Dashboards}
 

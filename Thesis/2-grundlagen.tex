@@ -402,6 +402,7 @@ So können komplexe Beziehungen aufgedeckt werden, die mittels bloßer Tabellen 
 
 \section{Begriffe zum Thema Data Analytics}
 \subsection{Übersicht der Zusammenhänge}
+\todo{Bild und bisschen text}
 \subsection{Business Intelligence}
 \label{sub:bi}
 Seit es die Möglichkeit der elektronischen Datenverarbeitung in den 60er Jahren gibt, wird dieses Verfahren genutzt, um betriebswirtschaftliche Daten für Entscheidungen der Managementebene zu verwenden.
@@ -438,19 +439,37 @@ Sondern auch die Analyse und das anschließende Auswerten dieser Daten obliegt d
 
 Darüber hinaus gibt es drei V`s, welche die Eigenschaften von Big Data klassifizieren sollen:
 \begin{description}
-\item[Volume] Kennzeichnet das \glqq Big\grqq{} in Big Data und beschreibt somit das Volumen der Datenmengen
+\item[Volume] Kennzeichnet das \glqq Big\grqq{} in Big Data und beschreibt somit das große Volumen der Datenmengen
 \item[Velocity] Da die große Masse an Daten in der Regel in einem kontinuierlichen Fluss oder zumindest einer regelmäßigen Zeit generiert werden, ist eine schnelle bis echtzeitnahe Verarbeitung dieser Daten notwendig 
 \item[Variety] Die Varietät wird durch eine große Vielfalt der Daten gegeben.
-So sind die Daten einer Big Data Anwendung in der REgel unterschiedlichsten Ursprungs. 
-Eine Sammlung von Texten, Zahlen, Bildern unterschiedlichen Formats, oftmals auch Audio- oder Videodaten sind demnach klassiche Anhäufungen. 
+So sind die Daten einer Big Data Anwendung in der Regel unterschiedlichsten Ursprungs. 
+Eine Sammlung von Texten, Zahlen, Bildern unterschiedlichen Formats, oftmals auch Audio- oder Videodaten sind demnach klassische Anhäufungen. 
 \end{description}
 
 
 \subsection{Data Warehousing}
+\label{sub:warehouse}
+Da für diverse Analysen in der heutigen Zeit unterschiedliche Datenformate und Datenquellen herangezogen werden, ist eine effiziente Synthese und Speicherung vonnöten.
+Dieser Prozess wird gemeinhin als \glqq Data-Warehousing\grqq{} bezeichnet.
+
+Ein \gls{DWH} ist demnach von den operationellen Datenbanken eine logisch getrennte Datenhaltung.
+Dabei soll sie nach \cite[S.6]{MuckschBehme.2000} möglichst eine unternehmens- oder produktweite Abbildung von relevanten Daten darstellen \cite{Kemper.2001}.
+
+%cubes?
+
 \subsection{Dashboards}
+Um stets eine Vielzahl an relevanten Kennzahlen oder Daten im Blick zu haben, wurde ein Prinzip aus der Luftfahrt angewandt.
+Dort gibt es im Cockpit eine Anzeigentafel, welche diverse Parameter des Flugobjektes anzeigt.
+Eine solche Tafel wird in der Datenanalyse und im \gls{BI} analog verwendet.
+Dementsprechend gibt es hierbei häufig \glqq Management Cockpits\grqq{} oder \glqq Dashboards\grqq.
+Sie sollen wie die Anzeigen im Flugzeug die wichtigsten Parameter respektive Daten auf einen kurzen Blick zu sehen und interpretierbar sein \cite[S.18]{Engels.2015}.
+\todo{beispiel dashboard}
+
 
 \section{Daten und deren Verarbeitung in der Notfallmedizin} % Rettungsdienst  
+Medizinische Daten sind
 \subsection{Business Intelligence in der Notfallmedizin}
+
 \subsection{Big Data in der Notfallmedizin}
 
 Big Data im Gesundheitswesen\\
@@ -471,7 +490,7 @@ eHealth beschreibt Interface, welches mittels App, online-Plattform,... gesundhe
 
 Datenquellen (relevanten Auszug davon hervorheben)(S.43f); 
 
-\begin{table}
+\begin{table}[hbt]
 \centering
 \caption{My caption}
 \label{my-label}

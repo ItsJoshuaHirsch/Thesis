@@ -413,9 +413,40 @@ Dadurch ist aufgrund der Objekorientierung eine Repräsentation der Wirklichkeit
 %subsUnterschiedliche Apps?
 \subsection{ETL-Prozess}
 \label{sub:etl}
+Um Rohdaten aus einem Export in ein adäquates Format für spätere Auswertungen zu bringen, ist in der Regel ein \gls{ETL}-Prozess notwendig.
+Dieser soll garantieren, dass ein einheitliches \gls{DWH}, wie in \ref{sub:warehouse} beschrieben, gegeben ist \cite[S.49]{Gabriel.2011}.
+\todo{Bild ETL Prozess}
+
+Das Extrahieren der Daten wird mittels eines \gls{REST}-Konnektors realisiert.
+Dabei kann in der Qlik-Software oder im \gls{QMC} der Qlik-Enterprise Version eine Schnittstelle definiert werden, welche per REST einen Datenverbindung aufbaut.
+Anschließend werden die extrahierten Daten mit Hinblick auf die zu beantwortenden Fragen (\ref{sec:erhebung}) transformiert.
+
+Dabei ist die Besonderheit, dass zuerst die Generierung eines Exports getriggert werden muss und anschließend kann der fertige Export angefragt werden (siehe \ref{subsub:ueberarbeutetesformat}).
+Dadurch entsteht die Notwendigkeit von zwei REST-Datenverbindungen, da eine Verbindung jeweils nur eine Methode (GET, POST) umsetzen kann.
+
+Die Skripte, die diesen ETL-Prozess umsetzen, werden im Folgenden näher erläutert.
 
 \subsubsection{Ladeskripte}
 \label{subsub:scripts}
+\todotext{Datenverbindungen erklären?}
+
+Um die Daten im entsprechend geforderten Format vorliegen zu haben, sind eine Reihe von \gls{ETL}-Prozessen notwendig.
+Diese wurden mittels der eigenen Skriptsprache von Qlik angefertigt (siehe \ref{sub:qlik}).
+
+Dabei wurde eine logische Unterteilung in fünf Abschnitt vorgenommen.
+Abschnitt 1 kann hierbei dem Extrahieren und die Abschnitte 2-5 dem Transformieren der Daten gleichgesetzt werden.
+
+Eine genauere Beschreibung der entsprechenden Skripte in deren Abschnitte kann nachfolgend eingesehen werden:
+\begin{description}
+\item[Abschnitt 0 - Präambel] \hfill \\
+ asd
+\item[Abschnitt 1 - Extrahieren der Daten]  \hfill \\
+asd
+\item[Abschnitt 2]asd
+\item[Abschnitt 3]asd
+\item[Abschnitt 4]asd
+\item[Abschnitt 5]asd
+\end{description}
 
 \subsubsection{Demo- und Testeinsätze herausfiltern}
 \label{subsub:testfilter}

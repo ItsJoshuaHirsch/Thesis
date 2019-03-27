@@ -507,30 +507,30 @@ Dies ist unter anderem Grundlage und Motivation für eine umfangreiche Erhebung 
 
 Datenquellen (relevanten Auszug davon hervorheben)(S.43f); 
 
-\begin{table}[hbt]
-\centering
-\caption{My caption}
-\label{my-label}
-\begin{tabular}{|l|l|} 
-\hline
-\textbf{Kategorie der Datenquelle}  & \textbf{Ausgewählte Datenquellen}                                                \\ 
-\hline
-Medizinische Daten                  & \begin{tabular}[c]{@{}l@{}}Vitalparameter\\ Länge des Aufenthalts \end{tabular}  \\ 
-\hline
-Versicherungsdaten                  & \begin{tabular}[c]{@{}l@{}}Alter\\ Name \end{tabular}                            \\ 
-\hline
-Öffentliche Gesundheitsdaten        & \begin{tabular}[c]{@{}l@{}}Ämter\\Gemeinden\\...\end{tabular}                    \\ 
-\hline
-Forschungsdaten                     & \begin{tabular}[c]{@{}l@{}}Studien\\Biobanken\end{tabular}                       \\ 
-\hline
-Individ. Daten                      & \begin{tabular}[c]{@{}l@{}}Ernährung\\Wellness\end{tabular}                      \\ 
-\hline
-Pharmadaten                         & \begin{tabular}[c]{@{}l@{}}Medikamente\\Beschwerden\end{tabular}                 \\ 
-\hline
-Nichtklassische Ges.DAten           & \begin{tabular}[c]{@{}l@{}}Meinungen\\Telekomm.\end{tabular}                     \\
-\hline
-\end{tabular}
-\end{table}
+%\begin{table}[hbt]
+%\centering
+%\caption{My caption}
+%\label{my-label}
+%\begin{tabular}{|l|l|} 
+%\hline
+%\textbf{Kategorie der Datenquelle}  & \textbf{Ausgewählte Datenquellen}                                                \\ 
+%\hline
+%Medizinische Daten                  & \begin{tabular}[c]{@{}l@{}}Vitalparameter\\ Länge des Aufenthalts \end{tabular}  \\ 
+%\hline
+%Versicherungsdaten                  & \begin{tabular}[c]{@{}l@{}}Alter\\ Name \end{tabular}                            \\ 
+%\hline
+%Öffentliche Gesundheitsdaten        & \begin{tabular}[c]{@{}l@{}}Ämter\\Gemeinden\\...\end{tabular}                    \\ 
+%\hline
+%Forschungsdaten                     & \begin{tabular}[c]{@{}l@{}}Studien\\Biobanken\end{tabular}                       \\ 
+%\hline
+%Individ. Daten                      & \begin{tabular}[c]{@{}l@{}}Ernährung\\Wellness\end{tabular}                      \\ 
+%\hline
+%Pharmadaten                         & \begin{tabular}[c]{@{}l@{}}Medikamente\\Beschwerden\end{tabular}                 \\ 
+%\hline
+%Nichtklassische Ges.DAten           & \begin{tabular}[c]{@{}l@{}}Meinungen\\Telekomm.\end{tabular}                     \\
+%\hline
+%\end{tabular}
+%\end{table}
 
 strukturiert, un- \& polystrukturiert (S.45): 
 unstrukturiert: MRT, Röntgen, Studien,....
@@ -557,6 +557,7 @@ S.68, 74, 77 Fotos Handy\\ \\
 
 S.101ff, 116ff Fotos
 
+%%Done
 %%Noch umschreiben! Fast 100% aus Buch
 %3A: Aggregation, Analyse, Auswertung
 %4V: Volume, Varierty, Velocity \& !med wichtig Veracity! 
@@ -578,9 +579,46 @@ S.101ff, 116ff Fotos
 \section{Technologien}
 \subsection{Qlik Sense}
 \label{sub:qlik}
-\subsubsection{Skriptsprache}
-\subsubsection{Qlik Sense Server}
-\subsubsection{Lizenzierungsmodell}
+%\todo{add citavi qlik site}
+Die Haupttechnologie dieser Arbeit ist Qlik Sense.
+Dies ist eine webbasierte Business-Intelligence-Software der Firma QlikTech, welche mit HTML und JavaScript umgesetzt ist.
+Die Informationen stammen aus eigener Erfahrung und von dem Web-Auftritt \cite{Qlik.2019} des Unternehmens. 
+Es gibt sowohl eine kostenfreie Variante Qlik Sense Desktop für private Nutzer als auch eine Cloud- oder Enterprise-Variante, welche in \ref{subsub:enterprise} näher beschrieben wird.
+
+Qlik basiert dabei auf sogenannte \glqq Apps\grqq{}, welche ein abgegrenztes Datenmodell und mehrere Arbeitsblätter enthält.
+Dabei steht ein Arbeitsblatt in der Regel für ein \gls{Dashboard}, welches zusammengehörige Visualisierungen auf einen Blick kombiniert.
+
+\bildbreit
+{qlikstart}
+{Beispielhafte Startseite von Qlik Sense Desktop mit diversen Apps}
+{Startseite von Qlik mit diversen Apps}
+
+Es gibt außerdem die Funktion von Master-Elementen.
+Hierbei können Master-Kennzahlen und -Dimensionen aus den Datenfeldern der Tabellen erstellt werden. 
+So können diverse Aggregationen oder sonstige Prozesse vorgenommen werden, um die Darstellung in Diagrammen zu ermöglichen.
+Diese können wiederum auch als Master-Visualisierung abgespeichert werden.
+Ein großer Vorteil dieser Master-Elemente ist die zentrale Verwaltung und damit parallele Manipulation von diversen Visualisierungen, Kennzahlen oder Dimensionen.
+
+Ein weiteres Merkmal von Qlik Sense ist die hohe Interaktion mit den Diagrammen.
+So können durch Mausinteraktionen mit den entsprechenden Darstellungen interagiert und eine intuitive Filterung der Daten vorgenommen werden.
+
+\subsubsection{Qlik Sense-Skriptsprache}
+Die Syntax von Qlik Sense Skripten basiert auf dem \gls{BNF}. 
+%\add citavi: Donald E. Knuth: Backus Normal Form vs. Backus Naur Form. In: Communications of the ACM. Band 7, Nr. 12, 1964, S. 735–737, doi:10.1145/355588.365140.
+Demnach gibt es verschiedene Notationen, um sogenannte \glqq Symbole\grqq{} zu definieren.
+So ist beispielsweise das Symbol \glqq as\grqq{} mit dem dahinter liegenden Befehl \code{alias fieldname as aliasname \{ , fieldname as aliasname\}} deklariert \todotext{ add}\cite{qlik help bnf}.
+Dadurch gibt es bereits eine breites Spektrum an den notwendigsten Symbolen, um Daten sinnvoll zu transformieren.
+
+Des Weiteren unterstützt die Skriptsprache diverse Steuerungsbefehle wie If-Bedingungen oder For-Schleifen mittels logischen Operatoren, Deklarieren und Verändern von Variablen und beendet einen Befehl mit einem Semikolon.
+Diverse weitere Befehle wie \glqq Join\grqq{} oder \glqq Concatenate\grqq{} gehören zu den Standard-Befehlen, um schnell und effizient Daten zu manipulieren.
+
+\subsubsection{Qlik Sense Enterprise}
+\label{subsub:enterprise}
+Für größere Teams ab fünf Personen gibt es die Steigerung von Qlik Sense Desktop: Qlik Sense Cloud. \cite{qlik}
+Hierbei können die Apps und deren Visualisierungen mit mehreren Personen geteilt werden und so eine ortsunabhängige Kollaboration ermöglichen.
+\todo{text}
+
+%\subsubsection{Lizenzierungsmodell}
 
 \section{Ist-Zustand corpuls.web ANALYSE}
 \subsection{Architektur}

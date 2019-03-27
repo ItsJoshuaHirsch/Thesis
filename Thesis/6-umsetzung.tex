@@ -428,32 +428,95 @@ Die Skripte, die diesen ETL-Prozess umsetzen, werden im Folgenden näher erläut
 
 \subsubsection{Ladeskripte}
 \label{subsub:scripts}
-\todotext{Datenverbindungen erklären?}
+\todotext{Datenverbindungen erklären? Skripte in Anhang?}
 
 Um die Daten im entsprechend geforderten Format vorliegen zu haben, sind eine Reihe von \gls{ETL}-Prozessen notwendig.
 Diese wurden mittels der eigenen Skriptsprache von Qlik angefertigt (siehe \ref{sub:qlik}).
 
-Dabei wurde eine logische Unterteilung in fünf Abschnitt vorgenommen.
+Dabei wurde eine logische Unterteilung in sechs Abschnitte vorgenommen.
 Abschnitt 1 kann hierbei dem Extrahieren und die Abschnitte 2-5 dem Transformieren der Daten gleichgesetzt werden.
 
 Eine genauere Beschreibung der entsprechenden Skripte in deren Abschnitte kann nachfolgend eingesehen werden:
 \begin{description}
 \item[Abschnitt 0 - Präambel] \hfill \\
- asd
+Hier werden diverse Konfigurationseinstellungen eingestellt.
+Darunter fällt beispielsweise die Festlegung des Datums-, Zeit- oder Währungsformats, Abkürzungen und weitere Länderspezifische Einstellungen.
+
+Des Weiteren werden Mapping-Tables erstellt, welche später generische Benennungen der Daten seitens der Geräte in verbesserter Form darstellen sollen. 
+Beispiel: CORPULS\_WEB\_LIVE - corpuls.web LIVE
+
 \item[Abschnitt 1 - Extrahieren der Daten]  \hfill \\
-asd
-\item[Abschnitt 2]asd
-\item[Abschnitt 3]asd
-\item[Abschnitt 4]asd
-\item[Abschnitt 5]asd
+Die folgenden Skripte wurden als ersten Abschnitt deklariert, da sie den ersten Prozess von \gls{ETL} realisieren.
+Demzufolge wird nach den Methoden in \ref{subsub:ueberarbeutetesformat} zuerst die Erzeugung eines Exports angefordert.
+Daraufhin wird per Skript aus dem Header der Server-Antwort die entsprechende URL extrahiert, welche auf den erzeugten Export verweist.
+Diese URL wird um das Suffix \code{/file} ergänzt und in einer Variable gespeichert.
+Abschließend wird der neue Export mit dieser URL per SQL-Select-Befehlen angefordert.
+
+\item[Abschnitt 2 - Missionen laden und filtern] \hfill \\
+Dieser Abschnitt ist der Beginn des Transformieren der extrahierten Daten.
+Dabei wird als erster Schritt eine begrenzte Anzahl an \gls{MM} geladen, mittels welcher eine Filterung von Test-Einsätzen möglich ist.
+Diese Filterung wird in \ref{subsub:testfilter} näher beschrieben.
+
+Anschließend werden auf Basis der herausgefilterten Einsätze nur jene geladen, die nach diesem Schritt als relevant angesehen werden.
+Dabei werden zuerst alle verfügbaren \gls{MM} geladen, da jeder Einsatz MM enthält und folglich eine 1:1 Beziehung herrscht.
+Hier werden auch bereits weitere Felder hinzugefügt, welche für spätere Auswertungen benötigt werden.
+Auf diese wird in \ref{subsub:weitereFelder} weiter eingegangen.
+
+Auch die zugehörigen \glqq Mission-Tags\grqq{} werden in diesem Abschnitt geladen und in Relation mit der zugehörigen Mission gesetzt.
+Außerdem werden jene Einsätze in einer Tabelle festgehalten, die als \glqq Test\grqq{} klassifiziert wurden, um spätere Informationen zu diesen zur Verfügung stellen zu können.
+
+\item[Abschnitt 3 - Weitere Datenobjekte laden, bearbeiten und verknüpfen] \hfill \\
+Das Laden der Objekte, die in \ref{sub:erweiterung} erarbeitet wurden, ist als 3. Schritt kategorisiert.
+Demnach werden die bis zu diesem Zeitpunkt der Umsetzung verfügbaren neuen Objekte geladen: \gls{CPR}, Defibrillation und \gls{NIBD}.
+
+Zur Reduzierung der Laufzeit werden hier mittels JOIN-Befehle nur jene Objekte geladen, die einem Einsatz zugehörig sind, welcher nicht als \glqq Testeinsatz\grqq{} eingestuft wurde.
+Dadurch wird außerdem die Verzerrung der Daten ausgeschlossen beziehungsweise minimiert.
+
+Auch hier werden weitere Felder für spätere Auswertungen erzeugt.
+Außerdem werden die Daten mittels der in Abschnitt 0 erstellten Mapping-Tabellen harmonisiert und weitere Verbesserungen wie beispielsweise Rundungen vorgenommen, um ein einheitliches \gls{DWH} aufzubauen.
+
+\item[Abschnitt 4 - Faktentabelle erstellen] \hfill \\
+Um das in \ref{sub:datenmodell} beschriebene Datenmodell umzusetzen, wird hier eine Faktentabelle angelegt.
+Dabei werden alle Objekte aus den Abschnitten 2 \& 3 mit unterschiedlichen JOIN-Befehlen zusammengeführt.
+Dies garantiert die Realisierung des gewünschten Datenmodells.
+
+\item[Abschnitt 5 - Sonstige Funktionen] \hfill \\
+Als finalen Abschnitt werden jene zusätzliche Skripte zusammengefasst, welche weitere Funktionen umsetzen.
+Ein Beispiel hierfür ist der \glqq Autocalender\grqq{} von Qlik Sense.
+Dadurch ist beispielsweise die Darstellung von Liniendiagrammen über mehrere Jahre optimiert.
+\todo{bildvergeleich mit ohne autocalendar}
 \end{description}
 
 \subsubsection{Demo- und Testeinsätze herausfiltern}
 \label{subsub:testfilter}
+Um eine hohe Qualität der entsprechenden Auswertungen gewährleisten zu können, ist das Filtern von irrelevanten Einsätzen ein essentieller Schritt.
+Da auf den Auswertungen diverse Entscheidungen getroffen werden können, die von Materialplanung über Ressourcenbeschaffung bis hin zu Schulungsmaßnahmen reichen, ist eine möglichst unverfälschte Darstellung der relevanten Daten notwendig.
 
-\subsubsection{Weitere manuell hinzugefügte Felder (ReaStart, Calendar, Test...)}
+Hierfür müssen gewisse Kriterien festgelegt werden, die einen Einsatz als nicht relevanten Einsatz einstufen.
+Eine weitere Überlegung hierbei wäre, je nach zutreffenden Kriterien eine Wahrscheinlichkeit für einen Testeinsatz anzugeben.
+Dieser Ansatz ist im Rahmen dieser Arbeit aufgrund des größeren Umfangs nicht weiter verfolgt worden, sollte jedoch für die weitere Planung berücksichtigt werden.
+
+Kriterien die in dieser Umsetzung verwendet wurden sind unter anderem das Anschließen einer Test-Box, verschiedene Test-Modi des \gls{cAED}, unrealistisches Datum (2000 > Jahr > 2020) oder eine zu kurze oder deutlich zu lange Einsatzdauer.
+
+Diese Kriterien können beliebig von einem entsprechend berechtigtem Anwender oder Entwickler im Abschnitt 2 der Ladeskripte erweitert oder eingeschränkt werden.
+Es wird darüber hinaus dem Anwender noch eine weitere Möglichkeit des Herausfilterns gegeben.
+Dies geschieht über die Erweiterung der Filterleiste (siehe S. \pageref{par:filter}) um das Dropdown-Filterfenster \glqq Mission-Tags\grqq{} in den entsprechenden Dashboards. \todotext{(Dazu in ref() mehr)}
+Dadurch ist eine 100\%-Filterquote von Testeinsätzen realisierbar, sofern die sinngemäße Verwendung der Mission-Tags angewandt wird.
+
+\subsubsection{Erweiterung um manuell hinzugefügte Felder}
 \label{subsub:weitereFelder}
+Im Zuge der iterativen Entwicklung und in Anbetracht der zu beantwortenden Fragestellungen stellt sich heraus, dass die zugrundeliegenden Daten nicht ausreichend genug oder zu detailliert sind.
+Hierfür können im \gls{ETL}-Prozess weitere Felder manuell hinzugefügt werden, die in der Regel auf den vorliegenden Daten basieren.
 
+Eine Auswahl an den neuen oder veränderten Feldern sind beispielsweise gerundete Trend- oder Messdaten wie die Konvertierung der Kompressionstiefe von \glqq Float\grqq{} zu einer Zahl mit einer Nachkommastelle.
+Auch entsprechend zusätzliche Datums- und Zeitdaten wurden auf der Basis der vorhandenen Daten generiert. 
+So wurde alleine aus dem einen \gls{MM} \glqq mission.start\grqq{} eine Vielzahl an neuen Feldern erzeugt, anhand welcher neue genauere oder aggregiertere Auswertungen möglich sind: Wochentag, Stunde, Stundenfenster, Minute oder Tagesabschnitt.
+
+Auch manuelle Klassen von Werten wurden beispielsweise bei der Kompressionstiefe oder -frequenz des neuen Datenobjektes erstellt, da sich in der Evaluation des Prototyps herausstellte, dass es irrelevant ist, ob eine Kompression 1,2cm oder 1,6cm tief war (siehe \pageref{par:binning}).
+Viel interessanter ist die Anzahl der Kompressionen die mit 1-3cm deutlich zu flach, 4-5cm leicht zu flach und 5-6cm ideal waren.
+
+Ebenso das Hinzufügen des Feldes \glqq Reanimations-Minute\grqq{} ist eine wichtige Berechnung, welche den Vergleich von mehreren Reanimationen überhaupt erst ermöglicht.
+Dabei wird die Minute der ersten eintretenden Kompression bei jedem Einsatz als erste \glqq Reanimations-Minute\grqq{} abgespeichert. 
 
 \subsection{Datenmodell (hier oder eigene section?)}
 \label{sub:datenmodell}
@@ -464,6 +527,7 @@ asd
 \subsection{Dashboards}
 \subsubsection{Neue mögliche Visualisierungen durch Anforderungen Schocks, Nibp, Cpr}
 test
+
 \subsection{Umsetzung der Evaluierungsergebnisse (Auszug)}
 \subsubsection{Zielgruppenunterschiedliche Startseiten}
 \subsubsection{Lesezeichen?} %vlt so 10 Beispiel Lesezeichen
@@ -474,8 +538,7 @@ test
 
 \subsection{Einstellungen der Arbeitsblätter und Diagramme}
 % (wie zB. Farben bei Auswahl beibehalten)
-%CustomThemes?
-%subs internationalisierung
+\subsection{CustomThemes?}
 
 % Aspekte vor Erstellung??
 \section{Rechtliche Aspekte?}

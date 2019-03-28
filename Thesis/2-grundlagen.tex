@@ -83,14 +83,14 @@ Anschließend wird grob gesichtet und so eine Datenbasis gelegt.
 \item[Mapping] Daraufhin kommt nach \cite{FischerStabel.2018} das Hauptproblem der Visualisierung: Die Auswahl einer geeignet Darstellungsform passend zu den Daten. 
 Dabei gibt es diverse Möglichkeiten, welche Darstellungsform mit welchen Attributen (Größe, Farbe, Form) umgesetzt wird. 
 \item[Rendering] Als Letztes werden die aufbereiteten Daten mit der gewählten Darstellungsform als Bild oder interaktive Visualisierung erzeugt.
-Dies geschieht heutzutage häufig über sogenannte \gls{BI}-Werkzeuge wie Qlik (siehe \ref{qlik})
+Dies geschieht heutzutage häufig über sogenannte \gls{BI}-Werkzeuge wie Qlik (siehe \ref{sub:qlik})
 \end{description}
 
 
 
 
 \subsection{Gestaltungsgrundsätze}
-\label{sub:grundsätze}
+\label{sub:grundsaetze}
 In der Wahrnehmungspsychologie gibt es diverse Erkenntnisse, wie das menschliche Gehirn unterschiedliche Muster und Strukturen erkennt.
 Dabei sind diese Fähigkeiten größtenteils evolutionär geprägt, da es für den Menschen schon immer wichtig war, schnell Entscheidungen zu treffen, oder komplexe neue Aufgabestellungen zu lösen.
 Dabei greift das Gehirn auf zuvor erlernten oder erlebten Ereignissen zurück, um neue Aufgaben klassifizieren zu können.
@@ -419,9 +419,9 @@ Dies umfasst somit den technischen Bereich von \gls{BI}
 
 \subsection{Big Data}
 \label{sub:bigdata}
-\epigraph{\glqq We are drowning in information, but starved for knowledge\grqq}{\todo{add citavi} John Naisbitt \ref{Nais82}}
+\epigraph{\glqq We are drowning in information, but starved for knowledge\grqq}{John Naisbitt \cite{Naisbitt.1982}}
 Dieses Zitat beschreibt die heutige Situation mit dem Verlangen der Menschheit nach Wissen, jedoch das gleichzeitige Untergehen in der Masse an Informationen sehr gut. 
-Dabei stammt dieser Satz von einem Zukunftsforscher aus den 80ern.
+Dabei stammt dieser Satz von einem Zukunftsforscher aus den 80er Jahren.
 
 Big Data (\glqq große Datenmengen\grqq) ist ein Begriff, welcher in den letzten Jahren immer häufiger verwendet wird.
 Hierbei handelt es sich um größtenteils un- oder polystrukturierte Daten, welche durch viele unterschiedliche Datenquellen erzeugt werden.
@@ -453,7 +453,7 @@ Da für diverse Analysen in der heutigen Zeit unterschiedliche Datenformate und 
 Dieser Prozess wird gemeinhin als \glqq Data-Warehousing\grqq{} bezeichnet.
 
 Ein \gls{DWH} ist demnach von den operationellen Datenbanken eine logisch getrennte Datenhaltung.
-Dabei soll sie nach \cite[S.6]{MuckschBehme.2000} möglichst eine unternehmens- oder produktweite Abbildung von relevanten Daten darstellen \cite{Kemper.2001}.
+Dabei soll sie nach \cite[S.6]{Mucksch.2000} möglichst eine unternehmens- oder produktweite Abbildung von relevanten Daten darstellen \cite{Kemper.2004}.
 
 \cite[S.7]{Gabriel.2011}
 
@@ -582,7 +582,7 @@ S.101ff, 116ff Fotos
 %\todo{add citavi qlik site}
 Die Haupttechnologie dieser Arbeit ist Qlik Sense.
 Dies ist eine webbasierte Business-Intelligence-Software der Firma QlikTech, welche mit HTML und JavaScript umgesetzt ist.
-Die Informationen stammen aus eigener Erfahrung und von dem Web-Auftritt \cite{Qlik.2019} des Unternehmens. 
+Die Informationen stammen aus eigener Erfahrung und von dem Web-Auftritt \cite{QlikTech.2019} des Unternehmens. 
 Es gibt sowohl eine kostenfreie Variante Qlik Sense Desktop für private Nutzer als auch eine Cloud- oder Enterprise-Variante, welche in \ref{subsub:enterprise} näher beschrieben wird.
 
 Qlik basiert dabei auf sogenannte \glqq Apps\grqq{}, welche ein abgegrenztes Datenmodell und mehrere Arbeitsblätter enthält.
@@ -601,12 +601,13 @@ Ein großer Vorteil dieser Master-Elemente ist die zentrale Verwaltung und damit
 
 Ein weiteres Merkmal von Qlik Sense ist die hohe Interaktion mit den Diagrammen.
 So können durch Mausinteraktionen mit den entsprechenden Darstellungen interagiert und eine intuitive Filterung der Daten vorgenommen werden.
+\todo{magic quadrant 2019 Gartner}
 
 \subsubsection{Qlik Sense-Skriptsprache}
 Die Syntax von Qlik Sense Skripten basiert auf dem \gls{BNF}. 
 %\add citavi: Donald E. Knuth: Backus Normal Form vs. Backus Naur Form. In: Communications of the ACM. Band 7, Nr. 12, 1964, S. 735–737, doi:10.1145/355588.365140.
 Demnach gibt es verschiedene Notationen, um sogenannte \glqq Symbole\grqq{} zu definieren.
-So ist beispielsweise das Symbol \glqq as\grqq{} mit dem dahinter liegenden Befehl \code{alias fieldname as aliasname \{ , fieldname as aliasname\}} deklariert \todotext{ add}\cite{qlik help bnf}.
+So ist beispielsweise das Symbol \glqq as\grqq{} mit dem dahinter liegenden Befehl \code{alias fieldname as aliasname \{ , fieldname as aliasname\}} deklariert \cite{QlikTech.Februar2019}.
 Dadurch gibt es bereits eine breites Spektrum an den notwendigsten Symbolen, um Daten sinnvoll zu transformieren.
 
 Des Weiteren unterstützt die Skriptsprache diverse Steuerungsbefehle wie If-Bedingungen oder For-Schleifen mittels logischen Operatoren, Deklarieren und Verändern von Variablen und beendet einen Befehl mit einem Semikolon.
@@ -614,13 +615,14 @@ Diverse weitere Befehle wie \glqq Join\grqq{} oder \glqq Concatenate\grqq{} geh�
 
 \subsubsection{Qlik Sense Enterprise}
 \label{subsub:enterprise}
-Für größere Teams ab fünf Personen gibt es die Steigerung von Qlik Sense Desktop: Qlik Sense Cloud. \cite{qlik}
+Für größere Teams ab fünf Personen gibt es die Steigerung von Qlik Sense Desktop: Qlik Sense Cloud. \cite{QlikTech.2019}
 Hierbei können die Apps und deren Visualisierungen mit mehreren Personen geteilt werden und so eine ortsunabhängige Kollaboration ermöglichen.
 \todo{text}
 
 %\subsubsection{Lizenzierungsmodell}
 
 \section{Ist-Zustand corpuls.web ANALYSE}
+Siehe Review Graumann Anforderuingsanalys!
 \subsection{Architektur}
 \subsection{Verwendung zur Auswertung}
 \subsection{Vorliegende Daten der Geräte}

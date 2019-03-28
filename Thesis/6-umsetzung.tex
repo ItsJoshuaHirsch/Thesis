@@ -408,7 +408,7 @@ Dadurch ist aufgrund der Objekorientierung eine Repräsentation der Wirklichkeit
 
 %\section{Datenmodell?}
 
-\section{Erstellung der Qlik-App(s)}
+\section{Erstellung der Qlik-App}
 \label{sec:erstellung}
 %subsUnterschiedliche Apps?
 \subsection{ETL-Prozess}
@@ -512,24 +512,146 @@ Eine Auswahl an den neuen oder veränderten Feldern sind beispielsweise gerundet
 Auch entsprechend zusätzliche Datums- und Zeitdaten wurden auf der Basis der vorhandenen Daten generiert. 
 So wurde alleine aus dem einen \gls{MM} \glqq mission.start\grqq{} eine Vielzahl an neuen Feldern erzeugt, anhand welcher neue genauere oder aggregiertere Auswertungen möglich sind: Wochentag, Stunde, Stundenfenster, Minute oder Tagesabschnitt.
 
-Auch manuelle Klassen von Werten wurden beispielsweise bei der Kompressionstiefe oder -frequenz des neuen Datenobjektes erstellt, da sich in der Evaluation des Prototyps herausstellte, dass es irrelevant ist, ob eine Kompression 1,2cm oder 1,6cm tief war (siehe \pageref{par:binning}).
+Auch manuelle Klassen von Werten wurden beispielsweise bei der Kompressionstiefe oder -frequenz des neuen Datenobjektes erstellt, da sich in der Evaluation des Prototyps herausstellte, dass es irrelevant ist, ob eine Kompression 1,2cm oder 1,6cm tief war (siehe S.\pageref{par:binning}).
 Viel interessanter ist die Anzahl der Kompressionen die mit 1-3cm deutlich zu flach, 4-5cm leicht zu flach und 5-6cm ideal waren.
 
 Ebenso das Hinzufügen des Feldes \glqq Reanimations-Minute\grqq{} ist eine wichtige Berechnung, welche den Vergleich von mehreren Reanimationen überhaupt erst ermöglicht.
 Dabei wird die Minute der ersten eintretenden Kompression bei jedem Einsatz als erste \glqq Reanimations-Minute\grqq{} abgespeichert. 
 
-\subsection{Datenmodell (hier oder eigene section?)}
+\subsection{Datenmodell}
 \label{sub:datenmodell}
+Im Laufe der Entwicklung wurden diverse unterschiedliche Datenmodelle ausprobiert.
+Dementsprechend war auch das in \ref{subsub:datenmodell} konzeptionierte Datenmodell aus Abbildung \ref{fig:ersterVorschlagDatenmodellC} zwischenezitlich umgesetzt.
+Jedoch stellte sich heraus, dass dieses Modell eine große Tabelle abbildet.
+Dadurch war keine gute Trennung der Daten und folglich eine verschlechterte Performanz zu spüren.
 
-\subsection{Dimensionen}
-\subsection{Kennzahlen}
-\subsection{Verwendung von Erweiterungen?}
+Darausfolgend wurden unterschiedliche Datenmodelle umgesetzt und getestet, um die bestmögliche Effizienz aus Speicherbedarf und Performanz zu erlangen.
+Hierbei gibt es die zwei Schemata \glqq Star\grqq{} \& \glqq Snowflake\grqq{} zur Umsetzung der Klassifikationshierarchie \cite{Kimball.2013}.
+Die Namensgebung resultiert aus der visuellen Anordnung der Datentabellen, welche in Abbildung \todo{Bild Vergleich Star-Snowflake} zu erkennen ist.
+
+\bild
+{compStarSnow}
+{8cm}
+{Visuelle Darstellung des Star- und Snowflake-Schemas \todo{bildquelle!, vermutlich eigene Darstellung}}
+{Visuelle Darstellung des Star- und Snowflake-Schemas}
+
+Demnach wurde als nächstes das Modell in ein Snowflake-Schema mittels verschiedener Befehle konvertiert. 
+Nach einer kurzen Erprobung dieses Schemas stellte sich jedoch heraus, dass die Normalisierung, wie sie bei diesem Konzept vorgesehen ist, bei den vorliegenden Daten keinen großartigen Mehrwert bietet.
+Die Einschränkungen in der Performanz und kompliziertere Abfragemechanismen gegenüber der Einsparung von Speicherplatz hat sich ebenfalls als nicht lohnenswert herausgestellt.
+
+Aufgrund dieser Erkenntnisse wurde sich letztendlich für das Star-Schema entschieden.
+Dieses Konzept zeigt Stärken in der Performanz durch Redundanzen in den entsprechenden Tabellen \cite[6.1]{Bauer.2004}. 
+Die dadurch resultierende größere Anforderung an Speicherbedarf ist in diesem Zusammenhang vernachlässigbar, da die zukünftigen Versionen auf Servern laufen werden, welche mit genügen Ressourcen die Datenmengen problemlos stemmen können.
+Aufgrund der Lesbarkeit sind die in \ref{subsub:scripts} erläuterten Skripte bereits auf dieses Schema gerichtet. 
+Eine Darstellung dieses umgesetzten Datenmodells im Star-Schema ist in Abbildung \ref{fig:star2} zu erkennen.
+
+\bild
+{star2}
+{10cm}
+{Umgesetztes Datenmodell als Star-Schema in der Qlik-App}
+{Umgesetztes Datenmodell als Star-Schema in der Qlik-App}
+
+Hierfür wurden eigene Primärschlüssel in den Dimensionstabellen vergeben, sodass ein Einsatz als ein Eintrag in der Faktentabelle \glqq missions\grqq{} abgebildet werden kann.
+
+%\subsection{Dimensionen}
+%\subsection{Kennzahlen}
+\subsection{Verwendung von Erweiterungen}
+\label{sub:extension}
+Qlik Sense bietet eine breite Palette an Standard-Visualisierungen, die den größten Teil der Anforderungen der meisten Kunden abdecken.
+Jedoch gibt es für manche Daten bessere Darstellungsvarianten, welche die Lesbarkeit oder Aussagekraft der Daten verbessert oder Funktionen, die standardmäßig nicht vorhanden sind.
+
+Dementsprechend wurde auf den sogenannten \glqq Qlik Branch\grqq{} zurückgegriffen \cite{QlikTech.2019b}.
+Dies ist eine Plattform für Entwickler, auf welcher diverse Ressourcen veröffentlicht und heruntergeladen werden können.
+Dabei können im \glqq Garden\grqq{} Erweiterungen heruntergeladen werden, welche die Funktionalitäten erweitern oder weitere Diagrammtypen ermöglichen.
+Die Einbindung dieser geschieht in der Desktop-Variante per Einfügen in den entsprechenden Ordner, bei der Enterprise-Version mittels Import als ZIP-Datei.
+
+Für die Umsetzung der Qlik-App wurden im wesentlichen vier Erweiterungen verwendet.
+Diese werden nachfolgend kurz erläutert:
+\begin{description}
+\item[Buttons] \hfill \\
+Eine Funktionalität, um Buttons in den Dashboards zu integrieren, gibt es standardmäßig nicht.
+Hierfür gibt es eine Erweiterung \glqq Navigations \& Actions\grqq{}, welche dies ermöglicht.
+Dabei können beispielsweise bestimmte Filterungen vorgenommen werden.
+Dies wurde in dieser App für das einfache Umschalten von Reanimationen verwendet.
+Jedoch ist dies aufgrund der später entdeckten Funktionalität \glqq Lesezeichen\grqq{} (siehe \ref{par:Lesezeichen}) obsolet.
+
+Für etwaige Navigationselemente oder als Schalter für die Internationalisierung kann diese Erweiterung jedoch in Zukunft weiter verwendet werden.
+\item[Container] \hfill \\
+Diese Erweiterung namens \glqq ShowHide Container\grqq{} ermöglicht es, gewisse Master-Elemente mit Hilfe von Bedingungen zu verbergen oder anzuzeigen.
+In diesem Beispiel wurde sie dafür verwendet, eine Detail-Tabelle nur dann anzuzeigen, wenn eine Filterung weniger als zehn Einsätze zur Konsequenz hat. (siehe \ref{par:Detail-Tabelle})
+
+\item[Heatmap] \hfill \\
+Es gibt diverse Fragestellungen aus \ref{sec:erhebung}, bei welchen beispielsweise die Auslastung von einer Wache oder einem oder mehreren Geräten interessant ist.
+Dies kann mit den Visualisierungen aus \ref{subsub:zeitpunkt} \todo{evtl bei Dashboards später referenz zu neuen?} bereits weitestgehend beantwortet werden.
+Jedoch ist unter anderem für die Schichtplanung eine Auslastung in einer Wochentags- und Uhrzeit-Kombination von hoher Relevanz.
+So müsste bei den Diagrammen jeder Wochentag gefiltert werden und anschließend kann aus dem Balkendiagramm zu den Stunden eine Auslastung abgeleitet werden.
+Dies bietet allerdings keinerlei Überblick und hierfür ist eine \glqq Heatmap\grqq{} eine sehr nützliche Darstellung.
+\todo{bild heatmap}
+
+Die Erweiterung \glqq 2-dimensional Heatmap\grqq{} kombiniert, wie der Name suggeriert, zwei Dimensionen und eine Kennzahl.
+Dabei ist in Abbildung \ref{fig:heatmap} auch die farbliche Hervorhebung der quantitativ hohen Daten zu erkennen, was die Charakteristik einer Heatmap ist.
+
+\item[Radar-Chart] \hfill \\
+Als verbesserte Darstellung von zyklischen Daten bieten sich sogenannte Radar-Diagramme an.
+Diese wurden bereits in der Konzeptionsphase eingebunden (siehe S. \pageref{fig:radar} Abbildung \ref{fig:radar}).
+Somit ist beispielsweise die Anzahl an Einsätzen pro Stunde nicht mehr in einem Balkendiagramm mit einem Anfang und einem Ende, sondern so wie es das mentale Modell des Anwenders erwartet analog zu einer Uhr als zyklische Darstellung.
+\end{description}
+
 \subsection{Dashboards}
-\subsubsection{Neue mögliche Visualisierungen durch Anforderungen Schocks, Nibp, Cpr}
-test
+\label{sub:dashboard} %Golden Rules
+Es gibt viele unterschiedliche Regelwerke für Dashboards.
+Der Ursprung der meisten Regelwerke liegt vermutlich in den \glqq International Business Communication Standards (IBCS)\grqq{} \cite{Hichert.2017}.
+Eine Auswahl dieser Regeln betreffen etwa die Anzahl an Elementen pro Dashboard und deren Anordnung, Berücksichtigung von Wahrnehmungsaspekten (\ref{sub:grundsaetze}) und Gewährleisten einer gewissen Benutzerfreundlichkeit.
+
+Bei der Umsetzung der Dashboards wurden diese Regeln stets berücksichtigt und in iterativen Prozessen mit entsprechenden Personen evaluiert.
+
+
+
+
+Alle umgesetzten Dashboards sind im Anhang \ref{att:dashboards} zu sehen.
+
+\subsubsection{Neue Visualisierungen durch Erweiterung der Datenobjekte}
+Die geforderte Erweiterung des Exports in \ref{sub:erweiterung} um die Datenobjekte \gls{CPR}, Defibrillation und \gls{NIBD} bringt eine Reihe neuer Auswertungsmöglichkeiten mit sich.
+Außerdem können bereits bestehende Daten genauer und zuverlässiger analysiert werden.
+Mit dieser Neuerung wurden erhobene Fragestellungen aus \ref{sec:erhebung} mit weiteren Diagrammen beantwortet.
+Ein Auszug aus diesen neuen Visualisierungen wird nachfolgend dargestellt.
+
+In der ersten Abbildung \ref{fig:newDefib} ist ein Dashboard zu den Defibrillationen zu erkennen.
+Dieses ähnelt auf den ersten Blick der Abbildung \ref{fig:shocks} (S. \pageref{fig:shocks}), da schon zur Konzeption mit diesen tiefgreifenden Daten gerechnet wurde, jedoch war das Dashboard zuvor ohne qualitative Daten.
+
+\bildbreit
+{newDefib}
+%{12cm}
+{Neues Dashboard zu den Defibrillationen mit den Daten aus dem erweiterten Export}
+{Neues Dashboard zu Defibrillationen mit Daten aus dem erweiterten Export}
+
+Somit ist beispielsweise die Anzahl an Defibrillationen nach Synchronisationsmodus auswertbar oder zu jeder einzelnen Defibrillation ist die eingestellte Energie und der Zeitpunkt bekannt.
+Nur mit diesen neuen Daten sind die zwei rechten Kreisdiagramme und das Balkendiagramm am unteren Rand der Abbildung \ref{fig:newDefib} möglich.
+
+\bildbreit
+{newDefib2}
+%{12cm}
+{Auswertungen über den Verlauf der eingestellten Energie von Defibrillationen}
+{Auswertungen über den Verlauf von Defibrillationen}
+
+Auch Auswertungen über den Verlauf der eingestellten Energie sind sehr gefragte Fragestellungen, die nun mit dem neuen Export durch eine Visualisierung wie in Abbildung \ref{fig:newDefib2} beantwortet werden können.
+Weitere Analysen zu den Pause-Phasen vor und nach einer Defibrillation in Bezug zu diversen Dimensionen wie Jahr, Tagesabschnitt, Missionsdauer und viele mehr sind durch die Erweiterung des Exports möglich und in Teilen fest umgesetzt.
+
+Da die Reanimation ein spannendes Ereignis in einem Einsatz darstellt, sind mehr Daten hierzu eine gute Möglichkeit, weiterführende Qualitätsauswertungen zu betreiben.
+Auch hier bietet der neue Export viele neue aussagekräftige Auswertungsmöglichkeiten.
+
+\bildbreit
+{newCPR}
+%{12cm}
+{Auswertungen über den Verlauf der eingestellten Energie von Defibrillationen}
+{Auswertungen über den Verlauf von Defibrillationen}
+
+\todotext{neu reanimationen untereinadner vergleichen, 2. dashboard auch als bild, ccf beeinflußung durch versch faktoren etc.}
+
+\todotext{nibd analog zu defib..}
 
 \subsection{Umsetzung der Evaluierungsergebnisse (Auszug)}
-\subsubsection{Zielgruppenunterschiedliche Startseiten}
+%%\subsubsection{Zielgruppenunterschiedliche Startseiten}
 \subsubsection{Lesezeichen?} %vlt so 10 Beispiel Lesezeichen
 \subsubsection{Usability/Nutzerführung/Hilfetexte}
 \subsubsection{Reduzierung Inhalt pro Arbeitsblatt}
@@ -538,7 +660,9 @@ test
 
 \subsection{Einstellungen der Arbeitsblätter und Diagramme}
 % (wie zB. Farben bei Auswahl beibehalten)
-\subsection{CustomThemes?}
+\subsection{Farbliche Anpassung an das Corporate Design}
+%cutomtheme
+
 
 % Aspekte vor Erstellung??
 \section{Rechtliche Aspekte?}
@@ -554,5 +678,5 @@ test
 \label{sub:incremental}
 
 
-\section{Evaluierung der Ergebnisse?}
+%\section{Evaluierung der Ergebnisse?}
 %subs Usability-Tests?

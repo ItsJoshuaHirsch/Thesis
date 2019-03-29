@@ -705,7 +705,26 @@ Ein Beispiel an solchen Lesezeichen wurde exemplarisch in Abbildung \ref{fig:les
 Sie speichern außerdem das zum Zeitpunkt des Speicherns geöffnete Dashboard.
 
 \subsubsection{Konsistentes Layout}
-%Filter oben
+Eine weitere Verbesserung, die durch Anmerkungen in den Evaluationen zum Vorschein kam, war ein konsistentes Layout.
+Die innere Konsistenz einer Anwendung garantiert eine zufriedenstellende Erwartungskonformität des Nutzers \cite[S.65]{Abele.2007}.
+Dies ist für eine gute Usability ein wichtiger Faktor.
+
+Daher wurde auf ein durchgängiges und einheitliches Layout der Arbeitsblätter geachtet.
+Abbildung \ref{fig:arbeitsblaetter} ist hierfür ein Auszug aus den überarbeiteten Dashboards zu entnehmen.
+
+\bildbreit
+{arbeitsblaetter}
+%{12cm}
+{Auszug der Übersicht der umgesetzten Dashboards}
+{Auszug der Übersicht der umgesetzten Dashboards}
+
+Zu Erkennen ist hierbei, dass beispielsweise die Filterleiste stets am oberen Rand der Arbeitsblätter ist.
+Dies ist bereits in vorigen Abbildungen wie etwa \ref{fig:newCCF} zu sehen.
+Dadurch haben die Dashboards in der Breite mehr Platz, was zum Vorteil für viele der Visualisierungen ist.
+Auch ein stetiges Einhalten von genügend Zwischenraum  inwendig der Diagramme wird deutlich.
+
+Es sind weitere Muster zu erkennen, wie beispielsweise die Anordnung von einer zentralen \gls{KPI} in der oberen linken Ecke, so wie es der natürlichen Leserichtung in diesem Kulturraum und damit einhergehend der Blickführung entspricht.
+Ebenso die Einhaltung einer Richtlinie, dass ein Dashboard nicht mehr als neun informationsträchtige Visualisierungen enthalten solle \cite[5.3]{Kertzel.2018}, ist erkennbar.
 
 \subsubsection{Nutzerführung und Usability}
 Die Nutzerführung war eine Thematik, welche in den verschiedenen Iterationen des Öfteren als Kritikpunkt aufkam.
@@ -718,7 +737,13 @@ Die höhere Akzeptanz der Anwender wurde während späterer Präsentationen der 
 
 Denkbar wären in Zukunft kurze Texte zu jedem einzelnen Dashboard, ähnlich einer \glqq README\grqq{}, sodass dem Anwender die Funktionalitäten und beispielsweise zugrundeliegenden Daten ersichtlich werden.
 
-Des Weiteren wurden Verlinkungen zu gewissen Kennzahlen hinzugefügt, sodass bei einem Bedarf an weiteren Informationen an die entsprechende Stelle geklickt werden kann, um weiterführende Details zu einer bestimmten  \gls{KPI} zu erhalten. \todotext{bild?}
+Des Weiteren wurden Verlinkungen zu gewissen Kennzahlen hinzugefügt, sodass bei einem Bedarf an weiteren Informationen an die entsprechende Stelle geklickt werden kann, um weiterführende Details zu einer bestimmten  \gls{KPI} zu erhalten.
+In Abbildung \ref{fig:kpilink} ist das entsprechende Symbol, welches eine Verlinkung impliziert, gelb hervorgehoben.
+\bild
+{kpilink}
+{8cm}
+{Verlinkung von einer Kennzahl zu einem weiteren Arbeitsblatt}
+{Verlinkung von einer Kennzahl zu einem weiteren Arbeitsblatt}
 
 Durch die bessere Strukturierung und Benennung der Dashboards und Visualisierungen ist der entsprechende Informationsgehalt besser verteilt.
 Zuvor war der Anwender durch eine Reizüberflutung mit den Informationen überfordert, unter anderem aufgrund der Tatsache, dass er sich manche Zusammenhänge erst erschließen musste.
@@ -726,17 +751,54 @@ Mit der Zugabe von kurzen, hilfreichen Informationen wie beispielsweise einem au
 Dadurch wurde gleichzeitig der Kritikpunkt \glqq Reduzierung des Inhalts pro Dashboard\grqq{} aus der Evaluierung \ref{sec:evaluierung} bearbeitet und verbessert.
 
 \subsubsection{Weitere}
-detail tabelle
-binning von teife ,frequenz etc.
+Weiterhin wurden etwa die Einteilung der Kompressionstiefen und -frequenzen in sinnvolle Gruppierungen vorgenommen und visualisiert.
+Auch das Hinzufügen einer \glqq Detail-Tabelle\grqq{} wurde vorgenommen.
+Hierbei soll bei einer Filterung von weniger als zehn Einsätzen eine Tabelle sichtbar werden, welche die jeweilige UUID und weitere einschlägige Informationen zu den Einsätzen präsentiert.
+Diese könnte in Zukunft dafür verwendet werden, einen Link zu dem bestehenden \gls{REVIEW} zu erzeugen und bestimmte Einsätze im Detail betrachten zu können.
 
-%subs testeinsätze filtern
-
-%\subsection{Einstellungen der Arbeitsblätter und Diagramme}
-% (wie zB. Farben bei Auswahl beibehalten)
+Es wurden viele weitere Vorschläge umgesetzt, welche bei einem Vergleich des Prototypen \ref{sec:erstellungPrototyp}, den Evaluierungsergebnissen \ref{sec:evaluierung} und den finalen Dashboards im Anhang \ref{att:dashboards} deutlich werden.
 
 % zu Erstellung Qlik-App odfer vor neue Visualisierungen?
 \subsection{Farbliche Anpassung an das Corporate Design}
-%cutomtheme
+Im Zuge der äußeren Konsistenz einer Anwendung ist es wichtig, dass es Ähnlichkeiten und Bezüge zu anderen Produkten gibt, die im Arbeitsumfeld verwendet werden \cite{Christoforakos.2017, Abele.2007}.
+Hierfür wurde unter anderem das Anpassen der äußeren Erscheinung verändert.
+Hauptaugenmerk lag hier bei der Angleichung der Farbgebung an das Corporate Design von \gls{GS}.
+
+Für solche Zwecke bietet Qlik Sense die Möglichkeit an, eine eigene Erweiterung zu schreiben und diese als \glqq Custom Theme\grqq{} in eine App einzubetten.
+
+
+\todo{zusätzlich logo in groß (PNG TO JPG!)} BESCHREIBUNG ÄNDERN!
+\begin{figure}[ht]
+\centering
+\begin{subfigure}{1\linewidth}
+  \centering
+  % include first image
+  \includegraphics[width=1\linewidth]{img/beforeCT}  
+  \caption{Beispiel des POST-Requests}
+  \label{fig:request}
+\end{subfigure}
+\begin{subfigure}{1\linewidth}
+  \centering
+  % include second image
+  \includegraphics[width=1\linewidth]{img/afterCT}  
+  \caption{Auszug der Antwort auf den POST-Request}
+  \label{fig:response}
+\end{subfigure}
+\caption[Beispiel einer Anfrage und Antwort der POST-Methode]{Beispiel einer Anfrage und Antwort der POST-Methode, um die \gls{MM} der im Body angegebenen Einsätze zu erhalten}
+\label{fig:fig}
+\end{figure}
+
+Dementsprechend wurde eine Erweiterung mit den notwendigen Dateien angelegt.
+Von Relevanz ist hierbei die JSON-Datei, welche die entsprechenden Werte der Darstellung verändert.
+Diese ist im Anhang \todo{\ref{att:json} attach json} zu sehen.
+
+Die Auswirkung der veränderten Farbgebung ist in Abbildung \ref{fig:custom} zu erkennen. 
+Dadurch herrscht ein Einklang mit der Produktfamilie \textsf{corpuls\color{corpulsred}{.web}} und eine äußere Konsistenz ist gegeben.
+
+%anhang json
+
+%\subsection{Einstellungen der Arbeitsblätter und Diagramme}
+% (wie zB. Farben bei Auswahl beibehalten)
 
 %\section{Evaluierung der Ergebnisse?}
 %subs Usability-Tests?

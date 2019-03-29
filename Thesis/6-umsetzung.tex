@@ -586,7 +586,12 @@ Dies kann mit den Visualisierungen aus \ref{subsub:zeitpunkt} \todo{evtl bei Das
 Jedoch ist unter anderem für die Schichtplanung eine Auslastung in einer Wochentags- und Uhrzeit-Kombination von hoher Relevanz.
 So müsste bei den Diagrammen jeder Wochentag gefiltert werden und anschließend kann aus dem Balkendiagramm zu den Stunden eine Auslastung abgeleitet werden.
 Dies bietet allerdings keinerlei Überblick und hierfür ist eine \glqq Heatmap\grqq{} eine sehr nützliche Darstellung.
-\todo{bild heatmap}
+
+\bild
+{heatmap}
+{10cm}
+{Beispiel einer Heatmap mit einer Visualisierung von Einsätzen pro Wochentag und Uhrzeit}
+{Heatmap Visualisierung von Einsätzen pro Wochentag und Uhrzeit}
 
 Die Erweiterung \glqq 2-dimensional Heatmap\grqq{} kombiniert, wie der Name suggeriert, zwei Dimensionen und eine Kennzahl.
 Dabei ist in Abbildung \ref{fig:heatmap} auch die farbliche Hervorhebung der quantitativ hohen Daten zu erkennen, was die Charakteristik einer Heatmap ist.
@@ -597,8 +602,9 @@ Diese wurden bereits in der Konzeptionsphase eingebunden (siehe S. \pageref{fig:
 Somit ist beispielsweise die Anzahl an Einsätzen pro Stunde nicht mehr in einem Balkendiagramm mit einem Anfang und einem Ende, sondern so wie es das mentale Modell des Anwenders erwartet analog zu einer Uhr als zyklische Darstellung.
 \end{description}
 
-\subsection{Dashboards}
-\label{sub:dashboard} %Golden Rules
+
+\section{Dashboards}
+\label{sec:dashboard} %Golden Rules
 Es gibt viele unterschiedliche Regelwerke für Dashboards.
 Der Ursprung der meisten Regelwerke liegt vermutlich in den \glqq International Business Communication Standards (IBCS)\grqq{} \cite{Hichert.2017}.
 Eine Auswahl dieser Regeln betreffen etwa die Anzahl an Elementen pro Dashboard und deren Anordnung, Berücksichtigung von Wahrnehmungsaspekten (\ref{sub:grundsaetze}) und Gewährleisten einer gewissen Benutzerfreundlichkeit.
@@ -610,7 +616,7 @@ Bei der Umsetzung der Dashboards wurden diese Regeln stets berücksichtigt und i
 
 Alle umgesetzten Dashboards sind im Anhang \ref{att:dashboards} zu sehen.
 
-\subsubsection{Neue Visualisierungen durch Erweiterung der Datenobjekte}
+\subsection{Neue Visualisierungen durch Erweiterung der Datenobjekte}
 Die geforderte Erweiterung des Exports in \ref{sub:erweiterung} um die Datenobjekte \gls{CPR}, Defibrillation und \gls{NIBD} bringt eine Reihe neuer Auswertungsmöglichkeiten mit sich.
 Außerdem können bereits bestehende Daten genauer und zuverlässiger analysiert werden.
 Mit dieser Neuerung wurden erhobene Fragestellungen aus \ref{sec:erhebung} mit weiteren Diagrammen beantwortet.
@@ -637,46 +643,100 @@ Nur mit diesen neuen Daten sind die zwei rechten Kreisdiagramme und das Balkendi
 Auch Auswertungen über den Verlauf der eingestellten Energie sind sehr gefragte Fragestellungen, die nun mit dem neuen Export durch eine Visualisierung wie in Abbildung \ref{fig:newDefib2} beantwortet werden können.
 Weitere Analysen zu den Pause-Phasen vor und nach einer Defibrillation in Bezug zu diversen Dimensionen wie Jahr, Tagesabschnitt, Missionsdauer und viele mehr sind durch die Erweiterung des Exports möglich und in Teilen fest umgesetzt.
 
+Die Auswertungen zur \gls{NIBD} sind aufgrund der ähnlichen Datenobjektstruktur analog zu denen der Defibrillationen. Diese können dem Anhang \ref{att:dashboards} entnommen werden
+
 Da die Reanimation ein spannendes Ereignis in einem Einsatz darstellt, sind mehr Daten hierzu eine gute Möglichkeit, weiterführende Qualitätsauswertungen zu betreiben.
 Auch hier bietet der neue Export viele neue aussagekräftige Auswertungsmöglichkeiten.
 
 \bildbreit
 {newCPR}
 %{12cm}
-{Auswertungen über den Verlauf der eingestellten Energie von Defibrillationen}
-{Auswertungen über den Verlauf von Defibrillationen}
+{Vergleich der Reanimationsqualität dank der neuen verfügbaren Daten des Exports}
+{Vergleich der Reanimationsqualität mit den neuen verfügbaren Daten}
 
-\todotext{neu reanimationen untereinadner vergleichen, 2. dashboard auch als bild, ccf beeinflußung durch versch faktoren etc.}
+So ist es mit einem zusätzlich errechneten Feld (siehe \ref{subsub:weitereFelder}) nun möglich geworden, die Reanimationsqualität von vielen Einsätzen mit einer konsistenten Basis miteinander zu vergleichen.
+In Abbildung \ref{fig:newCPR} ist ein Auszug aus dem neuen Dashboard zu sehen.
+Hier zeigt das untere Diagramm beispielsweise die Veränderung der Drucktiefe pro Minute in der Reanimation.
+Diese ist als Boxplot dargestellt, da so nicht nur der Mittelwert angezeigt wird, sondern auch weitere aussagekräftige Daten wie die Streuung, Minimum oder Maximum.
 
-\todotext{nibd analog zu defib..}
+Des Weiteren wurden hier Farbgebungen hinzugefügt.
+Diese basieren auf den ERC-Richtlinien \cite{Adams.2016, Monsieurs.2015} und heben jene Drucktiefen oder -frequenzen hervor, die in den entsprechend empfohlenen Bereich fallen.
+So sind die Drucktiefen zwischen 5-6cm immer als positives Grün dargestellt und alle anderen als negatives Rot.
+Gleiches Prinzip bei der vorgegebenen und vorliegenden Frequenz der Kompressionen.
+
+Auswertungen zur \gls{CCF} sind ebenfalls sehr gefragt.
+Mit dem neuen Export ist hier erstmals eine Auswertung möglich. 
+Beim Prototypen gab es auch eine vorgesehene \gls{KPI} zur CCF (S.\pageref{fig:reanimation} Abbildung \ref{fig:reanimation}), jedoch war diese nur mit einer zufälligen Zahl dargestellt, da es diese Information schlichtweg nicht gab.
+
+\bildbreit
+{newCCF}
+%{12cm}
+{Beispiel für Auswertungen zur \gls{C.C.F}}
+{Beispiel für Auswertungen zur Chest-Compression-Fraction}
+
+Nun sind, wie Abbildung \ref{fig:newCCF} verdeutlicht, diverse Auswertungen zur CCF möglich.
+Beispiele hierfür sind etwa die Veränderung der Hands-On Zeiten über die Dauer einer Reanimation, oder die Beeinflussung durch den Zeitpunkt der Reanimation (Beispiel-Hyptohese: Nachts schlechter als tagsüber, siehe Abb. \ref{fig:newCCF} oben rechts)
 
 \subsection{Umsetzung der Evaluierungsergebnisse (Auszug)}
+Aus den Evaluierungsergebnissen des Prototyps (S. \pageref{sec:evaluierung}, \ref{sec:evaluierung}) und der parallelen Evaluierung der finalen Umsetzung kamen diverse Verbesserungsvorschläge oder es wurden Beobachtungen der Anwender durchgeführt, welche Rückschlüsse für Veränderungen hervorbrachten.
+Aufgrund der großen Menge an Veränderungen wird ein kurzer Auszug aus diesen Verbesserungen im Folgenden kurz erläutert.
+
 %%\subsubsection{Zielgruppenunterschiedliche Startseiten}
-\subsubsection{Lesezeichen?} %vlt so 10 Beispiel Lesezeichen
-\subsubsection{Usability/Nutzerführung/Hilfetexte}
-\subsubsection{Reduzierung Inhalt pro Arbeitsblatt}
+\subsubsection{Lesezeichen} %vlt so 5 Beispiel Lesezeichen
+Da die App mittlerweile eine sehr große Menge an Kombinationen der möglichen Filterungen erlaubt, kam oftmals der Wunsch nach fest definierten Filtern.
+Anfangs wurde diese Rückmeldung mit der Erweiterung um Buttons \ref{sub:extension} realisiert.
+Dabei wurden gewisse Filter in einem Button festgehalten, welcher durch den Benutzer an- oder abgewählt werden konnte.
+
+Nach weiteren Überlegungen stellte sich jedoch heraus, dass die Anzahl an interessanten Filtern zu groß ist, als dass man sie als Buttons festlegen könnte.
+Auch die Individualität jedes Benutzers und seiner zugrundeliegenden Daten resultiert in einer nicht abbildbaren Anzahl an fest definierten Filtern.
+
+Daraufhin wurde auf eine Funktionalität in Qlik Sense zurückgegriffen: Lesezeichen.
+Hiermit hat jeder Anwender einer Qlik-App die Möglichkeit, zu jeder Zeit die aktuelle Auswahl an Filter in einem Lesezeichen festzuhalten.
+Eine individuelle Benennung und weiterführende Beschreibung kann ebenfalls hinzugefügt werden.
+
+\bild
+{lesezeichen}
+{8cm}
+{Übersicht der manuell erstellten Lesezeichen in Qlik Sense}
+{Übersicht der manuell erstellten Lesezeichen in Qlik Sense}
+
+Dadurch kann jeder Nutzer seine individuell interessanten festgelegten Filter abspeichern und so immer auf Abruf haben.
+Ein Beispiel an solchen Lesezeichen wurde exemplarisch in Abbildung \ref{fig:lesezeichen} erstellt.
+Sie speichern außerdem das zum Zeitpunkt des Speicherns geöffnete Dashboard.
+
+\subsubsection{Konsistentes Layout}
+%Filter oben
+
+\subsubsection{Nutzerführung und Usability}
+Die Nutzerführung war eine Thematik, welche in den verschiedenen Iterationen des Öfteren als Kritikpunkt aufkam.
+Demnach sind die Dashboards gut verständlich, sofern ein Moderator diese im gleichen Zuge erklärt.
+Sofern ein Anwender die App zum ersten Mal sieht, ohne weitere Erklärung, benötigt er eine Weile, um die Visualisierungen und Zusammenhänge zu verstehen.
+
+Nach weiteren Befragungen kam heraus, dass unter anderem die Benennung der jeweiligen Diagramme zu technisch, nicht vorhanden oder unklar ist und somit die Verständlichkeit der Dashboards verschlechtert. 
+Dementsprechend lag ein Fokus bei der Umsetzung darin, die entsprechenden Visualisierungen sinngemäß zu benennen und jeweils, falls notwendig, einen Untertitel oder Fußnote hinzuzufügen.
+Die höhere Akzeptanz der Anwender wurde während späterer Präsentationen der neuen Dashboards festgestellt. 
+
+Denkbar wären in Zukunft kurze Texte zu jedem einzelnen Dashboard, ähnlich einer \glqq README\grqq{}, sodass dem Anwender die Funktionalitäten und beispielsweise zugrundeliegenden Daten ersichtlich werden.
+
+Des Weiteren wurden Verlinkungen zu gewissen Kennzahlen hinzugefügt, sodass bei einem Bedarf an weiteren Informationen an die entsprechende Stelle geklickt werden kann, um weiterführende Details zu einer bestimmten  \gls{KPI} zu erhalten. \todotext{bild?}
+
+Durch die bessere Strukturierung und Benennung der Dashboards und Visualisierungen ist der entsprechende Informationsgehalt besser verteilt.
+Zuvor war der Anwender durch eine Reizüberflutung mit den Informationen überfordert, unter anderem aufgrund der Tatsache, dass er sich manche Zusammenhänge erst erschließen musste.
+Mit der Zugabe von kurzen, hilfreichen Informationen wie beispielsweise einem aussagekräftigen Titel und gegebenenfalls ein weiterführender Untertitel kann die Überlastung des Anwenders verringert werden, sodass die eigentlich relevanten Daten zu den Einsätzen besser und schneller verarbeitet werden können.
+Dadurch wurde gleichzeitig der Kritikpunkt \glqq Reduzierung des Inhalts pro Dashboard\grqq{} aus der Evaluierung \ref{sec:evaluierung} bearbeitet und verbessert.
+
 \subsubsection{Weitere}
+detail tabelle
+binning von teife ,frequenz etc.
+
 %subs testeinsätze filtern
 
-\subsection{Einstellungen der Arbeitsblätter und Diagramme}
+%\subsection{Einstellungen der Arbeitsblätter und Diagramme}
 % (wie zB. Farben bei Auswahl beibehalten)
+
+% zu Erstellung Qlik-App odfer vor neue Visualisierungen?
 \subsection{Farbliche Anpassung an das Corporate Design}
 %cutomtheme
-
-
-% Aspekte vor Erstellung??
-\section{Rechtliche Aspekte?}
-\label{sec:recht}
-\subsection{Datenschutz}
-\subsection{Anonymisierung}
-
-
-\section{Sonstige Aspekte?}
-\subsection{Auslieferungsprozess?}
-\subsection{Internationalisierung}
-\subsection{Incremental Load?}
-\label{sub:incremental}
-
 
 %\section{Evaluierung der Ergebnisse?}
 %subs Usability-Tests?

@@ -8,7 +8,7 @@
 \label{sec:vorgehenKonzept}
 %\bildrechts{iterative} {2cm} {it} {iter}
 
-Gemäß der Methoden des Requirements Engineering \ref{requireEng} wird anhand der erhobenen und ausgearbeiteten Fragestellungen beziehungsweise Anforderungen aus \ref{4.4 fragestellungen} ein Konzept erarbeitet. 
+Gemäß der Methoden des Requirements Engineering \ref{sub:methodik} wird anhand der erhobenen und ausgearbeiteten Fragestellungen beziehungsweise Anforderungen aus \ref{sec:erhebung} ein Konzept erarbeitet. 
 Auch hierbei wurde eine iterative Herangehensweise gewählt, unter anderem um in einer kurzen Zeit grobe Fehler zu erkennen und viele Verbesserungen herauszufinden. 
 Auch wird hierdurch gewährleistet, dass die exemplarischen und später produktiven Auswertungen und Visualisierungen nicht gänzlich in eine falsche Richtung gehen, sondern von Anfang an etwaige Missverständnisse aufgedeckt werden oder grundlegende Entscheidungen frühzeitig überdacht werden können.
 
@@ -17,7 +17,7 @@ Ein weiterer Vorteil ist, dass das notwendige Einarbeiten für die spätere Umse
 Dabei können auch vorab verschiedene Vor- und Nachteile der Technologie herausgefunden werden und dementsprechend können diese bei der weiteren Planung und Umsetzung berücksichtigt werden, was viel Zeit sparen kann.
 
 Des Weiteren wurden Dummy-Daten unter anderem zum Testen des Prototypen generiert. 
-Sie waren auch notwendig, um entsprechend andere Tests für die Datenbank und Auslastung durchzuführen \ref{db und lasttest}. 
+Sie waren auch notwendig, um entsprechend andere Tests für die Datenbank und Auslastung durchzuführen. %\ref{db und lasttest}. 
 Dabei wurde ein Python-Skript geschrieben, welches einige Daten zufällig generiert, jedoch auf einer realistischen Basis.
 
 Die Evaluation soll wie oben beschrieben iterativ sein, was mehrere Termine mit unterschiedlichen Experten zur Konsequenz hat. 
@@ -46,7 +46,7 @@ Dies sind solche, die entweder von der internen Testabteilung oder der Software-
 Dementsprechend enthalten sie wenige spannende Daten, die auch selten realistisch sind und etwaige neue Erkenntnisse nicht darlegen können. 
 Nichtsdestotrotz bilden sie eine gute Grundlage um die ersten Basis-Auswertungen von Missionen paradigmatisch darzustellen. 
 
-Für diesen Zweck kann die Export-Funktion im CSV-Format von Analyse genutzt werden, welche in  \ref{istzustandanalysezurauswertung} näher beschrieben ist. 
+Für diesen Zweck kann die Export-Funktion im CSV-Format von Analyse genutzt werden, welche in  \ref{sec:istAnalyse} näher beschrieben ist. 
 So war es für den Anfang möglich, einen relativ großen Datensatz mit mäßig sinnvollen Daten zu erhalten.%\footnote{(In späteren Szenarios\ref{lasttests,db} wurden eigens generierte Missionen verwendet. Auf die Erzeugung dieser wird in Kapitel \ref{dummydaten} genauer eingegangen.)}
 
 
@@ -54,7 +54,7 @@ So war es für den Anfang möglich, einen relativ großen Datensatz mit mäßig 
 \subsection{Erstellung exemplarischer Dashboards} 
 \label{sub:erstellungDashboards}
 Mit der Datengrundlage und der Technologie Qlik Sense Desktop können nun die ersten beispielhaften Dashboards entwickelt werden.
-Die Basis für die verschiedenen Diagramme und Auswertungen bilden die iterativ erhobenen Fragestellungen aus Kap \ref{itErhebFrage}. 
+Die Basis für die verschiedenen Diagramme und Auswertungen bilden die iterativ erhobenen Fragestellungen aus Kapitel \ref{sec:erhebung}. 
 Der Ansatz hierbei ist, mit einer grafischen Darstellung der Daten so viele Fragestellungen wie möglich beantworten zu können.
 Dabei werden für die Art und Weise der Darstellungen verschiedene Aspekte berücksichtigt, wie zum Beispiel ob es ein zeitlicher Verlauf ist oder tendenziell eine Momentaufnahme, absolute gegen relative Kennzahlen, Veränderungen oder Trends und vieles mehr.
 Auf Basis dieser Aspekte wird eine möglichst passende Darstellungsform gewählt und mit entsprechender Dimension und Kennzahl, eventuell auch mehrere Dimensionen und/oder Kennzahlen, gefüllt.

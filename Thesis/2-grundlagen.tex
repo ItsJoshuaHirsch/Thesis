@@ -63,7 +63,7 @@ Dabei gibt es fünf Eigenschaften, die eine solche spezielle Form klassifizieren
 \end{itemize}
 
 Demzufolge wird im Kontext dieser Arbeit der Begriff Datenvisualisierung und Visualisierung synonym verwendet, da die entsprechenden Eigenschaften auf die hier erarbeiteten Visualisierungen zutreffen.
-\todotext{konfirmativ und explorativ visualis (fischer s.26?}
+%\todotext{konfirmativ und explorativ visualis (fischer s.26?}
 
 %WordCloud
 Es gibt nach \cite{Schumann.2000} einen \glqq Visualisierungsprozess\grqq{}, welcher den Weg von Rohdaten bis zum Bild abstrahieren soll.
@@ -372,7 +372,7 @@ Auch bei binären Daten bieten sich Kreisdiagramme an, da hierbei das Verhältni
 {Darstellung der Wirkungskraft eines Kreisdiagrammes im Vergleich zu einem Balkendiagramm}
 {Darstellung der Wirkungskraft eines Kreisdiagrammes}
 
-Als Beispiel zeigt in Abbildung \ref{fig:kreisdua} das Kreisdiagramm auf der rechten Seite auf einen Blick, dass \glqq ACS Shop\grqq{} mit über der Hälfte des Kreises die absolute Mehrheit der Marktführerschaft besitzt.
+Als Beispiel zeigt in Abbildung \ref{fig:kreisdia} das Kreisdiagramm auf der rechten Seite auf einen Blick, dass \glqq ACS Shop\grqq{} mit über der Hälfte des Kreises die absolute Mehrheit der Marktführerschaft besitzt.
 Aus dem Balkendiagramm daneben ist diese Überlegenheit auf den ersten Blick nicht garantiert zu erkennen.
 
 %\item[Histogramm] Um die Häufigkeit oder Verteilung bestimmter numerischer Daten zu verlgeichen, werden oftmals Histogramme eingesetzt.
@@ -402,7 +402,7 @@ So können komplexe Beziehungen aufgedeckt werden, die mittels bloßer Tabellen 
 
 \section{Begriffe zum Thema Data Analytics}
 \subsection{Übersicht der Zusammenhänge}
-\todo{Bild und bisschen text}
+\todo{Bild selber machen (confluence?) und  text}
 \subsection{Business Intelligence}
 \label{sub:bi}
 Seit es die Möglichkeit der elektronischen Datenverarbeitung in den 60er Jahren gibt, wird dieses Verfahren genutzt, um betriebswirtschaftliche Daten für Entscheidungen der Managementebene zu verwenden.
@@ -425,7 +425,19 @@ Dabei stammt dieser Satz von einem Zukunftsforscher aus den 80er Jahren.
 
 Big Data (\glqq große Datenmengen\grqq) ist ein Begriff, welcher in den letzten Jahren immer häufiger verwendet wird.
 Hierbei handelt es sich um größtenteils un- oder polystrukturierte Daten, welche durch viele unterschiedliche Datenquellen erzeugt werden.
-Das Fortschreiten der vielen Digitalisierungsprozesse weltweit führt zu einer stetig stärker wachsenden Datengrundlage. \todo{bild hauesler s.45 studie}
+Das Fortschreiten der vielen Digitalisierungsprozesse weltweit führt zu einer stetig stärker wachsenden Datengrundlage. 
+
+\bild
+{bigDataPrognose}
+{10cm}
+{Prognose zur jährlich generierten digitalen Datenmenge in Zettabyte. Im Vergleich die Prognosen zu den Jahren 2018 und 2025. Bildquelle \todo{add citavi statista}}
+{Prognose zur jährlich generierten digitalen Datenmenge}
+
+Abbildung \ref{fig:bigDataPrognose} zeigt eine Prognose von Statista, welche die Menge des jährlich generierten Datenvolumens prognostiziert.
+Dort ist für das Jahr 2018 ein Volumen von 33 Zettabyte\footnote{1 Zettabyte (ZB) = 10\textsuperscript{21} Byte = 1 Milliarde Terabyte (TB). \\
+33 ZB pro Jahr entspricht pro Sekunde einer Datenmenge von ca. 1000 TB oder 1 Mio. GB \\
+175 ZB pro Jahr $\approx$ 5,3 Mio. GB pro Sekunde} prognostiziert.
+Für 2025 ist eine Steigerung um mehr als das Fünffache vorausgesehen.
 
 Bei Big Data ist oftmals die Rede der drei A`s, welche den Umfang hiervon beschreiben (Vgl. \cite[2.1]{Hausler.2018}):
 \begin{itemize}
@@ -450,12 +462,12 @@ Eine Sammlung von Texten, Zahlen, Bildern unterschiedlichen Formats, oftmals auc
 \subsection{Data Warehousing}
 \label{sub:warehouse}
 Da für diverse Analysen in der heutigen Zeit unterschiedliche Datenformate und Datenquellen herangezogen werden, ist eine effiziente Synthese und Speicherung vonnöten.
-Dieser Prozess wird gemeinhin als \glqq Data-Warehousing\grqq{} bezeichnet.
+Dieser Prozess wird gemeinhin als \glqq Data-Warehousing\grqq{} bezeichnet \cite[S.7]{Gabriel.2011}.
 
 Ein \gls{DWH} ist demnach von den operationellen Datenbanken eine logisch getrennte Datenhaltung.
 Dabei soll sie nach \cite[S.6]{Mucksch.2000} möglichst eine unternehmens- oder produktweite Abbildung von relevanten Daten darstellen \cite{Kemper.2004}.
 
-\cite[S.7]{Gabriel.2011}
+
 
 %cubes?
 
@@ -465,12 +477,20 @@ Dort gibt es im Cockpit eine Anzeigentafel, welche diverse Parameter des Flugobj
 Eine solche Tafel wird in der Datenanalyse und im \gls{BI} analog verwendet.
 Dementsprechend gibt es hierbei häufig \glqq Management Cockpits\grqq{} oder \glqq Dashboards\grqq.
 Sie sollen wie die Anzeigen im Flugzeug die wichtigsten Parameter respektive Daten auf einen kurzen Blick zu sehen und interpretierbar sein \cite[S.18]{Engels.2015}.
-\todo{beispiel dashboard}
+
+\bildbreit
+{exampleDashboard}
+{Beispiel eines Dashboards zu einem Verbrauchsgüter-Unternehmen. Qlik-App von den Beispiel-Apps in Qlik Sense Desktop}
+{Beispiel eines Dashboards zu einem Verbrauchsgüter-Unternehmen}
+
+Ein solches Dashboard ist in Abbildung \ref{fig:exampleDashboard} dargestellt.
+Hier werden exemplarisch die wichtigsten Kennzahlen eines Unternehmens präsentiert.
+Somit ist auf einen Blick eine Übersicht und eine Veränderung der Daten zu erkennen.
 
 
 \section{Daten und deren Verarbeitung in der Notfallmedizin} % Rettungsdienst  
 Die zugrundeliegenden Daten dieser Arbeit sind zu einem großen Teil medizinische Daten.
-Diese haben nicht nur strenge Regularien (siehe \ref{sec:recht}), sondern sind auch von besonderer Bedeutung.
+Diese haben nicht nur strenge Regularien, sondern sind auch von besonderer Bedeutung.
 So können unterschiedliche Forschung auf Basis von medizinischen Daten betrieben werden, welche helfen, die Methoden und Praktiken zu verbessern.
 
 Hierbei gilt die Besonderheit, dass die vorliegenden Daten aus dem Bereich der Notfallmedizin stammen.
@@ -486,15 +506,24 @@ Ein Beispiel hierfür ist unter anderem die Ressourcenplanung, welche sowohl die
 Im Rettungswesen müssen diverse Vorgaben und Richtlinien eingehalten werden, welche zum Beispiel durch eine effiziente und vorausschauende Planung erfüllt werden können.
 Hierfür eignen sich die Methoden von \gls{BI} aus wirtschaftlichen Unternehmen, wenn sie an entsprechende Prozesse des Gesundheits- und Rettungswesen angepasst werden.
 
-\todotext{mehr?}
+%\todotext{mehr?}
 
 \subsection{Big Data in der Notfallmedizin}
 
 Auch im Gesundheitswesen ist die Zunahme der Datenmengen der letzten Jahre zu spüren.
 Dementsprechend ist \glqq Big Data\grqq{} auch hier ein Thema, welches berücksichtigt und im besten Fall genutzt werden sollte, um einen Mehrwert aus den großen Datenmengen zu gewinnen.
 
+\bild
+{bigDataGW}
+{13cm}
+{Prognose zu Big Data im Gesundheitswesen nach Häusler. Deutlich ist die Zunahme an unstrukturierten Daten. Bildquelle: \cite[S.45]{Hausler.2018}}
+{Prognose zu Big Data im Gesundheitswesen nach Häusler}
+
+In Abbildung \ref{fig:bigDataGW} ist der Wachstum an Daten im Gesundheitswesen exemplarisch prognostiziert.
+Sehr deutlich wird hierbei der Zuwachs an unstrukturierten Daten, welche eine besondere Datenverarbeitung notwendig machen, um aus Ihnen Informationen und digitales Wissen zu erlangen.
+
 Im Gesundheitswesen gelten auch die drei \glqq V`s\grqq{} (siehe \ref{sub:bigdata}), welche die Eigenschaften von Big Data klassifizieren sollen.
-Demnach ist beispielweise die \glqq Velocity\grqq{} ein wichtiger Faktor, wenn es um zeitkritische Daten geht, bei denen die Bearbeitung der Daten Auswirkungen auf einen Patienten haben kann.
+Demnach ist beispielsweise die \glqq Velocity\grqq{} ein wichtiger Faktor, wenn es um zeitkritische Daten geht, bei denen die Bearbeitung der Daten Auswirkungen auf einen Patienten haben kann.
 
 Jedoch kommt hier das üblicherweise selten genannte vierte V hinzu: Veracity \cite{Hausler.2018}.
 Dieses hat einen besonders hohen Stellenwert im Bereich von medizinischen Daten.
@@ -502,6 +531,7 @@ Wörtlich übersetzt bedeutet es \glqq Richtigkeit\grqq{}, wobei Daten als solch
 Sie sind von sich aus objektiv und erst im Kontext respektive mit den richtigen Fragestellungen können Daten von hoher oder minderer Qualität sein \cite[S.2 ff]{Gitelman.2013}.
 Demnach ist die Richtigkeit der zugrundeliegenden Fragestellungen von besonderer Bedeutung im Rahmen von Daten mit medizinischem Hintergrund \cite[2.1]{Hausler.2018}.
 Dies ist unter anderem Grundlage und Motivation für eine umfangreiche Erhebung und Analyse der zu beantwortenden Fragestellungen (siehe \fullref{kap:anforderungsanalyse}).
+
 
 % MAYBE IF NEEDED MORE TEXT
 %Datenquellen (relevanten Auszug davon hervorheben)(S.43f); 
@@ -573,8 +603,30 @@ Dies ist unter anderem Grundlage und Motivation für eine umfangreiche Erhebung 
 %- eHealth bietet Basis für Big Data, Big Data bietet Basis für eHealth, ...; nicht alles was ehealth ist, ist big data and vice versa; Trennung notwendig! picture\\
 
 \section{Requirements Engineering}
-\subsection{Methodik}
+Requirements Engineering, zu deutsch Anforderungstechnik, beschreibt primär den Prozess, Anforderungen zu sammeln und zu spezifizieren.
+Dabei gibt es mehrere Orientierungen, welche die Definition variieren lassen: technisch, nutzer- oder risikoorientiert \cite{Sommerville.2012}.
 
+\todo{add literature (see comment)} %https://files.ifi.uzh.ch/rerg/amadeus/teaching/courses/requirements_engineering_I_ws0607/Kapitel_01_Grundl.pdf}
+Bei der technischen Definition geht es um das erfassen, beschreiben und prüfen von Anforderungen an ein System.
+Dabei wird im ersten Schritt bei einer Software eine Reihe an Anforderungen festgehalten, die das System erfüllen sollte.
+Hier liegt oftmals der Schwerpunkt in den technischen Details.
+
+Bei der nutzerorientierten Herangehensweise steht wie der Name suggeriert, der spätere Anwender im Mittelpunkt. 
+Hier werden spezifische Anforderungen der Stakeholder gesammelt, spezifiziert und analysiert.
+Dies spiegelt eine menschenzentrierte Entwicklung wider.
+
+Die risikoorientierte Anforderungstechnik ist ähnlich zu der Vorigen, mit dem Unterschied in der Definition.
+Hierbei soll das Risiko, dass die Software dem Anwender keine oder wenig Vorteile bringt oder nicht gefällt, minimiert werden.
+
+\subsection{Methodik}
+Eine standardmäßige Methodik beim \gls{RE} ist eine iterative Herangehensweise \cite{Pohl.2011}.
+Demnach werden die verschiedenen Stationen des \gls{RE} in zyklischen Iterationen durchgeführt (siehe S. \pageref{fig:requireEngineering}, Abbildung \ref{fig:requireEngineering}).
+
+Im Rahmen dieser Arbeit wird die aus dem vorigen Kapitel zweite Definition, die nutzerorientierte Anforderungstechnik, angewandt. 
+
+Eine genaue Beschreibung, welche Schritte in welcher Reihenfolge und mit welchen Methodiken durchgeführt werden, ist Kapitel \ref{sec:erhebung} zu entnehmen.
+ 
+ 
 \section{Technologien}
 \subsection{Qlik Sense}
 \label{sub:qlik}
@@ -587,10 +639,10 @@ Es gibt sowohl eine kostenfreie Variante Qlik Sense Desktop für private Nutzer 
 Qlik basiert dabei auf sogenannte \glqq Apps\grqq{}, welche ein abgegrenztes Datenmodell und mehrere Arbeitsblätter enthält.
 Dabei steht ein Arbeitsblatt in der Regel für ein \gls{Dashboard}, welches zusammengehörige Visualisierungen auf einen Blick kombiniert.
 
-\bildbreit
-{qlikstart}
-{Beispielhafte Startseite von Qlik Sense Desktop mit diversen Apps}
-{Startseite von Qlik mit diversen Apps}
+%\bildbreit
+%{qlikstart}
+%{Beispielhafte Startseite von Qlik Sense Desktop mit diversen Apps}
+%{Startseite von Qlik mit diversen Apps}
 
 Es gibt außerdem die Funktion von Master-Elementen.
 Hierbei können Master-Kennzahlen und -Dimensionen aus den Datenfeldern der Tabellen erstellt werden. 
@@ -600,7 +652,19 @@ Ein großer Vorteil dieser Master-Elemente ist die zentrale Verwaltung und damit
 
 Ein weiteres Merkmal von Qlik Sense ist die hohe Interaktion mit den Diagrammen.
 So können durch Mausinteraktionen mit den entsprechenden Darstellungen interagiert und eine intuitive Filterung der Daten vorgenommen werden.
-\todo{magic quadrant 2019 Gartner}
+
+Es gibt einen jährlichen Report für \gls{BI} \& Analystics Plattformen von Gartner, welcher die verschiedenen BI-Werkzeuge analysiert, bewertet und anschließend kategorisiert.
+Dabei entsteht das sogenannte \glqq Magic Quadrant\grqq{} von Gartner.
+\bild
+{gartner}
+{10cm}
+{Magisches Quadrant von Gartner zur Beurteilung verschiedener Business-Intelligence Plattformen. Bildquelle \todo{add citavi}}
+{Quadrant von Gartner zur Beurteilung verschiedener BI-Plattformen}
+
+Dabei werden die Produkte in vier Quadranten eingeteilt: Leader, Challenger, Visionaries \& Niche Players.
+Die Einordnung basiert dabei auf der Vollständigkeit der Vision sowie der Fähigkeit, diese umsetzen zu können \todo{add citavi gartner}\cite{gartner}.
+Qlik ist hierbei im aktuellen Jahre 2019 im Quadrant der \glqq Leader\grqq{} mit nur drei weiteren Plattformen, wie Abbildung \ref{fig:gartner} zeigt.
+Seit neun Jahren in Folge liegt Qlik in diesem obersten Quadranten \cite{QlikTech.2019}.
 
 \subsubsection{Qlik Sense-Skriptsprache}
 Die Syntax von Qlik Sense Skripten basiert auf dem \gls{BNF}. 
@@ -618,13 +682,54 @@ Für größere Teams ab fünf Personen gibt es die Steigerung von Qlik Sense Des
 Hierbei können die Apps und deren Visualisierungen mit mehreren Personen geteilt werden und so eine ortsunabhängige Kollaboration ermöglichen.
 
 Die nächste und damit höchste Stufe bildet Qlik Sense Enterprise.
+Dieses Produkt ist für große Unternehmen oder solche, die es als Komponente in ihren eigenen Produkten verwenden (\gls{OEM}).
+Da \gls{ANALYSE} um ein solches Feature der visuellen \gls{BI}-Analyse erweitert werden soll, ist \gls{GS} Kunde von QlikTech mit dem Produkt Qlik Sense Enterprise im \gls{OEM}-Modell.
+
+Hierbei ist unter anderem eine Benutzerverwaltung mit Rechtesystem mit im Umfang.
+So können die bisherigen Benutzersysteme der  \textsf{corpuls\color{corpulsred}{.web}}-Familie in Qlik abgebildet werden.
+Auch ist so eine Rechteverteilung denkbar, sodass verschiedene Dashboards nur bestimmten Nutzergruppen zugänglich ist (Administratoren, Forscher und andere).
 
 %\subsubsection{Lizenzierungsmodell}
 
-\section{Ist-Zustand corpuls.web ANALYSE}
-Siehe Review Graumann Anforderungsanalyse!
+\section{Ist-Zustand \acrlong*{ANALYSE}}
+\label{sec:istAnalyse}
+\gls{REVIEW} wird hauptsächlich in der präklinischen Rettung, beispielsweise einer Rettungswache, ansonsten auch in der klinischen Umgebung wie der Notaufnahme verwendet.
+Es dient dabei dem Nachvollziehen einer Mission im Detail.
+
+\gls{ANALYSE} ist eine Erweiterung als Server, welcher per Upload oder Import alle Einsätze abspeichert. 
+Mithilfe einer Suchmaske können in einer Tabelle entsprechende Einsätze nach bestimmten Kriterien gesucht und gefiltert werden.
+Ein Ausschnitt dieser Tabelle mit Suchmaske ist der Abbildung \ref{fig:missionlist} zu entnehmen.
+Anschließend kann ein Einsatz in \gls{REVIEW} geöffnet und im Detail betrachtet werden.
+
+\bildbreit
+{missionlist}
+{Ausschnitt aus der \glqq Missionsliste\grqq{} in \gls{ANALYSE}}
+{Missionsliste \gls{ANALYSE}}
+
+
+\subsection{Vorliegende Daten der Geräte}
+Im Server von \gls{ANALYSE} liegen die Einsätze in einer Datenbank (MongoDB).
+Dort werden alle zugehörigen Komponenten wie beispielsweise Events, \gls{EKG}-Daten oder \gls{MM} in einem Einsatz-Objekt abgespeichert.
+
+Ein Event ist ein Ereignis im Laufe einer Mission, welche mit einer ID und entsprechenden Parametern abgespeichert wird.
+Dabei gibt es die Unterscheidung zwischen Benutzer- und Hersteller-Events.
+Hersteller-Events umfassen jegliche Interaktion mit und Meldungen vom Gerät, sodass beispielsweise jeder Tastendruck mit einer genauen Uhrzeit nachvollzogen werden kann.
+Benutzer-Events sind Ereignisse, welche für die Anwender interessant sind. 
+Darunter zählen etwa das Abgeben einer Defibrillation, Auftreten eines Alarmes oder das Versenden eines \gls{EKG}s.
+
+Ein \gls{MM} ist ein Feld, welches bestimmte Events zusammenfasst.
+So ist beispielsweise die Aggregation der Defibrillationsereignisse, welche die Abgabe eines solchen aufzeichnen, später als MM für die Anzahl der abgegebenen Defibrillationen in ANALYSE aufzufinden.
+Es gibt eine große Sammlung dieser MM, welche im Laufe der Zeit angelegt wurden, um die Kernelemente eines Einsatzes zusammenzufassen.
+Diese Felder sind in der Einsatztabelle von ANALYSE zu sehen (Abb. \ref{fig:missionlist}) und auch nur über sie ist eine Suche oder Filterung möglich.
+
+
 %\subsection{Architektur}
 \subsection{Verwendung zur Auswertung}
-\subsection{Vorliegende Daten der Geräte}
+Das Auswerten von vielen Einsätzen, gegebenenfalls auch mit bestimmten Kriterien wie \glqq nur Nachts\grqq, ist zurzeit bedingt möglich.
+Hierfür können entweder die Einsätze in der Tabelle direkt miteinander verglichen werden oder eine Mehrfachauswahl an Einsätzen vorgenommen, siehe Abbildung \ref{fig:missionlist}, und anschließend ein Export im CSV-, BDF+-, oder \glqq corpuls ZIP\grqq -Format durchgeführt werden.
+Daraufhin kann mit dem jeweiligen Export in einem Drittanbieterprogramm eine oberflächliche Auswertung der ausgewählten Einsätze vollzogen werden.
+
+Da dies jedoch immer nur auf Basis von den voraggregierten \gls{MM} basiert, ist eine tiefgreifende Analyse der Daten und Einsätze mit deren Ereignissen nicht möglich.
+Dies ist unter anderem Aufgabe dieser Arbeit, eine erweiterte Auswertung zu ermöglichen (siehe \ref{sub:erweiterung}).
 
 

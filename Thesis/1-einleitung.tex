@@ -8,8 +8,115 @@
 %\subsection{corpuls.web ANALYSE}
 
 \section{Problemstellung}
+\label{problem}
+Ein Einsatz im Rettungsdienst ist jedes Mal ein gänzlich neuer Fall. 
+Es kommen verschiedene Faktoren in unterschiedlicher Gewichtung hinzu und machen einen solchen Einsatz einzigartig. 
+Dennoch lassen sich Korrelationen feststellen, welche in einigen Einsätzen zu gleichen oder ähnlichen Ereignissen führen.
+
+Die heutzutage eingesetzten Geräte in diesen Bereichen besitzen viel Technik und Möglichkeiten der Datensammlung und -haltung.
+Diese Daten müssen, wegen rechtlicher Aspekte zumindest in Deutschland, permanent abgespeichert werden.
+Jedoch liegen diese meistens im Anschluss der Persistierung ungenutzt auf einem Datenträger oder Server.
+
+Dabei verbergen sich in diesen Daten neue Erkenntnisse und unzählige Antworten auf Fragen, welche sich die Leiter entsprechender Einrichtungen jährlich, monatlich oder gar täglich stellen, und zum jetzigen Zeitpunkt keine adäquate, schnelle und simple Möglichkeit zur Beantwortung jener zur Verfügung haben.
+
+Mit dieser Arbeit sollen genau diese ungenutzten Daten so aufbereitet werden, damit sie für eine grafische Auswertung sinnvoll sind und Rettungswachen, Krankenhäusern oder anderen Einrichtungen einen deutlichen Mehrwert bieten.
+
+\subsection{Erkenntnisinteresse}
+\label{erkenntnis}
+Mit der grafischen Auswertung von vielen Einsätzen über längere Zeiträume mit unterschiedlichen Geräten sollen bereits vermutete Fragestellungen bestätigt oder widerlegt werden können.
+Fragen wie \glqq Wird tagsüber besser reanimiert als nachts? Wie steht dies im Verhältnis zur Einsatzdichte der jeweiligen Schichten?\grqq{} sind nur einige der vielen Fragen, die derzeit im Raum stehen und nur schwerlich mit einer Antwort ausgestattet werden können.
+Auch sehr forschungsnahe Fragen, beispielsweise ob der Anstieg des Blutdrucks in Kombination mit der Senkung der Sauerstoffsättigung zu einer Apnoe führt, sind denkbar spannend.
+
+Die Daten sollen entsprechend vorliegen, damit die zu erwartenden Fragen in adäquater Form und Zeit beantwortet werden können.
+Hierbei soll auch die Möglichkeit der Überprüfung gewährleistet werden, dass entsprechende gesetzliche Richtlinien \cite{Maconochie.2015} oder lokale Vorgaben eingehalten werden oder die Stärken und Schwächen von Menschen und Geräten identifiziert werden können.
+Auch Prognosen für die Zukunft sollen möglich gemacht werden oder gar neue Forschungsfragen gefunden  und im besten Fall gleich beantwortet werden können.
+
+Eine gute Möglichkeit um diese Daten übersichtlich zu visualisieren sind sogenannte \glqq \gls{Dashboard}s\grqq, ein englischer Begriff welcher \glqq Armaturenbrett\grqq{} bedeutet.
+Dieser hat sich in der digitalen Welt als Schlagwort etabliert, eine Übersicht über viele verschiedene Informationen und Daten zu liefern, so wie es ein Armaturenbrett im Auto vollbringt (siehe \ref{sub:dashboards}).
+
 \subsection{Fragestellung}
+\label{fragen}
+Aus der oben genannten Problemstellung und Erkenntnisinteresse ergeben sich folgende Fragen:
+\begin{description}
+\item[Fragestellungen]~\par
+\begin{itemize}
+      \item Welche Fragen haben unsere Anwender, die wir mit unseren Daten beantworten können?    
+      \item Wie müssen wir Dashboards gestalten, damit diese Fragen beantwortet werden?
+      \begin{itemize}
+        \item Wie müssen die Dashboards entworfen werden, damit sie medizinisch korrekt sind?  
+      \end{itemize}
+      \item Was müssen wir in unserem Datenmodell beachten, damit wir diese Dashboards erstellen 					können?
+      \begin{itemize}
+        \item Was muss bei der Schnittstelle beachtet werden?
+      \end{itemize}
+\end{itemize}
+\end{description}
+
 \subsection{Zielsetzung}
+\label{ziel}
+Ziel ist es, so viele Fragestellungen wie möglich der entsprechenden Anwender, wie zum Beispiel Rettungswachenleiter, Ärztlicher Leiter, Qualitätsmanagementbeauftragte u.a. herauszufinden und zu konkretisieren.
+Anschließend sollen die erhobenen Fragen bezüglich der benötigten Daten und deren Format analysiert werden.
+Daraufhin folgt die Konzipierung von Dashboards, welche so viele Fragestellungen wie möglich beantworten sollen.
+Erste Entwürfe und letztendlich präsentierfähige Dashboards sollen das visuelle Ergebnis dieser
+Arbeit werden.
+
+Simultan werden geeignete Datenmodelle zur reibungslosen Darstellung sowie Anforderungen an die Schnittstelle erarbeitet.
+
 \subsection{Abgrenzung}
+\label{abgrenzung}
+Im Rahmen der Bachelorarbeit ist es nicht notwendig, die entstandenen Dashboards in die derzeit laufende Software zu implementieren.
+%Handlungsempfehlungen für die entsprechenden Entwickler sind hierbei ausreichend.
+Des Weiteren ist keine produktive Anbindung an die entsprechende Schnittstelle vorgesehen.
+Etwaige Rückschlüsse oder das Testen von Technologien sind hierbei zureichend.
 
 \section{Vorgehensbeschreibung}
+Die Erhebung der Fragestellungen wird vollumfänglich durch Interviews stattfinden.
+Dies passiert in einem zyklisch-iterativen Verfahren, gemäß etablierter Prozesse des Requirements Engineering \cite{Pohl.2011} (siehe Kapitel \ref{sub:methodik}).
+Dabei werden vorerst die internen Mitarbeiter gefragt, welche Fragestellungen sie für sinnvoll erachten.
+Dabei wird darauf geachtet, dass die befragten Personen einen engen Bezug zum Rettungsdienst oder zu Kunden, beziehungsweise Mitarbeitern in dieser Branche haben.
+Das Unternehmen liefert hierbei eine Menge in Frage kommender Stakeholder, da die Quote der ehemaligen und noch aktiven Rettungsdienstmitarbeiter überdurchschnittlich hoch ist. 
+
+%Des Weiteren werden Interviews oder Gespräche mit Key-Opinion-Leaders dieser Thematik angestrebt, um Einschätzungen und Erkenntnisse aus professioneller, erster Hand zu gewinnen.
+
+Im Anschluss der Erhebung werden die ermittelten Fragestellungen analysiert, hierbei wird untersucht:
+\begin{itemize}
+      \item Welche Daten für jene Frage benötigt werden
+      \item Liegen die benötigten Daten vor
+      \begin{itemize}
+        \item Wenn ja, sind die Daten in dem richtigen Format
+      \end{itemize}
+      \item Wie relevant, beziehungsweise interessant die Frage allgemein ist
+\end{itemize}
+In Bezug darauf werden exemplarisch Dashboards für die Fragestellungen entworfen, bei welchen die benötigten Daten im richtigen Format vorliegen.
+Danach werden diese vorgestellt und von entsprechenden Mitarbeitern validiert und evaluiert.
+Parallel dazu werden für die Fragestellungen, welche die Daten nicht im richtigen Format vorliegen haben, entsprechende Datenmodelle oder Datenformate erarbeitet und Hinweise an die Softwareabteilung bezüglich der Schnittstelle kommuniziert.
+Anschließend beginnt der gesamte Prozess mit den herausgefundenen Validierungsergebnissen erneut.
+
+
+%Nach den ersten Zyklen, sobald die ersten Dashboards und Metriken intern validiert wurden, werden diese entsprechend interessierten Kunden vorgestellt.
+%Die Erkenntnisse hierbei werden besonders in die Evaluierung und erneute Spezifizierung einfließen, da die Erfahrungen und der Wissensstand dieser Personen von enormer Wichtigkeit sind.
+
+\subsection{Technologien}\label{tech}
+Für das Erstellen der Dashboards wird ein Business-Intelligence-Werkzeug namens \glqq Qlik Sense\grqq{} eingesetzt.
+Hierbei handelt es sich um eine leistungsstarke Software, welche auch zum Beispiel das Laden der Daten oder Umstrukturieren der geladenen Daten per Skript erlaubt.
+Im Unternehmen gibt es Lizenzen für die Enterprise Variante, welche auch für den späteren produktiven Einsatz bei Kunden zum Tragen kommen wird (siehe Kapitel \ref{sub:qlik}).
+Wie in Kapitel \ref{abgrenzung} beschrieben werden sich die Entwickler mit der Programmierung Schnittstelle beschäftigen, sodass die Daten vom entsprechenden Server im hier erarbeiteten Format vorliegen.
+% Eine mögliche Evaluation meinerseits von Technologien, welche für die Schnittstelle hilfreich sein könnten, ist optional.
+
+\subsection{Datenmodellierung}
+Das Erarbeiten der benötigten Datenmodelle wird vorerst ohne produktive Daten erfolgen.
+Hierbei ist das Ziel, eine grundlegende Struktur abzubilden, welche eine breite und nutzbare Basis von Daten schaffen soll.
+Diese wird mithilfe von visuellen Datenmodellen ebenfalls in der im Kapitel \ref{tech} genannten
+Software dargestellt.
+
+Die Daten der Geräte liegen größtenteils im eigenen \glqq corpuls\grqq{}-Format vor. 
+Hierbei finden sich auch sogenannte \glqq Events\grqq{}, welche bestimmte Ereignisse im Laufe einer Mission mit Parametern beschreiben, wie zum Beispiel eine Blutdruckmessung mit dem systolischen und diastolischen Druck als Parameter.
+Somit ist ein einzelner Einsatz in der Auswertung als abgeschlossener atomarer Datensatz anzusehen, wobei es genau genommen eine definierte Zeitspanne mit \textit{n} Ereignissen und Messungen ist. 
+
+Damit ein solches mehrdimensionales Datenpaket derzeit zur einfachen manuellen Auswertung geeignet ist, besteht die Notwendigkeit einer gewissen internen Vorverarbeitung dieser Daten.
+Dies wird zurzeit unter anderem mit sogenannten \glqq \gls{MM} \grqq{} abgebildet.
+Diese bilden Aggregationen von bestimmten Events, sodass beispielsweise die Anzahl an Blutdruckmessungen zusammengefasst wird. 
+Mit diesen Aggregationen lassen sich bereits viele Auswertungen und Erkenntnisse finden.
+
+Jedoch ist für eine tiefere Analyse eine komplexere Datenstruktur notwendig, sodass die eigentlich gebotene Mehrdimensionalität zur Verfügung stehen sollte. 
+Die konfliktfreie und sinnvolle Modellierung von mehreren solcher mehrdimensionalen Daten ist eine der großen Herausforderungen dieser Bachelorarbeit (siehe Kapitel \ref{sub:erweiterung} \& \ref{sub:datenmodell}).

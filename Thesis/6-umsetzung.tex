@@ -27,12 +27,12 @@ Es können Daten aus lokalen Dateien wie CSV-, Excel- oder XML-Dateien, Datenban
 
 In Abbildung \ref{fig:konnektoren} sind die möglichen Datenbank- oder Schnittstellen-Konnektoren aufgelistet, wie beispielsweise \glqq MongoDB\grqq, \glqq Oracle\grqq, \glqq Microsoft SQL Server\grqq{} oder \glqq REST\grqq.
 
-Da (wie in \ref{sub:StandTEchnikAnalyse} beschrieben) hinter \gls{ANALYSE} eine MongoDB-Datenbank steht, wäre der entsprechende Konnektor eine Möglichkeit, um die Einsatzdaten in Qlik bereitzustellen.
+Da (wie in \ref{sec:istAnalyse} beschrieben) hinter \gls{ANALYSE} eine MongoDB-Datenbank steht, wäre der entsprechende Konnektor eine Möglichkeit, um die Einsatzdaten in Qlik bereitzustellen.
 Allerdings befindet sich dieser zum einen in einem Beta-Zustand, zum anderen widerspricht dies der Philosophie, einen universellen Export der Daten zu bieten, da nicht jede Technologie einen Konnektor zur MongoDB hat. 
 
 Ein weiterer Faktor ist außerdem die Sicherheit der Daten.
 Gewährt man einem Drittprogramm und damit mehreren Nutzern den direkten Zugriff auf eine Datenbank, entstehen gewisse Risikofaktoren, welche die Sicherheit des Systems gefährden.
-Schließlich liegen gegebenenfalls personenbezogene Daten in der Datenbank \ref{sec:rechtlich} oder Daten, welche gewisse Entscheidungen zur Folge haben.
+Schließlich liegen gegebenenfalls personenbezogene Daten in der Datenbank oder Daten, welche gewisse Entscheidungen zur Folge haben.
 Eine mögliche unkontrollierte Manipulation dieser Information sollte vermieden werden.
 
 Demnach sollte es eine Schnittstelle von \gls{ANALYSE} geben, welche die Daten kontrolliert bereitstellt.
@@ -131,8 +131,7 @@ Aus diesem Anlass muss dieses Export-Format neu überdacht und für große Daten
 Der Hauptaspekt beim neuen Entwurf der Export-Schnittstelle war das effiziente und sichere Umgehen mit großen Datenmengen.
 Hierfür muss ein anderer als der zweistufige, in \ref{subsub:1stexport} beschriebene Prozess, entwickelt werden.
 
-\todo{Alternativen: Direkt auf Platte, Anstoßen und direkt Ergebnis erhalten oder eben Anfrage und später fertige Datei\\
-Warum letzteres: Nie Timeout und sicherheit(auth) und universell}
+%\todo{Alternativen: Direkt auf Platte, Anstoßen und direkt Ergebnis erhalten oder eben Anfrage und später fertige Datei\\Warum letzteres: Nie Timeout und sicherheit(auth) und universell}
 %\lipsum*[104]
 
 Letztendlich wurde sich für ein/das Konzept mit den folgenden möglichen Schritten entschieden:
@@ -428,7 +427,7 @@ Die Skripte, die diesen ETL-Prozess umsetzen, werden im Folgenden näher erläut
 
 \subsubsection{Ladeskripte}
 \label{subsub:scripts}
-\todotext{Datenverbindungen erklären? Skripte in Anhang?}
+%\todotext{Datenverbindungen erklären? Skripte in Anhang?}
 
 Um die Daten im entsprechend geforderten Format vorliegen zu haben, sind eine Reihe von \gls{ETL}-Prozessen notwendig.
 Diese wurden mittels der eigenen Skriptsprache von Qlik angefertigt (siehe \ref{sub:qlik}).
@@ -500,7 +499,7 @@ Kriterien die in dieser Umsetzung verwendet wurden sind unter anderem das Anschl
 
 Diese Kriterien können beliebig von einem entsprechend berechtigtem Anwender oder Entwickler im Abschnitt 2 der Ladeskripte erweitert oder eingeschränkt werden.
 Es wird darüber hinaus dem Anwender noch eine weitere Möglichkeit des Herausfilterns gegeben.
-Dies geschieht über die Erweiterung der Filterleiste (siehe S. \pageref{par:filter}) um das Dropdown-Filterfenster \glqq Mission-Tags\grqq{} in den entsprechenden Dashboards. \todotext{(Dazu in ref() mehr)}
+Dies geschieht über die Erweiterung der alten Filterleiste (siehe S. \pageref{par:filter}) um das Dropdown-Filterfenster \glqq Mission-Tags\grqq{} in den entsprechenden Dashboards. %\todotext{(Dazu in ref() mehr)}
 Dadurch ist eine 100\%-Filterquote von Testeinsätzen realisierbar, sofern die sinngemäße Verwendung der Mission-Tags angewandt wird.
 
 \subsubsection{Erweiterung um manuell hinzugefügte Felder}
@@ -527,13 +526,32 @@ Dadurch war keine gute Trennung der Daten und folglich eine verschlechterte Perf
 
 Darausfolgend wurden unterschiedliche Datenmodelle umgesetzt und getestet, um die bestmögliche Effizienz aus Speicherbedarf und Performanz zu erlangen.
 Hierbei gibt es die zwei Schemata \glqq Star\grqq{} \& \glqq Snowflake\grqq{} zur Umsetzung der Klassifikationshierarchie \cite{Kimball.2013}.
-Die Namensgebung resultiert aus der visuellen Anordnung der Datentabellen, welche in Abbildung \todo{Bild Vergleich Star-Snowflake} zu erkennen ist.
+Die Namensgebung resultiert aus der visuellen Anordnung der Datentabellen, welche in Abbildung \ref{fig:compScheme} zu erkennen ist.
 
-\bild
-{compStarSnow}
-{8cm}
-{Visuelle Darstellung des Star- und Snowflake-Schemas \todo{bildquelle!, vermutlich eigene Darstellung}}
-{Visuelle Darstellung des Star- und Snowflake-Schemas}
+\begin{figure}[ht]
+\begin{subfigure}{0.5\linewidth}
+  \centering
+  % include first image
+  \includegraphics[width=0.95\linewidth]{img/starScheme}  
+  \caption{Beispiel des Star-Schemas. Eine Faktentabelle mit Dimensionstabellen}
+  \label{fig:starscheme}
+\end{subfigure}
+\begin{subfigure}{0.5\linewidth}
+  \centering
+  % include second image
+  \includegraphics[width=0.95\linewidth]{img/snow}  
+  \caption{Snowflake-Schema, welches weitere Dimensionstabellen beinhaltet}
+  \label{fig:snow}
+\end{subfigure}
+\caption[Vergleich des Star- und Snowflake-Schemas]{Vergleich der beiden Schemata zur Umsetzung von Datenmodellen. Links Star, rechts Snowflake}
+\label{fig:compScheme}
+\end{figure}
+
+%\bild
+%{compStarSnow}
+%{8cm}
+%{Visuelle Darstellung des Star- und Snowflake-Schemas \todo{bildquelle!, vermutlich eigene Darstellung}}
+%{Visuelle Darstellung des Star- und Snowflake-Schemas}
 
 Demnach wurde als nächstes das Modell in ein Snowflake-Schema mittels verschiedener Befehle konvertiert. 
 Nach einer kurzen Erprobung dieses Schemas stellte sich jedoch heraus, dass die Normalisierung, wie sie bei diesem Konzept vorgesehen ist, bei den vorliegenden Daten keinen großartigen Mehrwert bietet.
@@ -573,16 +591,16 @@ Eine Funktionalität, um Buttons in den Dashboards zu integrieren, gibt es stand
 Hierfür gibt es eine Erweiterung \glqq Navigations \& Actions\grqq{}, welche dies ermöglicht.
 Dabei können beispielsweise bestimmte Filterungen vorgenommen werden.
 Dies wurde in dieser App für das einfache Umschalten von Reanimationen verwendet.
-Jedoch ist dies aufgrund der später entdeckten Funktionalität \glqq Lesezeichen\grqq{} (siehe \ref{par:Lesezeichen}) obsolet.
+Jedoch ist dies aufgrund der später entdeckten Funktionalität \glqq Lesezeichen\grqq{} (siehe \ref{subsub:lesezeichen}) obsolet.
 
 Für etwaige Navigationselemente oder als Schalter für die Internationalisierung kann diese Erweiterung jedoch in Zukunft weiter verwendet werden.
 \item[Container] \hfill \\
 Diese Erweiterung namens \glqq ShowHide Container\grqq{} ermöglicht es, gewisse Master-Elemente mit Hilfe von Bedingungen zu verbergen oder anzuzeigen.
-In diesem Beispiel wurde sie dafür verwendet, eine Detail-Tabelle nur dann anzuzeigen, wenn eine Filterung weniger als zehn Einsätze zur Konsequenz hat. (siehe \ref{par:Detail-Tabelle})
+In diesem Beispiel wurde sie dafür verwendet, eine Detail-Tabelle nur dann anzuzeigen, wenn eine Filterung weniger als zehn Einsätze zur Konsequenz hat (siehe \ref{par:DetailTabelle}). 
 
 \item[Heatmap] \hfill \\
 Es gibt diverse Fragestellungen aus \ref{sec:erhebung}, bei welchen beispielsweise die Auslastung von einer Wache oder einem oder mehreren Geräten interessant ist.
-Dies kann mit den Visualisierungen aus \ref{subsub:zeitpunkt} \todo{evtl bei Dashboards später referenz zu neuen?} bereits weitestgehend beantwortet werden.
+Dies kann mit den Visualisierungen aus \ref{subsub:zeitpunkt} bereits weitestgehend beantwortet werden.
 Jedoch ist unter anderem für die Schichtplanung eine Auslastung in einer Wochentags- und Uhrzeit-Kombination von hoher Relevanz.
 So müsste bei den Diagrammen jeder Wochentag gefiltert werden und anschließend kann aus dem Balkendiagramm zu den Stunden eine Auslastung abgeleitet werden.
 Dies bietet allerdings keinerlei Überblick und hierfür ist eine \glqq Heatmap\grqq{} eine sehr nützliche Darstellung.
@@ -683,6 +701,7 @@ Aufgrund der großen Menge an Veränderungen wird ein kurzer Auszug aus diesen V
 
 %%\subsubsection{Zielgruppenunterschiedliche Startseiten}
 \subsubsection{Lesezeichen} %vlt so 5 Beispiel Lesezeichen
+\label{subsub:lesezeichen}
 Da die App mittlerweile eine sehr große Menge an Kombinationen der möglichen Filterungen erlaubt, kam oftmals der Wunsch nach fest definierten Filtern.
 Anfangs wurde diese Rückmeldung mit der Erweiterung um Buttons \ref{sub:extension} realisiert.
 Dabei wurden gewisse Filter in einem Button festgehalten, welcher durch den Benutzer an- oder abgewählt werden konnte.
@@ -752,6 +771,7 @@ Dadurch wurde gleichzeitig der Kritikpunkt \glqq Reduzierung des Inhalts pro Das
 
 \subsubsection{Weitere}
 Weiterhin wurden etwa die Einteilung der Kompressionstiefen und -frequenzen in sinnvolle Gruppierungen vorgenommen und visualisiert.
+\label{par:DetailTabelle}
 Auch das Hinzufügen einer \glqq Detail-Tabelle\grqq{} wurde vorgenommen.
 Hierbei soll bei einer Filterung von weniger als zehn Einsätzen eine Tabelle sichtbar werden, welche die jeweilige UUID und weitere einschlägige Informationen zu den Einsätzen präsentiert.
 Diese könnte in Zukunft dafür verwendet werden, einen Link zu dem bestehenden \gls{REVIEW} zu erzeugen und bestimmte Einsätze im Detail betrachten zu können.
@@ -767,25 +787,25 @@ Hauptaugenmerk lag hier bei der Angleichung der Farbgebung an das Corporate Desi
 Für solche Zwecke bietet Qlik Sense die Möglichkeit an, eine eigene Erweiterung zu schreiben und diese als \glqq Custom Theme\grqq{} in eine App einzubetten.
 
 
-\todo{zusätzlich logo in groß (PNG TO JPG!)} BESCHREIBUNG ÄNDERN!
+%\todo{zusätzlich logo in groß (PNG TO JPG!)} BESCHREIBUNG ÄNDERN!
 \begin{figure}[ht]
 \centering
 \begin{subfigure}{1\linewidth}
   \centering
   % include first image
   \includegraphics[width=1\linewidth]{img/beforeCT}  
-  \caption{Beispiel des POST-Requests}
-  \label{fig:request}
+  \caption{Darstellung im Standard-Theme von Qlik Sense}
+  \label{fig:beforeCT}
 \end{subfigure}
 \begin{subfigure}{1\linewidth}
   \centering
   % include second image
   \includegraphics[width=1\linewidth]{img/afterCT}  
-  \caption{Auszug der Antwort auf den POST-Request}
-  \label{fig:response}
+  \caption{Umsetzung eines Custom-Themes mit Corporate Design}
+  \label{fig:afterCT}
 \end{subfigure}
-\caption[Beispiel einer Anfrage und Antwort der POST-Methode]{Beispiel einer Anfrage und Antwort der POST-Methode, um die \gls{MM} der im Body angegebenen Einsätze zu erhalten}
-\label{fig:fig}
+\caption[Vergleich zwischen Standard- und Custom-Theme]{Vergleich zwischen Standard- und Custom-Theme. In }
+\label{fig:custom}
 \end{figure}
 
 Dementsprechend wurde eine Erweiterung mit den notwendigen Dateien angelegt.
@@ -793,6 +813,7 @@ Von Relevanz ist hierbei die JSON-Datei, welche die entsprechenden Werte der Dar
 Diese ist im Anhang \todo{\ref{att:json} attach json} zu sehen.
 
 Die Auswirkung der veränderten Farbgebung ist in Abbildung \ref{fig:custom} zu erkennen. 
+Es sind in \ref{fig:afterCT} die Farben des Firmen-Logos (zu sehen in der rechten oberen Ecke) auf die Diagramme angewandt worden.
 Dadurch herrscht ein Einklang mit der Produktfamilie \textsf{corpuls\color{corpulsred}{.web}} und eine äußere Konsistenz ist gegeben.
 
 %anhang json

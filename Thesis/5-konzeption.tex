@@ -201,13 +201,13 @@ Es ist somit eine stark voraggregierte Information, welche einen eventuellen fal
 So kann beispielsweise eine Reanimation 100 zu flache Kompressionen mit 4cm, sowie 100 zu tiefe Kompressionen  mit 7cm enthalten.
 Der nun aggregierte Mittelwert dieser Reanimation lautet 5,5cm und suggeriert eine an der Drucktiefe gemessene, \glqq perfekte\grqq{} Reanimation, obwohl nicht eine korrekte Kompression vorliegt.
 Dieser Aspekt muss bei der Betrachtung dieser Auswertung berücksichtigt werden.
-Eine mögliche Lösung oder zum Mindesten eine Verbesserung der Aussagekraft zur Drucktiefe wird in Kap \ref{cprObjekt} beschrieben.
+Eine mögliche Lösung oder zum Mindesten eine Verbesserung der Aussagekraft zur Drucktiefe wird in Kapitel \ref{sub:erweiterung} beschrieben.
 
 Zur rechten Seite der oben beschriebenen Visualisierung ist ein Boxplot-Diagramm, welches eine Zusammenfassung zur Drucktiefe liefert.
 Es zeigt kompakt die maximale und minimale durchschnittliche Tiefe, sowie die Quartile und den Median aller Reanimationen an.
 
 Des Weiteren sind drei Diagramme vorhanden, welche mehr die Funktion von Platzhaltern einnehmen, da es zur Druckfrequenz und \gls{CCF} bis zu dem Zeitpunkt keine aussagekräftigen Daten gab.
-Dennoch ist es eine sehr relevante und gefragte Information und soll in \ref{Umsetzung} weiter betrachtet werden.
+Dennoch ist es eine sehr relevante und gefragte Information und soll in \ref{sub:erweiterung} weiter betrachtet werden.
 
 
 \subsubsection{Schocks}
@@ -228,7 +228,7 @@ Als weitere \gls{KPI} ist ergänzend dazu die Anzahl der Wechsel zwischen den De
 
 Darunter findet sich ein Balkendiagramm wieder, welches die Anzahl der Schocks nach jeweiliger eingestellter Energie in Joule darstellen soll.
 Zu dem damaligen Zeitpunkt war dies nicht möglich, da die Schocks wie auch die Kompressionen des Feedbacksensors nicht einzeln vorliegen, sondern voraggregiert werden und somit nur Min- und Max-Werte vorliegen.
-Da die Defibrillation eine aufschlussreiche Informationsquelle sind, wird eine Lösung in Kap \ref{schockObjekt} weiter erarbeitet.
+Da die Defibrillation eine aufschlussreiche Informationsquelle sind, wird eine Lösung in \ref{sub:erweiterung} weiter erarbeitet.
 
 Eine Besonderheit bei der Visualisierung ist, dass die Defibrillationen, welche mit 200J abgegeben wurden, ausgeschlossen werden.
 Dies hat den Hintergrund, dass dies der voreingestellte Default-Wert und somit der überwiegende Teil aller Schocks mit dieser Energiemenge abgegeben werden.
@@ -250,7 +250,7 @@ Dort werden aufgeschlüsselt nach den einzelnen Geräten die insgesamt abgegeben
 Ein weiterer möglicher Bestandteil einer Mission ist die \gls{NIBD}.
 Die zugrundeliegenden Daten sind auch bei diesem Segment vorab zusammengefasst.
 Somit ist lediglich die Anzahl der Messungen und die maximale Messdauer pro Mission verfügbar.
-Um auch hier wirksame Analysen und Auswertungen möglich zu machen, werden in Kap \ref{nibpObjekt} Ansätze zur Bereitstellung von den einzelnen Messungen verfolgt.
+Um auch hier wirksame Analysen und Auswertungen möglich zu machen, werden in \ref{sub:erweiterung} Ansätze zur Bereitstellung von den einzelnen Messungen verfolgt.
 
 Aus den bis dato vorliegenden Daten wurden drei \gls{KPI}s und ein Balkendiagramm extrahiert.
 Die Anzahl der Einsätze, die eine \gls{NIBD}-Messung hatten, die Gesamtanzahl der Messungen und daraus errechnet der Durchschnitt der Messungen pro Einsatz.
@@ -280,13 +280,13 @@ Alter und Geschlecht sind jedoch sehr spannende Daten, welche in Kombination mit
 Dabei ist eine Darstellung des Medians des Alters sinnvoll. 
 Ob dies mit einem Boxplot-Diagramm oder einer \gls{KPI} und ergänzend ein Histogramm dargestellt wird, soll später erörtert werden.
 Zuerst muss hierbei auch der Aspekt der Anonymisierung betrachtet werden. 
-Dies kann in Kap \ref{anonym} nachgelesen werden.
+Dies kann in \ref{sub:recht} nachgelesen werden.
 Das Geschlecht kann aufgrund der wenigen Optionen gut als Kreisdiagramm dargestellt werden.
 
 Zum Schluss gibt es noch einige wenige Daten zu dem \gls{pacer}.
 Aufgrund der seltenen Einsatzhäufigkeit bei Rettungseinsätzen steht die Implementierung dieses Dashboards noch zur Frage offen.
 Mögliche Informationen wären die Anzahl der Missionen mit Pacer-Einsatz und in welchem Modus. 
-Andere interessante Daten wie in Kap \ref{fragestellungenPacer} beschrieben sind zu diesem Zeitpunkt nicht exportierbar und das Entwickeln dieser Funktionalität ist aufgrund des seltenen Einsatzes derzeit unwahrscheinlich.
+Andere interessante Daten wie in Anhang \ref{fragestellungenPacer} beschrieben sind zu diesem Zeitpunkt nicht exportierbar und das Entwickeln dieser Funktionalität ist aufgrund des seltenen Einsatzes derzeit unwahrscheinlich.
 
 %\section{Generierung von Dummy-Daten?}
 % Kap. Umsetzung?
@@ -330,7 +330,7 @@ Des Weiteren wurden Hand-Outs ausgehändigt, damit jede Person zu jeder Zeit jed
 Im Laufe der Zeit wurden eingebrachte Ideen umgesetzt und den Personen als Alternative vorgesetzt.
 So konnten die zwei Versionen direkt miteinander verglichen werden und ähnlich wie bei einem A/B-Test die bessere Alternative weiter verfolgt werden.
 Dies hat den weiteren Vorteil, dass es zur Nachbereitung verwendet werden kann, da die Gedanken und Ideen der Teilnehmer im Nachhinein dokumentiert zur Verfügung stehen und weitere Schritte oder Änderungen darauf basierend vorgenommen werden können. 
-Ein Auszug dieser Hand-Outs kann im Anhang \ref{evaluierunghandout} betrachtet werden.
+Ein Auszug dieser Hand-Outs kann im Anhang \ref{att:evaluation} betrachtet werden.
 
 Die beschriebenen Diagramme oder dargestellten Abbildungen können von Kapitel \ref{sec:erstellungPrototyp} abweichen, da im mehrstufig-iterativen Prozess immer Änderungen durchgeführt wurden, und somit keine zeitliche Reihenfolge gegeben ist.
 In den folgenden Kapiteln wird nur ein Auszug der Gruppen und dort jeweils ausgewählte prägnante Kritik oder Änderungsvorschläge genannt.
@@ -351,7 +351,7 @@ In Bezug zu den Filtern kam außerdem die Idee, feste vordefinierte Filter vorzu
 Beispielsweise \glqq Alle Reanimationen die letzten Monat in der Nacht stattfanden\grqq{}. 
 Qlik Sense bietet eine solche Funktionalität unter dem Namen \glqq Lesezeichen\grqq{}, welche getätigte Markierungen und Filter unter einem Namen speichert.
 Da mit den Kombinationsmöglichkeiten eine sehr große Anzahl solcher definierter Lesezeichen entstehen kann, ist es vermutlich sinnvoll, diese Funktion dem jeweiligen Nutzer zur Verfügung zu stellen.
-Dies sollte im Funktionsumfang beim Lizenzierungsmodell mit den zugehörigen Funktionen beachtet werden Kap \ref{lizmodell}.
+Dies sollte im Funktionsumfang beim Lizenzierungsmodell mit den zugehörigen Funktionen beachtet werden.
 
 Die Gruppe legte auch großen Wert auf Nutzerführung.
 Die ersten Titel der jeweiligen Diagramme waren oft unzureichend formuliert und haben dem Nutzer zu wenig Informationen gegeben, um die Visualisierung schnell zu verstehen.
@@ -361,9 +361,9 @@ Insgesamt spielt die Usability eine große Rolle und sollte bei der Umsetzung st
 Als Einstiegspunkt und Übersicht in das Programm soll das erste Arbeitsblatt dienen.
 Hier ist die Gruppe der Meinung, dass je nach Zielgruppe eine unterschiedliche Startseite Sinn macht.
 So wäre für den Rettungswachenleiter als Erstes andere Zahlen interessant, wie für ein Mitarbeiter des Qualitätsmanagement.
-Etwaige Startseiten werden in Kap\ref{zielgruppStartseite} weiter erläutert.
+%Etwaige Startseiten werden in Kap\ref{zielgruppStartseite} weiter erläutert.
 
-Die zu evaluierende Startseite hatte ein ähnliches Diagramm wie \ref{fig:Uebersicht_Prototyp} (siehe Anhang \ref{evaluierunghandout}).
+Die zu evaluierende Startseite hatte ein ähnliches Diagramm wie \ref{fig:Uebersicht_Prototyp} (siehe Anhang \ref{att:evaluation}).
 Hierbei war der Vorschlag, das linke Wasserfall-Diagramm in zwei Diagramme aufzuteilen, da sie zum einen die Einsätze und zum anderen die Reanimationen kategorisieren.
 Generell war der Vorschlag, eine Einsatz-Startseite und eine ähnliche nur für Reanimationen zu gestalten, da auch die durchschnittlichen Zeitspannen von Einsatz und Reanimationsdauer in keinem direkten Verhältnis stehen.
 % Ein weiterer Vorschlag war, eine Startseite mit den aktuellsten Meldungen zu erstellen. Hierbei sollen zb die von letztem Tag, woche monat, dargestellt werden. (Umsetzung/Startseite...)
@@ -373,7 +373,7 @@ So hat der Morgen fünf, der Mittag sieben und Abends und Nachts jeweils sechs S
 Dies rechnet Einsätze, die für den Morgen kategorisiert werden sollten, zu den Mittags-Einsätzen hinzu und verfälscht somit den Eindruck.
 Des Weiteren wurde erfragt, in welchem Detailgrad die Auswertung Sinn macht.
 Dabei kam in der Diskussion heraus, dass nicht alle drei Diagramme zu sehen sein müssen. 
-Je nach Anwender ist ein unterschiedlicher Detailgrad von Relevanz, sodass es im besten Fall konfigurierbar sein sollte. Kap\ref{DimChangeButton}
+Je nach Anwender ist ein unterschiedlicher Detailgrad von Relevanz, sodass es im besten Fall konfigurierbar sein sollte \ref{Internatio?}.
 Auch die Darstellung von Reanimationen als Linie im Kombinations-Diagramm schien für die Gruppe verwirrend.
 In späteren Evaluierungen wurde die vorgeschlagene Alternative, die Reanimationen als zweiten Balken nebeneinander darzustellen, präsentiert und stellte sich jedoch als eher unbrauchbar heraus.
 
@@ -408,7 +408,7 @@ Eine Aufteilung von einem Dashboard in zwei oder mehrere sei hier denkbar.
 
 \subsection{Gruppe 2: Applikationsspezialisten}
 \label{sub:gruppe2}
-Dieser Zusammenschluss von Anwendungsspezialisten hatte auch, wie die Gruppe in \ref{sub:gruppe1}, angemerkt, dass eine zielgruppenspezifische Startseite Sinn machen würde \ref{zielgruppStartseite}.
+Dieser Zusammenschluss von Anwendungsspezialisten hatte auch, wie die Gruppe in \ref{sub:gruppe1}, angemerkt, dass eine zielgruppenspezifische Startseite Sinn machen würde.
 Des Weiteren wurde das überarbeitete Wasserfalldiagramm aus Abbildung \ref{fig:Uebersicht_Prototyp} kommentiert. 
 Demnach sei die grafische Kategorisierung der Einsätze und Reanimationen nicht zwingend erforderlich, da eine einfache Prozentangabe ausreichend wäre (Beispiel: 120 Einsätze, 12\% Reanimationen).
 Das Kreisdiagramm muss laut den Spezialisten keine Dimensionierung nach allen Gerätearten vornehmen, sondern ein direkter Vergleich zwischen \gls{cCPR} und Standard-Defibrillatoren  (\gls{C3}, \gls{C1}) sei ebenfalls ausreichend.
@@ -420,7 +420,7 @@ So ist die Abgabe von Defibrillationen ein guter und verlässlicher Indikator f�
 Sollte allerdings eine Reanimation ohne Feedbacksensor und ohne Schockabgabe erfolgen\footnote{Nicht jeder Herzstillstand ist Defibrillationspflichtig \cite{Nolan.2010}}, fällt sie zum derzeitigen Zeitpunkt in die Kategorie \glqq sonstiger Einsatz\grqq{}
 So wurde über Ereignissen überlegt, welche eine Reanimation kennzeichnen.
 Beispiele hierfür waren unter anderem das Öffnen des Defibrillations-Menüs, Starten einer Analyse, Kleben von den Defibrillations-Elektroden.
-Inwiefern diese Ereignisse zum diesem Zeitpunkt zur Auswertung zur Verfügung stehen, muss geklärt werden. Kap\ref{kapReaErkennung}
+Inwiefern diese Ereignisse zum diesem Zeitpunkt zur Auswertung zur Verfügung stehen, muss geklärt werden. %Kap\ref{kapReaErkennung}
 
 Auch der Aspekt der Qualitätssicherung im Rahmen einer Reanimation spielt laut der Gruppe eine große Rolle.
 Demnach wäre ein zusätzliches Dashboard interessant, aus welchem hervorgeht, ob geforderte Maßnahmen durchgeführt wurden.

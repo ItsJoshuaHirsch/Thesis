@@ -154,7 +154,8 @@ Auch hier ist bei allen Vorgängen eine entsprechende Authentifizierung notwendi
 Der erste Vorgang ist hierbei der POST-Befehl, der auf dem entsprechenden Server die Generierung eines neuen Exports anstößt.
 Dabei werden alle verfügbaren Einsätze mit allen vorhandenen \gls{MM} exportiert.
 Dies wurde so festgelegt, da der Anwender in der Regel mit einem solchen Export alle Missionen erhalten möchte.
-Die Erweiterung um einen ressourcensparenden \glqq Incremental Load\grqq{} wird in \ref{sub:incremental} weiter betrachtet.
+\ref{sub:incremental}
+%Die Erweiterung um einen ressourcensparenden \glqq Incremental Load\grqq{} wird in \ref{sub:incremental} weiter betrachtet.
 
 \begin{enumerate}[resume]
 \item \code{-GET http://10.97.3.109:8080/v3/exports}
@@ -338,7 +339,7 @@ Dies resultierte aus mehreren Diskussionen mit Entwicklern, Produktmanager und S
 Dennoch ist es für die Anwender eine deutliche Verbesserung der Auswertungsmöglichkeiten.
 
 Ein Beispiel für exemplarische Daten wird ebenfalls hinzugefügt, damit letzte Unklarheiten zu Feldern oder Datentypen beseitigt werden.
-Dieser Prozess wird analog mit allen neu geforderten Objekten (siehe Abbildung \ref{fig:ersterVorschlagDatenmodellC}) durchgeführt. Anhang\ref{AnhangJiraStories?}
+Dieser Prozess wird analog mit allen neu geforderten Objekten (siehe Abbildung \ref{fig:ersterVorschlagDatenmodellC}) durchgeführt. Anhang jira stories\ref{AnhangJiraStories?}
 
 \subsubsection{Festlegen des Export-Formats}
 Im Zuge der Bereitstellung der neuen Datenobjekte wurde im vorigen Kapitel mittels Beschreibung der Anforderungen und ergänzenden Tabellen das gewünschte Format festgelegt.
@@ -483,7 +484,7 @@ Dies garantiert die Realisierung des gewünschten Datenmodells.
 Als finalen Abschnitt werden jene zusätzliche Skripte zusammengefasst, welche weitere Funktionen umsetzen.
 Ein Beispiel hierfür ist der \glqq Autocalender\grqq{} von Qlik Sense.
 Dadurch ist beispielsweise die Darstellung von Liniendiagrammen über mehrere Jahre optimiert.
-\todo{bildvergeleich mit ohne autocalendar}
+\todotext{bildvergleich mit ohne autocalendar?}
 \end{description}
 
 \subsubsection{Demo- und Testeinsätze herausfiltern}

@@ -154,7 +154,7 @@ Auch hier ist bei allen Vorgängen eine entsprechende Authentifizierung notwendi
 Der erste Vorgang ist hierbei der POST-Befehl, der auf dem entsprechenden Server die Generierung eines neuen Exports anstößt.
 Dabei werden alle verfügbaren Einsätze mit allen vorhandenen \gls{MM} exportiert.
 Dies wurde so festgelegt, da der Anwender in der Regel mit einem solchen Export alle Missionen erhalten möchte.
-\ref{sub:incremental}
+%\ref{sub:incremental}
 %Die Erweiterung um einen ressourcensparenden \glqq Incremental Load\grqq{} wird in \ref{sub:incremental} weiter betrachtet.
 
 \begin{enumerate}[resume]
@@ -339,7 +339,7 @@ Dies resultierte aus mehreren Diskussionen mit Entwicklern, Produktmanager und S
 Dennoch ist es für die Anwender eine deutliche Verbesserung der Auswertungsmöglichkeiten.
 
 Ein Beispiel für exemplarische Daten wird ebenfalls hinzugefügt, damit letzte Unklarheiten zu Feldern oder Datentypen beseitigt werden.
-Dieser Prozess wird analog mit allen neu geforderten Objekten (siehe Abbildung \ref{fig:ersterVorschlagDatenmodellC}) durchgeführt. Anhang jira stories\ref{AnhangJiraStories?}
+Dieser Prozess wird analog mit allen neu geforderten Objekten (siehe Abbildung \ref{fig:ersterVorschlagDatenmodellC}) durchgeführt. \todo{Anhang jira stories\ref{AnhangJiraStories?}}
 
 \subsubsection{Festlegen des Export-Formats}
 Im Zuge der Bereitstellung der neuen Datenobjekte wurde im vorigen Kapitel mittels Beschreibung der Anforderungen und ergänzenden Tabellen das gewünschte Format festgelegt.
@@ -415,7 +415,7 @@ Dadurch ist aufgrund der Objekorientierung eine Repräsentation der Wirklichkeit
 \label{sub:etl}
 Um Rohdaten aus einem Export in ein adäquates Format für spätere Auswertungen zu bringen, ist in der Regel ein \gls{ETL}-Prozess notwendig.
 Dieser soll garantieren, dass ein einheitliches \gls{DWH}, wie in \ref{sub:warehouse} beschrieben, gegeben ist \cite[S.49]{Gabriel.2011}.
-\todo{Bild ETL Prozess}
+\todo{Bild ETL Prozess?}
 
 Das Extrahieren der Daten wird mittels eines \gls{REST}-Konnektors realisiert.
 Dabei kann in der Qlik-Software oder im \gls{QMC} der Qlik-Enterprise Version eine Schnittstelle definiert werden, welche per REST einen Datenverbindung aufbaut.

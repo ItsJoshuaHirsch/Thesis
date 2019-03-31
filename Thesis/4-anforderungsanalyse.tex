@@ -6,8 +6,44 @@
 
 \section{Nutzungskontext}
 \label{sec:kontext}
-\todo{}
-%\todotext{STANDDERTECHNIK ANALYSE FÜR AUSWERTUNG?!}
+
+Die Anforderungsanalyse beginnt meist mit der Untersuchung des Nutzungskontextes \cite{Bergsmann.2018}.
+Dabei ist es wichtig festzuhalten, wo das entsprechende Produkt eingesetzt wird.
+
+Dadurch stellt sich zuerst die Frage, welche Einrichtungen im Besitz solcher medizinischen und technischen Daten der Geräte von \gls{GS} sind oder welche einen Mehrwert aus diesen generieren könnten.
+Bekanntermaßen sind generell Rettungsdienste im Besitz solcher Geräte und den damit einhergehenden Daten.
+Sie können auch einen Mehrwert aus diesen ziehen, da sich beispielsweise die Auswirkungen getätigter Planungen oder Investitionen in den Daten herauslesen lassen können.
+Ein Beispiel hierfür wäre die Schichtplanung aufgrund von angenommenen Einsatzhäufigkeiten.
+Anhand der vorliegenden Daten der Geräte kann sich diese Annahme bestätigen oder als falsch herausstellen und gegebenenfalls neu geplant werden.
+Aber auch andere Einsichten können potentiell aus den Daten entspringen, wie etwa Schulungsmaßnahmen, da aufgrund der Daten eine schlechte Reanimationsqualität der Wache ersichtlich wird.
+
+Diese und ähnliche weitere Aufgaben lassen sich nicht nur in Rettungswachen oder Verbänden solcher finden, sondern auch in Krankenhäusern und Kliniken.
+Auch wenn die Geräte hier seltener als im präklinischen Bereich eingesetzt werden, ist es dennoch ein Ort und Kontext, welcher in dieser Analyse berücksichtigt wird.
+In diesen Einrichtungen ist es üblich, im Gegensatz zu einer Rettungswache, dass es eine eigene IT-Abteilung gibt, welche die Software installieren und in das \acrlong{KIS} einpflegen muss.
+
+Auch eine Forschungseinrichtung ist beispielsweise in einem Universitätsklinikum denkbar.
+Dies ist ein weiterer, von den bisherigen Einrichtungen unterschiedlicher Anwendungsfall.
+Hier sind weniger organisatorische Maßnahmen und Daten von Bedeutung, sondern die tatsächlichen medizinischen Daten.
+Gleiches gilt für eigenständige Forschungseinrichtungen, welche etwa Daten zur Verfügung gestellt bekommt und diverse Studien durchführt.
+Dieser Anwendungsfall ist nicht zuletzt auch bei \gls{GS} von Relevanz.
+Daher gibt es eine eigene Abteilung \glqq Medizinische Forschung und Anwendung\grqq{}, welche sich mit forschungsorientierten Fragen und medizinischen Studien insbesondere in Anbetracht der hauseigenen Geräte auseinandersetzt.
+
+Aus diesen Untersuchungen lassen sich drei wesentliche Einrichtungen und deren Aufgaben mit Daten festlegen, welche zurzeit oder voraussichtlich zukünftig Nutzer von \gls{ANALYSE} und der Erweiterung durch diese Arbeit sind. 
+Diese werden in den darauffolgenden Kapiteln auf entsprechende Nutzergruppen weiter untersucht:
+\begin{itemize}
+ \item Rettungsdienst
+	 \begin{itemize}
+	 \item Administrative \& Organisatorische Aufgaben
+	 \item Personelle und Materielle Planung
+	 \end{itemize}
+ \item Krankenhäuser und Kliniken
+	 \begin{itemize}
+	 \item Administrative \& Organisatorische Aufgaben
+	 \item Forschung bei beispielsweise Universitätskliniken
+	 \end{itemize}
+ \item Forschungseinrichtungen
+\end{itemize} 
+
 
 
 %\subsection{Organisationen}
@@ -28,7 +64,7 @@ Dies können auch interne Mitarbeiter der Firma sein, welche besondere Erfahrung
 Hierbei handelt es sich um Personen, welche keine Anforderungen als solche definieren, sondern die Umsetzbarkeit der Anforderungen von den Requirements-Providern testen und daraus folgend technische Rahmenbedingungen, wie zum Beispiel die zu verwendende  Programmiersprache oder Datenbank, empfehlen oder festlegen.
 \end{description}
 
-Eine \glqq Stakeholder-Liste\grqq ist ein hilfreiches Mittel, um einen Überblick an den beteiligten Personen zu erhalten und damit einhergehend so viele Anforderungen wie möglich an das System zu erheben (vgl. \cite[S. 83]{Bergsmann.2018}).
+Eine \glqq Stakeholder-Liste\grqq{} ist ein hilfreiches Mittel, um einen Überblick an den beteiligten Personen zu erhalten und damit einhergehend so viele Anforderungen wie möglich an das System zu erheben (vgl. \cite[S. 83]{Bergsmann.2018}).
 Dieser Prozess ist vor allem zu Beginn der Anforderungsanalyse von besonderer Bedeutung, da so frühzeitig viele Informationen und Hinweise erkennbar werden, wie das System aufgebaut werden muss.
 Ein nachträgliches anpassen oder hinzufügen von Anforderungen kann unter Umständen schwere grundlegende Probleme mit sich ziehen, da gewisse fundamentale Architekturentscheidungen auf dieser Basis aufbauen können.
 Ein Beispiel einer solchen Liste für \gls{ANALYSE} ist in Tabelle \ref{tbl:Stakeholder-Liste} zu sehen.

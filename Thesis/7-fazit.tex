@@ -11,7 +11,7 @@ Es wurden diverse Interviews mit vielen repräsentativen Personen geführt, um e
 Dabei lag der Schwerpunkt auf interne Mitarbeiter, welche aufgrund des häufigen Hintergrundes im Rettungsdienst oder Kontakt zu diesem durchaus eine gefestigte Gruppe mit einer repräsentativen Meinung darstellen.
 Es konnte auch ein Treffen zu dieser Thematik mit einem tatsächlichen Kunden der Nutzergruppe \glqq Ärztlicher Leiter Rettungsdienst\grqq{} arrangiert werden, aus welchem die Erkenntnisse mit besonderer Gewichtung in die weitere Entwicklung eingeflossen sind.
 Hierbei wurde anfangs die Methodik der Einzelinterviews angewandt, welche sich retrospektiv als positiv erwiesen hat, da die unvoreingenommene Meinung der Einzelpersonen dadurch abgefragt werden konnte.
-So entstand ein großes Sammelwerk an Anforderungen, welche in dieser Arbeit die Form von Fragestellungen haben (Anhang \ref{att:fragen}).
+So entstand ein großes Sammelwerk an Anforderungen, welche in dieser Arbeit die Form von Fragestellungen haben (Auszug im Anhang \ref{att:anforderung}).
 Diese wurden in zyklisch-iterativen Vorgängen später weiter analysiert und spezifiziert, so wie es die Prozesse des Requirements Engineering vorsehen \cite{ Bergsmann.2018, Leffingwell.2011, Patig., Pohl.2011}. 
 Dabei wurden auch Gruppendiskussionen angesetzt, um ein kollaboratives Evaluieren und eine Auseinandersetzung mit anderen Meinungen zu ermöglichen.
 
@@ -27,6 +27,8 @@ Da all diese Prozesse mehr oder minder parallel abliefen, ist eine strikte Trenn
 Es wurden stets neue Fragen erhoben, bestehende analysiert und spezifiziert und währenddessen wurde an dem Datenmodell, Prototyp oder der letztendlichen Umsetzung der Qlik-App gearbeitet.
 Dabei wurden auch immerzu diverse Richtlinien, Usability-Erkenntnisse und Grundsätze zur Visualisierung von Daten und Gestaltung von Dashboards (\cite{Bassler.2010, Card.2007, Fischer.2014, FischerStabel.2018, Hichert.2017, Kertzel.2018, Mccormick.1987, Schumann.2000, Ware.2009}) berücksichtigt, um möglichst konflikt-freie und ansprechende Auswertungen für die Anwender zu ermöglichen.
 Die endgültigen, in dieser Arbeit entstandenen Dashboards können dem Anhang \ref{att:dashboards} entnommen werden.
+
+\todotext{see comment}
 
 %\section{Vorstellung der Ergebnisse}
 
@@ -61,6 +63,10 @@ Die endgültigen, in dieser Arbeit entstandenen Dashboards können dem Anhang \r
 \section{Ausblick}
 Die Arbeit hat einen Grundstein gelegt, um aus den zuvor nicht genutzten Daten einen Mehrwert zu erhalten.
 Ein Export von relevanten Daten in einem geeigneten Format und die erste Überführung in ein effizientes Datenmodell waren die ersten Schritte in der Richtung \glqq Big Data Analytics\grqq {}.
+
+Da Big Data laut Literatur \cite{Fischer.2014, Hausler.2018} in der Regel unstrukturierte Daten sind, und die für diese Dashboards zugrundeliegende Daten größtenteils strukturiert sind, ist es zum jetzigen Zeitpunkt kein handfestes \glqq Big Data Analytics\grqq{} (siehe  S. \pageref{fig:interrelations}, Abbildung \ref{fig:interrelations}).
+Dennoch ist es ein erster Schritt in die entsprechende Richtung und kann in Zukunft weiter ausgeführt werden.
+
 Es ist ein Reporting nach \gls{BI}-Praktiken entstanden, welches Daten aus unmittelbarer Vergangenheit\footnote{Nach Upload einer Mission auf den \gls{ANALYSE}-Server ist eine Aktualisierung der Visualisierungen binnen 5-10 Sekunden möglich (Bei einem Datenbestand von $\approx$ 10.000 Einsätzen; ungefähr linear skalierend)} in den erarbeiteten Dashboards anzeigt.
 Bei dem späteren produktiven Einsatz bei Kunden wird es auch die professionelle Variante geben mit der Möglichkeit des Self-Service-Reporting.
 Hierbei können die Anwender, statt der vorgefertigten Dashboards, eigene Diagramme und Dashboards auf Basis des hier erarbeiteten Datenmodells und \gls{DWH} zusammenstellen.

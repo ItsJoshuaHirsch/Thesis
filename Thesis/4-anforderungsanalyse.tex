@@ -75,7 +75,7 @@ Indirekt beschränken, aber auch erweitern sie die Funktionalitäten und beeinfl
 Beispielsweise welche Erfahrungswerte vorausgesetzt oder angelernt werden müssen, welche Icons oder Symbole bekannt oder unbekannt sind, welche Ziele, Erwartungen oder Befürchtungen sie haben spielen eine große Rolle bei der Entscheidung, welche Informationen in welchem Format dargestellt werden.
 
 %\todotext{Constraint-Provider: der Produktmanager, die Software-Entwickler, welche die neue Funktionalität implementieren und Ich?} 
-Die Aufgaben der Constraint-Provider für dieses \gls{Feature} sind unter anderem wie oben genannt das Testen der Umsetzbarkeit.
+Die Aufgaben der Constraint-Provider für die Erweiterung um die grafische Darstellung in \gls{ANALYSE} sind unter anderem wie oben genannt das Testen der Umsetzbarkeit.
 Hierbei ist ein wesentlicher Bestandteil die Prüfung, ob eine Fragestellung mit den derzeit vorhandenen Daten der Geräte beantwortet werden kann.
 Weitere Aufgaben sind unter anderem Entscheidungen über das Format und die Bereitstellung der Daten oder die Haltung und Persistierung in den entsprechenden Datenbanken.
 
@@ -116,13 +116,15 @@ Somit soll gewährleistet werden, dass während der Konzeption und später auch 
   \\\hline
   7			& Qualitätsmanagement 				& \gls{GS} 				& Requirements-Provider
   \\\hline
-  8			& Ausbilder 						& \gls{BRK}	 			& Requirements-Provider
+  8			& Ausbilder 						& Rettungsdienst 			& Requirements-Provider
   \\\hline
   9			& Systemadministrator 				& IT-Abteilung Krankenhaus				& Constraint-Provider
   \\\hline  
   10		& Tester 							& \gls{GS} 				& Constraint-Provider
   \\\hline
-  11		& Rettungsdienstpersonal			& Malteser				& Requirements-Provider
+  11		& Rettungsdienstpersonal			& Rettungsdienst				& Requirements-Provider
+  \\\hline
+  12		& Vertrieb							& GS und Vertriebspartner	& Requirements-Provider
   \\\hline
 \end{tabular} 
   \caption[Stakeholder-Liste \acrlong*{ANALYSE}]{Stakeholder-Liste von \gls{ANALYSE} nach Bergsmann \cite[S. 85]{Bergsmann.2018}}
@@ -130,7 +132,7 @@ Somit soll gewährleistet werden, dass während der Konzeption und später auch 
 \end{table}
 
 Eine solche exemplarische Stakeholder-Liste ist in Tabelle \ref{tbl:Stakeholder-Liste} zu sehen.
-Dabei wurde die Anzahl der Spalten verändert, da beispielsweise eine explizite Nennung der Kontaktperson für diese Arbeit nicht von Nöten ist.
+Dabei wurde gegenüber der Liste von Bergsmann die Anzahl der Spalten verändert, da beispielsweise eine explizite Nennung der Kontaktperson für diese Arbeit nicht von Nöten ist.
 In der Liste wird die entsprechende Bezeichnung, eine beispielhafte Organisation und die Einordnung, ob es sich um ein Requirements- oder Constraint-Provider handelt, festgehalten.
 Hiermit ist es möglich, in den entsprechenden Phasen der Anforderungsanalyse, Konzeption oder Umsetzung die jeweils notwendigen Stakeholder zu berücksichtigen und gegebenenfalls zu kontaktieren. 
 Diese Liste dient als Orientierung, sie ist nicht vollständig und kann beliebig erweitert, ergänzt oder eingeschränkt werden.
@@ -168,11 +170,11 @@ Aus dieser Liste von Personen und Gruppen kann ein weiterer Schritt der Reduzier
 So betrachtet man jene fünf Nutzergruppen, welche \gls{ANALYSE} sehr häufig verwenden oder voraussichtlich verwenden werden:
 \begin{enumerate}
 \item \textbf{Leiter Rettungsdienst} Ein Leiter Rettungsdienst oder auch ein Rettungswachenleiter hat die Verantwortung über einen Rettungsdienst und damit gegebenenfalls über mehrere Wachen.
-Somit stehen unter ihm mehrere Personen in Schichtgruppen, die er koordiniere und einteilen muss.
+Somit stehen unter ihm mehrere Personen in Schichtgruppen, die er koordinieren und einteilen muss.
 Organisatorische Aufgaben wie Prozess- und Mitarbeitermanagement gehören zu seinem Tagesgeschäft.
 Hierbei kann eine Datenspeicherung und daraus resultierende Auswertung und Analyse von Prozessen hilfreich und von besonderer Wichtigkeit sein.
 \item \textbf{Forscher} Sie haben das Ziel, mit wissenschaftlichen Methoden neue Erkenntnisse zu gewinnen, Hypothesen aufzustellen und diese zu beweisen oder zu widerlegen.
-Sie haben besonders viele Fragestellungen, die mit einfachen Daten wie Einsatzzeitpunkte oder komplexeren Daten, wie  die Entwicklung von medizinischen Vitalparametern, beantwortet werden können.
+Sie haben besonders viele Fragestellungen, die mit einfachen Daten wie Einsatzzeitpunkten oder komplexeren Daten, wie  die Entwicklung von medizinischen Vitalparametern, beantwortet werden können.
 \item \textbf{Ausbilder von Rettungsdienstpersonal} Diese Gruppe bildet neues Personal nach entsprechenden Vorgaben im Rettungswesen aus.
 Das Ziel ist eine umfangreiche und vor allem qualitativ hochwertige Ausbildung, da es um Patientenleben gehen kann.
 Ein gewisses Controlling und daraus resultierendes Feedback an Einzelpersonen oder Gruppen ist von besonderer Bedeutung.
@@ -193,12 +195,12 @@ Sie sollen den Entwicklern die zukünftigen Anwender vor Augen halten, damit ein
 
 Aus den in \ref{sub:NutzergruppenAnalyse} analysierten Nutzergruppen von \gls{ANALYSE} können mindestens fünf Personas erstellt werden.
 Im Zuge der Entwicklung der \cweb-Produkte wurden bereits Personas angelegt.
-Dabei sind aus \ref{sub:NutzergruppenAnalyse} die Nutzergruppen 2 - 5 bereits abgedeckt:
+Dabei sind aus \ref{sub:NutzergruppenAnalyse} die Nutzergruppen 2 - 5 bereits abgedeckt: \todo{personas anhang}
 \begin{description}
 \item[Nutzergruppe 2: Jörn]
 	\glqq Der Reanimations-Wissenschaftler\grqq 
 \item[Nutzergruppe 3: Bernd]
-	\glqq Der Sanitäter-Ausbilder\grqq 
+	\glqq Der Praxisanleiter\grqq 
 \item[Nutzergruppe 4: Juliane]
 	\glqq Miss Quality\grqq
 \item[Nutzergruppe 5: Hermann]
@@ -211,6 +213,8 @@ Angelehnt an die zuvor erstellten Personas wird exemplarische eine neue Persona 
 \begin{table} [htb]
     \begin{tabular}{| p{4cm} | p{10cm} |}
     \hline
+    \textbf{Avatar}                      & \parbox[c]{3em}{\center{ \includegraphics[width=0.3\textwidth]{img/lrd}}}\vspace{1em} \\
+    \hline
     \textbf{Persona}                      & \makecell[cl]{\tabitem Name: Andreas\\\tabitem Alter: 47\\\tabitem Hobbies: Schach, Golf\\\tabitem Beruf: Leiter Rettungsdienst}                                           \\ \hline
     \textbf{Berufsbeschreibung}           & \makecell[cl]{\tabitem Einteilen der Personen in Schichtgruppen und \\Schichtpläne erstellen\\\tabitem Interne Prozesse überwachen und verbessern}            \\ \hline
     \textbf{Motivation \& Ziele}        & \makecell[cl]{\tabitem Ich möchte meinen Rettungsdienst stetig verbessern\\ \tabitem Zufriedenes Personal und gesunde Patienten sind meine\\ höchste Priorität} \\ \hline
@@ -221,8 +225,8 @@ Angelehnt an die zuvor erstellten Personas wird exemplarische eine neue Persona 
   \label{tbl:Persona}
 \end{table}
 
-Normalerweise wird einer Persona ein Avatar hinzugefügt, um dem Entwickler das Gefühl zu geben, für einen realen Menschen zu entwickeln. 
-Bei der Persona in Tabelle \ref{tbl:Persona} wurde auf das übliche Avatar verzichtet. 
+In der Regel wird einer Persona ein Avatar hinzugefügt, um dem Entwickler das Gefühl zu geben, für einen realen Menschen zu entwickeln. 
+Dies wurde ebenfalls bei der entwickelten Persona in Tabelle \ref{tbl:Persona} berücksichtigt.
 
 
 Es wurden die gängigen Beschreibungen wie bei den bereits vorhandenen Personas aufgeführt und entsprechend mit den Charakteristiken der Nutzergruppe \glqq Leiter Rettungsdienst\grqq{} versehen.
@@ -271,11 +275,11 @@ Dabei wird der Person eine Beispiel-App von Qlik präsentiert und die zugrundeli
 So ist es möglich dem Befragten eine Vorstellung zu geben, um welche Art von Fragestellung es sich handelt und welche realisierbar sind.
 
 Anschließend werden eingangs offene Fragen gestellt und versucht, dem Interviewpartner wenig Input zu liefern, sondern so viel persönliche und nicht beeinflusste Informationen und Meinungen wie möglich zu erhalten.
-Im Verlaufe des Gesprächs werden, falls notwendig, verschiedene Bereiche, welche die jeweilige Person noch nicht berücksichtigt hatte, nur nennen.
+Im Verlaufe des Gesprächs werden, falls notwendig, verschiedene Bereiche, welche die jeweilige Person noch nicht berücksichtigt hatte, nur genannt.
 Auch Ideen von anderen Interviews werden bei einem fortschreitend kontextlosem Gespräch eingebracht, um etwaige übersehene Bereiche abzudecken oder neue Ideen hierfür zu erlangen. 
 
 Im Anschluss werden die Notizen beider Beteiligten in digitaler Form möglichst unkomprimiert dokumentiert.
-Ein exemplarischer Auszug ist hier zu sehen: \todotext{Anhang alles?}
+Ein exemplarischer Auszug ist hier zu sehen: \todotext{Anhang alles!}
 \bildbreit
 {notes}
 {Kurzer Auszug der digitalisierten, möglichst unkomprimierten Notizen aus den Gesprächen mit Personen der \glqq Medizinischen Forschung und Anwendung\grqq}
@@ -290,10 +294,10 @@ Hier ist bereits ein Pfeil zurück auf den ersten Schritt zu erkennen.
 Dies bedeutet, dass nach Abschluss der Analyse ein erneutes ermitteln Anforderungen mit den gleichen oder anderen Personen erfolgen kann.
 Dabei können die gewonnenen Erfahrungen aus dem ersten Durchlauf mit eingebracht werden und so schneller bessere Ergebnisse erzielt werden.
 
-\todo{BILD IST WEG}
-\bildrechts
+%\todo{BILD IST WEG}
+\bild
 {listeanalyse}
-{7cm}
+{9cm}
 {Analysierte Informationen strukturiert in Kategorien}
 {Auszug analysierte Liste der Fragestellungen}
 Bei der Analyse werden die unstrukturierten gesammelten Daten und Informationen grob vorstrukturiert.
@@ -331,7 +335,7 @@ Das Übertragen von Anforderungen oder Informationen in eine Standardform ist ei
 
 Als Standardform für diese Arbeit wurde \glqq Fragestellung aus Sicht des Benutzers\grqq{} gewählt, da jede Nutzergruppe (siehe S.\pageref{sub:NutzergruppenAnalyse} \ref{sub:NutzergruppenAnalyse}) Fragen hat.
 Hierdurch ist eine klare Form erkennbar und weitere bisher unentdeckte Duplikate können weiter dezimiert und in Prioritäten überführt werden.
-Auch für die spätere Entwicklung der Dashboards ist diese Form hilfreich, da gut überprüft werden kann, ob ein Diagramm eine oder mehrere Fragestellung beantwortet.
+Auch für die spätere Entwicklung der Dashboards ist diese Form hilfreich, da gut überprüft werden kann, ob ein Diagramm eine oder mehrere Fragestellungen beantwortet.
 Ein exemplarischer Auszug dieser Überführung ist in Abbildung \ref{fig:standardform} zu erkennen.
 \bildbreit
 {standardform}
@@ -381,7 +385,10 @@ Im dritten, ergänzenden Akt werden bereits die benötigten Datenquellen recherc
 Hierfür werden bereits vorhandene Daten und deren Quellen den entsprechenden Fragestellungen zugeordnet.
 Bei den unklaren Fragen werden Ideen, Vorschläge und weitere Kommentare hinzugefügt.
 Damit ist die Grundlage zur Erstellung eines Prototypen und später auch bei der Umsetzung gelegt.
-Daten von Fragen, die beantwortet werden können, liegen dokumentiert vor, sowie die fraglichen Anforderungen sind mit ihren bisherigen Ideen und Informationen gelistet. \todotext{bild?}
+Daten von Fragen, die beantwortet werden können, liegen dokumentiert vor.
+Die fraglichen Anforderungen sind mit ebenfalls mit ihren bisherigen Ideen und Informationen aufgelistet. 
+
+%\todotext{bild?}
 
 
 %\bildrechts
@@ -396,6 +403,6 @@ Die Validierung der ermittelten, analysierten und schließlich spezifizierten Fr
 Dieser geschieht, wie auf S.\pageref{sec:erhebung} beschrieben, im fließenden Übergang mit der Evaluierung des Prototypen in \ref{sec:evaluierung}.
 Hier wird geprüft, ob die in \ref{sub:spezifikation} spezifizierten Fragestellungen den Erwartungen der Nutzergruppen entsprechen.
 
-Alle Schritte zuvor wurden wie in Abbildung \ref{fig:requireEngineering} zu sehen, iterativ und teilweise parallel durchgeführt.
+Alle Schritte zuvor wurden, wie in Abbildung \ref{fig:requireEngineering} zu sehen, iterativ und teilweise parallel durchgeführt.
 Es können jederzeit neue Befragungen und somit Ermittlungen von Fragestellungen durchgeführt werden und mit den neu erhobenen Daten die zuvor beschriebenen Schritte erneut iterativ vollzogen werden.
 Im Rahmen dieser Arbeit wurde ab einem bestimmten Zeitfenster die Anforderungsanalyse abgeschlossen, damit ein Prototyp (\ref{sec:erstellungPrototyp}) und anschließend eine präsentierfähige Version (\ref{kap:umsetzung}) auf Basis der bis dato spezifizierten Fragestellungen erstellt werden kann.

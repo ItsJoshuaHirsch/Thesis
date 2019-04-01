@@ -402,7 +402,20 @@ So können komplexe Beziehungen aufgedeckt werden, die mittels bloßer Tabellen 
 
 \section{Begriffe zum Thema Data Analytics}
 \subsection{Übersicht der Zusammenhänge}
-\todo{Bild selber machen (confluence?) und  text}
+
+\bild
+{interrelations}
+{0.8\textwidth}
+{Zusammenhänge von Data Analytics, Big Data, Business Intelligence, Data Warehouse und Dashboards visuell dargestellt. Eigene Darstellung, angelehnt an \cite{Dedic.2017}}
+{Zusammenhänge von Data Analytics, Big Data, BI, Data Warehouse und Dashboards}
+
+Abbildung \ref{fig:interrelations} verdeutlicht die Abgrenzung und Zusammenhänge der Begrifflichkeiten Data Analytics, Big Data, \gls{BI}, \gls{DWH} und Dashboards.
+Demnach ist laut \cite{Dedic.2017} Data Analytics das übergeorndete Konzept, welchem die Bereiche Business Intelligence und Big Data Analytics untergeordnet werden kann.
+Dabei kann \gls{BI} eine Big Data Datengrundlage haben, wodurch eine Überschneidung dieser Konzepte zustande kommt.
+
+Außerdem ist bei BI in der Regel ein \gls{DWH} angelegt, was bei Big Data kein Zwang und dementsprechend seltener der Fall ist.
+Aus beiden Bereichen können letztendlich Auswertungen betrieben und Einblicke in Daten erlangt werden, welche etwa in Form von Dashboards präsentiert werden.
+Die genannten Begrifflichkeiten werden im Folgenden näher erörtert. 
 \subsection{Business Intelligence}
 \label{sub:bi}
 Seit es die Möglichkeit der elektronischen Datenverarbeitung in den 60er Jahren gibt, wird dieses Verfahren genutzt, um betriebswirtschaftliche Daten für Entscheidungen der Managementebene zu verwenden.
@@ -427,10 +440,10 @@ Big Data (\glqq große Datenmengen\grqq) ist ein Begriff, welcher in den letzten
 Hierbei handelt es sich um größtenteils un- oder polystrukturierte Daten, welche durch viele unterschiedliche Datenquellen erzeugt werden.
 Das Fortschreiten der vielen Digitalisierungsprozesse weltweit führt zu einer stetig stärker wachsenden Datengrundlage. 
 
-\bild
+\bildbreit
 {bigDataPrognose}
-{10cm}
-{Prognose zur jährlich generierten digitalen Datenmenge in Zettabyte. Im Vergleich die Prognosen zu den Jahren 2018 und 2025. Bildquelle \todo{add citavi statista}}
+%{10cm}
+{Prognose zur jährlich generierten digitalen Datenmenge in Zettabyte. Im Vergleich die Prognosen zu den Jahren 2018 und 2025. Bildquelle \cite[S.6]{Reinsel.November2018}}
 {Prognose zur jährlich generierten digitalen Datenmenge}
 
 Abbildung \ref{fig:bigDataPrognose} zeigt eine Prognose von Statista, welche die Menge des jährlich generierten Datenvolumens prognostiziert.
@@ -605,9 +618,8 @@ Dies ist unter anderem Grundlage und Motivation für eine umfangreiche Erhebung 
 
 \section{Requirements Engineering}
 Requirements Engineering, zu deutsch Anforderungstechnik, beschreibt primär den Prozess, Anforderungen zu sammeln und zu spezifizieren.
-Dabei gibt es mehrere Orientierungen, welche die Definition variieren lassen: technisch, nutzer- oder risikoorientiert \cite{Sommerville.2012}.
+Dabei gibt es mehrere Orientierungen, welche die Definition variieren lassen: technisch, nutzer- oder risikoorientiert \cite{Glinz.2005, Sommerville.2012}.
 
-\todo{add literature (see comment)} %https://files.ifi.uzh.ch/rerg/amadeus/teaching/courses/requirements_engineering_I_ws0607/Kapitel_01_Grundl.pdf}
 Bei der technischen Definition geht es um das erfassen, beschreiben und prüfen von Anforderungen an ein System.
 Dabei wird im ersten Schritt bei einer Software eine Reihe an Anforderungen festgehalten, die das System erfüllen sollte.
 Hier liegt oftmals der Schwerpunkt in den technischen Details.
@@ -660,11 +672,11 @@ Dabei entsteht das sogenannte \glqq Magic Quadrant\grqq{} von Gartner.
 \bild
 {gartner}
 {10cm}
-{Magisches Quadrant von Gartner zur Beurteilung verschiedener Business-Intelligence Plattformen. Bildquelle \todo{add citavi}}
+{Magisches Quadrant von Gartner zur Beurteilung verschiedener Business-Intelligence Plattformen. Bildquelle \cite{Howson.Februar2019}}
 {Quadrant von Gartner zur Beurteilung verschiedener BI-Plattformen}
 
 Dabei werden die Produkte in vier Quadranten eingeteilt: Leader, Challenger, Visionaries \& Niche Players.
-Die Einordnung basiert dabei auf der Vollständigkeit der Vision sowie der Fähigkeit, diese umsetzen zu können \todo{add citavi gartner}\cite{gartner}.
+Die Einordnung basiert dabei auf der Vollständigkeit der Vision sowie der Fähigkeit, diese umsetzen zu können \cite{Howson.Februar2019}.
 Qlik ist hierbei im aktuellen Jahre 2019 im Quadrant der \glqq Leader\grqq{} mit nur drei weiteren Plattformen, wie Abbildung \ref{fig:gartner} zeigt.
 Seit neun Jahren in Folge liegt Qlik in diesem obersten Quadranten \cite{QlikTech.2019}.
 

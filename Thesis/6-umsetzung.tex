@@ -12,7 +12,7 @@ Zu Beginn der Umsetzung gilt es vorab diverse technische Aspekte zu analysieren 
 Hierzu gehören beispielsweise die Schnittstelle und der daraus resultierende Export der Daten oder die Haltung der Daten in einer Datenbank.
 Dies ist eine essentielle Basis, damit eine effiziente und angemessene Datengrundlage für die anschließend entwickelten Dashboards und Auswertungen zur Verfügung steht.
 
-Dabei ist es bezüglich der Flexibilität und Unabhängigkeit von Vorteil , dass die Daten und der entsprechende Export nicht ausschließlich für die hier verwendete Technologie Qlik Sense abgestimmt und entwickelt werden.
+Dabei ist es bezüglich der Flexibilität und Unabhängigkeit von Vorteil, dass die Daten und der entsprechende Export nicht ausschließlich für die hier verwendete Technologie Qlik Sense abgestimmt und entwickelt werden.
 Auch andere Software-Lösungen, Drittanbieterprogramme oder Business-Intelligence-Werkzeuge sollen die Daten und den neuen Export von \gls{ANALYSE} zur Auswertung verwenden können, damit eine gewisse Freiheit und keine absolute Abhängigkeit an einer Technologie entsteht.
 
 \subsection{Schnittstelle \acrlong*{ANALYSE} und Qlik Sense} %StandDerTechnik??
@@ -42,7 +42,7 @@ Vorteile hiervon sind laut Steimle \cite[2.3]{Steimle.2014} und Tilkov \cite[1.1
 \item Die Kopplung der Systeme wird so gering wie möglich gehalten. 
 Durch die homogen entwickelte Schnittstelle sind alle möglichen Vorgänge definiert und deren Aufruf spezifiziert.
 So werden ungewollte Zugriffe auf die Daten in der Datenbank vermieden
-\item Die gewollte Interoperabilität wird stark gewährleistet, da \gls{REST} auf gängigste Standards setzt. 
+\item Die gewollte Interoperabilität wird gewährleistet, da \gls{REST} auf gängige Standards setzt. 
 Dadurch können die meisten derzeitigen und zukünftigen Systeme mit dieser Technologie kommunizieren.
 \item Die Wiederverwendung ist durch die einmalige Definition der Schnittstelle sehr hoch.
 \item Die Skalierbarkeit und die daraus resultierende Performance kann mit \gls{REST} auch bei häufigen und großen Anfragen gewährleistet werden.
@@ -74,11 +74,10 @@ Der erste Ansatz für einen solchen Export war ein zweistufiger Prozess:
 Dieser erste Schritt wird mit der HTTP-Methode \glqq GET\grqq{} ausgeführt.
 Im Header der Anfrage ist die in \ref{sub:export} genannte Authentifizierung sowie das entsprechende Format der Anfrage, der \glqq content-type\grqq, festgelegt.
 
-Als Parameter können außerdem die maximale Anzahl an UUIDs sowie eine \gls{CQL}-Abfrage mitgegeben werden.
+Als Parameter können außerdem die maximale Anzahl an UUIDs sowie eine \gls{CQL}\footnote{Die \gls{CQL} ist eine \glqq Sprache\grqq{} angelehnt an SQL, welche die Abfrage von corpuls-spezifischen Daten, wie etwa \gls{MM} ermöglichen soll. Beispiel hierfür wäre eine Abfrage nach Einsätzen, welche im Jahr 2016 stattgefunden haben.}-Abfrage mitgegeben werden.
 Ein Beispiel eines solchen Befehls kann dabei so aussehen:
 
-\code{-GET http://corpsrv5009:8080/v3/missionlist/missions/query/start?cql=hasShocks\& batchsize=2000}
-Code oder Bild (mit Zahlen)?
+\code{-GET http://\{SERVER\_IP\}:8080/v3/missionlist/missions/query/start?cql=hasShocks\& batchsize=2000}
 
 Mit diesem Befehl werden beispielsweise alle UUIDs der Einsätze geladen, die mindestens eine Defibrillation vorzeigen. 
 Mittels des Parameters \glqq batchsize\grqq{} wird die Antwort auf maximal 2000 Einsätze beschränkt.
@@ -104,7 +103,7 @@ Auch hier ist wieder eine Basic-Authentifizierung notwendig, damit kein unerlaub
 \begin{subfigure}{.5\linewidth}
   \centering
   % include second image
-  \includegraphics[width=.95\linewidth]{img/exResponse}  
+  \includegraphics[width=.95\linewidth]{img/exResponseW}  
   \caption{Auszug der Antwort auf den POST-Request}
   \label{fig:response}
 \end{subfigure}
@@ -116,13 +115,13 @@ In Abbildung \ref{fig:request} ist ein solcher POST-Request zu sehen.
 In der URL wird der entsprechende \gls{ANALYSE}-Server adressiert, um auf die Daten der einzelnen Einsätze zugreifen zu können.
 Im Body werden hierbei die aus Schritt 1 angeforderten Objekte eingefügt: \glqq missionUuids\grqq{} und \glqq publicMarkerIds\grqq.
 
-Als Antwort erhält man mehrere \glqq Missions-Objekte\grqq{}, welche die \gls{UUID} und die entsprechenden \gls{MM} mit den individuellen Werten einer Mission enthält.
+Als Antwort erhält man mehrere \glqq Missions-Objekte\grqq{}, welche die \gls{UUID} und die entsprechenden \gls{MM} mit den individuellen Werten einer Mission enthalten.
 Ein Auszug einer solchen Antwort ist in \ref{fig:response} zu sehen.
 Des Weiteren gibt es ein \glqq Link-Objekt\grqq{}, mit welchem ein Einsatz gelöscht, exportiert oder verändert werden kann. 
 
-Positiv an diesem Export ist, dass die Anzahl der exportierten bedingt festgelegt werden kann.
+Positiv an diesem Export ist, dass die Anzahl der exportierten Einsätze bedingt festgelegt werden kann.
 Allerdings wird dieses Schema bei größeren Datenmengen, was genau das Ziel bei den Auswertungen ist, zu Problemen führen.
-So kann das entsprechende Objekt mit den Einsatz-\gls{UUID}s sehr groß werden und beim kopieren und einfügen in den darauffolgenden Request-Body Schwierigkeiten bereiten.
+So kann das entsprechende Objekt mit den Einsatz-\gls{UUID}s sehr groß werden und beim Kopieren und Einfügen in den darauffolgenden Request-Body Schwierigkeiten bereiten.
 Auch der damit resultierende große POST-Befehl ist keine optimale Umsetzung.
 
 Aus diesem Anlass muss dieses Export-Format neu überdacht und für große Datenmengen optimiert werden.
@@ -135,7 +134,7 @@ Hierfür muss ein anderer als der zweistufige, in \ref{subsub:1stexport} beschri
 %\todo{Alternativen: Direkt auf Platte, Anstoßen und direkt Ergebnis erhalten oder eben Anfrage und später fertige Datei\\Warum letzteres: Nie Timeout und sicherheit(auth) und universell}
 %\lipsum*[104]
 
-Letztendlich wurde sich für ein/das Konzept mit den folgenden möglichen Schritten entschieden:
+Letztendlich wurde sich für ein Konzept mit den folgenden möglichen Schritten entschieden:
 \begin{enumerate}
 \item Die Generierung eines Exports anstoßen
 \item Alle angeforderten Exports auflisten
@@ -150,7 +149,7 @@ Zum Erhalt der Export-Datei sind alle drei Schritte notwendig, 2a) \& b) sind al
 Auch hier ist bei allen Vorgängen eine entsprechende Authentifizierung notwendig, um entsprechende Aktionen anzustoßen oder Informationen zu erhalten.
 
 \begin{enumerate}
-\item \code{-POST http://10.97.3.109:8080/v3/exports}
+\item \code{-POST http://\{SERVER\_IP\}:8080/v3/exports}
 \end{enumerate}
 Der erste Vorgang ist hierbei der POST-Befehl, der auf dem entsprechenden Server die Generierung eines neuen Exports anstößt.
 Dabei werden alle verfügbaren Einsätze mit allen vorhandenen \gls{MM} exportiert.
@@ -159,12 +158,12 @@ Dies wurde so festgelegt, da der Anwender in der Regel mit einem solchen Export 
 %Die Erweiterung um einen ressourcensparenden \glqq Incremental Load\grqq{} wird in \ref{sub:incremental} weiter betrachtet.
 
 \begin{enumerate}[resume]
-\item \code{-GET http://10.97.3.109:8080/v3/exports}
+\item \code{-GET http://\{SERVER\_IP\}:8080/v3/exports}
 \end{enumerate}
 
 Daraufhin ist es mit dem zweiten Schritt möglich, alle angestoßenen, laufenden und fertigen Exports aufzulisten.
 Dabei wird mit der identischen URL die GET-Methode ausgeführt.
-Hierbei werden pro Export zusätzliche Informationen bereitgestellt (siehe Abbildung \ref{fig:exportListWide}): 
+Hierbei werden pro Export zusätzliche Informationen bereitgestellt (siehe Abbildung \ref{fig:exportListWideW}): 
 
 %Die Start-Zeit (\glqq startTime\grqq) als UTC-Zeitstempel in Millisekunden, wann dieser Export angestoßen wurde.
 %Analog der End-Zeitpunkt (\glqq endTime\grqq) wann dieser Export fertiggestellt wurde, die Anzahl Missionen, der jeweilige Status, ob angestoßen, laufend oder fertig, Links für weitere Optionen sowie die ID des Exports.
@@ -179,7 +178,7 @@ Hierbei werden pro Export zusätzliche Informationen bereitgestellt (siehe Abbil
 \end{itemize}
 
 \bild
-{exportListWide}
+{exportListWideW}
 {12cm}
 {Antwort des Servers - Auszug der Auflistung von zwei fertiggestellten Exports als JSON-Objekte}
 {Auflistung von Exports}
@@ -189,14 +188,14 @@ Auch die Möglichkeit, einen angeforderten Export wieder zu löschen ist eine hi
 Der Status ist ebenfalls eine nützliche Information, welche den Empfang des fertigen Exports an ein \gls{BI}-Werkzeug erleichtern und garantieren kann.
 
 \begin{enumerate}[resume]
-\item \code{-GET http://10.97.3.109:8080/v3/exports/\{EXPORT\_ID\}/file}
+\item \code{-GET http://\{SERVER\_IP\}:8080/v3/exports/\{EXPORT\_ID\}/file}
 \end{enumerate}
 
-Im letzten Schritt wird der entsprechend bereitgestellte Link mitels GET-Methode aufgerufen.
+Im letzten Schritt wird der entsprechend bereitgestellte Link mittels GET-Methode aufgerufen.
 Daraufhin erhält der Anwender den gesamten Export mit allen Einsätzen und den dazugehörigen \gls{MM} im JSON-Format. 
-Ein Beispiel dieser Antwort ist Abbildung \ref{fig:exportFile} zu entnehmen.
+Ein Beispiel dieser Antwort ist Abbildung \ref{fig:exportFileW} zu entnehmen.
 \bild
-{exportFile}
+{exportFileW}
 {9cm}
 {Auszug des Exports mit allen Einsätzen und dazugehörige \gls{MM}}
 {Auszug des Exports}
@@ -220,7 +219,9 @@ So ist beispielsweise eine ausdrucksvolle Analyse zur Drucktiefe in der Reanimat
 Hier ist lediglich der Mittelwert der Drucktiefe von der gesamten Reanimation vorhanden.
 Eine inhaltsreiche Auswertung, auch beispielsweise mit Veränderungen innerhalb der Reanimation, sind schlicht nicht möglich.
 In diesem Stil gibt es weitere, für Auswertungen sinnvolle Daten, die derzeit gar nicht, oder nur als stark aggregierte Werte vorhanden sind.
-Eine Analyse der potentiell verfügbaren Daten ergab folgende Bereiche (Auszug im Anhang \ref{anhangProbleme}):  %Markante Beispiele sind:
+Eine Analyse der potentiell verfügbaren Daten ergab folgende Bereiche
+%(Auszug im Anhang \ref{anhangProbleme})
+:  %Markante Beispiele sind:
 \begin{description}
 \item [Reanimationsqualität]\hfill \\
 Drucktiefe \& -frequenz, Anzahl Kompressionen, Pausenzeiten und \gls{CCF}
@@ -240,20 +241,20 @@ Welche Events treten wann mit welchen Parameter-Werten auf?
 Mit diesen Daten wären weit detailliertere und tiefgreifendere Auswertungen möglich. 
 Dabei würde vor allem die explorative Datenanalyse (siehe S.\pageref{subsub:datenanalyse}, \ref{subsub:datenanalyse}) profitieren.
 
-Diese erfordern jedoch eine Überlegung des späteren Datenmodells, da diese das Konzept von multidimensionale Daten darstellen.
+Diese erfordern jedoch eine Überlegung des späteren Datenmodells, da diese das Konzept von multidimensionalen Daten darstellen.
 Demnach gibt es einen Datensatz mit \textit{n} Einsätzen, wovon jeder Einsatz eine Anzahl \textit{m} Kompressionen, Defibrillationen, Messungen, Alarme und weiteres haben kann.
-Einen Entwurf für ein passendes Datenmodell ist in Abbildung \ref{fig:ersterVorschlagDatenmodellC} zu sehen.
+Ein Entwurf für ein passendes Datenmodell ist in Abbildung \ref{fig:ersterVorschlagDatenmodellC} zu sehen.
 
 Auf Basis dieser Analyse und der herausgefundenen potentiellen neuen Datenquellen werden Anforderungen formuliert und mit der Entwicklungsabteilung kommuniziert, damit diese Daten zur Auswertung bereitstehen können.
 
 \subsubsection{Entwurf für ein Datenmodell}
 \label{subsub:datenmodell}
-Um die Anforderung, weitere Daten aus den bisherigen Einsätzen auszulesen gerecht zu werden, muss vorab ein geeignetes Datenmodell entworfen werden.
+Um der Anforderung weitere Daten aus den bisherigen Einsätzen auszulesen gerecht zu werden, muss vorab ein geeignetes Datenmodell entworfen werden.
 Dieses muss die daraus resultierende Multidimensionalität unterstützen und eine konfliktfreie Umgebung schaffen.
 Dabei sollen jedoch so viele Daten wie möglich miteinander kombiniert werden können, damit ein umfassendes exploratives und konfirmatives Analysieren der vorliegenden Daten möglich ist.
 
 Zuvor gab es lediglich die Tabelle \glqq Missions\grqq{}, welche pro Zeile einen Einsatz ablegt und in den dazugehörigen Spalten die Werte zu den entsprechenden \gls{MM}.
-Ein Auszug aus hieraus ist in Tabelle \ref{tbl:missions} zu sehen.
+Ein Auszug hieraus ist in Tabelle \ref{tbl:missions} zu sehen.
 
 \begin{table}[htb]
 \centering
@@ -340,7 +341,8 @@ Dies resultierte aus mehreren Diskussionen mit Entwicklern, Produktmanager und S
 Dennoch ist es für die Anwender eine deutliche Verbesserung der Auswertungsmöglichkeiten.
 
 Ein Beispiel für exemplarische Daten wird ebenfalls hinzugefügt, damit letzte Unklarheiten zu Feldern oder Datentypen beseitigt werden.
-Dieser Prozess wird analog mit allen neu geforderten Objekten (siehe Abbildung \ref{fig:ersterVorschlagDatenmodellC}) durchgeführt. \todo{Anhang jira stories\ref{AnhangJiraStories?}}
+Dieser Prozess wird analog mit allen neu geforderten Objekten (siehe Abbildung \ref{fig:ersterVorschlagDatenmodellC}) durchgeführt. 
+%\todo{Anhang jira stories\ref{AnhangJiraStories?}}
 
 \subsubsection{Festlegen des Export-Formats}
 Im Zuge der Bereitstellung der neuen Datenobjekte wurde im vorigen Kapitel mittels Beschreibung der Anforderungen und ergänzenden Tabellen das gewünschte Format festgelegt.
@@ -396,7 +398,7 @@ Für eine Vergleichbarkeit von Reanimationen untereinander ist diese Form der Da
 In \ref{subsub:weitereFelder} wird eine Lösung erarbeitet, die dies zusätzlich ermöglichen soll.
 
 Bei den \gls{NIBD}- \& Defibrillations-Objekten ist im Gegensatz zum CPR-Objekt nicht die Minute das führende Feld respektive Primärschlüssel, sondern die hochzählende Nummer der Messung oder der Schockabgabe.
-Dadurch ist aufgrund der Objekorientierung eine Repräsentation der Wirklichkeit gegeben, da eine Messung oder eine Defibrillation ein abgeschlossenes Objekt darstellt.
+Dadurch ist aufgrund der Objektorientierung eine Repräsentation der Wirklichkeit gegeben, da eine Messung oder eine Defibrillation ein abgeschlossenes Objekt darstellt.
 
 %(json format cpr (siehe mails) (Fotos whiteboard als anhang?),)
 %null values bei cpr trends
@@ -419,7 +421,7 @@ Dieser soll garantieren, dass ein einheitliches \gls{DWH}, wie in \ref{sub:wareh
 \todo{Bild ETL Prozess?}
 
 Das Extrahieren der Daten wird mittels eines \gls{REST}-Konnektors realisiert.
-Dabei kann in der Qlik-Software oder im \gls{QMC} der Qlik-Enterprise Version eine Schnittstelle definiert werden, welche per REST einen Datenverbindung aufbaut.
+Dabei kann in der Qlik-Software oder im \gls{QMC} der Qlik-Enterprise Version eine Schnittstelle definiert werden, welche per REST eine Datenverbindung aufbaut.
 Anschließend werden die extrahierten Daten mit Hinblick auf die zu beantwortenden Fragen (\ref{sec:erhebung}) transformiert.
 
 Dabei ist die Besonderheit, dass zuerst die Generierung eines Exports getriggert werden muss und anschließend kann der fertige Export angefragt werden (siehe \ref{subsub:ueberarbeutetesformat}).
@@ -454,7 +456,7 @@ Diese URL wird um das Suffix \code{/file} ergänzt und in einer Variable gespeic
 Abschließend wird der neue Export mit dieser URL per SQL-Select-Befehlen angefordert.
 
 \item[Abschnitt 2 - Missionen laden und filtern] \hfill \\
-Dieser Abschnitt ist der Beginn des Transformieren der extrahierten Daten.
+Dieser Abschnitt ist der Beginn des Transformierens der extrahierten Daten.
 Dabei wird als erster Schritt eine begrenzte Anzahl an \gls{MM} geladen, mittels welcher eine Filterung von Test-Einsätzen möglich ist.
 Diese Filterung wird in \ref{subsub:testfilter} näher beschrieben.
 
@@ -485,7 +487,7 @@ Dies garantiert die Realisierung des gewünschten Datenmodells.
 Als finalen Abschnitt werden jene zusätzliche Skripte zusammengefasst, welche weitere Funktionen umsetzen.
 Ein Beispiel hierfür ist der \glqq Autocalender\grqq{} von Qlik Sense.
 Dadurch ist beispielsweise die Darstellung von Liniendiagrammen über mehrere Jahre optimiert.
-\todotext{bildvergleich mit ohne autocalendar?}
+%\todotext{bildvergleich mit ohne autocalendar?}
 \end{description}
 
 \subsubsection{Demo- und Testeinsätze herausfiltern}
@@ -499,10 +501,11 @@ Dieser Ansatz ist im Rahmen dieser Arbeit aufgrund des größeren Umfangs nicht 
 
 Kriterien die in dieser Umsetzung verwendet wurden sind unter anderem das Anschließen einer Test-Box, verschiedene Test-Modi des \gls{cAED}, unrealistisches Datum (2000 > Jahr > 2020) oder eine zu kurze oder deutlich zu lange Einsatzdauer.
 
-Diese Kriterien können beliebig von einem entsprechend berechtigtem Anwender oder Entwickler im Abschnitt 2 der Ladeskripte erweitert oder eingeschränkt werden.
+Diese Kriterien können beliebig von einem entsprechend berechtigten Anwender oder Entwickler im Abschnitt 2 der Ladeskripte erweitert oder eingeschränkt werden.
 Es wird darüber hinaus dem Anwender noch eine weitere Möglichkeit des Herausfilterns gegeben.
 Dies geschieht über die Erweiterung der alten Filterleiste (siehe S. \pageref{par:filter}) um das Dropdown-Filterfenster \glqq Mission-Tags\grqq{} in den entsprechenden Dashboards. %\todotext{(Dazu in ref() mehr)}
 Dadurch ist eine 100\%-Filterquote von Testeinsätzen realisierbar, sofern die sinngemäße Verwendung der Mission-Tags angewandt wird.
+Dies ist bisher in der Realität weniger der Fall, jedoch könnten aus der Einführung dieser Auswertungen heraus entsprechende Vorgaben für Mitarbeiter entstehen, welche eine sinnvolle Einbindung und Pflege der Mission-Tags vorsehen.
 
 \subsubsection{Erweiterung um manuell hinzugefügte Felder}
 \label{subsub:weitereFelder}
@@ -695,7 +698,7 @@ Beim Prototypen gab es auch eine vorgesehene \gls{KPI} zur CCF (S.\pageref{fig:r
 {Beispiel für Auswertungen zur Chest-Compression-Fraction}
 
 Nun sind, wie Abbildung \ref{fig:newCCF} verdeutlicht, diverse Auswertungen zur CCF möglich.
-Beispiele hierfür sind etwa die Veränderung der Hands-On Zeiten über die Dauer einer Reanimation, oder die Beeinflussung durch den Zeitpunkt der Reanimation (Beispiel-Hyptohese: Nachts schlechter als tagsüber, siehe Abb. \ref{fig:newCCF} oben rechts)
+Beispiele hierfür sind etwa die Veränderung der Hands-On Zeiten über die Dauer einer Reanimation, oder die Beeinflussung durch den Zeitpunkt der Reanimation (Beispiel-Hypothese: Nachts schlechter als tagsüber, siehe Abb. \ref{fig:newCCF} oben rechts)
 
 \subsection{Umsetzung der Evaluierungsergebnisse (Auszug)}
 Aus den Evaluierungsergebnissen des Prototyps (S. \pageref{sec:evaluierung}, \ref{sec:evaluierung}) und der parallelen Evaluierung der finalen Umsetzung kamen diverse Verbesserungsvorschläge oder es wurden Beobachtungen der Anwender durchgeführt, welche Rückschlüsse für Veränderungen hervorbrachten.
@@ -748,6 +751,7 @@ Es sind weitere Muster zu erkennen, wie beispielsweise die Anordnung von einer z
 Ebenso die Einhaltung einer Richtlinie, dass ein Dashboard nicht mehr als neun informationsträchtige Visualisierungen enthalten solle \cite[5.3]{Kertzel.2018}, ist erkennbar.
 
 \subsubsection{Nutzerführung und Usability}
+\label{subsub:usability}
 Die Nutzerführung war eine Thematik, welche in den verschiedenen Iterationen des Öfteren als Kritikpunkt aufkam.
 Demnach sind die Dashboards gut verständlich, sofern ein Moderator diese im gleichen Zuge erklärt.
 Sofern ein Anwender die App zum ersten Mal sieht, ohne weitere Erklärung, benötigt er eine Weile, um die Visualisierungen und Zusammenhänge zu verstehen.
@@ -757,6 +761,7 @@ Dementsprechend lag ein Fokus bei der Umsetzung darin, die entsprechenden Visual
 Die höhere Akzeptanz der Anwender wurde während späterer Präsentationen der neuen Dashboards festgestellt. 
 
 Denkbar wären in Zukunft kurze Texte zu jedem einzelnen Dashboard, ähnlich einer \glqq README\grqq{}, sodass dem Anwender die Funktionalitäten und beispielsweise zugrundeliegenden Daten ersichtlich werden.
+Geplant ist ebenfalls ein umfangreiches Whitepaper, in welchem die Berechnungen wissenschaftlich begründet werden.
 
 Des Weiteren wurden Verlinkungen zu gewissen Kennzahlen hinzugefügt, sodass bei einem Bedarf an weiteren Informationen an die entsprechende Stelle geklickt werden kann, um weiterführende Details zu einer bestimmten  \gls{KPI} zu erhalten.
 In Abbildung \ref{fig:kpilink} ist das entsprechende Symbol, welches eine Verlinkung impliziert, gelb hervorgehoben.
@@ -772,7 +777,7 @@ Mit der Zugabe von kurzen, hilfreichen Informationen wie beispielsweise einem au
 Dadurch wurde gleichzeitig der Kritikpunkt \glqq Reduzierung des Inhalts pro Dashboard\grqq{} aus der Evaluierung \ref{sec:evaluierung} bearbeitet und verbessert.
 
 \subsubsection{Weitere}
-Weiterhin wurden etwa die Einteilung der Kompressionstiefen und -frequenzen in sinnvolle Gruppierungen vorgenommen und visualisiert.
+Weiterhin wurde etwa die Einteilung der Kompressionstiefen und -frequenzen in sinnvolle Gruppierungen vorgenommen und visualisiert.
 \label{par:DetailTabelle}
 Auch das Hinzufügen einer \glqq Detail-Tabelle\grqq{} wurde vorgenommen.
 Hierbei soll bei einer Filterung von weniger als zehn Einsätzen eine Tabelle sichtbar werden, welche die jeweilige UUID und weitere einschlägige Informationen zu den Einsätzen präsentiert.
@@ -812,7 +817,7 @@ Für solche Zwecke bietet Qlik Sense die Möglichkeit an, eine eigene Erweiterun
 
 Dementsprechend wurde eine Erweiterung mit den notwendigen Dateien angelegt.
 Von Relevanz ist hierbei die JSON-Datei, welche die entsprechenden Werte der Darstellung verändert.
-Diese ist im Anhang \todo{\ref{att:json} attach json} zu sehen.
+%Diese ist im Anhang \todo{\ref{att:json} attach json} zu sehen.
 
 Die Auswirkung der veränderten Farbgebung ist in Abbildung \ref{fig:custom} zu erkennen. 
 Es sind in \ref{fig:afterCT} die Farben des Firmen-Logos (zu sehen in der rechten oberen Ecke) auf die Diagramme angewandt worden.

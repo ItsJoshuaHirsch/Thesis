@@ -12,20 +12,26 @@ Dabei lag der Schwerpunkt auf interne Mitarbeiter, welche aufgrund des häufigen
 Es konnte auch ein Treffen zu dieser Thematik mit einem tatsächlichen Kunden der Nutzergruppe \glqq Ärztlicher Leiter Rettungsdienst\grqq{} arrangiert werden, aus welchem die Erkenntnisse mit besonderer Gewichtung in die weitere Entwicklung eingeflossen sind.
 Hierbei wurde anfangs die Methodik der Einzelinterviews angewandt, welche sich retrospektiv als positiv erwiesen hat, da die unvoreingenommene Meinung der Einzelpersonen dadurch abgefragt werden konnte.
 So entstand ein großes Sammelwerk an Anforderungen, welche in dieser Arbeit die Form von Fragestellungen haben (Auszug im Anhang \ref{att:anforderung}).
-Diese wurden in zyklisch-iterativen Vorgängen später weiter analysiert und spezifiziert, so wie es die Prozesse des Requirements Engineering vorsehen \cite{ Bergsmann.2018, Leffingwell.2011, Patig., Pohl.2011}. 
+Diese wurden in zyklisch-iterativen Vorgängen später weiter analysiert und spezifiziert, so wie es die Prozesse des Requirements Engineering vorsehen. 
+%\cite{ Bergsmann.2018, Leffingwell.2011, Patig., Pohl.2011}. 
 Dabei wurden auch Gruppendiskussionen angesetzt, um ein kollaboratives Evaluieren und eine Auseinandersetzung mit anderen Meinungen zu ermöglichen.
 
 Parallel wurden erste konzeptionelle Prototypen von Diagrammen entwickelt, um herauszufinden, welche Fragen bereits beantwortet werden können.
 Auch erste Rückschlüsse für ein Datenmodell konnten hierbei extrahiert werden.
-Dabei wurden verschiedene Modelle anhand von methodischen Schemata und Architekturen aus Literatur (\cite{Bauer.2004, Gabriel.2011, Gitelman.2013, Kimball.2013, Mucksch.2000}) herangezogen und mit den vorliegenden Daten untersucht.
+Dabei wurden verschiedene Modelle anhand von methodischen Schemata und Architekturen aus Literatur.
+% (\cite{Bauer.2004, Gabriel.2011, Gitelman.2013, Kimball.2013, Mucksch.2000}) herangezogen und mit den vorliegenden Daten untersucht.
 Diese Prototypen wurden wiederum mit den entsprechend befähigten Mitarbeitern der Firma evaluiert, sodass auch hier etwaige Kritik berücksichtigt und schnell darauf reagiert werden kann.
 
 Anhand der Ergebnisse dieser Untersuchungen konnten tatsächliche Anforderungen an die Software \gls{ANALYSE} gestellt werden, ob neue Daten aus den Einsätzen zur Verfügung gestellt werden müssen.
-Auch die Spezifikation, in welchem Format die Daten benötigt werden (Anhang \ref{att:stories}), sowie das bestmögliche Export-Format (\ref{sub:export}) waren Bestandteil dieser Arbeit. 
+Auch die Spezifikation, in welchem Format die Daten benötigt werden, 
+%(Anhang \ref{att:stories}), 
+sowie das bestmögliche Export-Format (\ref{sub:export}) waren Bestandteil dieser Arbeit. 
 
 Da all diese Prozesse mehr oder minder parallel abliefen, ist eine strikte Trennung nicht möglich.
 Es wurden stets neue Fragen erhoben, bestehende analysiert und spezifiziert und währenddessen wurde an dem Datenmodell, Prototyp oder der letztendlichen Umsetzung der Qlik-App gearbeitet.
-Dabei wurden auch immerzu diverse Richtlinien, Usability-Erkenntnisse und Grundsätze zur Visualisierung von Daten und Gestaltung von Dashboards (\cite{Bassler.2010, Card.2007, Fischer.2014, FischerStabel.2018, Hichert.2017, Kertzel.2018, Mccormick.1987, Schumann.2000, Ware.2009}) berücksichtigt, um möglichst konflikt-freie und ansprechende Auswertungen für die Anwender zu ermöglichen.
+Dabei wurden auch immerzu diverse Richtlinien, Usability-Erkenntnisse und Grundsätze zur Visualisierung von Daten und Gestaltung von Dashboards 
+%(\cite{Bassler.2010, Card.2007, Fischer.2014, FischerStabel.2018, Hichert.2017, Kertzel.2018, Mccormick.1987, Schumann.2000, Ware.2009}) 
+berücksichtigt, um möglichst konflikt-freie und ansprechende Auswertungen für die Anwender zu ermöglichen.
 Die endgültigen, in dieser Arbeit entstandenen Dashboards können dem Anhang \ref{att:dashboards} entnommen werden.
 
 
@@ -70,9 +76,19 @@ Es ist ein Reporting nach \gls{BI}-Praktiken entstanden, welches Daten aus unmit
 Bei dem späteren produktiven Einsatz bei Kunden wird es auch die professionelle Variante geben mit der Möglichkeit des Self-Service-Reporting.
 Hierbei können die Anwender, statt der vorgefertigten Dashboards, eigene Diagramme und Dashboards auf Basis des hier erarbeiteten Datenmodells und \gls{DWH} zusammenstellen.
 
+Bis zu diesem produktiven Einsatz beim Kunden sind noch ein paar Schritte seitens der Entwicklung notwendig.
+Darunter fällt beispielsweise die Internationalisierung der Dashboards, sodass ein einfaches Wechseln der Sprache ermöglicht wird.
+Ebenso ein \glqq incremental load\grqq{} ist eine sinnvolle Erweiterung, da bei einem beispielsweise nächtlichem Laden der Daten in der Regel der größte Teil des Datensatzes (>99\%)\footnote{Bei einem Datenbestand von einem Jahr kommt demnach im Durchschnitt an einem Tag 
+$\frac{1}{365} \cdot100 \approx$ 0,27\% neue Daten hinzu. Mit jedem Tag wird dieser Anteil geringer.}  unverändert bleibt.
+%Es kommen in den meisten Fällen lediglich ein paar Einsätze hinzu, und die bereits vorhandenen Einsätze 
+Des Weiteren sind diverse rechtliche Aspekte zu klären.
+So sollten beispielsweise die Zugriffsrechte aufgrund von Datenschutz bei unterschiedlichen Dashboards verwaltet werden, da mehrere Nutzergruppen Zugang zu einem \gls{ANALYSE}-Server haben können.
+Dies kann voraussichtlich, je nach zukünftigem Lizenzierungsmodell, in der \gls{QMC}-Oberfläche unternommen werden.
+
 In Zukunft ist es denkbar, neue Technologien, Methodiken und Ansätze des Bereichs \glqq Data Analytics\grqq{} anzuwenden.
 Spannend ist hierbei vor allem der Bereich \glqq Artificial Intelligence\grqq{} (AI) beziehungsweise künstliche Intelligenz (KI).
 Mit Algorithmen wie \glqq Machine Learning\grqq{} oder \glqq Deep Learning\grqq{} sind gänzlich neue Einblicke, Erkenntnisse Trends oder gar Vorhersagen möglich.
+Auch das weitere Erkennen und Herausfiltern von Testeinsätzen wäre eine sinnvolle Aufgabe hierfür.
 
 Die Basis durch die nun exportierbaren Daten in einem adäquaten Format ist gelegt.
 Die theoretischen Algorithmen und entsprechende Bibliotheken zum Programmieren werden immer ausgereifter und bilden so im Einklang mit den technischen und medizinischen Daten die besten Voraussetzungen, bisher unentdeckte Erkenntnisse zu gewinnen, die möglicherweise schon bald viele Leben retten könnten.

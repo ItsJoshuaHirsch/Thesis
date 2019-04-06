@@ -61,7 +61,7 @@ Nach Festlegung der Technologie für die zukünftige Schnittstelle in \ref{sub:s
 Das bestehende \gls{REST}-Interface soll demnach um einen Endpoint erweitert werden, welcher die Daten, respektive die \gls{MM} von allen Einsätzen eines \gls{ANALYSE}-Servers exportiert.
 
 Dabei soll von Vornherein eine Authentifizierung notwendig sein, um die entsprechenden Daten des Servers zu erhalten.
-Hierfür wird zunächst das \glqq Baisc Authentication\grqq-Verfahren als HTTP-Authentifizierung verwendet. 
+Hierfür wird zunächst das \glqq Basic Authentication\grqq-Verfahren als HTTP-Authentifizierung verwendet. 
 Dabei können die angelegten Benutzer im aktuellen Mandanten von \gls{ANALYSE} sich mit dem entsprechenden Passwort im Header des \gls{REST}-Calls authentifizieren.
 
 \subsubsection{Erstes Exportformat}
@@ -337,7 +337,7 @@ So kann etwa die CO2-Konzentration der Ausatemluft in Millimeter-Quecksilbersäu
 Damit in der späteren Auswertung keine unterschiedlichen Einheiten vermischt werden, wird in Tabelle \ref{tbl:export} eine Standard-Einheit für den Export festgelegt.
 
 Auch der Aggregierungsgrad wird hier beschrieben, indem die Daten für eine Minute aggregiert werden sollen.
-Dies resultierte aus mehreren Diskussionen mit Entwicklern, Produktmanager und Stakeholdern, da die Speicherung von jeder einzelnen Kompression mit ihren vorliegenden Daten auf lange Sicht zu einem Speicher- und Performanceproblem führen könnte.
+Dies resultierte aus mehreren Diskussionen mit Entwicklern, Produktmanager und Stakeholdern, da die Speicherung von jeder einzelnen Kompression mit ihren vorliegenden Daten auf lange Sicht zu einem Speicher- und Performanzproblem führen könnte.
 Dennoch ist es für die Anwender eine deutliche Verbesserung der Auswertungsmöglichkeiten.
 
 Ein Beispiel für exemplarische Daten wird ebenfalls hinzugefügt, damit letzte Unklarheiten zu Feldern oder Datentypen beseitigt werden.
@@ -383,7 +383,7 @@ Ein Beispiel hierfür ist in Abbildung \ref{fig:exportNewObj} zu sehen.
 \bild
 {exportNewObj}
 {9cm}
-{Neue JSON-Objekte (hier \glqq trend.cpr\grqq{} \& \glqq shock.details\grqq{}) neben den \glqq markes\grqq{} innerhalb eines Missions-Objektes des Exports}
+{Neue JSON-Objekte (hier \glqq trend.cpr\grqq{} \& \glqq shock.details\grqq{}) neben den \glqq markers\grqq{} innerhalb eines Missions-Objektes des Exports}
 {Neue JSON-Objekte innerhalb eines Missions-Objektes des Exports}
 
 %(Diese zwei Optionen sind in Abbildung \ref{fig:tree} schematisch dargestellt.
@@ -525,7 +525,7 @@ Dabei wird die Minute der ersten eintretenden Kompression bei jedem Einsatz als 
 \subsection{Datenmodell}
 \label{sub:datenmodell}
 Im Laufe der Entwicklung wurden diverse unterschiedliche Datenmodelle ausprobiert.
-Dementsprechend war auch das in \ref{subsub:datenmodell} konzeptionierte Datenmodell aus Abbildung \ref{fig:ersterVorschlagDatenmodellC} zwischenezitlich umgesetzt.
+Dementsprechend war auch das in \ref{subsub:datenmodell} konzeptionierte Datenmodell aus Abbildung \ref{fig:ersterVorschlagDatenmodellC} zwischenzeitlich umgesetzt.
 Jedoch stellte sich heraus, dass dieses Modell eine große Tabelle abbildet.
 Dadurch war keine gute Trennung der Daten und folglich eine verschlechterte Performanz zu spüren.
 

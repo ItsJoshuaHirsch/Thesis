@@ -56,9 +56,16 @@ Mit diesen auf die Anforderungen passenden Vorteilen wurde sich für eine Schnit
 
 \subsection{Export der Daten} %subsub?
 \label{sub:export}
-\todo{Bild aus PPT: überspringen von Review?}
+%\todo{Bild aus PPT: überspringen von Review?}
 Nach Festlegung der Technologie für die zukünftige Schnittstelle in \ref{sub:schnittstelle} werden nun die weiterführenden Schritte geplant und umgesetzt.
 Das bestehende \gls{REST}-Interface soll demnach um einen Endpoint erweitert werden, welcher die Daten, respektive die \gls{MM} von allen Einsätzen eines \gls{ANALYSE}-Servers exportiert.
+
+Das technische Schema hierzu ist in Abbildung \ref{fig:exportSchema} skizziert.
+Hier wird deutlich, dass dabei der Zwischenschritt in \gls{REVIEW} nicht mehr von Nöten ist, da ein direkter Export in ein entsprechendes \gls{BI}-Werkzeug möglich ist.
+\bildbreit
+{exportSchema}
+{Schematische Darstellung des neuen Exports. Dabei ist die neue Möglichkeit des REST-Exports als gestrichelte Linie hinzugefügt. Die Notwendigkeit der Benutzung von \acrlong{REVIEW} ist damit hinfällig. Bildquelle: Eigene Darstellung}
+{Schematische Darstellung des neuen Exports}
 
 Dabei soll von Vornherein eine Authentifizierung notwendig sein, um die entsprechenden Daten des Servers zu erhalten.
 Hierfür wird zunächst das \glqq Basic Authentication\grqq-Verfahren als HTTP-Authentifizierung verwendet. 
@@ -90,7 +97,7 @@ Das zurückgelieferte Objekt ist dabei ein JSON-Objekt mit einem Key-Value-Paar 
 Im Gegensatz zum ersten Schritt wird hierbei die HTTP-Methode \glqq POST\grqq{} verwendet.
 Dies hat den Hintergrund, dass so die möglicherweise enorme Anzahl an \gls{UUID}s in den Request-Body des Befehls geschrieben werden können, statt in die URL.
 Demnach wird der Body der Anfrage mit dem zuvor erhaltenen JSON-Objekt, sowie den gewünschten \gls{MM} beschrieben.
-Auch hier ist wieder eine Basic-Authentifizierung notwendig, damit kein unerlaubter Zugriff auf die Daten erfolgen kann.\todo{Dark or White Theme?}
+Auch hier ist wieder eine Basic-Authentifizierung notwendig, damit kein unerlaubter Zugriff auf die Daten erfolgen kann.
 
 \begin{figure}[ht]
 \begin{subfigure}{.5\linewidth}
@@ -352,7 +359,7 @@ Dies geschieht im Zuge der \glqq Sprints\grqq{} in mehreren Zyklen, wird jedoch 
 Vorab ist anzumerken, dass im zeitlichen Rahmen dieser Arbeit und unter Berücksichtigung von anderen Entwicklungsprojekten eine Priorisierung des Product-Owners vorgenommen werden musste.
 Dabei sind drei der sechs geforderten neuen Datenobjekte aus Abbildung \ref{fig:ersterVorschlagDatenmodellC} für die Erweiterung des Exports  geplant: \gls{CPR}-, \gls{NIBD}- \& Defibrillations-Daten.
 
-Demnach soll es drei optionale neue JSON-Objekte in der Antwort des Servers (siehe Abbildung \ref{fig:exportFile}) geben.
+Demnach soll es drei optionale neue JSON-Objekte in der Antwort des Servers (siehe Abbildung \ref{fig:exportFileW}) geben.
 Hier wurden vorab Überlegungen getätigt, wo die entsprechenden neuen Daten hierarchisch zugeordnet werden.
 Dabei gibt es generell zwei Optionen:
 Die neuen Objekte dem \glqq markers\grqq-Objekt unterordnen (Abbildung \ref{fig:marker}), oder direkt unterhalb des \glqq mission\grqq-Objektes als zweiten Kindknoten (\ref{fig:mission}).
@@ -418,7 +425,7 @@ Dadurch ist aufgrund der Objektorientierung eine Repräsentation der Wirklichkei
 \label{sub:etl}
 Um Rohdaten aus einem Export in ein adäquates Format für spätere Auswertungen zu bringen, ist in der Regel ein \gls{ETL}-Prozess notwendig.
 Dieser soll garantieren, dass ein einheitliches \gls{DWH}, wie in \ref{sub:warehouse} beschrieben, gegeben ist \cite[S.49]{Gabriel.2011}.
-\todo{Bild ETL Prozess?}
+\todo{N2H: Bild ETL Prozess?}
 
 Das Extrahieren der Daten wird mittels eines \gls{REST}-Konnektors realisiert.
 Dabei kann in der Qlik-Software oder im \gls{QMC} der Qlik-Enterprise Version eine Schnittstelle definiert werden, welche per REST eine Datenverbindung aufbaut.

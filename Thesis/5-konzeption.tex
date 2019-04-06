@@ -85,7 +85,7 @@ Sie wurde recht simpel mit vier Diagrammen und zwei Kennzahlen gefüllt, damit d
 Sollte der Nutzer weiterführende Informationen und tiefgreifendere Analysen durchführen wollen, kann er diesen Ansprüchen auf den folgenden Dashboards gerecht werden.
 %\bildrechts{waterfall} {4cm} {w} {wa}
 Das Wasserfall-Diagramm (1) ganz links zeigt die absolute Anzahl an Einsätzen, die all seine Geräte durchgeführt haben.
-\todo{Zahlen im Bild und text}
+%\todo{Zahlen im Bild und text}
 Des Weiteren werden die absoluten Zahlen der verschiedenen Einsatzarten in Relation zur Gesamtmenge grafisch dargestellt.
 Hierbei wird unter anderem zwischen Testeinsätzen, Reanimationen oder sonstigen Einsätzen unterschieden.
 Bei den Reanimationen gibt es drei weitere Unterarten: mit \& ohne Feedbacksensor oder eine mechanische Reanimation.
@@ -94,7 +94,9 @@ Ziel der Darstellung ist ein visueller Eindruck, wie viele Einsätze es gibt und
 
 Das Liniendiagramm (2) stellt den zeitlichen Verlauf der Einsätze dar.
 Als (zeitliche) Dimension wurde hier Jahr-Monat gewählt, eine Alternative wäre die tatsächliche Datumsangabe.
-Dies würde jedoch zu einer Kurve führen, welche viele Zacken enthält und damit sehr unruhig wirkt, wie Abbildung \ref{fig:compDim} verdeutlicht.\todotext{Vergleichsbild?}
+Dies würde jedoch zu einer Kurve führen, welche viele Zacken enthält und damit sehr unruhig wirkt.
+%, wie Abbildung \ref{fig:compDim} verdeutlicht.
+\todotext{Vergleichsbild?}
 
 %\begin{figure}[ht]
 %\centering
@@ -144,7 +146,7 @@ Die häufigsten und essentiellen Optionen sind hierbei Zeit mit Jahr, Monat, Woc
 {Dashboard zu den Einsatzzeitpunkten}
 {Prototyp Einsatzzeitpunkt-Visualisierung}
 
-Es gibt eine Vielzahl and Fragestellungen zu den Einsatzzeitpunkten. (\todo{Beispiele})
+Es gibt eine Vielzahl and Fragestellungen zu den Einsatzzeitpunkten. (Beispiel: \glqq Zu welcher Uhrzeit finden üblicherweise Einsätze statt? Wie ist dies im Vergleich zweier Wachen? Wann sind auffällig viele Reanimationen? Und gibt es vielleicht saisonale Unterschiede?\grqq,  siehe Anhang \ref{att:anforderung} für weitere Fragestellungen)
 Das Arbeitsblatt in Abbildung \ref{fig:einsatzzeitpunkt} soll einen Überblick geben, zu welchen Tages- und Uhrzeiten die Einsätze stattfinden.
 Hierbei gibt es drei verschiedene Detailstufen: Tageszeit (1), stündlich (2) und halbstündlich (3). 
 So kann der entsprechende Nutzer für seinen Bedarf die jeweilige Auslastung oder Einsatzhäufigkeit herausfinden.
@@ -165,8 +167,7 @@ Mit der alternativen Liniendarstellung ist die untere Kante der X-Achse nicht im
 {Dashboard zu der Dauer von Einsätzen}
 {Prototyp Einsatzdauer-Visualisierung}
 
-Die Dauer von Einsätzen ist ebenfalls eine gefragte Information. \todotext{ref}
-\todotext{Beispiele: Hierbei sind Fragen wie }
+Die Dauer von Einsätzen ist ebenfalls eine gefragte Information (Beispiel: \glqq Wie lang sind die Einsätze in meiner Wache im Durchschnitt? Gibt es Gemeinsamkeiten bei besonders kurzen oder langen Einsätzen? Welche Geräte waren bisher am meisten im Einsatz?\grqq, siehe Anhang \ref{att:anforderung} für weitere Fragestellungen). 
 Je nach entsprechenden Vorgaben können hierbei unterschiedliche Auswertungen durchgeführt werden.
 Sollen die Rettungskräfte beispielsweise das Gerät immer sofort beim Losfahren starten, können gegebenenfalls Auswertungen zu den Fahrtzeiten getroffen werden.
 Oder wenn das Personal das Gerät erst vor Ort anschalten soll, kann die tatsächliche Einsatzzeit verglichen werden.
@@ -195,7 +196,7 @@ Dabei wird die Verteilung von Einsätzen und Reanimationen mit einer entsprechen
 {Dashboard zu den entsprechend vorhandenen Geräten}
 {Prototyp Geräte-Visualisierung}
 
-\todo{Photoshop Number! WRONG}
+%\todo{Photoshop Number! WRONG}
 Das folgende in Abbildung \ref{fig:devices} präsentierte Arbeitsblatt gibt dem Nutzer eine Übersicht seiner eingesetzten Geräte.
 Dabei gibt es die eindeutige \gls{KPI} \glqq Anzahl Geräte\grqq{} (1), welche die distinkten Geräte zählt, von denen bis dato Missionen in dem vorliegenden \gls{ANALYSE}- Server vorliegen.
 Sofern der entsprechende Betreiber den Upload oder das nachträgliche Importieren der Einsätze auf den Server anordnet, kann hiermit die gesamte Anzahl an Geräten überwacht werden. %(Aktive Geräte? bsp Einsatz in letztem quartal? In umsetzung aufnehmen)
@@ -243,6 +244,7 @@ Dennoch ist es eine sehr relevante und gefragte Information und soll in \ref{sub
 {shocks}
 {Dashboard zu den abgegebenen Defibrillationen}
 {Prototyp Defibrillations-Visualisierung}
+\FloatBarrier
 
 Ergänzend zu den in \ref{subsub:reanimation} beschriebenen Reanimationen sind auch die Defibrillationen oder \glqq Schocks\grqq{} von Relevanz.
 Denn jeder Einsatz mit Schockabgabe ist eine Reanimation, doch konträr beinhaltet nicht jede Reanimation Defibrillationen.
@@ -299,22 +301,24 @@ Die folgenden Elemente wurden als \glqq Weitere\grqq{} zusammengefasst, da die D
 
 So spielt die Sensorik zum Beispiel doch eine große Rolle. 
 Das Dashboard als solches bietet keine großen Diagramme oder neue Erkenntnisse, dennoch soll es einen Überblick schaffen.
-Kreisdiagramme, wie in Abbildung \ref{fig:sensorik2} zu sehen, sind hier eine gute Wahl aufgrund der binären Optionen, ob eine Sensorik verwendet wurde oder nicht.
+Kreisdiagramme
+%, wie in Abbildung \ref{fig:sensorik2} zu sehen, 
+sind hier eine gute Wahl aufgrund der binären Optionen, ob eine Sensorik verwendet wurde oder nicht.
 Auch bieten sie als Filter eine nützliche Funktion, wenn beispielsweise Reanimationen gezeigt werden sollen, bei den sowohl ein Ruhe-EKG als auch CO2 gemessen wurde.
 
 Des Weiteren gibt es auch Patientendaten, welche manuell oder durch die Krankenversicherten-Karte in dem \gls{C3} eingetragen werden können.
 Die auswertbaren Daten hierbei sind Alter, Geschlecht und Herkunft, wobei Herkunft in der Praxis fast nie gepflegt wird und für eine Auswertung auch keine große Relevanz darstellt.
-Alter und Geschlecht sind jedoch sehr spannende Daten, welche in Kombination mit anderen Metriken spannende Auswertungen liefern kann.
-Dabei ist eine Darstellung des Medians des Alters sinnvoll. 
-Ob dies mit einem Boxplot-Diagramm oder einer \gls{KPI} und ergänzend ein Histogramm dargestellt wird, soll später erörtert werden.
-Zuerst muss hierbei auch der Aspekt der Anonymisierung betrachtet werden. 
-Dies kann in \ref{sub:recht} nachgelesen werden.
-Das Geschlecht kann aufgrund der wenigen Optionen gut als Kreisdiagramm dargestellt werden.
+Alter und Geschlecht sind jedoch sehr spannende Daten, welche in Kombination mit anderen Metriken spannende Auswertungen liefern können.
+Dabei ist eine Darstellung des Medians des Alters sinnvoll und
+%Ob dies mit einem Boxplot-Diagramm oder einer \gls{KPI} und ergänzend ein Histogramm dargestellt wird, soll später erörtert werden.
+%Zuerst muss hierbei auch der Aspekt der Anonymisierung betrachtet werden. 
+%Dies kann in \ref{sub:recht} nachgelesen werden.
+das Geschlecht kann aufgrund der wenigen Optionen gut als Kreisdiagramm dargestellt werden.
 
 Zum Schluss gibt es noch einige wenige Daten zu dem \gls{pacer}.
 Aufgrund der seltenen Einsatzhäufigkeit bei Rettungseinsätzen steht die Implementierung dieses Dashboards noch zur Frage offen.
 Mögliche Informationen wären die Anzahl der Missionen mit Pacer-Einsatz und in welchem Modus. 
-Andere interessante Daten wie in Anhang \ref{fragestellungenPacer} beschrieben sind zu diesem Zeitpunkt nicht exportierbar und das Entwickeln dieser Funktionalität ist aufgrund des seltenen Einsatzes derzeit unwahrscheinlich.
+Andere interessante Daten, wie in Anhang \ref{att:anforderung} beschrieben, sind zu diesem Zeitpunkt nicht exportierbar und das Entwickeln dieser Funktionalität ist aufgrund des seltenen Einsatzes derzeit unwahrscheinlich.
 
 %\section{Generierung von Dummy-Daten?}
 % Kap. Umsetzung?
@@ -383,7 +387,7 @@ Dies sollte im Funktionsumfang beim Lizenzierungsmodell mit den zugehörigen Fun
 
 Die Gruppe legte auch großen Wert auf Nutzerführung.
 Die ersten Titel der jeweiligen Diagramme waren oft unzureichend formuliert und haben dem Nutzer zu wenig Informationen gegeben, um die Visualisierung schnell zu verstehen.
-Auch Informationen beim \glqq \gls{Hovern}\grqq{} oder als zusätzlicher \gls{Button} wären hilfreich, um gegebenenfalls komplexere Diagramme weiter zu erläutern und die zugrundeliegenden Daten zu beschreiben. 
+Auch Informationen beim \glqq Hovern\grqq{} oder als zusätzlicher \gls{Button} wären hilfreich, um gegebenenfalls komplexere Diagramme weiter zu erläutern und die zugrundeliegenden Daten zu beschreiben. 
 Insgesamt spielt die Usability eine große Rolle und sollte bei der Umsetzung starke Beachtung bekommen.
 
 Als Einstiegspunkt und Übersicht in das Programm soll das erste Arbeitsblatt dienen.
@@ -490,7 +494,7 @@ Bei den Schocks sei die jeweilige Impedanz bei den einzelnen Defibrillationen vo
 Auch die Anzahl an erfolgreichen Schocks sei sehr interessant, was jedoch zum aktuellen Stand aus den vorliegenden Daten nicht auslesbar ist.
 
 Zu der Reanimationsqualität wurde angemerkt, dass die exemplarisch eingefügte \gls{CCF}-Statistik sehr bedeutungsvoll ist. 
-\todotext{Glossar ref?Die genaue Berechnung wird in Kap \ref{umsetzungCCF} weiter beschrieben.}
+%\todotext{Glossar ref?Die genaue Berechnung wird in Kap \ref{umsetzungCCF} weiter beschrieben.}
 Außerdem wäre eine Prozentangabe der zu flachen und zu tiefen Kompressionen interessant, sowie, wie in \ref{sub:gruppe2} bereits genannt, die Einhaltung von Vorgaben, wie beispielsweise die CO2-Messung bei einer Reanimation.
 
 Bei dem Dashboard zur \gls{NIBD} wäre es interessant, welche Art von Blutdruck-Manschette wie oft verwendet wurde.

@@ -244,5 +244,8 @@ TSWLatexianTemp*
 # Additional by JHI
 *.mtc
 *.psd
+*.pdf
 Thesis/Master.pdf
 *~$*.pptx
+*.pdf
+Thesis/Master.pdf

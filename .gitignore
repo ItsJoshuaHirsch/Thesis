@@ -246,3 +246,5 @@ TSWLatexianTemp*
 *.psd
 Thesis/Master.pdf
 *~$*.pptx
+Thesis/Master.pdf
+*.pdf

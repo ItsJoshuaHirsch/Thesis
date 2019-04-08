@@ -1,0 +1,74 @@
+
+% Diese Datei gilt als Master für die Latex-Kompilierung.
+% Hier werden die einzelnen Unterdateien zusammengeführt.
+% Im Latex-Programm daher immer diese Datei kompilieren und nicht die Unterdateien selbst!
+% Wenn eine neue Datei hinzugefügt wurde, muss diese hier unbedingt eingebunden werden!!
+% Gemeinsame Einstellungen aus der Präambel
+\input{common/common.tex}
+
+% Lokale Definitionen
+\include{definitionen}
+
+\preto\chapter{\glsresetall} % setze Abkürzungen in jedem Kapitel zurück
+
+% hier beginnt der eigentliche Inhalt
+\begin{document}
+
+\include{titelseite} % Die Titelseite
+\null
+\thispagestyle{empty}
+\addtocounter{page}{-1}
+\newpage    
+\include{abstract} % Zusammenfassung
+\null
+\thispagestyle{empty}
+\addtocounter{page}{-1}
+\newpage  
+
+% Inhaltsverzeichnis
+\pagenumbering{roman} % römische Ziffern
+\singlespacing
+\microtypesetup{protrusion=false}
+\tableofcontents{}
+\microtypesetup{protrusion=true}
+\newpage
+
+\pagenumbering{arabic} % arabische Seitenzahlen für den Rest des Dokuments
+
+
+%%%%%%%%%% HIER DIE EINZELNEN KAPITEL EINBINDEN:
+
+\onehalfspacing
+\include{1-einleitung}
+%\lipsum[1-14]
+\include{2-grundlagen}
+%\lipsum[1-42]
+%\include{3-standdertechnik}
+%\lipsum[1-29]
+\include{4-anforderungsanalyse}
+\include{5-konzeption}
+\include{6-umsetzung}
+%\lipsum[1-79]
+\include{7-fazit}
+%\lipsum[1-14]
+\clearpage
+%%%%%%%%%% ENDE KAPITEL
+\pagenumbering{Roman} % römische Ziffern für die Anhänge
+
+\begin{appendix}
+\include{anhang}
+\end{appendix}
+
+%%%%% Verzeichnisse (Literatur, Abkürzungen, etc)
+\singlespacing
+\include{verzeichnisse}
+\onehalfspacing
+
+%%%% Danksagungen
+% Danksagung?! todo
+%\include{danksagungen}
+
+%%%%% Eidesstattliche Erklärung
+\include{eidesstattliche_erklaerung}
+
+\end{document}

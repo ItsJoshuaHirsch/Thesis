@@ -2,11 +2,16 @@
 %\setglossarysection{section}
 %\glsaddall
 \setglossarysection{chapter}
+\singlespacing
 \printglossary[numberedsection,style=altlist,title=Begriffsdefinitionen]
 \label{chap:Definitionen}
 
+\clearpage
+\newpage
+
 %ANFORDERUNGSANALYSE
-\includepdf[pages=2, scale=0.7, delta=0cm -2cm, pagecommand=\chapter{Auszug Fragestellungen Anforderungsanalyse}\label{att:anforderung}, offset=0 -2cm]{attachments/Anforderungsanalyse.pdf}
+%\includepdf[pages=2, scale=0.7, pagecommand=\chapter{Auszug Fragestellungen Anforderungsanalyse}\label{att:anforderung}, offset=0 -2cm]{attachments/Anforderungsanalyse.pdf}
+\includepdf[pages=2, nup=1x1, scale=0.74, offset=0 -2.3cm, pagecommand=\chapter{Auszug Fragestellungen Anforderungsanalyse}\label{att:anforderung}]{attachments/Anforderungsanalyse.pdf}
 \includepdf[pages=3-7, scale=0.9, offset=0 -0.6cm, pagecommand=\thispagestyle{headings}]{attachments/Anforderungsanalyse.pdf}
 \newpage
 
